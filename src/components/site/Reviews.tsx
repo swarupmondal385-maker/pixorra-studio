@@ -32,11 +32,14 @@ export function Reviews() {
           </div>
         </div>
 
-        <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {REVIEWS.map((r, i) => (
-            <div key={r.name} className="reveal rounded-3xl bg-cream p-7 border border-black/5" style={{animationDelay:`${i*60}ms`}}>
+        <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {REVIEWS.map((r, i) => {
+            const pops = ["card-pop-pink","card-pop-yellow","card-pop-cyan","card-pop-purple","card-pop-green","card-pop-orange"];
+            const bgs = ["bg-pixel-pink","bg-pixel-yellow","bg-pixel-cyan","bg-pixel-purple","bg-pixel-green","bg-pixel-orange"];
+            return (
+            <div key={r.name} className={`reveal rounded-3xl bg-white p-7 ${pops[i % pops.length]}`} style={{animationDelay:`${i*60}ms`}}>
               <div className="flex items-center gap-3">
-                <div className="h-11 w-11 rounded-full bg-gradient-gold text-ink flex items-center justify-center font-bold">
+                <div className={`h-11 w-11 rounded-full border-2 border-ink ${bgs[i % bgs.length]} text-ink flex items-center justify-center font-bold`}>
                   {r.name.split(" ").map(x=>x[0]).join("")}
                 </div>
                 <div className="flex-1">
@@ -52,7 +55,7 @@ export function Reviews() {
               </div>
               <p className="mt-3 text-ink/75 leading-relaxed text-[15px]">"{r.text}"</p>
             </div>
-          ))}
+          );})}
         </div>
       </div>
     </section>

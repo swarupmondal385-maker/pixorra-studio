@@ -77,25 +77,28 @@ export function Pricing() {
         </div>
 
         {/* Service starting prices */}
-        <div className="mt-14 grid md:grid-cols-3 gap-5">
-          {SERVICES.map(({ icon: Icon, title, desc, from, suffix, badge }, i) => (
+        <div className="mt-14 grid md:grid-cols-3 gap-6">
+          {SERVICES.map(({ icon: Icon, title, desc, from, suffix, badge }, i) => {
+            const pops = ["card-pop-pink","card-pop-yellow","card-pop-cyan"];
+            const bgs = ["bg-pixel-pink","bg-pixel-yellow","bg-pixel-cyan"];
+            return (
             <div
               key={title}
-              className="reveal relative rounded-3xl bg-cream p-7 border border-black/5 hover:border-gold hover:-translate-y-1 transition-all duration-500 shadow-card hover:shadow-card-lg flex flex-col"
+              className={`reveal relative rounded-3xl bg-white p-7 ${pops[i]} flex flex-col`}
               style={{ animationDelay: `${i * 80}ms` }}
             >
               {badge && (
-                <div className="absolute -top-3 left-7 inline-flex items-center gap-1 rounded-full bg-gradient-gold px-3 py-1 text-[11px] font-bold text-ink shadow-card">
-                  <Star className="h-3 w-3 fill-ink" strokeWidth={0} />
+                <div className="absolute -top-3 left-7 inline-flex items-center gap-1 rounded-full bg-gradient-pixorra px-3 py-1 text-[11px] font-bold text-white border-2 border-ink">
+                  <Star className="h-3 w-3 fill-white" strokeWidth={0} />
                   {badge}
                 </div>
               )}
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white border border-black/5">
-                <Icon className="h-5 w-5 text-navy" strokeWidth={2} />
+              <div className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl border-2 border-ink ${bgs[i]}`}>
+                <Icon className="h-5 w-5 text-ink" strokeWidth={2.2} />
               </div>
               <h3 className="mt-5 font-display text-xl font-bold text-ink">{title}</h3>
               <p className="mt-2 text-ink/60 leading-relaxed text-sm">{desc}</p>
-              <div className="mt-6 pt-5 border-t border-black/5">
+              <div className="mt-6 pt-5 border-t-2 border-dashed border-ink/15">
                 <div className="text-xs font-semibold text-ink/50 uppercase tracking-wider">Starting from</div>
                 <div className="mt-1 flex items-baseline gap-1.5">
                   <span className="font-display text-3xl font-bold text-ink">{from}</span>
@@ -103,7 +106,7 @@ export function Pricing() {
                 </div>
               </div>
             </div>
-          ))}
+          );})}
         </div>
 
         {/* Packages */}
