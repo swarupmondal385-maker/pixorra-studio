@@ -37,8 +37,16 @@
   --color-cream: var(--cream);
   --color-ink: var(--ink);
   --color-whatsapp: var(--whatsapp);
+  --color-pixel-pink: var(--pixel-pink);
+  --color-pixel-orange: var(--pixel-orange);
+  --color-pixel-yellow: var(--pixel-yellow);
+  --color-pixel-green: var(--pixel-green);
+  --color-pixel-cyan: var(--pixel-cyan);
+  --color-pixel-blue: var(--pixel-blue);
+  --color-pixel-purple: var(--pixel-purple);
 
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-pixel: "Press Start 2P", ui-monospace, monospace;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 
   --shadow-glow-gold: 0 20px 60px -20px color-mix(in oklab, var(--gold) 55%, transparent);
@@ -48,6 +56,9 @@
   --gradient-hero: radial-gradient(1200px 600px at 70% -10%, color-mix(in oklab, var(--gold) 18%, transparent), transparent 60%), linear-gradient(180deg, #ffffff 0%, #FAFAF7 100%);
   --gradient-gold: linear-gradient(135deg, #D9B85C 0%, #C9A84C 50%, #A8872E 100%);
   --gradient-navy: linear-gradient(135deg, #1B3A8C 0%, #2E55B5 100%);
+  --gradient-rainbow: linear-gradient(90deg, #ff4fa3 0%, #ff8a3d 18%, #ffd93d 36%, #4ade80 55%, #22d3ee 72%, #3b82f6 86%, #a855f7 100%);
+  --gradient-pixorra: linear-gradient(135deg, #ff4fa3 0%, #ffd93d 35%, #22d3ee 70%, #a855f7 100%);
+  --shadow-pixel: 4px 4px 0 0 #111111;
 }
 
 :root {
@@ -61,6 +72,15 @@
   --navy: oklch(0.365 0.145 268);           /* #1B3A8C */
   --sky: oklch(0.645 0.14 250);             /* #4A90D9 */
   --whatsapp: oklch(0.72 0.18 145);
+
+  /* Pixorra playful palette (from logo) */
+  --pixel-pink: oklch(0.68 0.24 2);
+  --pixel-orange: oklch(0.78 0.19 55);
+  --pixel-yellow: oklch(0.88 0.17 95);
+  --pixel-green: oklch(0.78 0.2 145);
+  --pixel-cyan: oklch(0.78 0.14 215);
+  --pixel-blue: oklch(0.62 0.2 255);
+  --pixel-purple: oklch(0.55 0.24 300);
 
   --background: oklch(1 0 0);
   --foreground: var(--ink);
