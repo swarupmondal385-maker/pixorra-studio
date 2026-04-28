@@ -37,8 +37,16 @@
   --color-cream: var(--cream);
   --color-ink: var(--ink);
   --color-whatsapp: var(--whatsapp);
+  --color-pixel-pink: var(--pixel-pink);
+  --color-pixel-orange: var(--pixel-orange);
+  --color-pixel-yellow: var(--pixel-yellow);
+  --color-pixel-green: var(--pixel-green);
+  --color-pixel-cyan: var(--pixel-cyan);
+  --color-pixel-blue: var(--pixel-blue);
+  --color-pixel-purple: var(--pixel-purple);
 
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-pixel: "Press Start 2P", ui-monospace, monospace;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 
   --shadow-glow-gold: 0 20px 60px -20px color-mix(in oklab, var(--gold) 55%, transparent);
@@ -48,6 +56,9 @@
   --gradient-hero: radial-gradient(1200px 600px at 70% -10%, color-mix(in oklab, var(--gold) 18%, transparent), transparent 60%), linear-gradient(180deg, #ffffff 0%, #FAFAF7 100%);
   --gradient-gold: linear-gradient(135deg, #D9B85C 0%, #C9A84C 50%, #A8872E 100%);
   --gradient-navy: linear-gradient(135deg, #1B3A8C 0%, #2E55B5 100%);
+  --gradient-rainbow: linear-gradient(90deg, #ff4fa3 0%, #ff8a3d 18%, #ffd93d 36%, #4ade80 55%, #22d3ee 72%, #3b82f6 86%, #a855f7 100%);
+  --gradient-pixorra: linear-gradient(135deg, #ff4fa3 0%, #ffd93d 35%, #22d3ee 70%, #a855f7 100%);
+  --shadow-pixel: 4px 4px 0 0 #111111;
 }
 
 :root {
@@ -61,6 +72,15 @@
   --navy: oklch(0.365 0.145 268);           /* #1B3A8C */
   --sky: oklch(0.645 0.14 250);             /* #4A90D9 */
   --whatsapp: oklch(0.72 0.18 145);
+
+  /* Pixorra playful palette (from logo) */
+  --pixel-pink: oklch(0.68 0.24 2);
+  --pixel-orange: oklch(0.78 0.19 55);
+  --pixel-yellow: oklch(0.88 0.17 95);
+  --pixel-green: oklch(0.78 0.2 145);
+  --pixel-cyan: oklch(0.78 0.14 215);
+  --pixel-blue: oklch(0.62 0.2 255);
+  --pixel-purple: oklch(0.55 0.24 300);
 
   --background: oklch(1 0 0);
   --foreground: var(--ink);
@@ -122,6 +142,51 @@
   .shadow-gold { box-shadow: var(--shadow-glow-gold); }
   .shadow-card { box-shadow: var(--shadow-card); }
   .shadow-card-lg { box-shadow: var(--shadow-card-lg); }
+  .shadow-pixel { box-shadow: var(--shadow-pixel); }
+
+  .font-pixel { font-family: var(--font-pixel); letter-spacing: 0; }
+  .bg-gradient-rainbow { background-image: var(--gradient-rainbow); }
+  .bg-gradient-pixorra { background-image: var(--gradient-pixorra); }
+  .text-gradient-rainbow {
+    background-image: var(--gradient-rainbow);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .text-gradient-pixorra {
+    background-image: var(--gradient-pixorra);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .bg-pixel-pink { background-color: var(--pixel-pink); }
+  .bg-pixel-yellow { background-color: var(--pixel-yellow); }
+  .bg-pixel-cyan { background-color: var(--pixel-cyan); }
+  .bg-pixel-purple { background-color: var(--pixel-purple); }
+  .bg-pixel-green { background-color: var(--pixel-green); }
+  .bg-pixel-blue { background-color: var(--pixel-blue); }
+  .bg-pixel-orange { background-color: var(--pixel-orange); }
+  .text-pixel-pink { color: var(--pixel-pink); }
+  .text-pixel-purple { color: var(--pixel-purple); }
+  .text-pixel-blue { color: var(--pixel-blue); }
+
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-2deg); }
+    50% { transform: rotate(2deg); }
+  }
+  .wiggle { animation: wiggle 3s ease-in-out infinite; }
+
+  @keyframes bounce-soft {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-10px) rotate(2deg); }
+  }
+  .bounce-soft { animation: bounce-soft 4s ease-in-out infinite; }
+
+  @keyframes sparkle-pulse {
+    0%, 100% { opacity: 0.4; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.1); }
+  }
+  .sparkle-pulse { animation: sparkle-pulse 2s ease-in-out infinite; }
 
   .text-balance { text-wrap: balance; }
 
