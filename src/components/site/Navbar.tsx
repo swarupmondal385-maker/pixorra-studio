@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import logoMark from "@/assets/pixorra-mark.png";
 
 const LINKS = [
   { href: "#services", label: "Services" },
@@ -29,10 +30,8 @@ export function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-5 md:px-8 h-16 md:h-20 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2 group">
-          <span className="relative inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-gold shadow-gold">
-            <Sparkles className="h-4 w-4 text-ink" strokeWidth={2.5} />
-          </span>
+        <a href="#top" className="flex items-center gap-2.5 group">
+          <img src={logoMark} alt="Pixorra" className="h-10 w-10 md:h-11 md:w-11 object-contain group-hover:rotate-6 transition-transform duration-300" />
           <span className="font-display text-xl md:text-2xl font-bold tracking-tight text-ink">
             Pixorra
           </span>
@@ -53,7 +52,7 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           <a
             href="#demo"
-            className="hidden sm:inline-flex items-center gap-2 h-11 px-5 rounded-full bg-gradient-gold text-ink font-semibold text-sm shadow-gold hover:-translate-y-0.5 transition-transform"
+            className="hidden sm:inline-flex items-center gap-2 h-11 px-5 rounded-full bg-gradient-pixorra text-white font-semibold text-sm shadow-gold hover:-translate-y-0.5 transition-transform"
           >
             Get Free Demo
           </a>
