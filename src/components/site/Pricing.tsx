@@ -77,25 +77,28 @@ export function Pricing() {
         </div>
 
         {/* Service starting prices */}
-        <div className="mt-14 grid md:grid-cols-3 gap-5">
-          {SERVICES.map(({ icon: Icon, title, desc, from, suffix, badge }, i) => (
+        <div className="mt-14 grid md:grid-cols-3 gap-6">
+          {SERVICES.map(({ icon: Icon, title, desc, from, suffix, badge }, i) => {
+            const pops = ["card-pop-pink","card-pop-yellow","card-pop-cyan"];
+            const bgs = ["bg-pixel-pink","bg-pixel-yellow","bg-pixel-cyan"];
+            return (
             <div
               key={title}
-              className="reveal relative rounded-3xl bg-cream p-7 border border-black/5 hover:border-gold hover:-translate-y-1 transition-all duration-500 shadow-card hover:shadow-card-lg flex flex-col"
+              className={`reveal relative rounded-3xl bg-white p-7 ${pops[i]} flex flex-col`}
               style={{ animationDelay: `${i * 80}ms` }}
             >
               {badge && (
-                <div className="absolute -top-3 left-7 inline-flex items-center gap-1 rounded-full bg-gradient-gold px-3 py-1 text-[11px] font-bold text-ink shadow-card">
-                  <Star className="h-3 w-3 fill-ink" strokeWidth={0} />
+                <div className="absolute -top-3 left-7 inline-flex items-center gap-1 rounded-full bg-gradient-pixorra px-3 py-1 text-[11px] font-bold text-white border-2 border-ink">
+                  <Star className="h-3 w-3 fill-white" strokeWidth={0} />
                   {badge}
                 </div>
               )}
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white border border-black/5">
-                <Icon className="h-5 w-5 text-navy" strokeWidth={2} />
+              <div className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl border-2 border-ink ${bgs[i]}`}>
+                <Icon className="h-5 w-5 text-ink" strokeWidth={2.2} />
               </div>
               <h3 className="mt-5 font-display text-xl font-bold text-ink">{title}</h3>
               <p className="mt-2 text-ink/60 leading-relaxed text-sm">{desc}</p>
-              <div className="mt-6 pt-5 border-t border-black/5">
+              <div className="mt-6 pt-5 border-t-2 border-dashed border-ink/15">
                 <div className="text-xs font-semibold text-ink/50 uppercase tracking-wider">Starting from</div>
                 <div className="mt-1 flex items-baseline gap-1.5">
                   <span className="font-display text-3xl font-bold text-ink">{from}</span>
@@ -103,7 +106,7 @@ export function Pricing() {
                 </div>
               </div>
             </div>
-          ))}
+          );})}
         </div>
 
         {/* Packages */}
@@ -118,16 +121,16 @@ export function Pricing() {
           {PACKAGES.map(({ name, price, tagline, features, cta, popular }, i) => (
             <div
               key={name}
-              className={`reveal relative rounded-3xl p-7 md:p-10 transition-all duration-500 flex flex-col ${
+              className={`reveal relative rounded-3xl p-7 md:p-10 transition-all duration-500 flex flex-col border-2 border-ink ${
                 popular
-                  ? "bg-ink text-white shadow-card-lg border-2 border-gold"
-                  : "bg-white text-ink border border-black/10 shadow-card hover:-translate-y-1"
+                  ? "bg-ink text-white"
+                  : "bg-white text-ink hover:-translate-y-1"
               }`}
-              style={{ animationDelay: `${i * 120}ms` }}
+              style={{ animationDelay: `${i * 120}ms`, boxShadow: popular ? "10px 10px 0 0 var(--pixel-pink)" : "8px 8px 0 0 var(--pixel-yellow)" }}
             >
               {popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full bg-gradient-gold px-4 py-1.5 text-xs font-bold text-ink shadow-card whitespace-nowrap">
-                  <Star className="h-3 w-3 fill-ink" strokeWidth={0} />
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full bg-gradient-pixorra px-4 py-1.5 text-xs font-bold text-white border-2 border-ink whitespace-nowrap">
+                  <Star className="h-3 w-3 fill-white" strokeWidth={0} />
                   Most Popular
                 </div>
               )}
@@ -142,8 +145,8 @@ export function Pricing() {
               <ul className="mt-7 space-y-3 flex-1">
                 {features.map((f) => (
                   <li key={f} className="flex items-start gap-3">
-                    <div className={`mt-0.5 flex-shrink-0 h-5 w-5 rounded-full flex items-center justify-center ${popular ? "bg-gold" : "bg-navy/10"}`}>
-                      <Check className={`h-3 w-3 ${popular ? "text-ink" : "text-navy"}`} strokeWidth={3} />
+                    <div className={`mt-0.5 flex-shrink-0 h-5 w-5 rounded-full border border-ink flex items-center justify-center ${popular ? "bg-pixel-yellow" : "bg-pixel-green"}`}>
+                      <Check className="h-3 w-3 text-ink" strokeWidth={3} />
                     </div>
                     <span className={`text-sm leading-relaxed ${popular ? "text-white/90" : "text-ink/80"}`}>{f}</span>
                   </li>
@@ -153,10 +156,10 @@ export function Pricing() {
                 href={WHATSAPP}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`mt-8 inline-flex items-center justify-center gap-2 rounded-full px-6 py-4 font-semibold transition-all min-h-12 ${
+                className={`mt-8 inline-flex items-center justify-center gap-2 rounded-full px-6 py-4 font-semibold transition-all min-h-12 border-2 border-ink ${
                   popular
-                    ? "bg-gradient-gold text-ink hover:shadow-gold"
-                    : "bg-ink text-white hover:bg-navy"
+                    ? "bg-gradient-pixorra text-white hover:-translate-y-0.5"
+                    : "bg-ink text-white hover:bg-pixel-purple"
                 }`}
               >
                 {cta}

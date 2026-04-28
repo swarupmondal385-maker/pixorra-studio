@@ -1,10 +1,10 @@
 const ITEMS = [
-  { label: "Gym Website", tag: "Fitness", color: "from-navy to-sky" },
-  { label: "Dental Clinic", tag: "Healthcare", color: "from-[#C9A84C] to-[#E8CF85]" },
-  { label: "Restaurant", tag: "F&B", color: "from-ink to-navy" },
-  { label: "CA Firm", tag: "Services", color: "from-sky to-navy" },
-  { label: "Jewellery Store", tag: "E-Commerce", color: "from-[#A8872E] to-[#C9A84C]" },
-  { label: "Coaching Class", tag: "Education", color: "from-navy to-ink" },
+  { label: "Gym Website", tag: "Fitness", color: "from-pixel-pink to-pixel-orange", pop: "card-pop-pink" },
+  { label: "Dental Clinic", tag: "Healthcare", color: "from-pixel-cyan to-pixel-blue", pop: "card-pop-cyan" },
+  { label: "Restaurant", tag: "F&B", color: "from-pixel-yellow to-pixel-orange", pop: "card-pop-yellow" },
+  { label: "CA Firm", tag: "Services", color: "from-pixel-purple to-pixel-blue", pop: "card-pop-purple" },
+  { label: "Jewellery Store", tag: "E-Commerce", color: "from-pixel-pink to-pixel-purple", pop: "card-pop-orange" },
+  { label: "Coaching Class", tag: "Education", color: "from-pixel-green to-pixel-cyan", pop: "card-pop-green" },
 ];
 
 export function Gallery() {
@@ -31,11 +31,11 @@ export function Gallery() {
                   <div className="mt-3 h-2 w-20 rounded bg-ink/80"/>
                   <div className="mt-2 h-2 w-28 rounded bg-ink/40"/>
                   <div className="mt-4 grid grid-cols-3 gap-1.5">
-                    <div className="h-10 rounded bg-gold/40"/>
-                    <div className="h-10 rounded bg-ink/10"/>
-                    <div className="h-10 rounded bg-ink/10"/>
+                    <div className="h-10 rounded bg-pixel-pink/50"/>
+                    <div className="h-10 rounded bg-pixel-cyan/40"/>
+                    <div className="h-10 rounded bg-pixel-yellow/60"/>
                   </div>
-                  <div className="mt-3 h-6 w-20 rounded-full bg-gradient-gold"/>
+                  <div className="mt-3 h-6 w-20 rounded-full bg-gradient-pixorra"/>
                 </div>
               </div>
               <div className="p-5 flex items-center justify-between">
@@ -43,7 +43,7 @@ export function Gallery() {
                   <div className="font-display text-lg font-bold text-ink">{it.label}</div>
                   <div className="text-xs text-ink/50 uppercase tracking-wider">{it.tag}</div>
                 </div>
-                <span className="text-xs font-bold text-gold">VIEW →</span>
+                <span className="text-xs font-bold text-pixel-pink">VIEW →</span>
               </div>
             </div>
           ))}

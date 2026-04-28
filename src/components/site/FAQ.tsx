@@ -24,15 +24,17 @@ export function FAQ() {
           </h2>
         </div>
 
-        <div className="mt-12 space-y-3">
+        <div className="mt-12 space-y-4">
           {FAQS.map((f, i) => (
-            <div key={f.q} className="reveal rounded-2xl border border-black/10 bg-white overflow-hidden" style={{animationDelay:`${i*40}ms`}}>
+            <div key={f.q} className="reveal rounded-2xl border-2 border-ink bg-white overflow-hidden" style={{animationDelay:`${i*40}ms`, boxShadow: open===i ? "6px 6px 0 0 var(--pixel-pink)" : "4px 4px 0 0 var(--ink)"}}>
               <button
                 onClick={() => setOpen(open === i ? null : i)}
-                className="w-full flex items-center justify-between gap-6 text-left p-5 md:p-6 hover:bg-cream transition-colors"
+                className="w-full flex items-center justify-between gap-6 text-left p-5 md:p-6 hover:bg-pixel-yellow/30 transition-colors"
               >
                 <span className="font-display text-lg md:text-xl font-semibold text-ink">{f.q}</span>
-                <Plus className={`h-5 w-5 text-gold shrink-0 transition-transform ${open===i?"rotate-45":""}`} />
+                <span className={`h-8 w-8 rounded-full bg-pixel-pink border-2 border-ink flex items-center justify-center shrink-0 transition-transform ${open===i?"rotate-45":""}`}>
+                  <Plus className="h-4 w-4 text-white" strokeWidth={3} />
+                </span>
               </button>
               <div className={`grid transition-all duration-500 ease-out ${open===i?"grid-rows-[1fr] opacity-100":"grid-rows-[0fr] opacity-0"}`}>
                 <div className="overflow-hidden">
