@@ -1,24 +1,29 @@
-import { Sparkles, Instagram, Linkedin, Facebook, Twitter, Mail, Phone } from "lucide-react";
+import { Instagram, Linkedin, Facebook, Twitter, Mail, Phone } from "lucide-react";
+import logoMark from "@/assets/pixorra-mark.png";
 
 export function Footer() {
   return (
-    <footer className="bg-cream border-t border-black/5">
+    <footer className="bg-cream border-t border-black/5 relative overflow-hidden">
+      <div className="absolute top-0 inset-x-0 h-1 bg-gradient-rainbow" />
       <div className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-20">
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-5">
-            <a href="#top" className="flex items-center gap-2">
-              <span className="h-9 w-9 rounded-xl bg-gradient-gold inline-flex items-center justify-center shadow-gold">
-                <Sparkles className="h-4 w-4 text-ink" strokeWidth={2.5}/>
-              </span>
+            <a href="#top" className="flex items-center gap-2.5">
+              <img src={logoMark} alt="Pixorra" className="h-11 w-11 object-contain" />
               <span className="font-display text-2xl font-bold text-ink">Pixorra</span>
             </a>
             <p className="mt-5 text-ink/65 max-w-sm leading-relaxed">
               Premium websites, ads and branding for ambitious Indian businesses. Designed in Mumbai, loved across India.
             </p>
             <div className="mt-6 flex gap-2">
-              {[Instagram, Linkedin, Facebook, Twitter].map((Icon, i) => (
-                <a key={i} href="#" className="h-10 w-10 rounded-full bg-white border border-black/5 flex items-center justify-center hover:bg-gold hover:border-gold transition-colors">
-                  <Icon className="h-4 w-4 text-ink"/>
+              {[
+                { Icon: Instagram, c: "hover:bg-pixel-pink" },
+                { Icon: Linkedin, c: "hover:bg-pixel-blue" },
+                { Icon: Facebook, c: "hover:bg-pixel-cyan" },
+                { Icon: Twitter, c: "hover:bg-pixel-purple" },
+              ].map(({ Icon, c }, i) => (
+                <a key={i} href="#" className={`h-10 w-10 rounded-full bg-white border border-black/5 flex items-center justify-center ${c} hover:text-white hover:border-transparent transition-colors`}>
+                  <Icon className="h-4 w-4"/>
                 </a>
               ))}
             </div>
