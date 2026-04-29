@@ -770,7 +770,12 @@ function WarpOverlay() {
         ))}
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center">
-            <div className="font-display font-bold text-4xl md:text-6xl bg-gradient-to-r from-pink-400 via-fuchsia-400 to-cyan-300 bg-clip-text text-transparent text-glow-pink">
+            <img
+              src={logoMark}
+              alt="Pixorra"
+              className="mx-auto h-28 w-28 md:h-36 md:w-36 object-contain bounce-soft drop-shadow-[0_0_40px_rgba(255,79,163,0.9)]"
+            />
+            <div className="mt-4 font-display font-bold text-4xl md:text-6xl bg-gradient-to-r from-pink-400 via-fuchsia-400 to-cyan-300 bg-clip-text text-transparent text-glow-pink">
               Entering the Universe…
             </div>
             <div className="mt-3 text-white/60 text-sm font-bold tracking-widest uppercase">Warp speed</div>
