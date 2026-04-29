@@ -6,8 +6,9 @@ const LINKS = [
   { href: "#services", label: "Services", c: "bg-pixel-pink" },
   { href: "#work", label: "Work", c: "bg-pixel-yellow" },
   { href: "#process", label: "Process", c: "bg-pixel-cyan" },
+  { href: "/scorecard", label: "Scorecard", c: "bg-pixel-purple" },
   { href: "#reviews", label: "Reviews", c: "bg-pixel-green" },
-  { href: "#faq", label: "FAQ", c: "bg-pixel-purple" },
+  { href: "#faq", label: "FAQ", c: "bg-pixel-orange" },
 ];
 
 export function Navbar() {
