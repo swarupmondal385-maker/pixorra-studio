@@ -120,10 +120,12 @@ export function Pricing() {
         </div>
 
         {/* Packages */}
-        <div className="mt-16 text-center reveal">
-          <p className="text-xs font-bold tracking-[0.2em] text-gold uppercase">Website Packages</p>
-          <h3 className="mt-3 font-display text-3xl md:text-4xl font-bold text-ink tracking-tight">
-            Pick the package that fits your business.
+        <div className="mt-20 text-center reveal">
+          <span className="inline-flex items-center gap-2 rounded-full bg-white border-2 border-ink px-4 py-1.5 text-[11px] font-bold tracking-[0.2em] text-ink uppercase shadow-pixel">
+            <span className="h-2 w-2 rounded-full bg-pixel-cyan" /> Website Packages
+          </span>
+          <h3 className="mt-5 font-display text-3xl md:text-5xl font-bold text-ink tracking-tight text-balance leading-[1.05]">
+            Pick the package that <span className="text-gradient-pixorra">fits your business.</span>
           </h3>
         </div>
 
