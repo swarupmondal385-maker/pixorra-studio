@@ -11,22 +11,32 @@ const REVIEWS = [
 
 export function Reviews() {
   return (
-    <section id="reviews" className="py-20 md:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-5 md:px-8">
+    <section id="reviews" className="relative py-20 md:py-32 bg-white overflow-hidden">
+      {/* Bubble gum background blobs */}
+      <div className="absolute -top-20 right-0 h-80 w-80 rounded-full bg-pixel-yellow/25 blur-3xl blob" aria-hidden />
+      <div className="absolute top-1/3 -left-24 h-96 w-96 rounded-full bg-pixel-pink/20 blur-3xl blob" style={{animationDelay:"3s"}} aria-hidden />
+      <div className="absolute bottom-0 right-1/4 h-72 w-72 rounded-full bg-pixel-purple/20 blur-3xl blob" style={{animationDelay:"5s"}} aria-hidden />
+      <div className="absolute top-20 left-12 h-3 w-3 bg-pixel-cyan sparkle-pulse" aria-hidden />
+      <div className="absolute top-40 right-20 h-2.5 w-2.5 bg-pixel-pink sparkle-pulse" style={{animationDelay:"1s"}} aria-hidden />
+      <div className="absolute bottom-32 left-24 h-3 w-3 bg-pixel-yellow sparkle-pulse" style={{animationDelay:"2s"}} aria-hidden />
+
+      <div className="relative max-w-7xl mx-auto px-5 md:px-8">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 reveal">
           <div className="max-w-2xl">
-            <p className="text-xs font-bold tracking-[0.2em] text-gold uppercase">Google Reviews</p>
-            <h2 className="mt-3 font-display text-4xl md:text-6xl font-bold text-ink tracking-tight text-balance">
-              Loved by founders <span className="text-navy">across India.</span>
+            <span className="inline-flex items-center gap-2 rounded-full bg-white border-2 border-ink px-4 py-1.5 text-[11px] font-bold tracking-[0.2em] text-ink uppercase shadow-pixel">
+              <span className="h-2 w-2 rounded-full bg-pixel-pink" /> Google Reviews
+            </span>
+            <h2 className="mt-5 font-display text-4xl md:text-6xl font-bold text-ink tracking-tight text-balance leading-[1.05]">
+              Loved by founders <span className="text-gradient-pixorra">across India.</span>
             </h2>
           </div>
-          <div className="rounded-3xl bg-cream border border-black/5 px-6 py-5 flex items-center gap-5">
+          <div className="rounded-3xl bg-white border-2 border-ink shadow-pixel px-6 py-5 flex items-center gap-5">
             <div>
               <div className="font-display text-4xl font-bold text-ink leading-none">4.9</div>
-              <div className="flex gap-0.5 mt-1">{Array.from({length:5}).map((_,i)=>(<Star key={i} className="h-3.5 w-3.5 fill-gold text-gold"/>))}</div>
+              <div className="flex gap-0.5 mt-1">{Array.from({length:5}).map((_,i)=>(<Star key={i} className="h-3.5 w-3.5 fill-pixel-yellow text-pixel-yellow"/>))}</div>
               <div className="text-[11px] text-ink/50 mt-1">120+ Google reviews</div>
             </div>
-            <a href="https://maps.app.goo.gl/sTNgPTT55oj3Fpv89?g_st=iw" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 h-11 px-5 rounded-full bg-ink text-white text-sm font-semibold">
+            <a href="https://maps.app.goo.gl/sTNgPTT55oj3Fpv89?g_st=iw" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 h-11 px-5 rounded-full bg-gradient-pixorra text-white text-sm font-semibold border-2 border-ink hover:-translate-y-0.5 transition-transform">
               See on Google <ArrowUpRight className="h-4 w-4"/>
             </a>
           </div>
