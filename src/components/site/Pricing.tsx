@@ -64,12 +64,22 @@ const PACKAGES = [
 
 export function Pricing() {
   return (
-    <section id="pricing" className="py-20 md:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-5 md:px-8">
+    <section id="pricing" className="relative py-20 md:py-32 bg-white overflow-hidden">
+      {/* Bubble gum background blobs */}
+      <div className="absolute -top-24 -left-20 h-80 w-80 rounded-full bg-pixel-pink/20 blur-3xl blob" aria-hidden />
+      <div className="absolute top-40 -right-24 h-96 w-96 rounded-full bg-pixel-cyan/20 blur-3xl blob" style={{animationDelay:"3s"}} aria-hidden />
+      <div className="absolute bottom-10 left-1/3 h-72 w-72 rounded-full bg-pixel-yellow/25 blur-3xl blob" style={{animationDelay:"5s"}} aria-hidden />
+      <div className="absolute top-16 left-10 h-3 w-3 bg-pixel-pink sparkle-pulse" aria-hidden />
+      <div className="absolute top-32 right-24 h-2.5 w-2.5 bg-pixel-purple sparkle-pulse" style={{animationDelay:"1s"}} aria-hidden />
+      <div className="absolute bottom-24 right-10 h-3 w-3 bg-pixel-green sparkle-pulse" style={{animationDelay:"2s"}} aria-hidden />
+
+      <div className="relative max-w-7xl mx-auto px-5 md:px-8">
         <div className="max-w-3xl mx-auto text-center reveal">
-          <p className="text-xs font-bold tracking-[0.2em] text-gold uppercase">Pricing</p>
-          <h2 className="mt-3 font-display text-4xl md:text-6xl font-bold text-ink tracking-tight text-balance">
-            Honest pricing. <span className="text-navy">No surprises.</span>
+          <span className="inline-flex items-center gap-2 rounded-full bg-white border-2 border-ink px-4 py-1.5 text-[11px] font-bold tracking-[0.2em] text-ink uppercase shadow-pixel">
+            <span className="h-2 w-2 rounded-full bg-pixel-pink" /> Pricing
+          </span>
+          <h2 className="mt-5 font-display text-4xl md:text-6xl font-bold text-ink tracking-tight text-balance leading-[1.05]">
+            Honest pricing. <span className="text-gradient-pixorra">No surprises.</span>
           </h2>
           <p className="mt-5 text-lg text-ink/60">
             Transparent starting prices for every service — plus two all-in-one packages built to get you online and growing.
@@ -110,10 +120,12 @@ export function Pricing() {
         </div>
 
         {/* Packages */}
-        <div className="mt-16 text-center reveal">
-          <p className="text-xs font-bold tracking-[0.2em] text-gold uppercase">Website Packages</p>
-          <h3 className="mt-3 font-display text-3xl md:text-4xl font-bold text-ink tracking-tight">
-            Pick the package that fits your business.
+        <div className="mt-20 text-center reveal">
+          <span className="inline-flex items-center gap-2 rounded-full bg-white border-2 border-ink px-4 py-1.5 text-[11px] font-bold tracking-[0.2em] text-ink uppercase shadow-pixel">
+            <span className="h-2 w-2 rounded-full bg-pixel-cyan" /> Website Packages
+          </span>
+          <h3 className="mt-5 font-display text-3xl md:text-5xl font-bold text-ink tracking-tight text-balance leading-[1.05]">
+            Pick the package that <span className="text-gradient-pixorra">fits your business.</span>
           </h3>
         </div>
 
