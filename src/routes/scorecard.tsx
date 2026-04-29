@@ -1,6 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ArrowRight, Sparkles, Check } from "lucide-react";
+import { ArrowRight, Sparkles, Check, Star, Zap, Heart, Rocket, Trophy } from "lucide-react";
+
+const WHATSAPP_URL =
+  "https://wa.me/919932740091?text=Hi%20Pixorra!%20I%20just%20took%20the%20Growth%20Scorecard%20and%20want%20my%20custom%20action%20plan.";
 
 export const Route = createFileRoute("/scorecard")({
   component: ScorecardPage,
@@ -15,8 +18,7 @@ export const Route = createFileRoute("/scorecard")({
       { property: "og:title", content: "Discover Your Business Growth Score — Pixorra" },
       {
         property: "og:description",
-        content:
-          "Free 2-minute audit. 12 questions. Instant results. No signup required.",
+        content: "Free 2-minute audit. 12 questions. Instant results. No signup required.",
       },
     ],
   }),
@@ -150,11 +152,20 @@ const QUESTIONS: Question[] = [
   },
 ];
 
-const CATEGORIES = [
-  { key: "critical", label: "Critical Gap", range: [0, 39] as const, hue: "from-pink-400 to-rose-500", desc: "Big leaks. Massive upside if fixed." },
-  { key: "plateau", label: "Growth Plateau", range: [40, 64] as const, hue: "from-fuchsia-400 to-pink-500", desc: "Stuck. Time to break through." },
-  { key: "scaling", label: "Scaling Stage", range: [65, 84] as const, hue: "from-purple-400 to-fuchsia-500", desc: "You're winning. Let's compound it." },
-  { key: "leader", label: "Market Leader", range: [85, 100] as const, hue: "from-pink-300 to-purple-400", desc: "Top tier. Defend & dominate." },
+type Category = {
+  key: string;
+  label: string;
+  emoji: string;
+  range: readonly [number, number];
+  bg: string;
+  desc: string;
+};
+
+const CATEGORIES: Category[] = [
+  { key: "critical", label: "Critical Gap", emoji: "🚨", range: [0, 39], bg: "bg-pixel-pink", desc: "Big leaks. Massive upside if fixed." },
+  { key: "plateau", label: "Growth Plateau", emoji: "📈", range: [40, 64], bg: "bg-pixel-orange", desc: "Stuck. Time to break through." },
+  { key: "scaling", label: "Scaling Stage", emoji: "🚀", range: [65, 84], bg: "bg-pixel-cyan", desc: "You're winning. Let's compound it." },
+  { key: "leader", label: "Market Leader", emoji: "👑", range: [85, 100], bg: "bg-pixel-yellow", desc: "Top tier. Defend & dominate." },
 ];
 
 function getCategory(score: number) {
@@ -178,7 +189,6 @@ function ScorecardPage() {
 
   const [displayScore, setDisplayScore] = useState(0);
 
-  // Animate score gauge
   useEffect(() => {
     const target = done ? liveScore : Math.round((rawScore / maxScore) * 100);
     const start = displayScore;
@@ -229,46 +239,54 @@ function ScorecardPage() {
   };
 
   return (
-    <main className="relative min-h-screen bg-black text-white overflow-hidden">
-      <BubbleField />
+    <main className="relative min-h-screen bg-gradient-hero text-ink overflow-hidden">
+      <PlayfulBackdrop />
 
       {/* Hero */}
-      <section className="relative pt-20 pb-16 md:pt-28 md:pb-24 px-5 md:px-8">
+      <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 px-5 md:px-8">
         <div className="max-w-6xl mx-auto">
           {/* Badge */}
-          <div className="flex justify-center">
-            <div className="inline-flex items-center gap-2 h-9 px-4 rounded-full bg-white/5 backdrop-blur-md border border-pink-400/40 text-pink-200 text-xs font-semibold tracking-wide animate-float-soft" style={{ boxShadow: "0 0 30px rgba(255,79,163,0.35)" }}>
-              <Sparkles className="h-3.5 w-3.5" />
-              Trusted by 10,000+ Growing Businesses
+          <div className="flex justify-center reveal is-visible">
+            <div className="inline-flex items-center gap-2 h-9 px-4 rounded-full bg-white border-2 border-ink text-xs font-bold tracking-wider uppercase shadow-pixel">
+              <Sparkles className="h-3.5 w-3.5 text-pixel-pink" fill="currentColor" />
+              <span className="text-gradient-pixorra">Free Growth Scorecard</span>
             </div>
           </div>
 
           {/* Headline */}
-          <h1 className="mt-6 text-center font-display font-bold text-5xl md:text-7xl tracking-tight text-balance">
+          <h1 className="mt-6 text-center font-display font-bold text-5xl md:text-7xl tracking-tight text-balance text-ink">
             Discover Your Business{" "}
-            <span className="bg-gradient-to-r from-pink-400 via-fuchsia-400 to-purple-400 bg-clip-text text-transparent">
-              Growth Score
-            </span>
+            <span className="text-gradient-pixorra">Growth Score</span>
           </h1>
 
-          <p className="mt-5 max-w-2xl mx-auto text-center text-white/70 text-lg md:text-xl">
-            Takes less than 2 minutes. See how you compare to top-performing businesses and
-            uncover hidden revenue opportunities.
+          <p className="mt-5 max-w-2xl mx-auto text-center text-ink/70 text-lg md:text-xl">
+            Takes less than 2 minutes. See how you stack up against top-performing
+            businesses and uncover hidden revenue opportunities. ✨
           </p>
 
           {/* Scoreboard card */}
           <div className="mt-12 relative">
-            <div className="absolute -inset-4 bg-pink-500/20 blur-3xl rounded-[3rem] pointer-events-none" />
-            <div className="relative rounded-[2.5rem] border border-white/10 bg-white/5 backdrop-blur-xl p-6 md:p-10 transition-transform duration-500 hover:-translate-y-1" style={{ boxShadow: "0 30px 80px -20px rgba(255,79,163,0.35), inset 0 1px 0 rgba(255,255,255,0.08)" }}>
+            {/* Decorative stickers */}
+            <div aria-hidden className="pointer-events-none absolute -top-6 -left-3 md:-top-8 md:-left-8 h-14 w-14 rounded-2xl bg-pixel-yellow border-2 border-ink shadow-pixel flex items-center justify-center text-2xl wobble z-10">
+              ⚡
+            </div>
+            <div aria-hidden className="pointer-events-none absolute -top-5 -right-3 md:-top-8 md:-right-8 h-14 w-14 rounded-full bg-pixel-pink border-2 border-ink shadow-pixel flex items-center justify-center text-2xl bounce-soft z-10">
+              <Heart className="h-6 w-6 text-white" fill="currentColor" />
+            </div>
+
+            <div className="relative rounded-[2rem] border-2 border-ink bg-white shadow-pixel p-6 md:p-10 transition-transform duration-500 hover:-translate-y-1">
+              {/* Rainbow top stripe */}
+              <div className="absolute inset-x-0 -top-px h-1.5 rounded-t-[2rem] bg-gradient-rainbow" />
+
               <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 {/* Gauge */}
                 <div className="flex flex-col items-center">
                   <Gauge value={displayScore} />
                   <div className="mt-4 text-center">
-                    <div className="text-xs uppercase tracking-[0.2em] text-pink-300/80 font-semibold">Your Score</div>
+                    <div className="text-xs uppercase tracking-[0.2em] text-ink/60 font-bold">Your Score</div>
                     {done && activeCategory && (
-                      <div className={`mt-2 text-sm font-bold bg-gradient-to-r ${activeCategory.hue} bg-clip-text text-transparent`}>
-                        {activeCategory.label}
+                      <div className={`mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full ${activeCategory.bg} border-2 border-ink shadow-pixel text-sm font-bold text-ink`}>
+                        <span>{activeCategory.emoji}</span> {activeCategory.label}
                       </div>
                     )}
                   </div>
@@ -281,27 +299,24 @@ function ScorecardPage() {
                     return (
                       <div
                         key={c.key}
-                        className={`relative rounded-2xl border px-5 py-4 transition-all duration-500 ${
-                          isActive
-                            ? "border-pink-300/60 bg-white/10"
-                            : "border-white/10 bg-white/[0.03]"
+                        className={`relative rounded-2xl border-2 border-ink px-4 py-3 transition-all duration-300 ${
+                          isActive ? `${c.bg} shadow-pixel -translate-y-0.5` : "bg-cream"
                         }`}
-                        style={isActive ? { boxShadow: "0 0 40px rgba(255,79,163,0.45)" } : undefined}
                       >
                         <div className="flex items-center justify-between gap-4">
-                          <div>
-                            <div className={`font-bold ${isActive ? "text-white" : "text-white/80"}`}>
-                              {c.label}
+                          <div className="flex items-center gap-3">
+                            <div className={`h-10 w-10 rounded-xl border-2 border-ink flex items-center justify-center text-lg ${isActive ? "bg-white" : c.bg}`}>
+                              {c.emoji}
                             </div>
-                            <div className="text-xs text-white/50 mt-0.5">{c.desc}</div>
+                            <div>
+                              <div className="font-bold text-ink">{c.label}</div>
+                              <div className="text-xs text-ink/70 mt-0.5">{c.desc}</div>
+                            </div>
                           </div>
-                          <div className={`text-xs font-mono ${isActive ? "text-pink-200" : "text-white/40"}`}>
+                          <div className="text-xs font-bold font-mono text-ink/70 bg-white border-2 border-ink rounded-md px-2 py-0.5">
                             {c.range[0]}–{c.range[1]}
                           </div>
                         </div>
-                        {isActive && (
-                          <div className={`absolute inset-x-4 -bottom-px h-px bg-gradient-to-r ${c.hue}`} />
-                        )}
                       </div>
                     );
                   })}
@@ -309,27 +324,22 @@ function ScorecardPage() {
               </div>
 
               {/* Progress preview */}
-              <div className="mt-10 pt-8 border-t border-white/10">
-                <div className="flex items-center justify-between text-xs md:text-sm text-white/60 font-medium">
-                  <span>12 Questions</span>
-                  <span>•</span>
-                  <span>2 Minutes</span>
-                  <span>•</span>
-                  <span>Instant Results</span>
+              <div className="mt-10 pt-8 border-t-2 border-dashed border-ink/20">
+                <div className="flex items-center justify-between text-xs md:text-sm text-ink/70 font-bold">
+                  <span className="inline-flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-pixel-pink" />12 Questions</span>
+                  <span className="inline-flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-pixel-yellow" />2 Minutes</span>
+                  <span className="inline-flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-pixel-cyan" />Instant Results</span>
                 </div>
-                <div className="mt-3 h-2.5 rounded-full bg-white/10 overflow-hidden relative">
+                <div className="mt-3 h-3 rounded-full bg-cream border-2 border-ink overflow-hidden relative">
                   <div
-                    className="h-full bg-gradient-to-r from-pink-400 to-fuchsia-500 transition-all duration-700 ease-out"
-                    style={{
-                      width: `${started ? progressPct : 8}%`,
-                      boxShadow: "0 0 20px rgba(255,79,163,0.7)",
-                    }}
+                    className="h-full bg-gradient-rainbow transition-all duration-700 ease-out"
+                    style={{ width: `${started ? progressPct : 8}%` }}
                   />
                   {!started && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-pink-300/20 to-transparent animate-shimmer" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-shimmer" />
                   )}
                 </div>
-                <div className="mt-2 text-xs text-white/50 text-right">
+                <div className="mt-2 text-xs text-ink/60 text-right font-semibold">
                   {started ? `${answeredCount} of ${QUESTIONS.length} answered` : "Preview"}
                 </div>
               </div>
@@ -340,14 +350,22 @@ function ScorecardPage() {
           <div className="mt-10 flex flex-col items-center gap-3">
             <button
               onClick={handleStart}
-              className="group relative inline-flex items-center gap-3 h-16 px-10 rounded-full bg-gradient-to-r from-pink-500 to-fuchsia-500 text-white font-bold text-lg transition-transform duration-300 hover:scale-[1.04] active:scale-95 animate-pulse-soft"
-              style={{ boxShadow: "0 20px 50px -10px rgba(255,79,163,0.7), inset 0 1px 0 rgba(255,255,255,0.4)" }}
+              className="group relative inline-flex items-center gap-3 h-14 md:h-16 px-8 md:px-10 rounded-full bg-ink text-white font-bold text-base md:text-lg border-2 border-ink shadow-pixel transition-transform duration-200 hover:-translate-y-0.5 hover:translate-x-0.5 active:translate-y-0 active:translate-x-0"
             >
-              <span className="absolute inset-0 rounded-full bg-gradient-to-r from-pink-400 to-fuchsia-400 opacity-0 blur-lg group-hover:opacity-80 transition-opacity" />
+              <span className="absolute -left-2 -top-2 h-6 w-6 rounded-full bg-pixel-yellow border-2 border-ink wobble" />
               <span className="relative">Start Free Audit</span>
               <ArrowRight className="relative h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </button>
-            <div className="text-xs text-white/50">No signup required</div>
+            <div className="text-xs text-ink/60 font-semibold inline-flex items-center gap-1.5">
+              <Check className="h-3.5 w-3.5 text-pixel-green" /> No signup required
+            </div>
+          </div>
+
+          {/* Trust row */}
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+            <TrustChip emoji="⭐" text="Trusted by 10,000+ businesses" />
+            <TrustChip emoji="🇮🇳" text="Made in Mumbai" />
+            <TrustChip emoji="⚡" text="Results in 2 mins" />
           </div>
         </div>
       </section>
@@ -356,43 +374,48 @@ function ScorecardPage() {
       <section ref={quizRef} className="relative px-5 md:px-8 pb-24">
         <div className="max-w-3xl mx-auto">
           {!done ? (
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 backdrop-blur-xl p-6 md:p-10" style={{ boxShadow: "0 30px 80px -20px rgba(168,85,247,0.3)" }}>
-              <div className="flex items-center justify-between text-xs text-white/60 font-medium">
-                <span>Question {current + 1} of {QUESTIONS.length}</span>
-                <span className="text-pink-300">{Math.round(progressPct)}% complete</span>
+            <div className="relative rounded-[2rem] border-2 border-ink bg-white shadow-pixel p-6 md:p-10">
+              <div className="absolute inset-x-0 -top-px h-1.5 rounded-t-[2rem] bg-gradient-rainbow" />
+
+              <div className="flex items-center justify-between text-xs text-ink/70 font-bold">
+                <span>
+                  Question <span className="text-pixel-pink">{current + 1}</span> of {QUESTIONS.length}
+                </span>
+                <span className="text-pixel-purple">{Math.round(progressPct)}% complete</span>
               </div>
-              <div className="mt-3 h-1.5 rounded-full bg-white/10 overflow-hidden">
+              <div className="mt-3 h-2.5 rounded-full bg-cream border-2 border-ink overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-pink-400 to-fuchsia-500 transition-all duration-500"
-                  style={{ width: `${progressPct}%`, boxShadow: "0 0 12px rgba(255,79,163,0.7)" }}
+                  className="h-full bg-gradient-rainbow transition-all duration-500"
+                  style={{ width: `${progressPct}%` }}
                 />
               </div>
 
               <div className="mt-8">
-                <div className="text-4xl">{QUESTIONS[current].emoji}</div>
-                <h2 className="mt-3 font-display text-2xl md:text-3xl font-bold text-balance">
+                <div className="inline-flex items-center justify-center h-14 w-14 rounded-2xl bg-pixel-yellow border-2 border-ink shadow-pixel text-3xl wobble">
+                  {QUESTIONS[current].emoji}
+                </div>
+                <h2 className="mt-4 font-display text-2xl md:text-3xl font-bold text-balance text-ink">
                   {QUESTIONS[current].q}
                 </h2>
               </div>
 
               <div className="mt-6 grid sm:grid-cols-2 gap-3">
-                {QUESTIONS[current].options.map((opt) => {
+                {QUESTIONS[current].options.map((opt, idx) => {
                   const selected = answers[current] === opt.value;
+                  const accents = ["bg-pixel-pink", "bg-pixel-yellow", "bg-pixel-cyan", "bg-pixel-purple"];
+                  const accent = accents[idx % accents.length];
                   return (
                     <button
                       key={opt.label}
                       onClick={() => handleAnswer(opt.value)}
-                      className={`group text-left rounded-2xl border px-5 py-4 transition-all duration-300 hover:-translate-y-0.5 ${
-                        selected
-                          ? "border-pink-300/70 bg-pink-500/10"
-                          : "border-white/10 bg-white/[0.03] hover:border-pink-300/40 hover:bg-white/[0.06]"
+                      className={`group relative text-left rounded-2xl border-2 border-ink px-5 py-4 transition-all duration-200 hover:-translate-y-0.5 hover:translate-x-0.5 ${
+                        selected ? `${accent} shadow-pixel` : "bg-white shadow-pixel hover:bg-cream"
                       }`}
-                      style={selected ? { boxShadow: "0 0 30px rgba(255,79,163,0.4)" } : undefined}
                     >
                       <div className="flex items-center justify-between gap-3">
-                        <span className="font-semibold text-white/90">{opt.label}</span>
-                        <span className={`h-6 w-6 rounded-full border flex items-center justify-center transition-all ${selected ? "border-pink-300 bg-pink-400" : "border-white/20 group-hover:border-pink-300/60"}`}>
-                          {selected && <Check className="h-3.5 w-3.5 text-black" />}
+                        <span className="font-bold text-ink">{opt.label}</span>
+                        <span className={`h-7 w-7 rounded-full border-2 border-ink flex items-center justify-center transition-all ${selected ? "bg-white" : accent}`}>
+                          {selected && <Check className="h-4 w-4 text-ink" strokeWidth={3} />}
                         </span>
                       </div>
                     </button>
@@ -404,55 +427,89 @@ function ScorecardPage() {
                 <button
                   onClick={() => setCurrent((c) => Math.max(0, c - 1))}
                   disabled={current === 0}
-                  className="text-sm text-white/60 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                  className="text-sm font-bold text-ink/70 hover:text-ink disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                 >
                   ← Previous
                 </button>
-                <div className="text-xs text-white/40">Live score: <span className="text-pink-300 font-bold">{displayScore}</span></div>
+                <div className="text-xs font-bold text-ink/60">
+                  Live score:{" "}
+                  <span className="inline-flex items-center justify-center min-w-[2.5rem] px-2 py-0.5 rounded-md bg-pixel-yellow border-2 border-ink text-ink">
+                    {displayScore}
+                  </span>
+                </div>
               </div>
             </div>
           ) : (
-            <div id="results" className="rounded-[2rem] border border-pink-300/30 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl p-8 md:p-12 text-center" style={{ boxShadow: "0 30px 80px -10px rgba(255,79,163,0.5)" }}>
-              <div className="inline-flex items-center gap-2 h-8 px-3 rounded-full bg-pink-500/20 text-pink-200 text-xs font-semibold uppercase tracking-wider">
-                <Sparkles className="h-3.5 w-3.5" /> Your Result
+            <div
+              id="results"
+              className="relative rounded-[2rem] border-2 border-ink bg-white shadow-pixel p-8 md:p-12 text-center overflow-hidden"
+            >
+              <div className="absolute inset-x-0 -top-px h-1.5 rounded-t-[2rem] bg-gradient-rainbow" />
+              {/* Confetti dots */}
+              <div aria-hidden className="pointer-events-none absolute inset-0">
+                <span className="absolute top-6 left-6 h-3 w-3 bg-pixel-pink sparkle-pulse" />
+                <span className="absolute top-10 right-10 h-2 w-2 bg-pixel-yellow sparkle-pulse" style={{ animationDelay: "0.4s" }} />
+                <span className="absolute bottom-12 left-12 h-2.5 w-2.5 bg-pixel-cyan sparkle-pulse" style={{ animationDelay: "0.8s" }} />
+                <span className="absolute bottom-8 right-8 h-2 w-2 bg-pixel-purple sparkle-pulse" style={{ animationDelay: "1.1s" }} />
               </div>
-              <h2 className="mt-5 font-display text-4xl md:text-5xl font-bold">
-                You scored{" "}
-                <span className="bg-gradient-to-r from-pink-400 to-fuchsia-400 bg-clip-text text-transparent">
-                  {displayScore}/100
-                </span>
-              </h2>
-              {activeCategory && (
-                <>
-                  <div className={`mt-3 text-2xl font-bold bg-gradient-to-r ${activeCategory.hue} bg-clip-text text-transparent`}>
-                    {activeCategory.label}
-                  </div>
-                  <p className="mt-3 text-white/70 max-w-xl mx-auto">{activeCategory.desc}</p>
-                </>
-              )}
 
-              <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-                <a
-                  href="https://wa.me/919932740091?text=Hi%20Pixorra!%20I%20just%20took%20the%20Growth%20Scorecard%20and%20want%20to%20discuss%20my%20results."
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center justify-center gap-2 h-14 px-8 rounded-full bg-gradient-to-r from-pink-500 to-fuchsia-500 text-white font-bold transition-transform hover:scale-105"
-                  style={{ boxShadow: "0 20px 50px -10px rgba(255,79,163,0.7)" }}
-                >
-                  Get My Custom Action Plan <ArrowRight className="h-5 w-5" />
-                </a>
-                <button
-                  onClick={handleReset}
-                  className="inline-flex items-center justify-center h-14 px-6 rounded-full border border-white/20 text-white/80 font-semibold hover:bg-white/5 transition-colors"
-                >
-                  Retake Quiz
-                </button>
+              <div className="relative">
+                <div className="inline-flex items-center gap-2 h-9 px-4 rounded-full bg-pixel-yellow border-2 border-ink text-ink text-xs font-bold uppercase tracking-wider shadow-pixel">
+                  <Trophy className="h-3.5 w-3.5" /> Your Result
+                </div>
+                <h2 className="mt-6 font-display text-4xl md:text-5xl font-bold text-ink">
+                  You scored{" "}
+                  <span className="text-gradient-pixorra">{displayScore}/100</span>
+                </h2>
+                {activeCategory && (
+                  <>
+                    <div className={`mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full ${activeCategory.bg} border-2 border-ink shadow-pixel text-base md:text-lg font-bold text-ink`}>
+                      <span className="text-xl">{activeCategory.emoji}</span> {activeCategory.label}
+                    </div>
+                    <p className="mt-4 text-ink/70 max-w-xl mx-auto text-base md:text-lg">{activeCategory.desc}</p>
+                  </>
+                )}
+
+                <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+                  <a
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center justify-center gap-2 h-14 px-8 rounded-full bg-pixel-green text-ink font-bold border-2 border-ink shadow-pixel transition-transform hover:-translate-y-0.5 hover:translate-x-0.5"
+                  >
+                    Get My Custom Action Plan <ArrowRight className="h-5 w-5" />
+                  </a>
+                  <button
+                    onClick={handleReset}
+                    className="inline-flex items-center justify-center h-14 px-6 rounded-full bg-white text-ink font-bold border-2 border-ink shadow-pixel transition-transform hover:-translate-y-0.5 hover:translate-x-0.5"
+                  >
+                    Retake Quiz
+                  </button>
+                </div>
+
+                <div className="mt-6 text-xs text-ink/60 font-semibold inline-flex items-center gap-2">
+                  <span className="inline-flex items-center gap-1"><Star className="h-3.5 w-3.5 text-pixel-yellow" fill="currentColor" /> Free</span>
+                  <span>•</span>
+                  <span>Personalised in WhatsApp</span>
+                  <span>•</span>
+                  <span>Reply in &lt; 1 hour</span>
+                </div>
               </div>
             </div>
           )}
         </div>
       </section>
     </main>
+  );
+}
+
+/* ---------------- Trust chip ---------------- */
+
+function TrustChip({ emoji, text }: { emoji: string; text: string }) {
+  return (
+    <div className="inline-flex items-center gap-2 h-9 px-3 rounded-full bg-white border-2 border-ink shadow-pixel text-xs font-bold text-ink">
+      <span>{emoji}</span> {text}
+    </div>
   );
 }
 
@@ -466,16 +523,21 @@ function Gauge({ value }: { value: number }) {
   const offset = c - (Math.min(Math.max(value, 0), 100) / 100) * c;
   return (
     <div className="relative" style={{ width: size, height: size }}>
-      <div className="absolute inset-0 rounded-full bg-pink-500/20 blur-2xl" />
+      {/* soft halo */}
+      <div className="absolute inset-2 rounded-full bg-pixel-yellow/40 blur-2xl" />
       <svg width={size} height={size} className="relative -rotate-90">
         <defs>
           <linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#FF4FA3" />
-            <stop offset="50%" stopColor="#FF8AC9" />
-            <stop offset="100%" stopColor="#A855F7" />
+            <stop offset="0%" stopColor="#ff4fa3" />
+            <stop offset="33%" stopColor="#ffd93d" />
+            <stop offset="66%" stopColor="#22d3ee" />
+            <stop offset="100%" stopColor="#a855f7" />
           </linearGradient>
         </defs>
-        <circle cx={size / 2} cy={size / 2} r={r} stroke="rgba(255,255,255,0.08)" strokeWidth={stroke} fill="none" />
+        {/* track */}
+        <circle cx={size / 2} cy={size / 2} r={r} stroke="#FAFAF7" strokeWidth={stroke} fill="none" />
+        <circle cx={size / 2} cy={size / 2} r={r} stroke="#111111" strokeWidth={stroke + 4} fill="none" opacity="0.08" />
+        {/* progress */}
         <circle
           cx={size / 2}
           cy={size / 2}
@@ -486,55 +548,70 @@ function Gauge({ value }: { value: number }) {
           strokeLinecap="round"
           strokeDasharray={c}
           strokeDashoffset={offset}
-          style={{ transition: "stroke-dashoffset 0.6s cubic-bezier(0.16,1,0.3,1)", filter: "drop-shadow(0 0 12px rgba(255,79,163,0.7))" }}
+          style={{ transition: "stroke-dashoffset 0.6s cubic-bezier(0.16,1,0.3,1)" }}
         />
+        {/* ink outline */}
+        <circle cx={size / 2} cy={size / 2} r={r + stroke / 2 + 1} stroke="#111111" strokeWidth={2} fill="none" />
+        <circle cx={size / 2} cy={size / 2} r={r - stroke / 2 - 1} stroke="#111111" strokeWidth={2} fill="none" />
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <div className="font-display font-bold text-6xl bg-gradient-to-br from-white to-pink-200 bg-clip-text text-transparent tabular-nums">
-          {value}
-        </div>
-        <div className="text-xs text-white/50 mt-1">/ 100</div>
+        <div className="font-display font-bold text-6xl text-ink tabular-nums">{value}</div>
+        <div className="text-xs text-ink/60 mt-1 font-bold">/ 100</div>
       </div>
     </div>
   );
 }
 
-/* ---------------- Floating bubbles ---------------- */
+/* ---------------- Playful backdrop ---------------- */
 
-function BubbleField() {
-  const bubbles = useMemo(
+function PlayfulBackdrop() {
+  const sparkles = useMemo(
     () =>
-      Array.from({ length: 14 }).map((_, i) => ({
+      Array.from({ length: 18 }).map((_, i) => ({
         id: i,
-        size: 40 + Math.random() * 140,
         left: Math.random() * 100,
         top: Math.random() * 100,
-        delay: Math.random() * 8,
-        duration: 14 + Math.random() * 14,
-        hue: Math.random() > 0.5 ? "rgba(255,79,163,0.18)" : "rgba(168,85,247,0.16)",
+        size: 6 + Math.random() * 8,
+        color: ["bg-pixel-pink", "bg-pixel-yellow", "bg-pixel-cyan", "bg-pixel-purple", "bg-pixel-green", "bg-pixel-orange"][i % 6],
+        delay: Math.random() * 3,
       })),
     []
   );
+
   return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden">
-      <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-pink-500/15 blur-3xl" />
-      <div className="absolute top-1/3 -right-40 w-[500px] h-[500px] rounded-full bg-purple-500/15 blur-3xl" />
-      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] rounded-full bg-fuchsia-500/10 blur-3xl" />
-      {bubbles.map((b) => (
+    <div aria-hidden className="absolute inset-0 pointer-events-none overflow-hidden">
+      {/* Big soft blobs */}
+      <div className="absolute -top-24 -left-24 h-80 w-80 bg-pixel-pink/25 blob" />
+      <div className="absolute top-40 -right-24 h-96 w-96 bg-pixel-cyan/25 blob" style={{ animationDelay: "2s" }} />
+      <div className="absolute bottom-10 left-1/3 h-72 w-72 bg-pixel-yellow/30 blob" style={{ animationDelay: "4s" }} />
+      <div className="absolute top-1/2 right-1/4 h-64 w-64 bg-pixel-purple/20 blob" style={{ animationDelay: "1s" }} />
+
+      {/* Grid */}
+      <div className="absolute inset-0 grid-bg opacity-40" />
+
+      {/* Pixel sparkles */}
+      {sparkles.map((s) => (
         <span
-          key={b.id}
-          className="absolute rounded-full animate-bubble-float"
+          key={s.id}
+          className={`absolute ${s.color} sparkle-pulse`}
           style={{
-            width: b.size,
-            height: b.size,
-            left: `${b.left}%`,
-            top: `${b.top}%`,
-            background: `radial-gradient(circle at 30% 30%, rgba(255,255,255,0.35), ${b.hue} 60%, transparent 70%)`,
-            animationDelay: `${b.delay}s`,
-            animationDuration: `${b.duration}s`,
+            left: `${s.left}%`,
+            top: `${s.top}%`,
+            width: s.size,
+            height: s.size,
+            animationDelay: `${s.delay}s`,
           }}
         />
       ))}
+
+      {/* Floating emoji stickers */}
+      <div className="hidden md:block">
+        <div className="absolute top-28 left-[6%] text-3xl drift">⚡</div>
+        <div className="absolute top-44 right-[8%] text-3xl drift" style={{ animationDelay: "1.5s" }}>🚀</div>
+        <div className="absolute top-[28rem] left-[5%] text-3xl drift" style={{ animationDelay: "3s" }}>💖</div>
+        <div className="absolute top-[34rem] right-[6%] text-2xl drift" style={{ animationDelay: "2.2s" }}>✨</div>
+        <div className="absolute top-[20rem] left-[48%] text-2xl drift" style={{ animationDelay: "4s" }}>🎯</div>
+      </div>
     </div>
   );
 }
