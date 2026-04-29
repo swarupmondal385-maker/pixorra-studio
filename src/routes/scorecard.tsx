@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowRight, Sparkles, Check, Star, Trophy } from "lucide-react";
+import logoMark from "@/assets/pixorra-mark.png";
 
 const WHATSAPP_URL =
   "https://wa.me/919932740091?text=Hi%20Pixorra!%20I%20just%20took%20the%20Growth%20Scorecard%20and%20want%20my%20custom%20action%20plan.";
