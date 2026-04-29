@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowRight, Sparkles, Check, Star, Trophy } from "lucide-react";
+import logoMark from "@/assets/pixorra-mark.png";
 
 const WHATSAPP_URL =
   "https://wa.me/919932740091?text=Hi%20Pixorra!%20I%20just%20took%20the%20Growth%20Scorecard%20and%20want%20my%20custom%20action%20plan.";
@@ -230,6 +231,44 @@ function ScorecardPage() {
               <span className="bg-gradient-to-r from-pink-300 via-fuchsia-300 to-cyan-300 bg-clip-text text-transparent">
                 Enter the Growth Universe
               </span>
+            </div>
+          </div>
+
+          {/* Mascot inside spinning portal */}
+          <div className="mt-8 flex justify-center">
+            <div className="relative h-36 w-36 md:h-44 md:w-44">
+              {/* glow */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-pink-500/60 via-fuchsia-500/50 to-cyan-400/60 blur-2xl portal-pulse" />
+              {/* spinning rainbow ring */}
+              <div
+                aria-hidden
+                className="absolute inset-0 rounded-full portal-spin"
+                style={{
+                  background:
+                    "conic-gradient(from 0deg, #ff4fa3, #ffd93d, #22d3ee, #a855f7, #ff4fa3)",
+                  WebkitMask: "radial-gradient(circle, transparent 62%, black 64%)",
+                  mask: "radial-gradient(circle, transparent 62%, black 64%)",
+                }}
+              />
+              {/* counter ring */}
+              <div
+                aria-hidden
+                className="absolute inset-2 rounded-full portal-spin-rev opacity-80"
+                style={{
+                  background:
+                    "conic-gradient(from 180deg, transparent, #22d3ee, transparent, #ff4fa3, transparent)",
+                  WebkitMask: "radial-gradient(circle, transparent 70%, black 72%)",
+                  mask: "radial-gradient(circle, transparent 70%, black 72%)",
+                }}
+              />
+              {/* mascot */}
+              <div className="absolute inset-0 flex items-center justify-center float-3d">
+                <img
+                  src={logoMark}
+                  alt="Pixorra mascot"
+                  className="h-24 w-24 md:h-28 md:w-28 object-contain drop-shadow-[0_0_30px_rgba(255,79,163,0.6)]"
+                />
+              </div>
             </div>
           </div>
 
@@ -731,7 +770,12 @@ function WarpOverlay() {
         ))}
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center">
-            <div className="font-display font-bold text-4xl md:text-6xl bg-gradient-to-r from-pink-400 via-fuchsia-400 to-cyan-300 bg-clip-text text-transparent text-glow-pink">
+            <img
+              src={logoMark}
+              alt="Pixorra"
+              className="mx-auto h-28 w-28 md:h-36 md:w-36 object-contain bounce-soft drop-shadow-[0_0_40px_rgba(255,79,163,0.9)]"
+            />
+            <div className="mt-4 font-display font-bold text-4xl md:text-6xl bg-gradient-to-r from-pink-400 via-fuchsia-400 to-cyan-300 bg-clip-text text-transparent text-glow-pink">
               Entering the Universe…
             </div>
             <div className="mt-3 text-white/60 text-sm font-bold tracking-widest uppercase">Warp speed</div>
