@@ -1,5 +1,6 @@
 import { Instagram, Linkedin, Facebook, Twitter, Mail, Phone, MapPin, Clock, ArrowRight, Heart } from "lucide-react";
 import logoMark from "@/assets/pixorra-mark.png";
+import logoFull from "@/assets/pixorra-logo.png";
 
 export function Footer() {
   return (
@@ -37,9 +38,12 @@ export function Footer() {
       <div className="relative max-w-7xl mx-auto px-5 md:px-8 py-14 md:py-20">
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-5">
-            <a href="#top" className="inline-flex items-center gap-2.5 group">
-              <img src={logoMark} alt="Pixorra" className="h-12 w-12 object-contain group-hover:rotate-6 transition-transform" />
-              <span className="font-display text-2xl font-bold text-ink">Pixorra</span>
+            <a href="#top" className="inline-block group">
+              <img
+                src={logoFull}
+                alt="Pixorra"
+                className="h-24 object-contain group-hover:scale-105 transition-transform duration-300"
+              />
             </a>
             <p className="mt-5 text-ink/65 max-w-sm leading-relaxed">
               Premium websites, ads and branding for ambitious Indian businesses. Designed in Mumbai, loved across India.
