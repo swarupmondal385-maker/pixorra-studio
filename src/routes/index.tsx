@@ -31,7 +31,7 @@ export const Route = createFileRoute("/")({
       // Root (__root.tsx) deliberately defines NONE of these.
 
       // Title & description
-      { title: "Pixorra Studio — Mumbai's Premium Digital Agency | Websites, Ads & Branding" },
+      { title: "Pixorra Studio" },
       {
         name: "description",
         content:
