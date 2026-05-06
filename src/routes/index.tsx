@@ -26,11 +26,39 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Pixorra — Mumbai's Premium Digital Agency | Websites, Ads & Branding" },
-      { name: "description", content: "High-converting websites, Google Ads, SEO, Shopify stores and branding for ambitious Indian businesses. Delivered in 7–10 days. Free demo website for every new lead." },
-      { property: "og:title", content: "Pixorra — Websites that make your business the obvious choice" },
-      { property: "og:description", content: "Premium digital agency in Mumbai. Websites, Google Ads, SEO and branding delivered in 7–10 days. Free demo for every new lead." },
+      // — Page title & description —
+      { title: "Pixorra Studio — Mumbai's Premium Digital Agency | Websites, Ads & Branding" },
+      {
+        name: "description",
+        content:
+          "High-converting websites, Google Ads, SEO, Shopify stores and branding for ambitious Indian businesses. Delivered in 7–10 days. Free demo website for every new lead.",
+      },
+
+      // — Open Graph —
+      { property: "og:title", content: "Pixorra Studio — Websites that make your business the obvious choice" },
+      {
+        property: "og:description",
+        content:
+          "Premium digital agency in Mumbai. High-converting websites, Google Ads, SEO & branding delivered in 7–10 days. Free demo for every new lead.",
+      },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://pixorrastudio.com" },
+      { property: "og:image", content: "https://pixorrastudio.com/pixorra-mark.png" },
+      { property: "og:image:alt", content: "Pixorra Studio logo mark" },
+
+      // — Twitter / X —
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Pixorra Studio — Premium Digital Agency, Mumbai" },
+      {
+        name: "twitter:description",
+        content:
+          "Websites, Google Ads, SEO & branding for ambitious Indian businesses. Delivered in 7–10 days.",
+      },
+      { name: "twitter:image", content: "https://pixorrastudio.com/pixorra-mark.png" },
+    ],
+    links: [
+      // Canonical URL
+      { rel: "canonical", href: "https://pixorrastudio.com" },
     ],
   }),
 });
