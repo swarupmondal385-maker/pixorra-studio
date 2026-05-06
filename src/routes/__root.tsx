@@ -27,53 +27,30 @@ function NotFoundComponent() {
 export const Route = createRootRoute({
   head: () => ({
     meta: [
+      // ─── Structural / global-only ───────────────────────────────────────────
+      // These tags cannot conflict with page-level head() because they are
+      // unique-by-nature and never redefined in child routes.
+      // ALL page-content tags (title, description, og:*, twitter:*) are
+      // intentionally absent here — they are owned exclusively by each route.
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "theme-color", content: "#0a0a0a" },
       { name: "author", content: "Pixorra Studio" },
-
-      // — Default title & description (overridden per-route) —
-      { title: "Pixorra Studio — Mumbai's Premium Digital Agency" },
-      {
-        name: "description",
-        content:
-          "High-converting websites, Google Ads, SEO, Shopify stores and branding for ambitious Indian businesses. Delivered in 7–10 days. Free demo website for every new lead.",
-      },
-
-      // — Open Graph (social sharing) —
+      // og:site_name is safe here — it never appears in page routes
       { property: "og:site_name", content: "Pixorra Studio" },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://pixorrastudio.com" },
-      { property: "og:title", content: "Pixorra Studio — Websites that make your business the obvious choice" },
-      {
-        property: "og:description",
-        content:
-          "Premium digital agency in Mumbai. High-converting websites, Google Ads, SEO & branding delivered in 7–10 days. Free demo for every new lead.",
-      },
-      { property: "og:image", content: "https://pixorrastudio.com/pixorra-mark.png" },
-      { property: "og:image:alt", content: "Pixorra Studio logo mark" },
+      // og:image dimensions are supplementary and don't conflict
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-
-      // — Twitter / X Card —
-      { name: "twitter:card", content: "summary_large_image" },
+      // twitter:site / creator are account-level, not page-level
       { name: "twitter:site", content: "@pixorrastudio" },
       { name: "twitter:creator", content: "@pixorrastudio" },
-      { name: "twitter:title", content: "Pixorra Studio — Premium Digital Agency, Mumbai" },
-      {
-        name: "twitter:description",
-        content:
-          "Websites, Google Ads, SEO & branding for ambitious Indian businesses. Delivered in 7–10 days.",
-      },
-      { name: "twitter:image", content: "https://pixorrastudio.com/pixorra-mark.png" },
-      { name: "twitter:image:alt", content: "Pixorra Studio logo mark" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      // — Favicon (mark logo) —
+      // ─── Favicon ──────────────────────────────────────────────────────────
       { rel: "icon", type: "image/png", href: "/pixorra-mark.png" },
       { rel: "apple-touch-icon", href: "/pixorra-mark.png" },
-      // — Fonts —
+      // ─── Fonts ────────────────────────────────────────────────────────────
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
