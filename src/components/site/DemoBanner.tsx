@@ -25,7 +25,7 @@ export function DemoBanner() {
             </div>
             <div className="lg:col-span-4 flex flex-col gap-3">
               <a
-                href="https://wa.me/919932740091?text=Hi%20Pixorra!%20I%20want%20a%20free%20demo%20website."
+                href="https://wa.me/918927840261?text=Hi%20Pixorra!%20I%20want%20a%20free%20demo%20website."
                 target="_blank"
                 rel="noreferrer"
                 className="group inline-flex items-center justify-between h-16 px-7 rounded-2xl bg-ink text-white font-semibold text-lg border-2 border-ink shadow-pixel hover:-translate-y-0.5 transition-transform"
@@ -34,10 +34,10 @@ export function DemoBanner() {
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </a>
               <a
-                href="tel:+919932740091"
+                href="tel:+918927840261"
                 className="inline-flex items-center justify-center h-14 px-6 rounded-2xl bg-white border-2 border-ink text-ink font-semibold shadow-pixel hover:-translate-y-0.5 transition-transform"
               >
-                Call +91 99327 40091
+                Call +91 89278 40261
               </a>
             </div>
           </div>

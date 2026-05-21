@@ -19,7 +19,7 @@ export function FinalCTA() {
         <p className="mt-7 text-lg md:text-xl text-ink/60 max-w-2xl mx-auto">
           Every day without a proper online presence is a customer walking into their shop instead of yours. Let's fix that — starting today.
         </p>
-        <a href="https://wa.me/919932740091?text=Hi%20Pixorra!%20I%20want%20a%20free%20demo%20website."
+        <a href="https://wa.me/918927840261?text=Hi%20Pixorra!%20I%20want%20a%20free%20demo%20website."
           target="_blank" rel="noreferrer"
           className="mt-10 inline-flex items-center gap-3 h-16 px-9 rounded-full bg-gradient-pixorra text-white font-semibold text-lg border-2 border-ink shadow-pixel hover:-translate-y-0.5 transition-transform group">
           <Rocket className="h-5 w-5"/>

@@ -173,7 +173,7 @@ export function Hero() {
             </ul>
 
             <a
-              href="https://wa.me/919932740091?text=Hi%20Pixorra!%20I%20want%20a%20free%20demo%20website."
+              href="https://wa.me/918927840261?text=Hi%20Pixorra!%20I%20want%20a%20free%20demo%20website."
               target="_blank"
               rel="noreferrer"
               className="mt-8 inline-flex items-center gap-2 h-12 px-6 rounded-full bg-[oklch(0.72_0.18_145)] text-white font-bold border-2 border-ink shadow-pixel hover:-translate-y-0.5 transition"

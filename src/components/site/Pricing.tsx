@@ -1,6 +1,6 @@
 import { Check, Star, ArrowRight, Globe, TrendingUp, Instagram } from "lucide-react";
 
-const WHATSAPP = "https://wa.me/919932740091?text=Hi%20Pixorra%2C%20I%27d%20like%20to%20know%20more%20about%20your%20pricing.";
+const WHATSAPP = "https://wa.me/918927840261?text=Hi%20Pixorra%2C%20I%27d%20like%20to%20know%20more%20about%20your%20pricing.";
 
 const SERVICES = [
   {

@@ -48,7 +48,7 @@ export function FAQ() {
         <div className="mt-12 text-center reveal">
           <p className="text-ink/60">Still have questions?</p>
           <a
-            href="https://wa.me/919932740091?text=Hi%20Pixorra!%20I%20have%20a%20question."
+            href="https://wa.me/918927840261?text=Hi%20Pixorra!%20I%20have%20a%20question."
             target="_blank"
             rel="noreferrer"
             className="mt-3 inline-flex items-center gap-2 h-12 px-6 rounded-full bg-[oklch(0.72_0.18_145)] text-white font-semibold"

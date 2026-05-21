@@ -94,9 +94,9 @@ export function Footer() {
             </div>
             <ul className="mt-5 space-y-3 text-ink/85">
               <li>
-                <a href="tel:+919932740091" className="flex items-center gap-3 rounded-2xl bg-white border-2 border-ink shadow-pixel px-4 py-3 hover:-translate-y-0.5 transition">
+                <a href="tel:+918927840261" className="flex items-center gap-3 rounded-2xl bg-white border-2 border-ink shadow-pixel px-4 py-3 hover:-translate-y-0.5 transition">
                   <span className="h-9 w-9 rounded-lg bg-pixel-yellow border-2 border-ink flex items-center justify-center"><Phone className="h-4 w-4 text-ink" /></span>
-                  <span className="font-semibold">+91 99327 40091</span>
+                  <span className="font-semibold">+91 89278 40261</span>
                 </a>
               </li>
               <li>
