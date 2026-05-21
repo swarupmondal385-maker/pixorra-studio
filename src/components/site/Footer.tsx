@@ -100,9 +100,9 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:hello@pixorra.in" className="flex items-center gap-3 rounded-2xl bg-white border-2 border-ink shadow-pixel px-4 py-3 hover:-translate-y-0.5 transition">
+                <a href="mailto:pixorrastudio@gmail.com" className="flex items-center gap-3 rounded-2xl bg-white border-2 border-ink shadow-pixel px-4 py-3 hover:-translate-y-0.5 transition">
                   <span className="h-9 w-9 rounded-lg bg-pixel-cyan border-2 border-ink flex items-center justify-center"><Mail className="h-4 w-4 text-ink" /></span>
-                  <span className="font-semibold">hello@pixorra.in</span>
+                  <span className="font-semibold">pixorrastudio@gmail.com</span>
                 </a>
               </li>
               <li className="flex items-center gap-3 text-sm text-ink/70 px-1">
