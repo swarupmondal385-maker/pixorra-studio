@@ -1,5 +1,6 @@
 import { ArrowRight, Play, Star, CheckCircle2, TrendingUp, IndianRupee, MessageCircle, Sparkles, Zap, Heart, Rocket, Smile } from "lucide-react";
 import logoMark from "@/assets/pixorra-mark.png";
+import { VideoEmbed } from "./VideoEmbed";
 
 export function Hero() {
   return (
