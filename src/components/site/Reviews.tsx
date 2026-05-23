@@ -1,4 +1,5 @@
 import { Star, BadgeCheck, ArrowUpRight } from "lucide-react";
+import { VideoEmbed } from "./VideoEmbed";
 
 const REVIEWS = [
   { name: "Aman Kapoor", when: "2 weeks ago", text: "Got my restaurant website done in 9 days. Looks premium, loads fast, and my online orders have already doubled. 10/10 recommend.", rating: 5 },

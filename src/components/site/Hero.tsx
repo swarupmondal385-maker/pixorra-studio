@@ -92,6 +92,12 @@ export function Hero() {
             Custom websites. Modern design. High performance. Real results — delivered in 7–10 days from our studio in Mumbai.
           </p>
 
+          {/* Hero video — set the YouTube ID inside src/components/site/VideoEmbed.tsx */}
+          <div className="mt-10">
+            <VideoEmbed eyebrow="Watch the 60-second intro" />
+          </div>
+
+
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
               href="#demo"
