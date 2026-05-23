@@ -104,9 +104,36 @@
 }
 
 .dark {
-  --background: oklch(0.14 0.01 270);
-  --foreground: oklch(0.98 0 0);
+  --background: oklch(0.16 0.03 255);
+  --foreground: oklch(0.96 0.01 245);
+  --card: oklch(0.21 0.035 258);
+  --card-foreground: oklch(0.96 0.01 245);
+  --popover: oklch(0.21 0.035 258);
+  --popover-foreground: oklch(0.96 0.01 245);
+  --primary: oklch(0.7 0.16 250);
+  --primary-foreground: oklch(0.14 0.03 255);
+  --secondary: oklch(0.24 0.04 258);
+  --secondary-foreground: oklch(0.96 0.01 245);
+  --muted: oklch(0.24 0.03 258);
+  --muted-foreground: oklch(0.72 0.03 250);
+  --accent: oklch(0.66 0.16 250);
+  --accent-foreground: oklch(0.14 0.03 255);
+  --border: oklch(0.30 0.04 258);
+  --input: oklch(0.30 0.04 258);
+  --ring: oklch(0.66 0.16 250);
+
+  --cream: oklch(0.22 0.035 258);
+  --ink: oklch(0.96 0.01 245);
+  --navy: oklch(0.78 0.10 245);
+  --sky: oklch(0.78 0.14 245);
 }
+
+/* Make existing hard-coded utilities follow theme in dark mode */
+.dark .bg-white { background-color: var(--card) !important; }
+.dark .bg-cream { background-color: color-mix(in oklab, var(--card) 70%, var(--background)) !important; }
+.dark .text-white { color: var(--foreground); }
+.dark .border-black\/5 { border-color: var(--border) !important; }
+
 
 @layer base {
   * {
