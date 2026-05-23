@@ -4,6 +4,7 @@ import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
 import { Marquee } from "@/components/site/Marquee";
 import { About } from "@/components/site/About";
+import { Founder } from "@/components/site/Founder";
 import { Services } from "@/components/site/Services";
 import { Pricing } from "@/components/site/Pricing";
 import { BuiltFor } from "@/components/site/BuiltFor";
@@ -77,6 +78,8 @@ function Index() {
       <Hero />
       <Marquee />
       <About />
+      <Founder />
+
       <Services />
       <Pricing />
       <BuiltFor />

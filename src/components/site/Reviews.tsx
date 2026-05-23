@@ -68,7 +68,13 @@ export function Reviews() {
             </div>
           );})}
         </div>
+
+        {/* Video review — set the YouTube ID inside src/components/site/VideoEmbed.tsx */}
+        <div className="mt-20">
+          <VideoEmbed eyebrow="Hear it from a client" caption="A founder shares their Pixorra experience, in their own words." />
+        </div>
       </div>
+
     </section>
   );
 }
