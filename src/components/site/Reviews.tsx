@@ -1,4 +1,5 @@
 import { Star, BadgeCheck, ArrowUpRight } from "lucide-react";
+import { VideoEmbed } from "./VideoEmbed";
 
 const REVIEWS = [
   { name: "Aman Kapoor", when: "2 weeks ago", text: "Got my restaurant website done in 9 days. Looks premium, loads fast, and my online orders have already doubled. 10/10 recommend.", rating: 5 },
@@ -67,7 +68,13 @@ export function Reviews() {
             </div>
           );})}
         </div>
+
+        {/* Video review — set the YouTube ID inside src/components/site/VideoEmbed.tsx */}
+        <div className="mt-20">
+          <VideoEmbed eyebrow="Hear it from a client" caption="A founder shares their Pixorra experience, in their own words." />
+        </div>
       </div>
+
     </section>
   );
 }
