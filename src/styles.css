@@ -172,12 +172,13 @@
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.015em;
+    font-weight: 500;
   }
 }
 
 @layer utilities {
-  .font-display { font-family: var(--font-display); }
+  .font-display { font-family: var(--font-display); font-weight: 500; }
   .text-gold { color: var(--gold); }
   .bg-gold { background-color: var(--gold); }
   .bg-cream { background-color: var(--cream); }
@@ -185,6 +186,31 @@
   .text-navy { color: var(--navy); }
   .text-ink { color: var(--ink); }
   .border-gold { border-color: var(--gold); }
+  .bg-gradient-gold { background-image: var(--gradient-gold); }
+  .bg-gradient-navy { background-image: var(--gradient-navy); }
+  .bg-gradient-hero { background-image: var(--gradient-hero); }
+  .shadow-gold { box-shadow: var(--shadow-glow-gold); }
+  .shadow-card { box-shadow: var(--shadow-card); }
+  .shadow-card-lg { box-shadow: var(--shadow-card-lg); }
+  .shadow-pixel { box-shadow: var(--shadow-pixel); }
+
+  /* Glass effects — premium digital theme */
+  .glass {
+    background: color-mix(in oklab, var(--card) 60%, transparent);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid color-mix(in oklab, var(--foreground) 8%, transparent);
+  }
+  .glass-strong {
+    background: color-mix(in oklab, var(--card) 78%, transparent);
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    border: 1px solid color-mix(in oklab, var(--foreground) 10%, transparent);
+  }
+  .dark .glass, .dark .glass-strong {
+    background: color-mix(in oklab, var(--card) 55%, transparent);
+    border-color: color-mix(in oklab, var(--foreground) 14%, transparent);
+  }
   .bg-gradient-gold { background-image: var(--gradient-gold); }
   .bg-gradient-navy { background-image: var(--gradient-navy); }
   .bg-gradient-hero { background-image: var(--gradient-hero); }
