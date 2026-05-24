@@ -64,69 +64,83 @@
 :root {
   --radius: 0.9rem;
 
-  /* Premium brand palette — minimal sapphire blue */
-  --cream: oklch(0.985 0.005 245);
+  /* Premium brand palette — warm white + sapphire blue + accent gold/rose */
+  --cream: oklch(0.985 0.012 80);
   --ink: oklch(0.20 0.03 250);
-  --gold: oklch(0.78 0.10 80);
+  --gold: oklch(0.80 0.11 78);
   --gold-soft: oklch(0.94 0.04 85);
   --navy: oklch(0.28 0.10 258);
   --sky: oklch(0.66 0.16 250);
   --whatsapp: oklch(0.66 0.14 160);
 
-  /* Legacy "pixel" tokens remapped to a refined blue/neutral family
-     so existing components instantly look premium and tonal. */
-  --pixel-pink: oklch(0.66 0.16 250);
-  --pixel-orange: oklch(0.78 0.10 80);
-  --pixel-yellow: oklch(0.86 0.06 85);
-  --pixel-green: oklch(0.68 0.10 200);
-  --pixel-cyan: oklch(0.82 0.07 235);
-  --pixel-blue: oklch(0.55 0.16 258);
-  --pixel-purple: oklch(0.42 0.12 262);
+  /* Accent palette — subtle premium colors used sparingly */
+  --rose: oklch(0.78 0.10 20);
+  --teal: oklch(0.72 0.09 195);
+  --plum: oklch(0.55 0.10 310);
 
-  --background: oklch(1 0 0);
+  /* Legacy "pixel" tokens remapped to refined premium palette */
+  --pixel-pink: oklch(0.78 0.10 20);
+  --pixel-orange: oklch(0.80 0.11 78);
+  --pixel-yellow: oklch(0.92 0.05 85);
+  --pixel-green: oklch(0.72 0.09 195);
+  --pixel-cyan: oklch(0.88 0.05 230);
+  --pixel-blue: oklch(0.55 0.16 258);
+  --pixel-purple: oklch(0.55 0.10 310);
+
+  /* Warm white background instead of pure white */
+  --background: oklch(0.985 0.010 80);
   --foreground: var(--ink);
   --card: oklch(1 0 0);
   --card-foreground: var(--ink);
   --popover: oklch(1 0 0);
   --popover-foreground: var(--ink);
   --primary: var(--ink);
-  --primary-foreground: oklch(1 0 0);
+  --primary-foreground: oklch(0.99 0.008 80);
   --secondary: var(--cream);
   --secondary-foreground: var(--ink);
-  --muted: oklch(0.97 0.005 90);
-  --muted-foreground: oklch(0.52 0.01 280);
+  --muted: oklch(0.96 0.012 80);
+  --muted-foreground: oklch(0.52 0.02 270);
   --accent: var(--gold);
   --accent-foreground: var(--ink);
   --destructive: oklch(0.58 0.22 27);
   --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.92 0.008 90);
-  --input: oklch(0.92 0.008 90);
-  --ring: var(--gold);
+  --border: oklch(0.91 0.012 80);
+  --input: oklch(0.91 0.012 80);
+  --ring: var(--sky);
 }
 
 .dark {
-  --background: oklch(0.16 0.03 255);
+  --background: oklch(0.16 0.025 258);
   --foreground: oklch(0.96 0.01 245);
-  --card: oklch(0.21 0.035 258);
+  --card: oklch(0.21 0.030 258);
   --card-foreground: oklch(0.96 0.01 245);
-  --popover: oklch(0.21 0.035 258);
+  --popover: oklch(0.21 0.030 258);
   --popover-foreground: oklch(0.96 0.01 245);
-  --primary: oklch(0.7 0.16 250);
+  --primary: oklch(0.72 0.16 250);
   --primary-foreground: oklch(0.14 0.03 255);
-  --secondary: oklch(0.24 0.04 258);
+  --secondary: oklch(0.24 0.035 258);
   --secondary-foreground: oklch(0.96 0.01 245);
   --muted: oklch(0.24 0.03 258);
-  --muted-foreground: oklch(0.72 0.03 250);
-  --accent: oklch(0.66 0.16 250);
+  --muted-foreground: oklch(0.74 0.025 250);
+  --accent: oklch(0.80 0.11 78);
   --accent-foreground: oklch(0.14 0.03 255);
-  --border: oklch(0.30 0.04 258);
-  --input: oklch(0.30 0.04 258);
-  --ring: oklch(0.66 0.16 250);
+  --border: oklch(0.32 0.04 258);
+  --input: oklch(0.32 0.04 258);
+  --ring: oklch(0.72 0.16 250);
 
-  --cream: oklch(0.22 0.035 258);
+  --cream: oklch(0.22 0.030 258);
   --ink: oklch(0.96 0.01 245);
   --navy: oklch(0.78 0.10 245);
-  --sky: oklch(0.78 0.14 245);
+  --sky: oklch(0.80 0.14 245);
+
+  /* Subtle accents in dark mode — desaturated */
+  --pixel-yellow: oklch(0.45 0.08 85);
+  --pixel-pink: oklch(0.55 0.10 20);
+  --pixel-cyan: oklch(0.45 0.08 230);
+  --pixel-purple: oklch(0.50 0.10 310);
+  --pixel-green: oklch(0.55 0.10 195);
+  --pixel-orange: oklch(0.55 0.10 78);
+  --pixel-blue: oklch(0.55 0.16 258);
 }
 
 /* Make existing hard-coded utilities follow theme in dark mode */
@@ -134,6 +148,13 @@
 .dark .bg-cream { background-color: color-mix(in oklab, var(--card) 70%, var(--background)) !important; }
 .dark .text-white { color: var(--foreground); }
 .dark .border-black\/5 { border-color: var(--border) !important; }
+.dark .border-ink { border-color: var(--border) !important; }
+.dark .ring-2.ring-white { --tw-ring-color: var(--card); }
+.dark .bg-ink { background-color: var(--card) !important; }
+.dark .text-ink\/65, .dark .text-ink\/70, .dark .text-ink\/60 { color: color-mix(in oklab, var(--foreground) 75%, transparent) !important; }
+.dark .text-ink\/50, .dark .text-ink\/40 { color: color-mix(in oklab, var(--foreground) 55%, transparent) !important; }
+.dark .bg-ink\/90, .dark .bg-ink\/80 { background-color: color-mix(in oklab, var(--foreground) 30%, transparent) !important; }
+.dark .bg-ink\/10 { background-color: color-mix(in oklab, var(--foreground) 12%, transparent) !important; }
 
 
 @layer base {
