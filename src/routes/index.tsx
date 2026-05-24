@@ -4,7 +4,7 @@ import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
 import { Marquee } from "@/components/site/Marquee";
 import { About } from "@/components/site/About";
-import { Founder } from "@/components/site/Founder";
+
 import { Services } from "@/components/site/Services";
 import { Pricing } from "@/components/site/Pricing";
 import { BuiltFor } from "@/components/site/BuiltFor";
@@ -73,12 +73,11 @@ export const Route = createFileRoute("/")({
 function Index() {
   useReveal();
   return (
-    <main className="bg-white text-ink min-h-screen">
+    <main className="bg-background text-ink min-h-screen">
       <Navbar />
       <Hero />
       <Marquee />
       <About />
-      <Founder />
 
       <Services />
       <Pricing />
