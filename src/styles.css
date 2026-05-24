@@ -45,7 +45,7 @@
   --color-pixel-blue: var(--pixel-blue);
   --color-pixel-purple: var(--pixel-purple);
 
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", "Playfair Display", ui-serif, Georgia, serif;
   --font-pixel: "Press Start 2P", ui-monospace, monospace;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 
