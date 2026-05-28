@@ -95,8 +95,6 @@ export function Navbar() {
         </div>
       </div>
 
-        </div>
-      </div>
 
       {open && (
         <div className="lg:hidden mt-2 mx-4">
