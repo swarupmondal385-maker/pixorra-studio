@@ -149,12 +149,29 @@
 .dark .text-white { color: var(--foreground); }
 .dark .border-black\/5 { border-color: var(--border) !important; }
 .dark .border-ink { border-color: var(--border) !important; }
+.dark .border-ink\/10, .dark .border-ink\/15, .dark .border-ink\/20 { border-color: var(--border) !important; }
 .dark .ring-2.ring-white { --tw-ring-color: var(--card); }
 .dark .bg-ink { background-color: var(--card) !important; }
+.dark .text-ink { color: var(--foreground) !important; }
+.dark .text-ink\/80, .dark .text-ink\/90 { color: color-mix(in oklab, var(--foreground) 88%, transparent) !important; }
 .dark .text-ink\/65, .dark .text-ink\/70, .dark .text-ink\/60 { color: color-mix(in oklab, var(--foreground) 75%, transparent) !important; }
 .dark .text-ink\/50, .dark .text-ink\/40 { color: color-mix(in oklab, var(--foreground) 55%, transparent) !important; }
 .dark .bg-ink\/90, .dark .bg-ink\/80 { background-color: color-mix(in oklab, var(--foreground) 30%, transparent) !important; }
-.dark .bg-ink\/10 { background-color: color-mix(in oklab, var(--foreground) 12%, transparent) !important; }
+.dark .bg-ink\/10, .dark .bg-ink\/5 { background-color: color-mix(in oklab, var(--foreground) 12%, transparent) !important; }
+.dark .bg-card { background-color: var(--card) !important; }
+.dark .shadow-pixel, .dark .shadow-card, .dark .shadow-card-lg {
+  box-shadow: 0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 30px -10px rgba(0,0,0,0.6), 0 2px 8px -2px rgba(0,0,0,0.4) !important;
+}
+/* Soften the dotted/grid backgrounds in dark mode */
+.dark .grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(125,211,252,0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(125,211,252,0.06) 1px, transparent 1px) !important;
+}
+.dark .dot-bg { opacity: 0.2 !important; }
+/* Keep gold/navy buttons crisp in dark mode */
+.dark .bg-navy { background-color: oklch(0.32 0.12 258) !important; }
+.dark .text-navy { color: oklch(0.82 0.13 245) !important; }
 
 
 @layer base {
