@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import logoMark from "@/assets/pixorra-mark.png";
 import { ThemeToggle } from "./ThemeToggle";
 
 const LINKS = [
-  { href: "#services", label: "Services", c: "bg-pixel-pink" },
-  { href: "#work", label: "Work", c: "bg-pixel-yellow" },
-  { href: "#process", label: "Process", c: "bg-pixel-cyan" },
-  { href: "/scorecard", label: "Scorecard", c: "bg-pixel-purple" },
-  { href: "#reviews", label: "Reviews", c: "bg-pixel-green" },
-  { href: "#faq", label: "FAQ", c: "bg-pixel-orange" },
+  { href: "/#services", label: "Services", c: "bg-pixel-pink", route: false },
+  { href: "/portfolio", label: "Portfolio", c: "bg-pixel-yellow", route: true },
+  { href: "/about", label: "About", c: "bg-pixel-cyan", route: true },
+  { href: "/scorecard", label: "Scorecard", c: "bg-pixel-purple", route: true },
+  { href: "/#reviews", label: "Reviews", c: "bg-pixel-green", route: false },
+  { href: "/#faq", label: "FAQ", c: "bg-pixel-orange", route: false },
 ];
 
 export function Navbar() {
@@ -49,24 +50,34 @@ export function Navbar() {
           <nav className="hidden lg:flex items-center gap-1">
             {LINKS.map((l) => (
               <a
-                key={l.href}
-                href={l.href}
-                className="group relative px-3.5 py-2 text-sm font-semibold text-ink/75 hover:text-ink transition-colors rounded-full"
-              >
-                <span className="relative z-10">{l.label}</span>
-                <span
-                  className={`absolute inset-0 rounded-full ${l.c} opacity-0 group-hover:opacity-100 transition-opacity -z-0`}
-                  style={{ opacity: 0 }}
-                />
-                <span
-                  className={`absolute left-3.5 right-3.5 -bottom-0.5 h-1 rounded-full ${l.c} scale-x-0 group-hover:scale-x-100 origin-left transition-transform`}
-                />
-              </a>
-            ))}
+          <nav className="hidden lg:flex items-center gap-1">
+            {LINKS.map((l) =>
+              l.route ? (
+                <Link
+                  key={l.href}
+                  to={l.href}
+                  className="group relative px-3.5 py-2 text-sm font-semibold text-ink/75 hover:text-ink transition-colors rounded-full"
+                >
+                  <span className="relative z-10">{l.label}</span>
+                  <span
+                    className={`absolute left-3.5 right-3.5 -bottom-0.5 h-1 rounded-full ${l.c} scale-x-0 group-hover:scale-x-100 origin-left transition-transform`}
+                  />
+                </Link>
+              ) : (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  className="group relative px-3.5 py-2 text-sm font-semibold text-ink/75 hover:text-ink transition-colors rounded-full"
+                >
+                  <span className="relative z-10">{l.label}</span>
+                  <span
+                    className={`absolute left-3.5 right-3.5 -bottom-0.5 h-1 rounded-full ${l.c} scale-x-0 group-hover:scale-x-100 origin-left transition-transform`}
+                  />
+                </a>
+              ),
+            )}
           </nav>
 
-          <div className="flex items-center gap-2">
-            <ThemeToggle className="hidden sm:inline-flex" />
             <a
               href="#demo"
               className="hidden sm:inline-flex items-center gap-2 h-11 px-5 rounded-full bg-gradient-pixorra text-white font-semibold text-sm shadow-card hover:-translate-y-0.5 transition-transform"
