@@ -7,7 +7,7 @@ const SERVICES = [
     icon: Globe,
     title: "Website Design & Development",
     desc: "Beautiful, fast, mobile-optimized websites tailored for your business.",
-    from: "₹14,999",
+    from: "₹19,999",
     suffix: "one-time",
   },
   {
@@ -30,7 +30,7 @@ const SERVICES = [
 const PACKAGES = [
   {
     name: "Starter",
-    price: "₹14,999",
+    price: "₹19,999",
     tagline: "Perfect for new businesses getting online",
     features: [
       "Custom website (up to 5 pages)",
@@ -45,7 +45,7 @@ const PACKAGES = [
   },
   {
     name: "Professional",
-    price: "₹19,999",
+    price: "₹29,999",
     tagline: "Our most chosen package for serious growth",
     features: [
       "Custom website (up to 10 pages)",
