@@ -48,9 +48,6 @@ export function Navbar() {
           </a>
 
           <nav className="hidden lg:flex items-center gap-1">
-            {LINKS.map((l) => (
-              <a
-          <nav className="hidden lg:flex items-center gap-1">
             {LINKS.map((l) =>
               l.route ? (
                 <Link
@@ -78,8 +75,10 @@ export function Navbar() {
             )}
           </nav>
 
+          <div className="flex items-center gap-2">
+            <ThemeToggle className="hidden sm:inline-flex" />
             <a
-              href="#demo"
+              href="/#demo"
               className="hidden sm:inline-flex items-center gap-2 h-11 px-5 rounded-full bg-gradient-pixorra text-white font-semibold text-sm shadow-card hover:-translate-y-0.5 transition-transform"
             >
               Get Free Demo
@@ -93,6 +92,9 @@ export function Navbar() {
               {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
+        </div>
+      </div>
+
         </div>
       </div>
 
