@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Globe, ShoppingBag, TrendingUp, ArrowUpRight, Check, X, ArrowRight } from "lucide-react";
+import { Globe, ShoppingBag, TrendingUp, Palette, Film, Wrench, ArrowUpRight, Check, X, ArrowRight } from "lucide-react";
 
 type Service = {
   icon: typeof Globe;
@@ -76,6 +76,66 @@ const SERVICES: Service[] = [
     deliverables: ["Ad account setup", "Landing page optimization", "Monthly strategy call"],
     timeline: "Ongoing (3-month minimum)",
     startingAt: "₹12,999/mo",
+  },
+  {
+    icon: Palette,
+    title: "Branding & Identity",
+    desc: "Logos, colour systems and brand kits that make you instantly recognisable.",
+    tag: "04",
+    pop: "card-pop-purple",
+    bg: "bg-pixel-purple/15",
+    ic: "text-pixel-purple",
+    long: "A brand isn't just a logo. We craft a complete identity system — colors, type, voice, and visuals — so you look premium everywhere your customers see you.",
+    features: [
+      "Logo design (3 concepts, unlimited revisions)",
+      "Color palette & typography system",
+      "Business card & stationery design",
+      "Social media templates",
+      "Brand guidelines PDF",
+    ],
+    deliverables: ["Full brand kit (AI, PNG, SVG)", "Brand guidelines document", "Social templates"],
+    timeline: "7–14 days",
+    startingAt: "₹12,999",
+  },
+  {
+    icon: Film,
+    title: "AI Video & Creative",
+    desc: "Scroll-stopping reels, ads and product videos produced in days, not weeks.",
+    tag: "05",
+    pop: "card-pop-green",
+    bg: "bg-pixel-green/20",
+    ic: "text-pixel-green",
+    long: "Modern AI workflows + sharp creative direction = stunning videos at a fraction of the cost. Perfect for Instagram Reels, YouTube Shorts, and paid ads.",
+    features: [
+      "AI-generated product & lifestyle videos",
+      "Reels & Shorts (vertical format)",
+      "UGC-style ad creatives",
+      "Voiceovers in Hindi & English",
+      "Captions, motion graphics, music",
+    ],
+    deliverables: ["4–8 videos per month", "Source files included", "Posting calendar"],
+    timeline: "3–5 days per batch",
+    startingAt: "₹12,999",
+  },
+  {
+    icon: Wrench,
+    title: "Website Maintenance",
+    desc: "Updates, backups, security and speed — so your site never lets you down.",
+    tag: "06",
+    pop: "card-pop-orange",
+    bg: "bg-pixel-orange/20",
+    ic: "text-pixel-orange",
+    long: "Don't wait for things to break. We monitor, update and optimize your site every month so it stays fast, secure, and bug-free year-round.",
+    features: [
+      "Daily automated backups",
+      "Security monitoring & malware scans",
+      "Plugin & core updates",
+      "Performance & uptime monitoring",
+      "Up to 2 hours of edits/month included",
+    ],
+    deliverables: ["Monthly health report", "Priority support", "Emergency restore"],
+    timeline: "Monthly",
+    startingAt: "₹499–999/mo",
   },
 ];
 
