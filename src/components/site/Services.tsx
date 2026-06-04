@@ -35,7 +35,7 @@ const SERVICES: Service[] = [
     ],
     deliverables: ["5–10 page website", "Admin CMS access", "1 month free support"],
     timeline: "10–14 days",
-    startingAt: "₹19,999",
+    startingAt: "₹14,999",
   },
   {
     icon: ShoppingBag,
@@ -75,7 +75,7 @@ const SERVICES: Service[] = [
     ],
     deliverables: ["Ad account setup", "Landing page optimization", "Monthly strategy call"],
     timeline: "Ongoing (3-month minimum)",
-    startingAt: "₹12,999/mo",
+    startingAt: "₹9,999/mo",
   },
   {
     icon: Palette,
@@ -95,7 +95,7 @@ const SERVICES: Service[] = [
     ],
     deliverables: ["Full brand kit (AI, PNG, SVG)", "Brand guidelines document", "Social templates"],
     timeline: "7–14 days",
-    startingAt: "₹12,999",
+    startingAt: "₹9,999",
   },
   {
     icon: Film,
@@ -115,7 +115,7 @@ const SERVICES: Service[] = [
     ],
     deliverables: ["4–8 videos per month", "Source files included", "Posting calendar"],
     timeline: "3–5 days per batch",
-    startingAt: "₹12,999",
+    startingAt: "₹9,999",
   },
   {
     icon: Wrench,

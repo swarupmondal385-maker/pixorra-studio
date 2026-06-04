@@ -7,7 +7,7 @@ const SERVICES = [
     icon: Globe,
     title: "Website Design & Development",
     desc: "Beautiful, fast, mobile-optimized websites tailored for your business.",
-    from: "₹19,999",
+    from: "₹14,999",
     suffix: "one-time",
   },
   {
@@ -30,7 +30,7 @@ const SERVICES = [
 const PACKAGES = [
   {
     name: "Starter",
-    price: "₹19,999",
+    price: "₹14,999",
     tagline: "Perfect for new businesses getting online",
     features: [
       "Custom website (up to 5 pages)",
@@ -45,7 +45,7 @@ const PACKAGES = [
   },
   {
     name: "Professional",
-    price: "₹29,999",
+    price: "₹19,999",
     tagline: "Our most chosen package for serious growth",
     features: [
       "Custom website (up to 10 pages)",
@@ -65,11 +65,13 @@ const PACKAGES = [
 export function Pricing() {
   return (
     <section id="pricing" className="relative py-20 md:py-32 bg-white overflow-hidden">
-      {/* Premium background — subtle sapphire + gold glow */}
-      <div className="absolute -top-24 -left-20 h-80 w-80 rounded-full bg-navy/10 blur-3xl" aria-hidden />
-      <div className="absolute top-40 -right-24 h-96 w-96 rounded-full bg-gold/15 blur-3xl" aria-hidden />
-      <div className="absolute bottom-10 left-1/3 h-72 w-72 rounded-full bg-sky/10 blur-3xl" aria-hidden />
-      <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none" aria-hidden />
+      {/* Bubble gum background blobs */}
+      <div className="absolute -top-24 -left-20 h-80 w-80 rounded-full bg-pixel-pink/20 blur-3xl blob" aria-hidden />
+      <div className="absolute top-40 -right-24 h-96 w-96 rounded-full bg-pixel-cyan/20 blur-3xl blob" style={{animationDelay:"3s"}} aria-hidden />
+      <div className="absolute bottom-10 left-1/3 h-72 w-72 rounded-full bg-pixel-yellow/25 blur-3xl blob" style={{animationDelay:"5s"}} aria-hidden />
+      <div className="absolute top-16 left-10 h-3 w-3 bg-pixel-pink sparkle-pulse" aria-hidden />
+      <div className="absolute top-32 right-24 h-2.5 w-2.5 bg-pixel-purple sparkle-pulse" style={{animationDelay:"1s"}} aria-hidden />
+      <div className="absolute bottom-24 right-10 h-3 w-3 bg-pixel-green sparkle-pulse" style={{animationDelay:"2s"}} aria-hidden />
 
       <div className="relative max-w-7xl mx-auto px-5 md:px-8">
         <div className="max-w-3xl mx-auto text-center reveal">
@@ -131,31 +133,16 @@ export function Pricing() {
           {PACKAGES.map(({ name, price, tagline, features, cta, popular }, i) => (
             <div
               key={name}
-              className={`reveal relative rounded-3xl p-7 md:p-10 transition-all duration-500 flex flex-col overflow-hidden ${
+              className={`reveal relative rounded-3xl p-7 md:p-10 transition-all duration-500 flex flex-col border-2 border-ink ${
                 popular
-                  ? "text-white border border-gold/40"
-                  : "bg-card text-ink border border-ink/10 hover:-translate-y-1"
+                  ? "bg-ink text-white"
+                  : "bg-white text-ink hover:-translate-y-1"
               }`}
-              style={{
-                animationDelay: `${i * 120}ms`,
-                background: popular
-                  ? "linear-gradient(135deg, oklch(0.22 0.05 258) 0%, oklch(0.28 0.10 258) 55%, oklch(0.34 0.13 250) 100%)"
-                  : undefined,
-                boxShadow: popular
-                  ? "0 30px 80px -20px color-mix(in oklab, var(--navy) 60%, transparent), 0 0 0 1px color-mix(in oklab, var(--gold) 35%, transparent) inset"
-                  : "0 20px 50px -22px color-mix(in oklab, var(--navy) 35%, transparent)",
-              }}
+              style={{ animationDelay: `${i * 120}ms`, boxShadow: popular ? "10px 10px 0 0 var(--pixel-pink)" : "8px 8px 0 0 var(--pixel-yellow)" }}
             >
-              {/* Premium gold accent line */}
               {popular && (
-                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold to-transparent" aria-hidden />
-              )}
-              {!popular && (
-                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent" aria-hidden />
-              )}
-              {popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full bg-gradient-gold px-4 py-1.5 text-xs font-bold text-ink whitespace-nowrap shadow-gold">
-                  <Star className="h-3 w-3 fill-ink" strokeWidth={0} />
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full bg-gradient-pixorra px-4 py-1.5 text-xs font-bold text-white border-2 border-ink whitespace-nowrap">
+                  <Star className="h-3 w-3 fill-white" strokeWidth={0} />
                   Most Popular
                 </div>
               )}
@@ -170,8 +157,8 @@ export function Pricing() {
               <ul className="mt-7 space-y-3 flex-1">
                 {features.map((f) => (
                   <li key={f} className="flex items-start gap-3">
-                    <div className={`mt-0.5 flex-shrink-0 h-5 w-5 rounded-full flex items-center justify-center ${popular ? "bg-gold/90" : "bg-navy/10 border border-navy/20"}`}>
-                      <Check className={`h-3 w-3 ${popular ? "text-ink" : "text-navy"}`} strokeWidth={3} />
+                    <div className={`mt-0.5 flex-shrink-0 h-5 w-5 rounded-full border border-ink flex items-center justify-center ${popular ? "bg-pixel-yellow" : "bg-pixel-green"}`}>
+                      <Check className="h-3 w-3 text-ink" strokeWidth={3} />
                     </div>
                     <span className={`text-sm leading-relaxed ${popular ? "text-white/90" : "text-ink/80"}`}>{f}</span>
                   </li>
@@ -181,10 +168,10 @@ export function Pricing() {
                 href={WHATSAPP}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`mt-8 inline-flex items-center justify-center gap-2 rounded-full px-6 py-4 font-semibold transition-all min-h-12 ${
+                className={`mt-8 inline-flex items-center justify-center gap-2 rounded-full px-6 py-4 font-semibold transition-all min-h-12 border-2 border-ink ${
                   popular
-                    ? "bg-gradient-gold text-ink hover:-translate-y-0.5 shadow-gold"
-                    : "bg-navy text-white hover:bg-ink border border-navy/30"
+                    ? "bg-gradient-pixorra text-white hover:-translate-y-0.5"
+                    : "bg-ink text-white hover:bg-pixel-purple"
                 }`}
               >
                 {cta}

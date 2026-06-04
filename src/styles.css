@@ -45,7 +45,7 @@
   --color-pixel-blue: var(--pixel-blue);
   --color-pixel-purple: var(--pixel-purple);
 
-  --font-display: "Fraunces", "Playfair Display", ui-serif, Georgia, serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-pixel: "Press Start 2P", ui-monospace, monospace;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 
@@ -64,83 +64,69 @@
 :root {
   --radius: 0.9rem;
 
-  /* Premium brand palette — warm white + sapphire blue + accent gold/rose */
-  --cream: oklch(0.985 0.012 80);
+  /* Premium brand palette — minimal sapphire blue */
+  --cream: oklch(0.985 0.005 245);
   --ink: oklch(0.20 0.03 250);
-  --gold: oklch(0.80 0.11 78);
+  --gold: oklch(0.78 0.10 80);
   --gold-soft: oklch(0.94 0.04 85);
   --navy: oklch(0.28 0.10 258);
   --sky: oklch(0.66 0.16 250);
   --whatsapp: oklch(0.66 0.14 160);
 
-  /* Accent palette — subtle premium colors used sparingly */
-  --rose: oklch(0.78 0.10 20);
-  --teal: oklch(0.72 0.09 195);
-  --plum: oklch(0.55 0.10 310);
-
-  /* Legacy "pixel" tokens remapped to refined premium palette */
-  --pixel-pink: oklch(0.78 0.10 20);
-  --pixel-orange: oklch(0.80 0.11 78);
-  --pixel-yellow: oklch(0.92 0.05 85);
-  --pixel-green: oklch(0.72 0.09 195);
-  --pixel-cyan: oklch(0.88 0.05 230);
+  /* Legacy "pixel" tokens remapped to a refined blue/neutral family
+     so existing components instantly look premium and tonal. */
+  --pixel-pink: oklch(0.66 0.16 250);
+  --pixel-orange: oklch(0.78 0.10 80);
+  --pixel-yellow: oklch(0.86 0.06 85);
+  --pixel-green: oklch(0.68 0.10 200);
+  --pixel-cyan: oklch(0.82 0.07 235);
   --pixel-blue: oklch(0.55 0.16 258);
-  --pixel-purple: oklch(0.55 0.10 310);
+  --pixel-purple: oklch(0.42 0.12 262);
 
-  /* Warm white background instead of pure white */
-  --background: oklch(0.985 0.010 80);
+  --background: oklch(1 0 0);
   --foreground: var(--ink);
   --card: oklch(1 0 0);
   --card-foreground: var(--ink);
   --popover: oklch(1 0 0);
   --popover-foreground: var(--ink);
   --primary: var(--ink);
-  --primary-foreground: oklch(0.99 0.008 80);
+  --primary-foreground: oklch(1 0 0);
   --secondary: var(--cream);
   --secondary-foreground: var(--ink);
-  --muted: oklch(0.96 0.012 80);
-  --muted-foreground: oklch(0.52 0.02 270);
+  --muted: oklch(0.97 0.005 90);
+  --muted-foreground: oklch(0.52 0.01 280);
   --accent: var(--gold);
   --accent-foreground: var(--ink);
   --destructive: oklch(0.58 0.22 27);
   --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.91 0.012 80);
-  --input: oklch(0.91 0.012 80);
-  --ring: var(--sky);
+  --border: oklch(0.92 0.008 90);
+  --input: oklch(0.92 0.008 90);
+  --ring: var(--gold);
 }
 
 .dark {
-  --background: oklch(0.16 0.025 258);
+  --background: oklch(0.16 0.03 255);
   --foreground: oklch(0.96 0.01 245);
-  --card: oklch(0.21 0.030 258);
+  --card: oklch(0.21 0.035 258);
   --card-foreground: oklch(0.96 0.01 245);
-  --popover: oklch(0.21 0.030 258);
+  --popover: oklch(0.21 0.035 258);
   --popover-foreground: oklch(0.96 0.01 245);
-  --primary: oklch(0.72 0.16 250);
+  --primary: oklch(0.7 0.16 250);
   --primary-foreground: oklch(0.14 0.03 255);
-  --secondary: oklch(0.24 0.035 258);
+  --secondary: oklch(0.24 0.04 258);
   --secondary-foreground: oklch(0.96 0.01 245);
   --muted: oklch(0.24 0.03 258);
-  --muted-foreground: oklch(0.74 0.025 250);
-  --accent: oklch(0.80 0.11 78);
+  --muted-foreground: oklch(0.72 0.03 250);
+  --accent: oklch(0.66 0.16 250);
   --accent-foreground: oklch(0.14 0.03 255);
-  --border: oklch(0.32 0.04 258);
-  --input: oklch(0.32 0.04 258);
-  --ring: oklch(0.72 0.16 250);
+  --border: oklch(0.30 0.04 258);
+  --input: oklch(0.30 0.04 258);
+  --ring: oklch(0.66 0.16 250);
 
-  --cream: oklch(0.22 0.030 258);
+  --cream: oklch(0.22 0.035 258);
   --ink: oklch(0.96 0.01 245);
   --navy: oklch(0.78 0.10 245);
-  --sky: oklch(0.80 0.14 245);
-
-  /* Subtle accents in dark mode — desaturated */
-  --pixel-yellow: oklch(0.45 0.08 85);
-  --pixel-pink: oklch(0.55 0.10 20);
-  --pixel-cyan: oklch(0.45 0.08 230);
-  --pixel-purple: oklch(0.50 0.10 310);
-  --pixel-green: oklch(0.55 0.10 195);
-  --pixel-orange: oklch(0.55 0.10 78);
-  --pixel-blue: oklch(0.55 0.16 258);
+  --sky: oklch(0.78 0.14 245);
 }
 
 /* Make existing hard-coded utilities follow theme in dark mode */
@@ -148,30 +134,6 @@
 .dark .bg-cream { background-color: color-mix(in oklab, var(--card) 70%, var(--background)) !important; }
 .dark .text-white { color: var(--foreground); }
 .dark .border-black\/5 { border-color: var(--border) !important; }
-.dark .border-ink { border-color: var(--border) !important; }
-.dark .border-ink\/10, .dark .border-ink\/15, .dark .border-ink\/20 { border-color: var(--border) !important; }
-.dark .ring-2.ring-white { --tw-ring-color: var(--card); }
-.dark .bg-ink { background-color: var(--card) !important; }
-.dark .text-ink { color: var(--foreground) !important; }
-.dark .text-ink\/80, .dark .text-ink\/90 { color: color-mix(in oklab, var(--foreground) 88%, transparent) !important; }
-.dark .text-ink\/65, .dark .text-ink\/70, .dark .text-ink\/60 { color: color-mix(in oklab, var(--foreground) 75%, transparent) !important; }
-.dark .text-ink\/50, .dark .text-ink\/40 { color: color-mix(in oklab, var(--foreground) 55%, transparent) !important; }
-.dark .bg-ink\/90, .dark .bg-ink\/80 { background-color: color-mix(in oklab, var(--foreground) 30%, transparent) !important; }
-.dark .bg-ink\/10, .dark .bg-ink\/5 { background-color: color-mix(in oklab, var(--foreground) 12%, transparent) !important; }
-.dark .bg-card { background-color: var(--card) !important; }
-.dark .shadow-pixel, .dark .shadow-card, .dark .shadow-card-lg {
-  box-shadow: 0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 30px -10px rgba(0,0,0,0.6), 0 2px 8px -2px rgba(0,0,0,0.4) !important;
-}
-/* Soften the dotted/grid backgrounds in dark mode */
-.dark .grid-bg {
-  background-image:
-    linear-gradient(to right, rgba(125,211,252,0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(125,211,252,0.06) 1px, transparent 1px) !important;
-}
-.dark .dot-bg { opacity: 0.2 !important; }
-/* Keep gold/navy buttons crisp in dark mode */
-.dark .bg-navy { background-color: oklch(0.32 0.12 258) !important; }
-.dark .text-navy { color: oklch(0.82 0.13 245) !important; }
 
 
 @layer base {
@@ -189,13 +151,12 @@
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.015em;
-    font-weight: 500;
+    letter-spacing: -0.02em;
   }
 }
 
 @layer utilities {
-  .font-display { font-family: var(--font-display); font-weight: 500; }
+  .font-display { font-family: var(--font-display); }
   .text-gold { color: var(--gold); }
   .bg-gold { background-color: var(--gold); }
   .bg-cream { background-color: var(--cream); }
@@ -203,31 +164,6 @@
   .text-navy { color: var(--navy); }
   .text-ink { color: var(--ink); }
   .border-gold { border-color: var(--gold); }
-  .bg-gradient-gold { background-image: var(--gradient-gold); }
-  .bg-gradient-navy { background-image: var(--gradient-navy); }
-  .bg-gradient-hero { background-image: var(--gradient-hero); }
-  .shadow-gold { box-shadow: var(--shadow-glow-gold); }
-  .shadow-card { box-shadow: var(--shadow-card); }
-  .shadow-card-lg { box-shadow: var(--shadow-card-lg); }
-  .shadow-pixel { box-shadow: var(--shadow-pixel); }
-
-  /* Glass effects — premium digital theme */
-  .glass {
-    background: color-mix(in oklab, var(--card) 60%, transparent);
-    backdrop-filter: blur(18px) saturate(140%);
-    -webkit-backdrop-filter: blur(18px) saturate(140%);
-    border: 1px solid color-mix(in oklab, var(--foreground) 8%, transparent);
-  }
-  .glass-strong {
-    background: color-mix(in oklab, var(--card) 78%, transparent);
-    backdrop-filter: blur(24px) saturate(160%);
-    -webkit-backdrop-filter: blur(24px) saturate(160%);
-    border: 1px solid color-mix(in oklab, var(--foreground) 10%, transparent);
-  }
-  .dark .glass, .dark .glass-strong {
-    background: color-mix(in oklab, var(--card) 55%, transparent);
-    border-color: color-mix(in oklab, var(--foreground) 14%, transparent);
-  }
   .bg-gradient-gold { background-image: var(--gradient-gold); }
   .bg-gradient-navy { background-image: var(--gradient-navy); }
   .bg-gradient-hero { background-image: var(--gradient-hero); }
