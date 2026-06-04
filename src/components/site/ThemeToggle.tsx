@@ -13,13 +13,12 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
   const [theme, setTheme] = useState<"light" | "dark">("light");
 
   useEffect(() => {
+    // Default to light mode for first-time visitors. Only honor an explicit saved choice.
     const saved = (typeof localStorage !== "undefined" && localStorage.getItem(STORAGE_KEY)) as
       | "light"
       | "dark"
       | null;
-    const prefersDark =
-      typeof window !== "undefined" && window.matchMedia?.("(prefers-color-scheme: dark)").matches;
-    const initial = saved ?? (prefersDark ? "dark" : "light");
+    const initial: "light" | "dark" = saved ?? "light";
     setTheme(initial);
     applyTheme(initial);
   }, []);

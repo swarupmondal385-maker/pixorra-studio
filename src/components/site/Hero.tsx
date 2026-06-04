@@ -1,97 +1,83 @@
-import { ArrowRight, Play, Star, CheckCircle2, TrendingUp, IndianRupee, MessageCircle, Sparkles, Zap, Heart, Rocket, Smile } from "lucide-react";
+import { ArrowRight, Play, Star, CheckCircle2, TrendingUp, IndianRupee, MessageCircle, Smile } from "lucide-react";
 import logoMark from "@/assets/pixorra-mark.png";
 import { VideoEmbed } from "./VideoEmbed";
+import { Countdown } from "./Countdown";
 
 export function Hero() {
   return (
     <section id="top" className="relative pt-28 md:pt-36 bg-gradient-hero overflow-hidden">
-      {/* Big soft blobs */}
+      {/* Subtle premium glow background */}
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -top-24 -left-24 h-80 w-80 bg-pixel-pink/25 blob" />
-        <div className="absolute top-40 -right-24 h-96 w-96 bg-pixel-cyan/25 blob" style={{ animationDelay: "2s" }} />
-        <div className="absolute bottom-10 left-1/3 h-72 w-72 bg-pixel-yellow/30 blob" style={{ animationDelay: "4s" }} />
-      </div>
-
-      {/* Pixel sparkles */}
-      <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <div className="absolute top-24 left-8 h-3 w-3 bg-pixel-pink sparkle-pulse" />
-        <div className="absolute top-40 right-16 h-2 w-2 bg-pixel-yellow sparkle-pulse" style={{ animationDelay: "0.5s" }} />
-        <div className="absolute top-60 left-1/3 h-2.5 w-2.5 bg-pixel-cyan sparkle-pulse" style={{ animationDelay: "1s" }} />
-        <div className="absolute top-80 right-1/4 h-2 w-2 bg-pixel-purple sparkle-pulse" style={{ animationDelay: "1.5s" }} />
-        <div className="absolute top-32 right-10 h-2.5 w-2.5 bg-pixel-green sparkle-pulse" style={{ animationDelay: "2s" }} />
-        <div className="absolute top-[28rem] left-12 h-2 w-2 bg-pixel-orange sparkle-pulse" style={{ animationDelay: "0.8s" }} />
-        <div className="absolute top-[22rem] right-1/3 h-3 w-3 bg-pixel-blue sparkle-pulse" style={{ animationDelay: "1.3s" }} />
-      </div>
-
-      {/* Floating emoji stickers */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 hidden md:block">
-        <div className="absolute top-28 left-[8%] text-3xl drift">⚡</div>
-        <div className="absolute top-44 right-[10%] text-3xl drift" style={{ animationDelay: "1.5s" }}>🚀</div>
-        <div className="absolute top-[26rem] left-[6%] text-3xl drift" style={{ animationDelay: "3s" }}>💖</div>
-        <div className="absolute top-[30rem] right-[8%] text-2xl drift" style={{ animationDelay: "2.2s" }}>✨</div>
+        <div
+          className="absolute -top-32 left-1/2 -translate-x-1/2 h-[520px] w-[520px] rounded-full opacity-60 blur-3xl"
+          style={{ background: "radial-gradient(closest-side, color-mix(in oklab, var(--sky) 22%, transparent), transparent)" }}
+        />
+        <div
+          className="absolute top-40 -right-24 h-96 w-96 rounded-full opacity-50 blur-3xl"
+          style={{ background: "radial-gradient(closest-side, color-mix(in oklab, var(--gold) 25%, transparent), transparent)" }}
+        />
       </div>
 
       {/* Phase 1: Cinematic */}
       <div className="relative max-w-7xl mx-auto px-5 md:px-8">
-        <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" aria-hidden />
+        <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none" aria-hidden />
 
         <div className="relative text-center max-w-5xl mx-auto reveal">
-          {/* Mascot with orbit */}
+          {/* Clean logo mark — no orbiting objects */}
           <div className="flex justify-center">
-            <div className="relative h-28 w-28 md:h-36 md:w-36">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="orbit" style={{ ["--orbit-r" as any]: "78px" }}>
-                  <div className="h-9 w-9 rounded-full glass-strong flex items-center justify-center shadow-card">
-                    <Zap className="h-4 w-4 text-gold" fill="currentColor" />
-                  </div>
-                </div>
-              </div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="orbit" style={{ ["--orbit-r" as any]: "78px", animationDelay: "-3s" } as any}>
-                  <div className="h-9 w-9 rounded-full glass-strong flex items-center justify-center shadow-card">
-                    <Heart className="h-4 w-4 text-pixel-pink" fill="currentColor" />
-                  </div>
-                </div>
-              </div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="orbit" style={{ ["--orbit-r" as any]: "78px", animationDelay: "-6s" } as any}>
-                  <div className="h-9 w-9 rounded-full glass-strong flex items-center justify-center shadow-card">
-                    <Rocket className="h-4 w-4 text-sky" />
-                  </div>
-                </div>
-              </div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <img
-                  src={logoMark}
-                  alt="Pixorra"
-                  className="h-24 w-24 md:h-28 md:w-28 object-contain bounce-soft drop-shadow-xl"
-                />
-              </div>
+            <div className="relative">
+              <div
+                aria-hidden
+                className="absolute inset-0 -z-10 rounded-full blur-2xl opacity-70"
+                style={{ background: "radial-gradient(closest-side, color-mix(in oklab, var(--gold) 40%, transparent), transparent)" }}
+              />
+              <img
+                src={logoMark}
+                alt="Pixorra"
+                className="h-20 w-20 md:h-24 md:w-24 object-contain drop-shadow-xl"
+              />
             </div>
           </div>
 
-          <h1 className="mt-6 font-display text-ink text-balance text-[2.1rem] leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl tracking-tight font-medium">
-            <span className="italic font-normal" style={{ fontVariationSettings: '"opsz" 144' }}>Websites</span> that make
-            <br className="hidden sm:block" />
-            <span className="sm:hidden"> </span>
-            your business the{" "}
-            <span className="relative inline-block">
-              <span className="relative z-10 text-gradient-pixorra italic">obvious choice</span>
-              <span className="absolute left-0 right-0 bottom-0.5 md:bottom-1 h-2.5 md:h-3 bg-gold/35 -z-0 rounded-sm" />
+          {/* Small eyebrow */}
+          <div className="mt-5 flex justify-center">
+            <span className="inline-flex items-center gap-2 rounded-full glass px-3.5 py-1.5 text-[10px] md:text-[11px] font-semibold tracking-[0.22em] uppercase text-ink/70">
+              <span className="h-1.5 w-1.5 rounded-full bg-gold" /> Pixorra Studio · Mumbai
             </span>
-            .
-          </h1>
-
-          <p className="mt-6 md:mt-7 text-[15px] md:text-xl text-ink/65 max-w-2xl mx-auto text-balance px-2">
-            Custom websites. Modern design. Real results — delivered in 7–10 days from our studio in Mumbai.
-          </p>
-
-          {/* Hero video */}
-          <div className="mt-8 md:mt-10">
-            <VideoEmbed eyebrow="Watch the 60-second intro" />
           </div>
 
+          <h1 className="mt-5 font-display text-ink text-balance text-[2.2rem] leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl tracking-tight font-medium">
+            The complete system to{" "}
+            <span className="relative inline-block">
+              <span className="relative z-10 italic" style={{ fontVariationSettings: '"opsz" 144' }}>grow online</span>
+              <span className="absolute left-0 right-0 bottom-1 h-2.5 md:h-3 bg-gold/35 -z-0 rounded-sm" />
+            </span>
+            <br className="hidden sm:block" />
+            <span className="sm:hidden"> </span>
+            websites, ads &amp; SEO — done right.
+          </h1>
 
+          <p className="mt-5 md:mt-6 text-[15px] md:text-xl text-ink/65 max-w-2xl mx-auto text-balance px-2">
+            One studio. One plan. Custom websites, Google Ads and SEO that turn visitors into paying customers — launched in 7–10 days.
+          </p>
+
+          {/* Limited-time countdown */}
+          <div className="mt-9 md:mt-10">
+            <Countdown />
+          </div>
+
+          {/* Hero video with gold glow */}
+          <div className="mt-10 md:mt-12 relative">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -inset-6 md:-inset-10 -z-10 rounded-[2.5rem] blur-3xl opacity-70"
+              style={{
+                background:
+                  "radial-gradient(60% 60% at 50% 50%, color-mix(in oklab, var(--gold) 32%, transparent), transparent 70%)",
+              }}
+            />
+            <VideoEmbed eyebrow="Watch the 60-second intro" />
+          </div>
 
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
@@ -105,7 +91,7 @@ export function Hero() {
               href="#work"
               className="inline-flex items-center gap-2 h-14 px-7 rounded-full bg-white border-2 border-ink text-ink font-bold hover:bg-pixel-yellow transition-colors shadow-pixel"
             >
-              <Play className="h-4 w-4 text-pixel-pink" fill="currentColor" />
+              <Play className="h-4 w-4 text-gold" fill="currentColor" />
               See Our Work
             </a>
           </div>
@@ -115,9 +101,9 @@ export function Hero() {
             <div className="flex items-center gap-2">
               <div className="flex -space-x-2">
                 {[
-                  { i: "A", bg: "bg-pixel-pink" },
-                  { i: "R", bg: "bg-pixel-yellow" },
-                  { i: "K", bg: "bg-pixel-cyan" },
+                  { i: "A", bg: "bg-navy" },
+                  { i: "R", bg: "bg-gold" },
+                  { i: "K", bg: "bg-sky" },
                   { i: "S", bg: "bg-pixel-purple" },
                 ].map(({ i, bg }) => (
                   <div key={i} className={`h-8 w-8 rounded-full ring-2 ring-white border border-ink flex items-center justify-center text-xs font-bold text-white ${bg}`}>
@@ -130,7 +116,7 @@ export function Hero() {
             <div className="flex items-center gap-2">
               <div className="flex gap-0.5">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-pixel-yellow text-pixel-yellow" />
+                  <Star key={i} className="h-4 w-4 fill-gold text-gold" />
                 ))}
               </div>
               <span className="text-ink/70"><b className="text-ink">4.9/5</b> on Google</span>
@@ -142,6 +128,7 @@ export function Hero() {
           </div>
         </div>
       </div>
+
 
       {/* Phase 2: Split credibility */}
       <div className="relative max-w-7xl mx-auto px-5 md:px-8 mt-20 md:mt-28 pb-16 md:pb-24">
