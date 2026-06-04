@@ -17,9 +17,8 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
       | "light"
       | "dark"
       | null;
-    const prefersDark =
-      typeof window !== "undefined" && window.matchMedia?.("(prefers-color-scheme: dark)").matches;
-    const initial = saved ?? (prefersDark ? "dark" : "light");
+    // Always default to light mode for first-time visitors (ignore system preference).
+    const initial = saved ?? "light";
     setTheme(initial);
     applyTheme(initial);
   }, []);
