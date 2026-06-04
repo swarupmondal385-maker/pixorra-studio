@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Globe, ShoppingBag, TrendingUp, Palette, Film, Wrench, ArrowUpRight, Check, X, ArrowRight } from "lucide-react";
+import { Globe, ShoppingBag, TrendingUp, ArrowUpRight, Check, X, ArrowRight } from "lucide-react";
+
 
 type Service = {
   icon: typeof Globe;
