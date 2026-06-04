@@ -98,7 +98,7 @@ export function Services() {
           </p>
         </div>
 
-        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
+        <div className="mt-12 md:mt-14 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
           {SERVICES.map((s, i) => {
             const Icon = s.icon;
             return (
@@ -106,18 +106,26 @@ export function Services() {
                 type="button"
                 key={s.title}
                 onClick={() => setActive(s)}
-                className={`reveal group relative text-left rounded-3xl bg-white p-7 md:p-8 ${s.pop} focus:outline-none focus-visible:ring-4 focus-visible:ring-pixel-pink/40`}
-                style={{ animationDelay: `${i * 80}ms` }}
+                className={`reveal group relative text-left rounded-3xl glass-strong p-6 md:p-7 hover:-translate-y-1 transition-transform focus:outline-none focus-visible:ring-4 focus-visible:ring-gold/40`}
+                style={{
+                  animationDelay: `${i * 80}ms`,
+                  boxShadow: "0 20px 50px -22px color-mix(in oklab, var(--navy) 35%, transparent)",
+                }}
               >
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-x-0 top-0 h-px"
+                  style={{ background: "linear-gradient(90deg, transparent, color-mix(in oklab, var(--gold) 70%, transparent), transparent)" }}
+                />
                 <div className="absolute top-5 right-6 font-pixel text-[10px] text-ink/40 tracking-widest">
                   {s.tag}
                 </div>
-                <div className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl border-2 border-ink ${s.bg}`}>
-                  <Icon className={`h-6 w-6 ${s.ic}`} strokeWidth={2.2} />
+                <div className={`inline-flex h-12 w-12 md:h-14 md:w-14 items-center justify-center rounded-2xl border border-ink/10 ${s.bg}`}>
+                  <Icon className={`h-5 w-5 md:h-6 md:w-6 ${s.ic}`} strokeWidth={2.2} />
                 </div>
-                <h3 className="mt-6 font-display text-xl font-bold text-ink">{s.title}</h3>
-                <p className="mt-2 text-ink/65 leading-relaxed">{s.desc}</p>
-                <div className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-ink group-hover:text-pixel-pink transition-colors">
+                <h3 className="mt-5 font-display text-xl font-semibold text-ink">{s.title}</h3>
+                <p className="mt-2 text-ink/65 leading-relaxed text-[15px]">{s.desc}</p>
+                <div className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-ink group-hover:text-gold transition-colors">
                   Learn more
                   <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </div>
@@ -125,6 +133,7 @@ export function Services() {
             );
           })}
         </div>
+
       </div>
 
       {active && <ServiceModal service={active} onClose={() => setActive(null)} />}
