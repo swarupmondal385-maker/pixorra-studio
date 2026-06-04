@@ -36,61 +36,66 @@ export function Hero() {
         <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" aria-hidden />
 
         <div className="relative text-center max-w-5xl mx-auto reveal">
+          <div className="inline-flex items-center gap-2 h-9 px-4 rounded-full bg-white border-2 border-ink text-xs font-bold tracking-wider uppercase shadow-pixel">
+            <Sparkles className="h-3 w-3 text-pixel-pink" fill="currentColor" />
+            <span className="text-gradient-pixorra">Mumbai's Playful Digital Agency</span>
+          </div>
+
           {/* Mascot with orbit */}
-          <div className="flex justify-center">
-            <div className="relative h-28 w-28 md:h-36 md:w-36">
+          <div className="mt-6 flex justify-center">
+            <div className="relative h-32 w-32 md:h-36 md:w-36">
+              {/* orbiting stickers */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="orbit" style={{ ["--orbit-r" as any]: "78px" }}>
-                  <div className="h-9 w-9 rounded-full glass-strong flex items-center justify-center shadow-card">
-                    <Zap className="h-4 w-4 text-gold" fill="currentColor" />
+                  <div className="h-9 w-9 rounded-full bg-pixel-yellow border-2 border-ink shadow-pixel flex items-center justify-center">
+                    <Zap className="h-4 w-4 text-ink" fill="currentColor" />
                   </div>
                 </div>
               </div>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="orbit" style={{ ["--orbit-r" as any]: "78px", animationDelay: "-3s" } as any}>
-                  <div className="h-9 w-9 rounded-full glass-strong flex items-center justify-center shadow-card">
-                    <Heart className="h-4 w-4 text-pixel-pink" fill="currentColor" />
+                  <div className="h-9 w-9 rounded-full bg-pixel-pink border-2 border-ink shadow-pixel flex items-center justify-center">
+                    <Heart className="h-4 w-4 text-white" fill="currentColor" />
                   </div>
                 </div>
               </div>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="orbit" style={{ ["--orbit-r" as any]: "78px", animationDelay: "-6s" } as any}>
-                  <div className="h-9 w-9 rounded-full glass-strong flex items-center justify-center shadow-card">
-                    <Rocket className="h-4 w-4 text-sky" />
+                  <div className="h-9 w-9 rounded-full bg-pixel-cyan border-2 border-ink shadow-pixel flex items-center justify-center">
+                    <Rocket className="h-4 w-4 text-ink" />
                   </div>
                 </div>
               </div>
+              {/* mascot */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <img
                   src={logoMark}
-                  alt="Pixorra"
+                  alt="Pixorra mascot"
                   className="h-24 w-24 md:h-28 md:w-28 object-contain bounce-soft drop-shadow-xl"
                 />
               </div>
             </div>
           </div>
 
-          <h1 className="mt-6 font-display text-ink text-balance text-[2.1rem] leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl tracking-tight font-medium">
-            <span className="italic font-normal" style={{ fontVariationSettings: '"opsz" 144' }}>Websites</span> that make
-            <br className="hidden sm:block" />
-            <span className="sm:hidden"> </span>
+          <h1 className="mt-4 font-display font-bold text-ink text-balance text-[2.4rem] leading-[1.02] sm:text-6xl md:text-7xl lg:text-[5.2rem] tracking-tight">
+            Websites that make
+            <br />
             your business the{" "}
             <span className="relative inline-block">
-              <span className="relative z-10 text-gradient-pixorra italic">obvious choice</span>
-              <span className="absolute left-0 right-0 bottom-0.5 md:bottom-1 h-2.5 md:h-3 bg-gold/35 -z-0 rounded-sm" />
+              <span className="relative z-10 text-gradient-pixorra">obvious choice</span>
+              <span className="absolute left-0 right-0 bottom-1 md:bottom-2 h-3 md:h-4 bg-pixel-yellow/60 -z-0 rounded-sm" />
             </span>
             .
           </h1>
 
-          <p className="mt-6 md:mt-7 text-[15px] md:text-xl text-ink/65 max-w-2xl mx-auto text-balance px-2">
-            Custom websites. Modern design. Real results — delivered in 7–10 days from our studio in Mumbai.
+          <p className="mt-7 text-base md:text-xl text-ink/65 max-w-2xl mx-auto text-balance">
+            Custom websites. Modern design. High performance. Real results — delivered in 7–10 days from our studio in Mumbai.
           </p>
 
-          {/* Hero video */}
-          <div className="mt-8 md:mt-10">
+          {/* Hero video — set the YouTube ID inside src/components/site/VideoEmbed.tsx */}
+          <div className="mt-10">
             <VideoEmbed eyebrow="Watch the 60-second intro" />
           </div>
-
 
 
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
