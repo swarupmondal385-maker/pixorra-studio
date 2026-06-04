@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
 import logoMark from "@/assets/pixorra-mark.png";
+import { ThemeToggle } from "./ThemeToggle";
 
 const LINKS = [
   { href: "#services", label: "Services", c: "bg-pixel-pink" },
@@ -65,9 +66,10 @@ export function Navbar() {
           </nav>
 
           <div className="flex items-center gap-2">
+            <ThemeToggle className="hidden sm:inline-flex" />
             <a
               href="#demo"
-              className="hidden sm:inline-flex items-center gap-2 h-11 px-5 rounded-full bg-gradient-pixorra text-white font-bold text-sm border-2 border-ink shadow-pixel hover:-translate-y-0.5 hover:translate-x-0.5 transition-transform"
+              className="hidden sm:inline-flex items-center gap-2 h-11 px-5 rounded-full bg-gradient-pixorra text-white font-semibold text-sm shadow-card hover:-translate-y-0.5 transition-transform"
             >
               Get Free Demo
               <ArrowRight className="h-4 w-4" />
