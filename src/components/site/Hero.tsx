@@ -1,6 +1,5 @@
 import { ArrowRight, Play, Star, CheckCircle2, TrendingUp, IndianRupee, MessageCircle, Sparkles, Zap, Heart, Rocket, Smile } from "lucide-react";
 import logoMark from "@/assets/pixorra-mark.png";
-import { VideoEmbed } from "./VideoEmbed";
 
 export function Hero() {
   return (
@@ -91,12 +90,6 @@ export function Hero() {
           <p className="mt-7 text-base md:text-xl text-ink/65 max-w-2xl mx-auto text-balance">
             Custom websites. Modern design. High performance. Real results — delivered in 7–10 days from our studio in Mumbai.
           </p>
-
-          {/* Hero video — set the YouTube ID inside src/components/site/VideoEmbed.tsx */}
-          <div className="mt-10">
-            <VideoEmbed eyebrow="Watch the 60-second intro" />
-          </div>
-
 
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
