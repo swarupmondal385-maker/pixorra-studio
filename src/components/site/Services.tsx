@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Globe, ShoppingBag, TrendingUp, ArrowUpRight, Check, X, ArrowRight } from "lucide-react";
-
+import { Globe, ShoppingBag, TrendingUp, Palette, Film, Wrench, ArrowUpRight, Check, X, ArrowRight } from "lucide-react";
 
 type Service = {
   icon: typeof Globe;
@@ -78,8 +77,67 @@ const SERVICES: Service[] = [
     timeline: "Ongoing (3-month minimum)",
     startingAt: "₹12,999/mo",
   },
+  {
+    icon: Palette,
+    title: "Branding & Identity",
+    desc: "Logos, colour systems and brand kits that make you instantly recognisable.",
+    tag: "04",
+    pop: "card-pop-purple",
+    bg: "bg-pixel-purple/15",
+    ic: "text-pixel-purple",
+    long: "A brand isn't just a logo. We craft a complete identity system — colors, type, voice, and visuals — so you look premium everywhere your customers see you.",
+    features: [
+      "Logo design (3 concepts, unlimited revisions)",
+      "Color palette & typography system",
+      "Business card & stationery design",
+      "Social media templates",
+      "Brand guidelines PDF",
+    ],
+    deliverables: ["Full brand kit (AI, PNG, SVG)", "Brand guidelines document", "Social templates"],
+    timeline: "7–14 days",
+    startingAt: "₹12,999",
+  },
+  {
+    icon: Film,
+    title: "AI Video & Creative",
+    desc: "Scroll-stopping reels, ads and product videos produced in days, not weeks.",
+    tag: "05",
+    pop: "card-pop-green",
+    bg: "bg-pixel-green/20",
+    ic: "text-pixel-green",
+    long: "Modern AI workflows + sharp creative direction = stunning videos at a fraction of the cost. Perfect for Instagram Reels, YouTube Shorts, and paid ads.",
+    features: [
+      "AI-generated product & lifestyle videos",
+      "Reels & Shorts (vertical format)",
+      "UGC-style ad creatives",
+      "Voiceovers in Hindi & English",
+      "Captions, motion graphics, music",
+    ],
+    deliverables: ["4–8 videos per month", "Source files included", "Posting calendar"],
+    timeline: "3–5 days per batch",
+    startingAt: "₹12,999",
+  },
+  {
+    icon: Wrench,
+    title: "Website Maintenance",
+    desc: "Updates, backups, security and speed — so your site never lets you down.",
+    tag: "06",
+    pop: "card-pop-orange",
+    bg: "bg-pixel-orange/20",
+    ic: "text-pixel-orange",
+    long: "Don't wait for things to break. We monitor, update and optimize your site every month so it stays fast, secure, and bug-free year-round.",
+    features: [
+      "Daily automated backups",
+      "Security monitoring & malware scans",
+      "Plugin & core updates",
+      "Performance & uptime monitoring",
+      "Up to 2 hours of edits/month included",
+    ],
+    deliverables: ["Monthly health report", "Priority support", "Emergency restore"],
+    timeline: "Monthly",
+    startingAt: "₹499–999/mo",
+  },
 ];
-
 
 export function Services() {
   const [active, setActive] = useState<Service | null>(null);
@@ -98,7 +156,7 @@ export function Services() {
           </p>
         </div>
 
-        <div className="mt-12 md:mt-14 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
           {SERVICES.map((s, i) => {
             const Icon = s.icon;
             return (
@@ -106,26 +164,18 @@ export function Services() {
                 type="button"
                 key={s.title}
                 onClick={() => setActive(s)}
-                className={`reveal group relative text-left rounded-3xl glass-strong p-6 md:p-7 hover:-translate-y-1 transition-transform focus:outline-none focus-visible:ring-4 focus-visible:ring-gold/40`}
-                style={{
-                  animationDelay: `${i * 80}ms`,
-                  boxShadow: "0 20px 50px -22px color-mix(in oklab, var(--navy) 35%, transparent)",
-                }}
+                className={`reveal group relative text-left rounded-3xl bg-white p-7 md:p-8 ${s.pop} focus:outline-none focus-visible:ring-4 focus-visible:ring-pixel-pink/40`}
+                style={{ animationDelay: `${i * 80}ms` }}
               >
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute inset-x-0 top-0 h-px"
-                  style={{ background: "linear-gradient(90deg, transparent, color-mix(in oklab, var(--gold) 70%, transparent), transparent)" }}
-                />
                 <div className="absolute top-5 right-6 font-pixel text-[10px] text-ink/40 tracking-widest">
                   {s.tag}
                 </div>
-                <div className={`inline-flex h-12 w-12 md:h-14 md:w-14 items-center justify-center rounded-2xl border border-ink/10 ${s.bg}`}>
-                  <Icon className={`h-5 w-5 md:h-6 md:w-6 ${s.ic}`} strokeWidth={2.2} />
+                <div className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl border-2 border-ink ${s.bg}`}>
+                  <Icon className={`h-6 w-6 ${s.ic}`} strokeWidth={2.2} />
                 </div>
-                <h3 className="mt-5 font-display text-xl font-semibold text-ink">{s.title}</h3>
-                <p className="mt-2 text-ink/65 leading-relaxed text-[15px]">{s.desc}</p>
-                <div className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-ink group-hover:text-gold transition-colors">
+                <h3 className="mt-6 font-display text-xl font-bold text-ink">{s.title}</h3>
+                <p className="mt-2 text-ink/65 leading-relaxed">{s.desc}</p>
+                <div className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-ink group-hover:text-pixel-pink transition-colors">
                   Learn more
                   <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </div>
@@ -133,7 +183,6 @@ export function Services() {
             );
           })}
         </div>
-
       </div>
 
       {active && <ServiceModal service={active} onClose={() => setActive(null)} />}
