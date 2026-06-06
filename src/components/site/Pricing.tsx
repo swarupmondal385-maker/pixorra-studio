@@ -62,11 +62,11 @@ export function Pricing() {
           </p>
         </div>
 
-        <div className="mt-14 grid md:grid-cols-2 gap-5 md:gap-6 max-w-5xl mx-auto">
+        <div className="mt-14 md:grid md:grid-cols-2 md:gap-6 max-w-5xl mx-auto flex overflow-x-auto snap-x snap-mandatory gap-5 pb-4" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
           {PACKAGES.map(({ name, price, tagline, features, cta, popular }, i) => (
             <div
               key={name}
-              className={`reveal relative rounded-3xl p-7 md:p-10 transition-all duration-500 flex flex-col border-2 border-ink ${
+              className={`reveal snap-center shrink-0 w-[85vw] md:w-auto md:shrink relative rounded-3xl p-7 md:p-10 transition-all duration-500 flex flex-col border-2 border-ink ${
                 popular
                   ? "bg-ink text-white"
                   : "bg-white text-ink hover:-translate-y-1"
