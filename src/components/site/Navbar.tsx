@@ -30,8 +30,8 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div
-          className={`flex items-center justify-between rounded-full border-2 border-ink bg-white px-3 md:px-4 h-14 md:h-16 transition-all ${
-            scrolled ? "shadow-pixel" : "shadow-card"
+          className={`flex items-center justify-between rounded-full glass px-3 md:px-4 h-14 md:h-16 transition-all ${
+            scrolled ? "shadow-pixel" : ""
           }`}
         >
           <a href="#top" className="flex items-center gap-2 group pl-1">
