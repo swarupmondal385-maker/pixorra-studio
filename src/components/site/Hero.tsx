@@ -42,7 +42,6 @@ export function Hero() {
           {/* Mascot with orbit */}
           <div className="mt-6 flex justify-center">
             <div className="relative h-32 w-32 md:h-36 md:w-36">
-              {/* orbiting stickers */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="orbit" style={{ ["--orbit-r" as any]: "78px" }}>
                   <div className="h-9 w-9 rounded-full bg-pixel-yellow border-2 border-ink shadow-pixel flex items-center justify-center">
@@ -64,20 +63,14 @@ export function Hero() {
                   </div>
                 </div>
               </div>
-              {/* mascot */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <img
-                  src={logoMark}
-                  alt="Pixorra mascot"
-                  className="h-24 w-24 md:h-28 md:w-28 object-contain bounce-soft drop-shadow-xl"
-                />
+                <img src={logoMark} alt="Pixorra mascot" className="h-24 w-24 md:h-28 md:w-28 object-contain bounce-soft drop-shadow-xl" />
               </div>
             </div>
           </div>
 
           <h1 className="mt-4 font-display font-bold text-ink text-balance text-[2.4rem] leading-[1.02] sm:text-6xl md:text-7xl lg:text-[5.2rem] tracking-tight">
-            Websites that make
-            <br />
+            Websites that make<br />
             your business the{" "}
             <span className="relative inline-block">
               <span className="relative z-10 text-gradient-pixorra">obvious choice</span>
@@ -97,8 +90,7 @@ export function Hero() {
                   </div>
                 </div>
                 <div className="absolute top-3 right-3 h-7 px-3 rounded-full bg-ink text-white text-[10px] font-bold flex items-center gap-1.5 border border-white/20">
-                  <span className="h-1.5 w-1.5 rounded-full bg-pixel-pink animate-pulse" />
-                  2 min watch
+                  <span className="h-1.5 w-1.5 rounded-full bg-pixel-pink animate-pulse" />2 min watch
                 </div>
               </div>
               <div className="p-4 flex items-center gap-3">
@@ -115,19 +107,11 @@ export function Hero() {
           </div>
 
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a
-              href="#demo"
-              className="group inline-flex items-center gap-2 h-14 px-7 rounded-full bg-gradient-pixorra text-white font-bold border-2 border-ink shadow-pixel hover:-translate-y-0.5 hover:translate-x-0.5 transition-transform"
-            >
-              Book My Free Demo
-              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            <a href="#demo" className="group inline-flex items-center gap-2 h-14 px-7 rounded-full bg-gradient-pixorra text-white font-bold border-2 border-ink shadow-pixel hover:-translate-y-0.5 hover:translate-x-0.5 transition-transform">
+              Book My Free Demo <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </a>
-            <a
-              href="#work"
-              className="inline-flex items-center gap-2 h-14 px-7 rounded-full bg-white border-2 border-ink text-ink font-bold hover:bg-pixel-yellow transition-colors shadow-pixel"
-            >
-              <Play className="h-4 w-4 text-pixel-pink" fill="currentColor" />
-              See Our Work
+            <a href="#work" className="inline-flex items-center gap-2 h-14 px-7 rounded-full bg-white border-2 border-ink text-ink font-bold hover:bg-pixel-yellow transition-colors shadow-pixel">
+              <Play className="h-4 w-4 text-pixel-pink" fill="currentColor" /> See Our Work
             </a>
           </div>
 
@@ -141,9 +125,7 @@ export function Hero() {
                   { i: "K", bg: "bg-pixel-cyan" },
                   { i: "S", bg: "bg-pixel-purple" },
                 ].map(({ i, bg }) => (
-                  <div key={i} className={`h-8 w-8 rounded-full ring-2 ring-white border border-ink flex items-center justify-center text-xs font-bold text-white ${bg}`}>
-                    {i}
-                  </div>
+                  <div key={i} className={`h-8 w-8 rounded-full ring-2 ring-white border border-ink flex items-center justify-center text-xs font-bold text-white ${bg}`}>{i}</div>
                 ))}
               </div>
               <span className="text-ink/70"><b className="text-ink">150+</b> local businesses served</span>
@@ -166,123 +148,107 @@ export function Hero() {
             <p className="mt-5 text-ink/65 text-lg">
               Your website should be your hardest-working salesperson — open 24/7, closing leads while you sleep.
             </p>
-
             <ul className="mt-7 space-y-3">
               {[
-                { t: "Launch-ready in 7–10 days, start to finish", c: "bg-pixel-pink", e: "🚀" },
+                { t: "Launch-ready in 7-10 days, start to finish", c: "bg-pixel-pink", e: "🚀" },
                 { t: "Built to rank on Google, not just look pretty", c: "bg-pixel-cyan", e: "📈" },
                 { t: "Transparent pricing — no hidden fees, ever", c: "bg-pixel-yellow", e: "💎" },
                 { t: "Free demo website before you pay a rupee", c: "bg-pixel-purple", e: "🎁" },
               ].map((b) => (
                 <li key={b.t} className="flex items-center gap-3 bg-white border-2 border-ink rounded-2xl px-4 py-3 shadow-pixel">
-                  <span className={`h-9 w-9 rounded-xl ${b.c} border-2 border-ink flex items-center justify-center text-lg`}>
-                    {b.e}
-                  </span>
+                  <span className={`h-9 w-9 rounded-xl ${b.c} border-2 border-ink flex items-center justify-center text-lg`}>{b.e}</span>
                   <span className="text-ink font-medium">{b.t}</span>
                 </li>
               ))}
             </ul>
-
-            <a
-              href="https://wa.me/918927840261?text=Hi%20Pixorra!%20I%20want%20a%20free%20demo%20website."
-              target="_blank"
-              rel="noreferrer"
-              className="mt-8 inline-flex items-center gap-2 h-12 px-6 rounded-full bg-[oklch(0.72_0.18_145)] text-white font-bold border-2 border-ink shadow-pixel hover:-translate-y-0.5 transition"
-            >
-              <MessageCircle className="h-4 w-4" />
-              Chat on WhatsApp
+            <a href="https://wa.me/918927840261?text=Hi%20Pixorra!%20I%20want%20a%20free%20demo%20website." target="_blank" rel="noreferrer" className="mt-8 inline-flex items-center gap-2 h-12 px-6 rounded-full bg-[oklch(0.72_0.18_145)] text-white font-bold border-2 border-ink shadow-pixel hover:-translate-y-0.5 transition">
+              <MessageCircle className="h-4 w-4" /> Chat on WhatsApp
             </a>
           </div>
 
-          {/* Right: mockup */}
-          <div className="relative reveal">
-            {/* spinning rainbow ring behind */}
-            <div aria-hidden className="absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-rainbow opacity-20 blur-2xl spin-slower" />
+          {/* Right: mockup — hover motion sensor */}
+          <div className="relative reveal group perspective-1200">
 
-            <div className="relative rounded-3xl bg-white shadow-card-lg border-2 border-ink overflow-hidden">
-              <div className="h-1.5 bg-gradient-rainbow" />
+            <div aria-hidden className="absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-rainbow opacity-20 blur-2xl spin-slower group-hover:opacity-35 group-hover:blur-xl transition-all duration-500" />
+
+            <div className="relative rounded-3xl bg-white shadow-card-lg border-2 border-ink overflow-hidden group-hover:-translate-y-1 group-hover:translate-x-0.5 group-hover:shadow-pixel transition-all duration-300">
+              <div className="h-1.5 bg-gradient-rainbow animate-shimmer" />
               <div className="h-9 flex items-center gap-1.5 px-4 border-b border-black/5 bg-cream">
-                <span className="h-2.5 w-2.5 rounded-full bg-pixel-pink" />
-                <span className="h-2.5 w-2.5 rounded-full bg-pixel-yellow" />
-                <span className="h-2.5 w-2.5 rounded-full bg-pixel-green" />
-                <div className="mx-auto text-[10px] text-ink/50 font-mono">yourclinic.in</div>
+                <span className="h-2.5 w-2.5 rounded-full bg-pixel-pink animate-pulse group-hover:scale-125 transition-transform" />
+                <span className="h-2.5 w-2.5 rounded-full bg-pixel-yellow animate-pulse group-hover:scale-125 transition-transform" style={{ animationDelay: "0.3s" }} />
+                <span className="h-2.5 w-2.5 rounded-full bg-pixel-green animate-pulse group-hover:scale-125 transition-transform" style={{ animationDelay: "0.6s" }} />
+                <div className="mx-auto text-[10px] text-ink/50 font-mono group-hover:text-ink/70 transition-colors">yourclinic.in</div>
               </div>
               <div className="p-6 md:p-8">
                 <div className="flex items-center justify-between">
-                  <div className="h-6 w-24 rounded-md bg-gradient-pixorra" />
+                  <div className="h-6 w-24 rounded-md bg-gradient-pixorra wiggle group-hover:scale-105 transition-transform" />
                   <div className="flex gap-2">
-                    <div className="h-2 w-12 rounded bg-ink/10" />
-                    <div className="h-2 w-12 rounded bg-ink/10" />
-                    <div className="h-2 w-12 rounded bg-ink/10" />
+                    <div className="h-2 w-12 rounded bg-ink/10 group-hover:bg-ink/20 transition-colors" />
+                    <div className="h-2 w-12 rounded bg-ink/10 group-hover:bg-ink/20 transition-colors" />
+                    <div className="h-2 w-12 rounded bg-ink/10 group-hover:bg-ink/20 transition-colors" />
                   </div>
                 </div>
                 <div className="mt-6 grid grid-cols-5 gap-4">
                   <div className="col-span-3">
-                    <div className="h-3 w-16 rounded bg-pixel-yellow mb-3" />
-                    <div className="h-6 w-full rounded bg-ink/90" />
-                    <div className="mt-2 h-6 w-4/5 rounded bg-ink/90" />
+                    <div className="h-3 w-16 rounded bg-pixel-yellow mb-3 group-hover:w-20 transition-all duration-300" />
+                    <div className="h-6 w-full rounded bg-ink/90 group-hover:bg-gradient-pixorra transition-colors duration-300" />
+                    <div className="mt-2 h-6 w-4/5 rounded bg-ink/90 group-hover:bg-gradient-pixorra transition-colors duration-300" />
                     <div className="mt-4 space-y-1.5">
-                      <div className="h-2 w-full rounded bg-ink/10" />
-                      <div className="h-2 w-11/12 rounded bg-ink/10" />
-                      <div className="h-2 w-3/4 rounded bg-ink/10" />
+                      <div className="h-2 w-full rounded bg-ink/10 group-hover:bg-pixel-pink/20 transition-colors duration-300" />
+                      <div className="h-2 w-11/12 rounded bg-ink/10 group-hover:bg-pixel-cyan/20 transition-colors duration-300" />
+                      <div className="h-2 w-3/4 rounded bg-ink/10 group-hover:bg-pixel-yellow/20 transition-colors duration-300" />
                     </div>
                     <div className="mt-5 flex gap-2">
-                      <div className="h-9 w-28 rounded-full bg-gradient-pixorra border-2 border-ink" />
-                      <div className="h-9 w-24 rounded-full border-2 border-ink" />
+                      <div className="h-9 w-28 rounded-full bg-gradient-pixorra border-2 border-ink float-soft group-hover:scale-105 transition-transform" />
+                      <div className="h-9 w-24 rounded-full border-2 border-ink float-soft group-hover:bg-pixel-yellow group-hover:scale-105 transition-all" style={{ animationDelay: "0.5s" }} />
                     </div>
                   </div>
-                  <div className="col-span-2 aspect-square rounded-2xl bg-gradient-pixorra relative overflow-hidden border-2 border-ink">
-                    <div className="absolute inset-0 grid-bg opacity-30" />
-                    <div className="absolute bottom-3 left-3 right-3 h-14 rounded-xl bg-white/90 backdrop-blur flex items-center px-3 gap-2 border border-ink">
-                      <div className="h-8 w-8 rounded-lg bg-pixel-pink" />
+                  <div className="col-span-2 aspect-square rounded-2xl bg-gradient-pixorra relative overflow-hidden border-2 border-ink group-hover:scale-[1.03] transition-transform duration-300">
+                    <div className="absolute inset-0 grid-bg opacity-30 group-hover:opacity-50 transition-opacity" />
+                    <div className="absolute bottom-3 left-3 right-3 h-14 rounded-xl bg-white/90 backdrop-blur flex items-center px-3 gap-2 border border-ink wiggle group-hover:-translate-y-1 transition-transform" style={{ animationDelay: "0.8s" }}>
+                      <div className="h-8 w-8 rounded-lg bg-pixel-pink sparkle-pulse group-hover:rotate-12 transition-transform" />
                       <div className="flex-1 space-y-1">
-                        <div className="h-1.5 w-20 rounded bg-ink/70" />
-                        <div className="h-1.5 w-14 rounded bg-ink/30" />
+                        <div className="h-1.5 w-20 rounded bg-ink/70 group-hover:w-24 transition-all duration-300" />
+                        <div className="h-1.5 w-14 rounded bg-ink/30 group-hover:w-18 transition-all duration-300" />
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="mt-6 grid grid-cols-3 gap-3">
-                  {[
-                    "bg-pixel-pink/30",
-                    "bg-pixel-cyan/30",
-                    "bg-pixel-yellow/40",
-                  ].map((c, i) => (
-                    <div key={i} className="rounded-xl border-2 border-ink p-3">
-                      <div className={`h-5 w-5 rounded ${c} border border-ink`} />
-                      <div className="mt-2 h-2 w-full rounded bg-ink/10" />
-                      <div className="mt-1 h-2 w-3/4 rounded bg-ink/10" />
+                  {["bg-pixel-pink/30","bg-pixel-cyan/30","bg-pixel-yellow/40"].map((c, i) => (
+                    <div key={i} className="rounded-xl border-2 border-ink p-3 float-soft group-hover:-translate-y-1 group-hover:shadow-pixel transition-all duration-300" style={{ animationDelay: `${i * 0.4}s` }}>
+                      <div className={`h-5 w-5 rounded ${c} border border-ink group-hover:scale-110 transition-transform duration-300`} />
+                      <div className="mt-2 h-2 w-full rounded bg-ink/10 group-hover:bg-ink/20 transition-colors duration-300" />
+                      <div className="mt-1 h-2 w-3/4 rounded bg-ink/10 group-hover:w-full transition-all duration-300" />
                     </div>
                   ))}
                 </div>
               </div>
             </div>
 
-            {/* floating stat cards */}
-            <div className="absolute -top-5 -left-4 md:-left-10 rounded-2xl bg-white shadow-pixel border-2 border-ink p-4 float-soft wobble">
+            <div className="absolute -top-5 -left-4 md:-left-10 rounded-2xl bg-white shadow-pixel border-2 border-ink p-4 float-soft wobble group-hover:-translate-y-3 group-hover:-rotate-3 transition-all duration-300">
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-xl bg-pixel-cyan border-2 border-ink flex items-center justify-center">
-                  <TrendingUp className="h-5 w-5 text-ink" />
+                <div className="h-10 w-10 rounded-xl bg-pixel-cyan border-2 border-ink flex items-center justify-center sparkle-pulse group-hover:scale-110 transition-transform">
+                  <TrendingUp className="h-5 w-5 text-ink group-hover:-translate-y-0.5 transition-transform" />
                 </div>
                 <div>
                   <div className="text-[10px] uppercase tracking-wider text-ink/50 font-bold">Organic Traffic</div>
-                  <div className="font-display text-xl font-bold text-ink">+320%</div>
+                  <div className="font-display text-xl font-bold text-ink group-hover:text-gradient-pixorra transition-all">+320%</div>
                 </div>
               </div>
             </div>
-            <div className="absolute -bottom-5 -right-3 md:-right-10 rounded-2xl bg-white shadow-pixel border-2 border-ink p-4 float-soft" style={{ animationDelay: "1.2s" }}>
+            <div className="absolute -bottom-5 -right-3 md:-right-10 rounded-2xl bg-white shadow-pixel border-2 border-ink p-4 float-soft wobble group-hover:-translate-y-2 group-hover:rotate-3 transition-all duration-300" style={{ animationDelay: "1.2s" }}>
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-xl bg-pixel-pink border-2 border-ink flex items-center justify-center">
-                  <IndianRupee className="h-5 w-5 text-white" />
+                <div className="h-10 w-10 rounded-xl bg-pixel-pink border-2 border-ink flex items-center justify-center sparkle-pulse group-hover:scale-110 transition-transform" style={{ animationDelay: "0.6s" }}>
+                  <IndianRupee className="h-5 w-5 text-white group-hover:-translate-y-0.5 transition-transform" />
                 </div>
                 <div>
                   <div className="text-[10px] uppercase tracking-wider text-ink/50 font-bold">Monthly Revenue</div>
-                  <div className="font-display text-xl font-bold text-ink">₹0 → ₹5L</div>
+                  <div className="font-display text-xl font-bold text-ink group-hover:text-gradient-pixorra transition-all">₹0 → ₹5L</div>
                 </div>
               </div>
             </div>
-            {/* corner sticker */}
-            <div className="absolute -top-6 -right-4 h-16 w-16 rounded-full bg-pixel-yellow border-2 border-ink shadow-pixel flex items-center justify-center wobble">
+            <div className="absolute -top-6 -right-4 h-16 w-16 rounded-full bg-pixel-yellow border-2 border-ink shadow-pixel flex items-center justify-center wobble group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300" style={{ animationDelay: "0.4s" }}>
               <span className="font-display font-bold text-ink text-xs leading-tight text-center">FREE<br/>DEMO</span>
             </div>
           </div>
