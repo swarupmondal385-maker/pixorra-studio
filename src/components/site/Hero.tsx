@@ -1,4 +1,4 @@
-import { ArrowRight, Play, Star, CheckCircle2, TrendingUp, IndianRupee, MessageCircle, Sparkles, Zap, Heart, Rocket, Smile } from "lucide-react";
+import { ArrowRight, Play, TrendingUp, IndianRupee, MessageCircle, Zap, Heart, Rocket, Smile, Video } from "lucide-react";
 import logoMark from "@/assets/pixorra-mark.png";
 
 export function Hero() {
@@ -36,7 +36,6 @@ export function Hero() {
 
         <div className="relative text-center max-w-5xl mx-auto reveal">
           <div className="inline-flex items-center gap-2 h-9 px-4 rounded-full bg-white border-2 border-ink text-xs font-bold tracking-wider uppercase shadow-pixel">
-            <Sparkles className="h-3 w-3 text-pixel-pink" fill="currentColor" />
             <span className="text-gradient-pixorra">Mumbai's Playful Digital Agency</span>
           </div>
 
@@ -87,11 +86,35 @@ export function Hero() {
             .
           </h1>
 
-          <p className="mt-7 text-base md:text-xl text-ink/65 max-w-2xl mx-auto text-balance">
-            Custom websites. Modern design. High performance. Real results — delivered in 7–10 days from our studio in Mumbai.
-          </p>
+          {/* Video demo card */}
+          <div className="mt-7 max-w-md mx-auto">
+            <div className="relative rounded-2xl bg-white border-2 border-ink shadow-pixel overflow-hidden group cursor-pointer hover:-translate-y-1 hover:translate-x-0.5 transition-transform">
+              <div className="aspect-video bg-gradient-pixorra relative flex items-center justify-center">
+                <div className="absolute inset-0 grid-bg opacity-20" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="h-16 w-16 rounded-full bg-white border-2 border-ink shadow-pixel flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Play className="h-6 w-6 text-pixel-pink ml-1" fill="currentColor" />
+                  </div>
+                </div>
+                <div className="absolute top-3 right-3 h-7 px-3 rounded-full bg-ink text-white text-[10px] font-bold flex items-center gap-1.5 border border-white/20">
+                  <span className="h-1.5 w-1.5 rounded-full bg-pixel-pink animate-pulse" />
+                  2 min watch
+                </div>
+              </div>
+              <div className="p-4 flex items-center gap-3">
+                <div className="h-10 w-10 rounded-xl bg-pixel-yellow border-2 border-ink flex items-center justify-center shrink-0">
+                  <Video className="h-5 w-5 text-ink" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-xs uppercase tracking-wider text-ink/50 font-bold">Watch Demo Video</div>
+                  <div className="text-sm font-semibold text-ink truncate">See how Pixorra delivers in 7 days</div>
+                </div>
+                <ArrowRight className="h-4 w-4 text-ink/40 group-hover:translate-x-1 transition-transform shrink-0" />
+              </div>
+            </div>
+          </div>
 
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
               href="#demo"
               className="group inline-flex items-center gap-2 h-14 px-7 rounded-full bg-gradient-pixorra text-white font-bold border-2 border-ink shadow-pixel hover:-translate-y-0.5 hover:translate-x-0.5 transition-transform"
@@ -109,7 +132,7 @@ export function Hero() {
           </div>
 
           {/* Trust bar */}
-          <div className="mt-12 md:mt-16 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-sm">
+          <div className="mt-12 md:mt-16 flex items-center justify-center text-sm">
             <div className="flex items-center gap-2">
               <div className="flex -space-x-2">
                 {[
@@ -124,18 +147,6 @@ export function Hero() {
                 ))}
               </div>
               <span className="text-ink/70"><b className="text-ink">150+</b> local businesses served</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="flex gap-0.5">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-pixel-yellow text-pixel-yellow" />
-                ))}
-              </div>
-              <span className="text-ink/70"><b className="text-ink">4.9/5</b> on Google</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="h-4 w-4 text-pixel-green" />
-              <span className="text-ink/70"><b className="text-ink">98%</b> client satisfaction</span>
             </div>
           </div>
         </div>
