@@ -91,7 +91,7 @@ export function Pricing() {
                 {features.map((f) => (
                   <li key={f} className="flex items-start gap-3">
                     <div className={`mt-0.5 flex-shrink-0 h-5 w-5 rounded-full border border-ink flex items-center justify-center ${popular ? "bg-pixel-yellow" : "bg-pixel-green"}`}>
-                      <CheckIcon className="h-3 w-3 text-ink" strokeWidth={3} />
+                      <Check className="h-3 w-3 text-ink" strokeWidth={3} />
                     </div>
                     <span className={`text-sm leading-relaxed ${popular ? "text-white/90" : "text-ink/80"}`}>{f}</span>
                   </li>
@@ -108,7 +108,7 @@ export function Pricing() {
                 }`}
               >
                 {cta}
-                <ArrowRightIcon className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4" />
               </a>
             </div>
           ))}
