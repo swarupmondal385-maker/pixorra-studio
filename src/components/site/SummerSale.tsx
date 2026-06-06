@@ -42,16 +42,18 @@ function calcLeft(target: Date) {
 export function SummerSale() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showTab, setShowTab] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const target = useRef(getTargetDate());
   const left = useCountdown(target.current);
 
   useEffect(() => {
+    setMounted(true);
     const tabTimer = setTimeout(() => setShowTab(true), 300);
     const sidebarTimer = setTimeout(() => setSidebarOpen(true), 1200);
     return () => { clearTimeout(tabTimer); clearTimeout(sidebarTimer); };
   }, []);
 
-  if (left.total <= 0) return null;
+  if (!mounted || left.total <= 0) return null;
 
   const pads = (n: number) => String(n).padStart(2, "0");
 
