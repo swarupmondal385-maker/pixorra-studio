@@ -1,4 +1,5 @@
 import { Check, Star, ArrowRight } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
 
 const WHATSAPP = "https://wa.me/918927840261?text=Hi%20Pixorra%2C%20I%27d%20like%20to%20know%20more%20about%20your%20pricing.";
 
@@ -40,8 +41,22 @@ const PACKAGES = [
 ];
 
 export function Pricing() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const sliderRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = sliderRef.current;
+    if (!el) return;
+    const onScroll = () => {
+      const idx = Math.round(el.scrollLeft / el.offsetWidth);
+      setActiveIndex(idx);
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <section id="pricing" className="relative py-20 md:py-32 bg-white overflow-hidden">
+    <section id="pricing" className="relative py-20 md:py-32 bg-white md:overflow-hidden overflow-visible">
       <div className="absolute -top-24 -left-20 h-80 w-80 rounded-full bg-pixel-pink/20 blur-3xl blob" aria-hidden />
       <div className="absolute top-40 -right-24 h-96 w-96 rounded-full bg-pixel-cyan/20 blur-3xl blob" style={{animationDelay:"3s"}} aria-hidden />
       <div className="absolute bottom-10 left-1/3 h-72 w-72 rounded-full bg-pixel-yellow/25 blur-3xl blob" style={{animationDelay:"5s"}} aria-hidden />
@@ -62,7 +77,7 @@ export function Pricing() {
           </p>
         </div>
 
-        <div className="mt-14 md:grid md:grid-cols-2 md:gap-6 max-w-5xl mx-auto flex overflow-x-auto snap-x snap-mandatory gap-5 pb-4" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
+        <div ref={sliderRef} className="mt-14 md:grid md:grid-cols-2 md:gap-6 max-w-5xl mx-auto flex overflow-x-auto snap-x snap-mandatory gap-5 pb-4 pt-6 md:pt-0 scroll-smooth" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
           {PACKAGES.map(({ name, price, tagline, features, cta, popular }, i) => (
             <div
               key={name}
@@ -111,6 +126,23 @@ export function Pricing() {
                 <ArrowRight className="h-4 w-4" />
               </a>
             </div>
+          ))}
+        </div>
+
+        {/* Swipe indicators — mobile only */}
+        <div className="flex md:hidden items-center justify-center gap-2 mt-3">
+          {PACKAGES.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => {
+                sliderRef.current?.children[i]?.scrollIntoView({ behavior: "smooth", inline: "center" });
+              }}
+              className={`h-2.5 rounded-full transition-all duration-300 ${
+                activeIndex === i
+                  ? "w-7 bg-gradient-pixorra"
+                  : "w-2.5 bg-ink/20"
+              }`}
+            />
           ))}
         </div>
 
