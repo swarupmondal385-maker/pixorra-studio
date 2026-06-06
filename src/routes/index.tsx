@@ -21,6 +21,7 @@ import { Location } from "@/components/site/Location";
 import { FinalCTA } from "@/components/site/FinalCTA";
 import { Footer } from "@/components/site/Footer";
 import { FloatingWhatsApp, MobileStickyBar } from "@/components/site/FloatingWhatsApp";
+import { PixelParallax } from "@/components/site/PixelParallax";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -72,7 +73,8 @@ export const Route = createFileRoute("/")({
 function Index() {
   useReveal();
   return (
-    <main className="bg-white text-ink min-h-screen">
+    <main className="text-ink min-h-screen relative">
+      <PixelParallax />
       <Navbar />
       <Hero />
       <Marquee />
