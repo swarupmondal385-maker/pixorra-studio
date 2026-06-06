@@ -1,14 +1,29 @@
 import { ArrowRight, Play, TrendingUp, IndianRupee, MessageCircle, Zap, Heart, Rocket, Smile, Video } from "lucide-react";
 import logoMark from "@/assets/pixorra-mark.png";
+import heroBgVideo from "@/assets/hero-bg.mp4.asset.json";
 
 export function Hero() {
   return (
     <section id="top" className="relative pt-28 md:pt-36 bg-gradient-hero overflow-hidden">
+      {/* Looping background video */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+        <video
+          src={heroBgVideo.url}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover opacity-40"
+        />
+        {/* Soft wash so foreground stays readable */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/55 via-white/40 to-white/70" />
+      </div>
+
       {/* Big soft blobs */}
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -top-24 -left-24 h-80 w-80 bg-pixel-pink/25 blob" />
-        <div className="absolute top-40 -right-24 h-96 w-96 bg-pixel-cyan/25 blob" style={{ animationDelay: "2s" }} />
-        <div className="absolute bottom-10 left-1/3 h-72 w-72 bg-pixel-yellow/30 blob" style={{ animationDelay: "4s" }} />
+        <div className="absolute -top-24 -left-24 h-80 w-80 bg-pixel-pink/20 blob" />
+        <div className="absolute top-40 -right-24 h-96 w-96 bg-pixel-cyan/20 blob" style={{ animationDelay: "2s" }} />
+        <div className="absolute bottom-10 left-1/3 h-72 w-72 bg-pixel-yellow/25 blob" style={{ animationDelay: "4s" }} />
       </div>
 
       {/* Pixel sparkles */}
@@ -32,11 +47,12 @@ export function Hero() {
 
       {/* Phase 1: Cinematic */}
       <div className="relative max-w-7xl mx-auto px-5 md:px-8">
-        <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" aria-hidden />
+        <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none" aria-hidden />
+
 
         <div className="relative text-center max-w-5xl mx-auto reveal">
-          <div className="inline-flex items-center gap-2 h-9 px-4 rounded-full bg-white border-2 border-ink text-xs font-bold tracking-wider uppercase shadow-pixel">
-            <span className="text-gradient-pixorra">Mumbai's Playful Digital Agency</span>
+          <div className="inline-flex items-center gap-2 h-9 px-4 rounded-full glass text-xs font-bold tracking-wider uppercase">
+            <span className="text-gradient-pixorra">We don't just build websites</span>
           </div>
 
           {/* Mascot with orbit */}
@@ -76,15 +92,20 @@ export function Hero() {
           </div>
 
           <h1 className="mt-4 font-display font-bold text-ink text-balance text-[2.4rem] leading-[1.02] sm:text-6xl md:text-7xl lg:text-[5.2rem] tracking-tight">
-            Websites that make
+            We build systems, funnels &amp;
             <br />
-            your business the{" "}
+            automations that turn{" "}
             <span className="relative inline-block">
-              <span className="relative z-10 text-gradient-pixorra">obvious choice</span>
+              <span className="relative z-10 text-gradient-pixorra">strangers into customers</span>
               <span className="absolute left-0 right-0 bottom-1 md:bottom-2 h-3 md:h-4 bg-pixel-yellow/60 -z-0 rounded-sm" />
             </span>
             .
           </h1>
+
+          <p className="mt-5 max-w-2xl mx-auto text-ink/70 text-base md:text-lg">
+            Websites are just the start. We engineer the full growth engine — high-converting sites,
+            lead funnels, ads, SEO &amp; automations — so your business runs (and sells) on autopilot.
+          </p>
 
           {/* Video demo card */}
           <div className="mt-7 max-w-md mx-auto">
