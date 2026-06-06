@@ -22,44 +22,34 @@ import { FinalCTA } from "@/components/site/FinalCTA";
 import { Footer } from "@/components/site/Footer";
 import { FloatingWhatsApp, MobileStickyBar } from "@/components/site/FloatingWhatsApp";
 import { PixelParallax } from "@/components/site/PixelParallax";
+import { SummerSale } from "@/components/site/SummerSale";
 
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      // ─── Page-owned tags ──────────────────────────────────────────────────
-      // This route owns 100% of all page-content tags.
-      // Root (__root.tsx) deliberately defines NONE of these.
-
-      // Title & description
       { title: "Pixorra Studio" },
       {
         name: "description",
         content:
-          "High-converting websites, Google Ads, SEO, Shopify stores and branding for ambitious Indian businesses. Delivered in 7–10 days. Free demo website for every new lead.",
+          "High-converting websites, Google Ads, SEO, Shopify stores and branding for ambitious Indian businesses. Delivered in 7-10 days. Free demo website for every new lead.",
       },
-
-      // Open Graph — page-specific
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://pixorrastudio.com" },
-      { property: "og:title", content: "Pixorra Studio — Websites that make your business the obvious choice" },
+      { property: "og:title", content: "Pixorra Studio - Websites that make your business the obvious choice" },
       {
         property: "og:description",
         content:
-          "Premium digital agency in Mumbai. High-converting websites, Google Ads, SEO & branding delivered in 7–10 days. Free demo for every new lead.",
+          "Premium digital agency in Mumbai. High-converting websites, Google Ads, SEO & branding delivered in 7-10 days. Free demo for every new lead.",
       },
       { property: "og:image", content: "https://pixorrastudio.com/pixorra-mark.png" },
       { property: "og:image:alt", content: "Pixorra Studio logo mark" },
-      // og:image:width / og:image:height live in root (supplementary, no conflict)
-
-      // Twitter / X — page-specific
-      // twitter:site / twitter:creator live in root (account-level, no conflict)
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Pixorra Studio — Premium Digital Agency, Mumbai" },
+      { name: "twitter:title", content: "Pixorra Studio - Premium Digital Agency, Mumbai" },
       {
         name: "twitter:description",
         content:
-          "Websites, Google Ads, SEO & branding for ambitious Indian businesses. Delivered in 7–10 days.",
+          "Websites, Google Ads, SEO & branding for ambitious Indian businesses. Delivered in 7-10 days.",
       },
       { name: "twitter:image", content: "https://pixorrastudio.com/pixorra-mark.png" },
       { name: "twitter:image:alt", content: "Pixorra Studio logo mark" },
@@ -97,6 +87,7 @@ function Index() {
       <Footer />
       <FloatingWhatsApp />
       <MobileStickyBar />
+      <SummerSale />
       <div className="md:hidden h-16" aria-hidden />
     </main>
   );
