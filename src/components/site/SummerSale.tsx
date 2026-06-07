@@ -63,7 +63,7 @@ export function SummerSale() {
         <div className="fixed inset-0 z-50 bg-ink/40 backdrop-blur-sm transition-opacity duration-300" onClick={() => setSidebarOpen(false)} />
       )}
 
-      <div className={`fixed top-0 right-0 z-50 h-full w-full max-w-sm bg-white border-l-2 border-ink shadow-pixel transition-transform duration-500 ease-out ${sidebarOpen ? "translate-x-0" : "translate-x-full"}`}>
+      <div className={`fixed top-0 right-0 z-50 h-full w-full max-w-sm glass-strong border-l-2 border-ink shadow-pixel transition-transform duration-500 ease-out ${sidebarOpen ? "translate-x-0" : "translate-x-full"}`}>
         <button onClick={() => setSidebarOpen(false)} className="absolute top-4 right-4 h-9 w-9 rounded-full bg-pixel-pink border-2 border-ink flex items-center justify-center hover:scale-110 transition-transform z-10" aria-label="Close sale">
           <X className="h-4 w-4 text-white" />
         </button>

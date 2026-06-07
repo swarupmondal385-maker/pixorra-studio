@@ -10,7 +10,7 @@ export function Footer() {
         <div className="absolute bottom-0 -right-16 h-80 w-80 bg-pixel-cyan/15 blob" style={{ animationDelay: "3s" }} />
       </div>
       <div className="relative max-w-7xl mx-auto px-5 md:px-8 pt-14">
-        <div className="rounded-3xl border-2 border-ink bg-white shadow-pixel p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-5">
+        <div className="rounded-3xl border-2 border-ink glass-card shadow-pixel p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-5">
           <div className="flex items-center gap-4">
             <div className="h-14 w-14 rounded-2xl bg-pixel-yellow border-2 border-ink flex items-center justify-center text-2xl wobble">✨</div>
             <div>

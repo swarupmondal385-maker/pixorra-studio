@@ -84,7 +84,7 @@ export function Pricing() {
               className={`reveal snap-center shrink-0 w-[85vw] md:w-auto md:shrink relative rounded-3xl p-7 md:p-10 transition-all duration-500 flex flex-col border-2 border-ink ${
                 popular
                   ? "bg-ink text-white"
-                  : "bg-white text-ink hover:-translate-y-1"
+                  : "glass-card text-ink hover:-translate-y-1"
               }`}
               style={{ animationDelay: `${i * 120}ms`, boxShadow: popular ? "10px 10px 0 0 var(--pixel-pink)" : "8px 8px 0 0 var(--pixel-yellow)" }}
             >
