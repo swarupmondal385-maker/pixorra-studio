@@ -81,7 +81,7 @@ export function Hero() {
 
           {/* Video demo card */}
           <div className="mt-7 max-w-md mx-auto">
-            <div className="relative rounded-2xl bg-white border-2 border-ink shadow-pixel overflow-hidden group cursor-pointer hover:-translate-y-1 hover:translate-x-0.5 transition-transform">
+            <div className="relative rounded-2xl border-2 border-ink shadow-pixel overflow-hidden group cursor-pointer hover:-translate-y-1 hover:translate-x-0.5 transition-transform glass-card glass-shine">
               <div className="aspect-video bg-gradient-pixorra relative flex items-center justify-center">
                 <div className="absolute inset-0 grid-bg opacity-20" />
                 <div className="absolute inset-0 flex items-center justify-center">
