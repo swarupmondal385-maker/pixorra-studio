@@ -18,7 +18,7 @@ export function Footer() {
               <div className="text-ink/60 text-sm">Get a free demo website tailored to your business — no commitment.</div>
             </div>
           </div>
-          <a href="#demo" className="inline-flex items-center gap-2 h-12 px-6 rounded-full bg-gradient-pixorra text-white font-bold border-2 border-ink shadow-pixel hover:-translate-y-0.5 transition">
+          <a href="#demo" className="inline-flex items-center gap-2 h-12 px-6 rounded-full bg-cyan-cta text-ink font-bold border-2 border-ink shadow-pixel hover:-translate-y-0.5 transition">
             Get Free Demo <ArrowRight className="h-4 w-4" />
           </a>
         </div>

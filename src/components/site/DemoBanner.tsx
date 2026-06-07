@@ -28,7 +28,7 @@ export function DemoBanner() {
                 href="https://wa.me/918927840261?text=Hi%20Pixorra!%20I%20want%20a%20free%20demo%20website."
                 target="_blank"
                 rel="noreferrer"
-                className="group inline-flex items-center justify-between h-16 px-7 rounded-2xl bg-ink text-white font-semibold text-lg border-2 border-ink shadow-pixel hover:-translate-y-0.5 transition-transform"
+                className="group inline-flex items-center justify-between h-16 px-7 rounded-2xl bg-pixel-green text-white font-semibold text-lg border-2 border-ink shadow-pixel hover:-translate-y-0.5 transition-transform"
               >
                 <span className="flex items-center gap-3"><MessageCircle className="h-5 w-5"/> WhatsApp Now</span>
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />

@@ -82,7 +82,7 @@ export function Hero() {
           {/* Video demo card */}
           <div className="mt-7 max-w-md mx-auto">
             <div className="relative rounded-2xl border-2 border-ink shadow-pixel overflow-hidden group cursor-pointer hover:-translate-y-1 hover:translate-x-0.5 transition-transform glass-card glass-shine">
-              <div className="aspect-video bg-gradient-pixorra relative flex items-center justify-center">
+              <div className="aspect-video bg-pixel-purple relative flex items-center justify-center">
                 <div className="absolute inset-0 grid-bg opacity-20" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="h-16 w-16 rounded-full bg-white border-2 border-ink shadow-pixel flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -107,7 +107,7 @@ export function Hero() {
           </div>
 
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a href="#demo" className="group inline-flex items-center gap-2 h-14 px-7 rounded-full bg-gradient-pixorra text-white font-bold border-2 border-ink shadow-pixel hover:-translate-y-0.5 hover:translate-x-0.5 transition-transform">
+            <a href="#demo" className="group inline-flex items-center gap-2 h-14 px-7 rounded-full bg-yellow-cta text-ink font-bold border-2 border-ink shadow-pixel hover:-translate-y-0.5 hover:translate-x-0.5 transition-transform">
               Book My Free Demo <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </a>
             <a href="#work" className="inline-flex items-center gap-2 h-14 px-7 rounded-full bg-white border-2 border-ink text-ink font-bold hover:bg-pixel-yellow transition-colors shadow-pixel">
@@ -161,7 +161,7 @@ export function Hero() {
                 </li>
               ))}
             </ul>
-            <a href="https://wa.me/918927840261?text=Hi%20Pixorra!%20I%20want%20a%20free%20demo%20website." target="_blank" rel="noreferrer" className="mt-8 inline-flex items-center gap-2 h-12 px-6 rounded-full bg-[oklch(0.72_0.18_145)] text-white font-bold border-2 border-ink shadow-pixel hover:-translate-y-0.5 transition">
+            <a href="https://wa.me/918927840261?text=Hi%20Pixorra!%20I%20want%20a%20free%20demo%20website." target="_blank" rel="noreferrer" className="mt-8 inline-flex items-center gap-2 h-12 px-6 rounded-full bg-pixel-green text-white font-bold border-2 border-ink shadow-pixel hover:-translate-y-0.5 transition">
               <MessageCircle className="h-4 w-4" /> Chat on WhatsApp
             </a>
           </div>

@@ -21,7 +21,7 @@ export function FinalCTA() {
         </p>
         <a href="https://wa.me/918927840261?text=Hi%20Pixorra!%20I%20want%20a%20free%20demo%20website."
           target="_blank" rel="noreferrer"
-          className="mt-10 inline-flex items-center gap-3 h-16 px-9 rounded-full bg-gradient-pixorra text-white font-semibold text-lg border-2 border-ink shadow-pixel hover:-translate-y-0.5 transition-transform group">
+          className="mt-10 inline-flex items-center gap-3 h-16 px-9 rounded-full bg-pixel-pink text-white font-semibold text-lg border-2 border-ink shadow-pixel hover:-translate-y-0.5 transition-transform group">
           <Rocket className="h-5 w-5"/>
           Get My Free Demo Website
           <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />

@@ -89,7 +89,7 @@ export function Pricing() {
               style={{ animationDelay: `${i * 120}ms`, boxShadow: popular ? "10px 10px 0 0 var(--pixel-pink)" : "8px 8px 0 0 var(--pixel-yellow)" }}
             >
               {popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full bg-gradient-pixorra px-4 py-1.5 text-xs font-bold text-white border-2 border-ink whitespace-nowrap">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full bg-pixel-purple px-4 py-1.5 text-xs font-bold text-white border-2 border-ink whitespace-nowrap">
                   <Star className="h-3 w-3 fill-white" strokeWidth={0} />
                   Most Popular
                 </div>
@@ -118,8 +118,8 @@ export function Pricing() {
                 rel="noopener noreferrer"
                 className={`mt-8 inline-flex items-center justify-center gap-2 rounded-full px-6 py-4 font-semibold transition-all min-h-12 border-2 border-ink ${
                   popular
-                    ? "bg-gradient-pixorra text-white hover:-translate-y-0.5"
-                    : "bg-ink text-white hover:bg-pixel-purple"
+                    ? "bg-pixel-purple text-white hover:-translate-y-0.5"
+                    : "bg-gold text-ink hover:bg-gold-soft"
                 }`}
               >
                 {cta}
@@ -139,7 +139,7 @@ export function Pricing() {
               }}
               className={`h-2.5 rounded-full transition-all duration-300 ${
                 activeIndex === i
-                  ? "w-7 bg-gradient-pixorra"
+                  ? "w-7 bg-pixel-purple"
                   : "w-2.5 bg-ink/20"
               }`}
             />

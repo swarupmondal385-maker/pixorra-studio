@@ -9,8 +9,8 @@ export function FloatingWhatsApp() {
       aria-label="Chat on WhatsApp"
       className="fixed bottom-24 md:bottom-6 right-5 z-40 group"
     >
-      <span className="absolute inset-0 rounded-full bg-[oklch(0.72_0.18_145)] animate-ping opacity-30" />
-      <span className="relative flex items-center gap-3 h-14 pl-4 pr-5 rounded-full bg-[oklch(0.72_0.18_145)] text-white font-semibold shadow-card-lg hover:scale-105 transition-transform">
+      <span className="absolute inset-0 rounded-full bg-pixel-green animate-ping opacity-30" />
+      <span className="relative flex items-center gap-3 h-14 pl-4 pr-5 rounded-full bg-pixel-green text-white font-semibold shadow-card-lg hover:scale-105 transition-transform">
         <MessageCircle className="h-5 w-5" />
         <span className="hidden md:inline">Free Demo on WhatsApp</span>
       </span>
@@ -31,10 +31,10 @@ export function MobileStickyBar() {
           target="_blank" rel="noreferrer"
           className="flex flex-col items-center justify-center py-3 text-ink border-r border-black/10"
         >
-          <MessageCircle className="h-5 w-5 text-[oklch(0.68_0.18_145)]"/>
+          <MessageCircle className="h-5 w-5 text-pixel-green"/>
           <span className="text-[11px] font-semibold mt-1">WhatsApp</span>
         </a>
-        <a href="#demo" className="flex flex-col items-center justify-center py-3 bg-gradient-gold text-ink">
+        <a href="#demo" className="flex flex-col items-center justify-center py-3 bg-gold text-ink">
           <span className="text-xs font-bold">Free Demo</span>
           <span className="text-[10px] opacity-80">Get Yours Today</span>
         </a>

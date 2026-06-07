@@ -44,6 +44,8 @@
   --color-pixel-cyan: var(--pixel-cyan);
   --color-pixel-blue: var(--pixel-blue);
   --color-pixel-purple: var(--pixel-purple);
+  --color-yellow-cta: var(--yellow-cta);
+  --color-cyan-cta: var(--cyan-cta);
 
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-pixel: "Press Start 2P", ui-monospace, monospace;
@@ -81,6 +83,10 @@
   --pixel-cyan: oklch(0.78 0.14 215);
   --pixel-blue: oklch(0.62 0.2 255);
   --pixel-purple: oklch(0.55 0.24 300);
+
+  /* Custom CTA colors */
+  --yellow-cta: #fbd630;
+  --cyan-cta: #06c9f3;
 
   --background: oklch(1 0 0);
   --foreground: var(--ink);
@@ -166,6 +172,8 @@
   .bg-pixel-green { background-color: var(--pixel-green); }
   .bg-pixel-blue { background-color: var(--pixel-blue); }
   .bg-pixel-orange { background-color: var(--pixel-orange); }
+  .bg-yellow-cta { background-color: var(--yellow-cta); }
+  .bg-cyan-cta { background-color: var(--cyan-cta); }
   .text-pixel-pink { color: var(--pixel-pink); }
   .text-pixel-purple { color: var(--pixel-purple); }
   .text-pixel-blue { color: var(--pixel-blue); }

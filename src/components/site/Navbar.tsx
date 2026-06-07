@@ -48,7 +48,7 @@ export function Navbar() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <a href="#demo" className="hidden sm:inline-flex items-center gap-2 h-11 px-5 rounded-full bg-gradient-pixorra text-white font-bold text-sm border-2 border-ink shadow-pixel hover:-translate-y-0.5 hover:translate-x-0.5 transition-transform">
+            <a href="#demo" className="hidden sm:inline-flex items-center gap-2 h-11 px-5 rounded-full bg-cyan-cta text-ink font-bold text-sm border-2 border-ink shadow-pixel hover:-translate-y-0.5 hover:translate-x-0.5 transition-transform">
               Get Free Demo <ArrowRight className="h-4 w-4" />
             </a>
             <button onClick={() => setOpen((o) => !o)} className="lg:hidden inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-ink bg-pixel-yellow shadow-pixel" aria-label="Menu">
@@ -68,7 +68,7 @@ export function Navbar() {
                   <span className="text-base font-bold text-ink">{l.label}</span>
                 </a>
               ))}
-              <a href="#demo" onClick={() => setOpen(false)} className="mt-2 inline-flex items-center justify-center gap-2 h-12 rounded-full bg-gradient-pixorra text-white font-bold border-2 border-ink shadow-pixel">
+              <a href="#demo" onClick={() => setOpen(false)} className="mt-2 inline-flex items-center justify-center gap-2 h-12 rounded-full bg-cyan-cta text-ink font-bold border-2 border-ink shadow-pixel">
                 Get Free Demo <ArrowRight className="h-4 w-4" />
               </a>
             </div>

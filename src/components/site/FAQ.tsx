@@ -51,7 +51,7 @@ export function FAQ() {
             href="https://wa.me/918927840261?text=Hi%20Pixorra!%20I%20have%20a%20question."
             target="_blank"
             rel="noreferrer"
-            className="mt-3 inline-flex items-center gap-2 h-12 px-6 rounded-full bg-[oklch(0.72_0.18_145)] text-white font-semibold"
+            className="mt-3 inline-flex items-center gap-2 h-12 px-6 rounded-full bg-pixel-green text-white font-semibold"
           >
             <MessageCircle className="h-4 w-4" /> Ask us on WhatsApp
           </a>

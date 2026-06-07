@@ -69,7 +69,7 @@ export function SummerSale() {
         </button>
 
         <div className="h-full flex flex-col overflow-y-auto">
-          <div className="relative bg-gradient-pixorra pt-16 pb-10 px-6 border-b-2 border-ink">
+          <div className="relative bg-pixel-orange pt-16 pb-10 px-6 border-b-2 border-ink">
             <div className="absolute top-4 left-4 flex items-center gap-2 h-8 px-3 rounded-full bg-pixel-yellow border-2 border-ink text-ink text-[10px] font-bold uppercase tracking-wider">
               <span className="h-1.5 w-1.5 rounded-full bg-pixel-pink animate-pulse" />
               Limited Time
@@ -129,7 +129,7 @@ export function SummerSale() {
           </div>
 
           <div className="px-6 py-5 border-t border-ink/10 bg-cream">
-            <a href="https://wa.me/918927840261?text=Hi%20Pixorra!%20I%20want%20to%20grab%20the%20Summer%20Sale%20deal!" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 h-14 w-full rounded-full bg-gradient-pixorra text-white font-bold border-2 border-ink shadow-pixel hover:-translate-y-0.5 transition-transform">
+            <a href="https://wa.me/918927840261?text=Hi%20Pixorra!%20I%20want%20to%20grab%20the%20Summer%20Sale%20deal!" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 h-14 w-full rounded-full bg-pixel-orange text-white font-bold border-2 border-ink shadow-pixel hover:-translate-y-0.5 transition-transform">
               <MessageCircle className="h-5 w-5" /> Grab This Deal on WhatsApp <ArrowRight className="h-5 w-5" />
             </a>
             <p className="mt-3 text-center text-[11px] text-ink/40">No card needed. Just send a message and we'll get you started.</p>
@@ -137,7 +137,7 @@ export function SummerSale() {
         </div>
       </div>
 
-      <button onClick={() => setSidebarOpen(true)} className={`fixed right-0 top-1/2 -translate-y-1/2 z-40 flex flex-col items-center gap-1.5 py-3 px-2 rounded-l-xl bg-gradient-pixorra border-2 border-r-0 border-ink shadow-pixel hover:pr-3 transition-all duration-300 group ${showTab ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}`} aria-label="Open summer sale">
+      <button onClick={() => setSidebarOpen(true)} className={`fixed right-0 top-1/2 -translate-y-1/2 z-40 flex flex-col items-center gap-1.5 py-3 px-2 rounded-l-xl bg-pixel-orange border-2 border-r-0 border-ink shadow-pixel hover:pr-3 transition-all duration-300 group ${showTab ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}`} aria-label="Open summer sale">
         <Zap className="h-4 w-4 text-white sparkle-pulse" />
         <span className="font-display font-bold text-white text-xs tracking-tight [writing-mode:vertical-lr] rotate-180 leading-none">SUMMER SALE</span>
         <span className="h-7 w-7 rounded-full bg-pixel-yellow border-2 border-ink flex items-center justify-center">
