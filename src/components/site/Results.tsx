@@ -33,7 +33,7 @@ export function Results() {
           {RESULTS.map((r, i) => (
             <div
               key={r.biz}
-              className="reveal relative rounded-3xl bg-white p-7 md:p-9 border-2 border-ink shadow-pixel hover:-translate-y-1 hover:translate-x-0.5 transition-transform"
+              className="reveal relative rounded-3xl glass-card p-7 md:p-9 border-2 border-ink shadow-pixel hover:-translate-y-1 hover:translate-x-0.5 transition-transform"
               style={{ animationDelay: `${i * 80}ms` }}
             >
               {/* corner sticker */}

@@ -23,7 +23,7 @@ export function About() {
                 { k: "4.9★", v: "Google Rated", pop: "card-pop-yellow" },
                 { k: "150+", v: "Businesses Grown", pop: "card-pop-cyan" },
               ].map((x) => (
-                <div key={x.v} className={`rounded-2xl bg-white p-5 md:p-6 ${x.pop}`}>
+                <div key={x.v} className={`rounded-2xl glass-card p-5 md:p-6 ${x.pop}`}>
                   <div className="font-display text-2xl md:text-4xl font-bold text-ink">{x.k}</div>
                   <div className="mt-1 text-xs md:text-sm text-ink/60">{x.v}</div>
                 </div>

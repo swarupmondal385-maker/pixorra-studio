@@ -47,7 +47,7 @@ export function Reviews() {
             const pops = ["card-pop-pink","card-pop-yellow","card-pop-cyan","card-pop-purple","card-pop-green","card-pop-orange"];
             const bgs = ["bg-pixel-pink","bg-pixel-yellow","bg-pixel-cyan","bg-pixel-purple","bg-pixel-green","bg-pixel-orange"];
             return (
-            <div key={r.name} className={`reveal rounded-3xl bg-white p-7 ${pops[i % pops.length]}`} style={{animationDelay:`${i*60}ms`}}>
+            <div key={r.name} className={`reveal rounded-3xl glass-card p-7 ${pops[i % pops.length]}`} style={{animationDelay:`${i*60}ms`}}>
               <div className="flex items-center gap-3">
                 <div className={`h-11 w-11 rounded-full border-2 border-ink ${bgs[i % bgs.length]} text-ink flex items-center justify-center font-bold`}>
                   {r.name.split(" ").map(x=>x[0]).join("")}

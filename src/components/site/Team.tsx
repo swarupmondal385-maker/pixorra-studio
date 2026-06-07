@@ -17,7 +17,7 @@ export function Team() {
         </div>
         <div className="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-6">
           {TEAM.map((m, i) => (
-            <div key={m.name} className={`reveal rounded-3xl bg-white p-6 ${m.pop}`} style={{animationDelay:`${i*80}ms`}}>
+            <div key={m.name} className={`reveal rounded-3xl glass-card p-6 ${m.pop}`} style={{animationDelay:`${i*80}ms`}}>
               <div className={`h-20 w-20 rounded-2xl border-2 border-ink ${m.color} text-ink flex items-center justify-center font-display text-2xl font-bold`}>
                 {m.name.split(" ").map(x=>x[0]).join("")}
               </div>

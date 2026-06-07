@@ -164,7 +164,7 @@ export function Services() {
                 type="button"
                 key={s.title}
                 onClick={() => setActive(s)}
-                className={`reveal group relative text-left rounded-3xl bg-white p-7 md:p-8 ${s.pop} focus:outline-none focus-visible:ring-4 focus-visible:ring-pixel-pink/40`}
+                className={`reveal group relative text-left rounded-3xl glass-card p-7 md:p-8 ${s.pop} focus:outline-none focus-visible:ring-4 focus-visible:ring-pixel-pink/40`}
                 style={{ animationDelay: `${i * 80}ms` }}
               >
                 <div className="absolute top-5 right-6 font-pixel text-[10px] text-ink/40 tracking-widest">
@@ -277,3 +277,4 @@ function ServiceModal({ service, onClose }: { service: Service; onClose: () => v
     </div>
   );
 }
+

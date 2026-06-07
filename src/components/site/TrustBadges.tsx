@@ -13,7 +13,7 @@ export function TrustBadges() {
       <div className="max-w-7xl mx-auto px-5 md:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
           {BADGES.map(({ icon: Icon, title, sub, bg, pop }, i) => (
-            <div key={title} className={`reveal flex items-center gap-4 rounded-2xl bg-white p-5 ${pop}`} style={{animationDelay:`${i*60}ms`}}>
+            <div key={title} className={`reveal flex items-center gap-4 rounded-2xl glass-card p-5 ${pop}`} style={{animationDelay:`${i*60}ms`}}>
               <div className={`h-12 w-12 rounded-xl ${bg} border-2 border-ink flex items-center justify-center`}>
                 <Icon className="h-5 w-5 text-ink" strokeWidth={2.4} />
               </div>

@@ -35,7 +35,7 @@ export function BuiltFor() {
           {INDUSTRIES.map(({ label, emoji }, i) => (
             <div
               key={label}
-              className="reveal card-pop bg-white rounded-2xl p-5 text-center"
+              className="reveal card-pop glass-card rounded-2xl p-5 text-center"
               style={{ animationDelay: `${i * 50}ms` }}
             >
               <div className={`mx-auto h-12 w-12 rounded-xl border-2 border-ink ${COLORS[i % COLORS.length]} flex items-center justify-center text-2xl`}>

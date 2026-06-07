@@ -25,7 +25,7 @@ export function WhyUs() {
             {REASONS.map(({ icon: Icon, title, desc, pop, bg }, i) => (
               <div
                 key={title}
-                className={`reveal rounded-3xl bg-white p-7 ${pop}`}
+                className={`reveal rounded-3xl glass-card p-7 ${pop}`}
                 style={{ animationDelay: `${i * 80}ms` }}
               >
                 <div className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl border-2 border-ink ${bg}`}>

@@ -24,7 +24,7 @@ export function Process() {
           {STEPS.map(({ n, icon: Icon, title, desc, time, pop, bg, emoji }, i) => (
             <div
               key={n}
-              className={`reveal relative rounded-3xl bg-white p-8 ${pop}`}
+              className={`reveal relative rounded-3xl glass-card p-8 ${pop}`}
               style={{ animationDelay: `${i * 120}ms` }}
             >
               <div className="flex items-center justify-between">
