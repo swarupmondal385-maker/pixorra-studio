@@ -1,7 +1,31 @@
 import { Check, Star, ArrowRight } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 const WHATSAPP = "https://wa.me/918927840261?text=Hi%20Pixorra%2C%20I%27d%20like%20to%20know%20more%20about%20your%20pricing.";
+
+const TEHELKA_ALL_FEATURES = [
+  "Flagship Conversion Website",
+  "Mobile-First Smart Design",
+  "Custom Business Growth Blueprint",
+  "Google Maps Authority Setup",
+  "One-Tap Client Connect System",
+  "Search Supremacy Engine",
+  "Omni-Channel Social Presence",
+  "5-Star Reputation Engine",
+  "Real-Time Business Intelligence Dashboard",
+  "Google Empire Domination System",
+  "Lightning Lead Capture System",
+  "AI WhatsApp Sales Assistant",
+  "Brand Visibility Report Card",
+  "90-Day White Glove Support",
+  "Local SEO Domination Pack",
+  "Competitor Ranking Takeover Strategy",
+  "Trust & Authority Builder System",
+  "Digital Presence Audit & Scorecard",
+  "Content-Ready Social Media Kit",
+  "High-Speed Performance Optimization",
+];
 
 const PACKAGES = [
   {
@@ -19,10 +43,11 @@ const PACKAGES = [
     ],
     cta: "Start with Starter",
     popular: false,
+    flagship: false,
   },
   {
     name: "Professional",
-    price: "₹19,999",
+    price: "₹24,999",
     tagline: "Our most chosen package for serious growth",
     features: [
       "Custom website (up to 10 pages)",
@@ -37,11 +62,32 @@ const PACKAGES = [
     ],
     cta: "Go Professional",
     popular: true,
+    flagship: false,
+  },
+  {
+    name: "Tehelka",
+    price: "₹49,999",
+    tagline: "The ultimate growth engine for domination",
+    features: [
+      "Flagship Conversion Website",
+      "Custom Business Growth Blueprint",
+      "One-Tap Client Connect System",
+      "5-Star Reputation Engine",
+      "Real-Time Business Intelligence Dashboard",
+      "Google Empire Domination System",
+      "AI WhatsApp Sales Assistant",
+      "Local SEO Domination Pack",
+      "High-Speed Performance Optimization",
+    ],
+    cta: "Claim Tehelka",
+    popular: false,
+    flagship: true,
   },
 ];
 
 export function Pricing() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [tehelkaOpen, setTehelkaOpen] = useState(false);
   const sliderRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -56,7 +102,7 @@ export function Pricing() {
   }, []);
 
   return (
-    <section id="pricing" className="relative py-20 md:py-32 bg-white md:overflow-hidden overflow-visible">
+    <section id="pricing" className="relative py-20 md:py-32 bg-white overflow-hidden">
       <div className="absolute -top-24 -left-20 h-80 w-80 rounded-full bg-pixel-pink/20 blur-3xl blob" aria-hidden />
       <div className="absolute top-40 -right-24 h-96 w-96 rounded-full bg-pixel-cyan/20 blur-3xl blob" style={{animationDelay:"3s"}} aria-hidden />
       <div className="absolute bottom-10 left-1/3 h-72 w-72 rounded-full bg-pixel-yellow/25 blur-3xl blob" style={{animationDelay:"5s"}} aria-hidden />
@@ -73,21 +119,27 @@ export function Pricing() {
             Honest pricing. <span className="text-gradient-pixorra">No surprises.</span>
           </h2>
           <p className="mt-5 text-lg text-ink/60">
-            Two all-in-one packages built to get you online and growing. Every package includes a business blueprint strategy.
+            Three all-in-one packages built to get you online and growing. From starter to flagship — there's a plan for every ambition.
           </p>
         </div>
 
-        <div ref={sliderRef} className="mt-14 md:grid md:grid-cols-2 md:gap-6 max-w-5xl mx-auto flex overflow-x-auto snap-x snap-mandatory gap-5 pb-4 pt-6 md:pt-0 scroll-smooth" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
-          {PACKAGES.map(({ name, price, tagline, features, cta, popular }, i) => (
+        <div ref={sliderRef} className="mt-14 md:grid md:grid-cols-3 md:gap-6 max-w-6xl mx-auto flex overflow-x-auto snap-x snap-mandatory gap-5 pb-4 pt-6 md:pt-10 px-3 md:px-4 scroll-smooth" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
+          {PACKAGES.map(({ name, price, tagline, features, cta, popular, flagship }, i) => (
             <div
               key={name}
               className={`reveal snap-center shrink-0 w-[85vw] md:w-auto md:shrink relative rounded-3xl p-7 md:p-10 transition-all duration-500 flex flex-col border-2 border-ink ${
-                popular
+                flagship
                   ? "bg-ink text-white"
                   : "glass-card text-ink hover:-translate-y-1"
               }`}
-              style={{ animationDelay: `${i * 120}ms`, boxShadow: popular ? "10px 10px 0 0 var(--pixel-pink)" : "8px 8px 0 0 var(--pixel-yellow)" }}
+              style={{ animationDelay: `${i * 120}ms`, boxShadow: flagship ? "10px 10px 0 0 var(--cyan-cta)" : "8px 8px 0 0 var(--pixel-yellow)" }}
             >
+              {flagship && (
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full bg-pixel-purple px-4 py-1.5 text-xs font-bold text-white border-2 border-ink whitespace-nowrap">
+                  <Star className="h-3 w-3 fill-white" strokeWidth={0} />
+                  Flagship
+                </div>
+              )}
               {popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full bg-pixel-purple px-4 py-1.5 text-xs font-bold text-white border-2 border-ink whitespace-nowrap">
                   <Star className="h-3 w-3 fill-white" strokeWidth={0} />
@@ -95,20 +147,20 @@ export function Pricing() {
                 </div>
               )}
               <div>
-                <h4 className={`font-display text-2xl font-bold ${popular ? "text-white" : "text-ink"}`}>{name}</h4>
-                <p className={`mt-1.5 text-sm ${popular ? "text-white/70" : "text-ink/60"}`}>{tagline}</p>
+                <h4 className={`font-display text-2xl font-bold ${flagship ? "text-white" : "text-ink"}`}>{name}</h4>
+                <p className={`mt-1.5 text-sm ${flagship ? "text-white/70" : "text-ink/60"}`}>{tagline}</p>
               </div>
               <div className="mt-6 flex items-baseline gap-2">
-                <span className={`font-display text-5xl font-bold ${popular ? "text-white" : "text-ink"}`}>{price}</span>
-                <span className={`text-sm ${popular ? "text-white/60" : "text-ink/50"}`}>one-time</span>
+                <span className={`font-display text-5xl font-bold ${flagship ? "text-white" : "text-ink"}`}>{price}</span>
+                <span className={`text-sm ${flagship ? "text-white/60" : "text-ink/50"}`}>one-time</span>
               </div>
               <ul className="mt-7 space-y-3 flex-1">
                 {features.map((f) => (
                   <li key={f} className="flex items-start gap-3">
-                    <div className={`mt-0.5 flex-shrink-0 h-5 w-5 rounded-full border border-ink flex items-center justify-center ${popular ? "bg-pixel-yellow" : "bg-pixel-green"}`}>
+                    <div className={`mt-0.5 flex-shrink-0 h-5 w-5 rounded-full border border-ink flex items-center justify-center ${flagship ? "bg-pixel-yellow" : "bg-pixel-green"}`}>
                       <Check className="h-3 w-3 text-ink" strokeWidth={3} />
                     </div>
-                    <span className={`text-sm leading-relaxed ${popular ? "text-white/90" : "text-ink/80"}`}>{f}</span>
+                    <span className={`text-sm leading-relaxed ${flagship ? "text-white/90" : "text-ink/80"}`}>{f}</span>
                   </li>
                 ))}
               </ul>
@@ -117,7 +169,7 @@ export function Pricing() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`mt-8 inline-flex items-center justify-center gap-2 rounded-full px-6 py-4 font-semibold transition-all min-h-12 border-2 border-ink ${
-                  popular
+                  flagship
                     ? "bg-pixel-purple text-white hover:-translate-y-0.5"
                     : "bg-gold text-ink hover:bg-gold-soft"
                 }`}
@@ -125,9 +177,39 @@ export function Pricing() {
                 {cta}
                 <ArrowRight className="h-4 w-4" />
               </a>
+              {flagship && (
+                <button
+                  type="button"
+                  onClick={() => setTehelkaOpen(true)}
+                  className="mt-3 inline-flex items-center justify-center rounded-full border-2 border-white/20 px-6 py-3 text-sm font-semibold text-white/90 transition-all hover:bg-white/10"
+                >
+                  More Features
+                </button>
+              )}
             </div>
           ))}
         </div>
+
+        <Dialog open={tehelkaOpen} onOpenChange={setTehelkaOpen}>
+          <DialogContent className="max-w-2xl border-2 border-ink bg-ink p-6 md:p-8 max-h-[85vh] overflow-y-auto text-white" style={{ boxShadow: "10px 10px 0 0 var(--cyan-cta)" }}>
+            <DialogHeader>
+              <DialogTitle className="font-display text-3xl text-white">Tehelka Features</DialogTitle>
+              <DialogDescription className="text-white/70">
+                Everything included in the Tehelka flagship plan.
+              </DialogDescription>
+            </DialogHeader>
+            <ul className="mt-6 space-y-3">
+              {TEHELKA_ALL_FEATURES.map((f) => (
+                <li key={f} className="flex items-start gap-3">
+                  <div className="mt-0.5 flex-shrink-0 h-5 w-5 rounded-full border border-ink flex items-center justify-center bg-pixel-yellow">
+                    <Check className="h-3 w-3 text-ink" strokeWidth={3} />
+                  </div>
+                  <span className="text-sm leading-relaxed text-white/90">{f}</span>
+                </li>
+              ))}
+            </ul>
+          </DialogContent>
+        </Dialog>
 
         {/* Swipe indicators — mobile only */}
         <div className="flex md:hidden items-center justify-center gap-2 mt-3">
