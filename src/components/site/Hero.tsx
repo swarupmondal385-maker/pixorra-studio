@@ -70,16 +70,13 @@ export function Hero() {
           </div>
 
           <h1 className="mt-4 font-display font-bold text-ink text-balance text-[2.4rem] leading-[1.02] sm:text-6xl md:text-7xl lg:text-[5.2rem] tracking-tight">
-            We don't just build websites.<br />
-            We build{" "}
-            <span className="relative inline-block">
-              <span className="relative z-10 text-gradient-pixorra">systems</span>
+            Built to be <span className="relative inline-block">
+              <span className="relative z-10 text-gradient-pixorra">found.</span>
               <span className="absolute left-0 right-0 bottom-1 md:bottom-2 h-3 md:h-4 bg-pixel-yellow/60 -z-0 rounded-sm" />
-            </span>{" "}
-            that bring you clients.
+            </span>
           </h1>
           <p className="mt-6 text-lg md:text-xl text-ink/65 max-w-3xl mx-auto">
-            AI automation, smart funnels, WhatsApp bots &amp; high-converting websites — all working together to turn strangers into paying customers. 24/7.
+            We build premium websites &amp; automated systems that turn strangers into customers — while you sleep.
           </p>
 
           {/* Video demo card */}
