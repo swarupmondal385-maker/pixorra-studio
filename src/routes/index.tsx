@@ -28,28 +28,28 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Pixorra Studio" },
+      { title: "Pixorra — The Complete Growth System for Indian Businesses" },
       {
         name: "description",
         content:
-          "High-converting websites, Google Ads, SEO, Shopify stores and branding for ambitious Indian businesses. Delivered in 7-10 days. Free demo website for every new lead.",
+          "AI automation, high-converting websites, funnels, WhatsApp systems & local SEO — all built to turn strangers into paying clients. Delivered in 7–10 days.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://pixorrastudio.com" },
-      { property: "og:title", content: "Pixorra Studio - Websites that make your business the obvious choice" },
+      { property: "og:title", content: "Pixorra — The Complete Growth System for Indian Businesses" },
       {
         property: "og:description",
         content:
-          "Premium digital agency in Mumbai. High-converting websites, Google Ads, SEO & branding delivered in 7-10 days. Free demo for every new lead.",
+          "AI automation, high-converting websites, funnels, WhatsApp systems & local SEO — all built to turn strangers into paying clients. Delivered in 7–10 days.",
       },
       { property: "og:image", content: "https://pixorrastudio.com/pixorra-mark.png" },
       { property: "og:image:alt", content: "Pixorra Studio logo mark" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Pixorra Studio - Premium Digital Agency, Mumbai" },
+      { name: "twitter:title", content: "Pixorra — The Complete Growth System for Indian Businesses" },
       {
         name: "twitter:description",
         content:
-          "Websites, Google Ads, SEO & branding for ambitious Indian businesses. Delivered in 7-10 days.",
+          "AI automation, high-converting websites, funnels, WhatsApp systems & local SEO — all built to turn strangers into paying clients. Delivered in 7–10 days.",
       },
       { name: "twitter:image", content: "https://pixorrastudio.com/pixorra-mark.png" },
       { name: "twitter:image:alt", content: "Pixorra Studio logo mark" },

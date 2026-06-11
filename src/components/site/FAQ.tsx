@@ -3,7 +3,10 @@ import { Plus, MessageCircle } from "lucide-react";
 
 const FAQS = [
   { q: "How long does it take to build my website?", a: "Most projects go live in 7–10 working days once we have your content and brand inputs. Complex e-commerce or custom builds may take 2–3 weeks." },
-  { q: "What does it cost?", a: "Our starter websites begin at ₹14,999, with Shopify and custom builds scaling based on scope. Every quote is fixed upfront — no surprises later." },
+  { q: "What does it cost?", a: "Our monthly plans start at ₹14,999/month for the Ignite tier. The full Growth Engine is ₹24,999/month, and our complete Elite system is ₹39,999/month. Every quote is fixed upfront — no surprises later." },
+  { q: "What is an AI chatbot and do I need one?", a: "Your AI chatbot talks to every website visitor, qualifies them, and books appointments — even at midnight. Most of our clients see 2–3x more leads from the same traffic." },
+  { q: "What is a business funnel?", a: "A funnel is the automated path from stranger → interested → paying customer. We build this entire journey for you — landing page, WhatsApp follow-up, offer, and close." },
+  { q: "Can you automate my WhatsApp and CRM?", a: "Yes. We build full WhatsApp automation sequences that follow up on every lead, send reminders, and nurture clients — without you lifting a finger." },
   { q: "Do I need to provide all the content and images?", a: "No. We write your copy, source visuals and structure your pages. Just share your business details on the intro call — we take care of the rest." },
   { q: "Will my website actually rank on Google?", a: "Every site we build is SEO-ready from day one — clean code, fast loading, structured data and proper keyword targeting. Many of our clients rank in the top 3 locally within 60–90 days." },
   { q: "Can I update the website myself later?", a: "Yes. We hand over a simple dashboard so you can edit text, swap images, add offers, and post blogs without touching code." },

@@ -1,8 +1,8 @@
 const TEAM = [
-  { name: "Arjun Patel", role: "Founder & Creative Director", bio: "10+ years designing brands and digital experiences for Indian SMBs.", color: "bg-pixel-pink", pop: "card-pop-pink" },
-  { name: "Riya Shah", role: "Head of Growth (Ads & SEO)", bio: "Ex-Google Premier Partner. Obsessed with ROI and cost-per-lead.", color: "bg-pixel-yellow", pop: "card-pop-yellow" },
-  { name: "Karan Mehta", role: "Lead Developer", bio: "Builds blazing-fast websites that Google loves and customers trust.", color: "bg-pixel-cyan", pop: "card-pop-cyan" },
-  { name: "Sneha Rao", role: "Brand & Content Lead", bio: "Turns boring business copy into words that actually convert.", color: "bg-pixel-purple", pop: "card-pop-purple" },
+  { name: "Sam", role: "Founder & CEO", bio: "Builds the vision and ensures every client gets a system that actually grows their business.", color: "bg-pixel-pink", pop: "card-pop-pink" },
+  { name: "Debojyoti", role: "Operations & Finance", bio: "Keeps the engine running — from project ops to client success and everything in between.", color: "bg-pixel-yellow", pop: "card-pop-yellow" },
+  { name: "Saniya", role: "Sales Lead", bio: "Understands your business in minutes and maps the perfect growth system for your goals.", color: "bg-pixel-cyan", pop: "card-pop-cyan" },
+  { name: "Shubho", role: "Web Developer", bio: "Builds blazing-fast websites and automations that Google loves and customers trust.", color: "bg-pixel-purple", pop: "card-pop-purple" },
 ];
 
 export function Team() {

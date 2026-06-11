@@ -1,13 +1,14 @@
 const ITEMS = [
+  "AI Chatbots",
+  "WhatsApp Automation",
+  "Business Funnels",
   "High-Converting Websites",
+  "Local SEO",
+  "CRM & Workflow Systems",
   "Google Ads",
-  "SEO That Ranks",
-  "Shopify Stores",
-  "AI Video & Creative",
-  "Branding & Identity",
-  "Mumbai's Best Agency",
-  "Free Demo Website",
-  "7-Day Delivery",
+  "Social Media",
+  "Reputation Management",
+  "AI Autonomous Systems",
 ];
 
 const DOT_COLORS = ["bg-pixel-pink","bg-pixel-yellow","bg-pixel-cyan","bg-pixel-purple","bg-pixel-green","bg-pixel-orange","bg-pixel-blue"];

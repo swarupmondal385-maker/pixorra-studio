@@ -6,15 +6,15 @@ export function About() {
           <div className="lg:col-span-5 reveal">
             <p className="text-xs font-bold tracking-[0.2em] text-pixel-pink uppercase">About Pixorra</p>
             <h2 className="mt-3 font-display text-4xl md:text-6xl font-bold text-ink tracking-tight text-balance">
-              A Mumbai studio built for <span className="text-gradient-pixorra">ambitious founders.</span>
+              We're not an agency. We're your <span className="text-gradient-pixorra">business's growth engine.</span>
             </h2>
           </div>
           <div className="lg:col-span-7 reveal">
             <p className="text-lg md:text-xl text-ink/75 leading-relaxed">
-              Pixorra is a new kind of digital agency — part design studio, part growth partner. We work with clinics, restaurants, gyms, D2C brands and service businesses across India who are tired of overpaying bloated agencies for slow, generic websites.
+              Most agencies sell you a pretty website and disappear. Pixorra builds the entire system — the website, the funnel, the AI chatbot, the WhatsApp follow-up, the CRM, the automation — all wired together with one goal: make your business the obvious choice in your city.
             </p>
             <p className="mt-6 text-lg text-ink/65 leading-relaxed">
-              Our playbook is simple: ship fast, measure everything, and obsess over the one thing most agencies forget — <span className="text-ink font-semibold rainbow-underline">actual customers in your inbox.</span>
+              We work with gyms, clinics, restaurants, coaching institutes and local businesses across India who are tired of getting leads that go nowhere. We don't just get you online — we build the machine that converts strangers into clients, <span className="text-ink font-semibold">automatically.</span>
             </p>
 
             <div className="mt-10 grid grid-cols-3 gap-4 md:gap-6">

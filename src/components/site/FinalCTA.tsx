@@ -10,23 +10,23 @@ export function FinalCTA() {
       <div className="absolute bottom-32 left-20 h-2.5 w-2.5 bg-pixel-green sparkle-pulse" style={{animationDelay:"2s"}} />
 
       <div className="relative max-w-5xl mx-auto px-5 md:px-8 text-center reveal">
-        <p className="text-xs font-bold tracking-[0.2em] text-pixel-pink uppercase">The Final Question</p>
+        <p className="text-xs font-bold tracking-[0.2em] text-pixel-pink uppercase">Stop Losing Leads</p>
         <h2 className="mt-5 font-display text-5xl md:text-7xl lg:text-8xl font-bold text-ink tracking-tight text-balance leading-[1.02]">
-          Your competitors already have a website.
+          Your competitors are already automating.
           <br/>
-          <span className="text-gradient-pixorra">Do you?</span>
+          <span className="text-gradient-pixorra">Are you still doing it manually?</span>
         </h2>
         <p className="mt-7 text-lg md:text-xl text-ink/60 max-w-2xl mx-auto">
-          Every day without a proper online presence is a customer walking into their shop instead of yours. Let's fix that — starting today.
+          Every lead you don't follow up with goes to a competitor who does. Let's build the system that never lets that happen again.
         </p>
-        <a href="https://wa.me/918927840261?text=Hi%20Pixorra!%20I%20want%20a%20free%20demo%20website."
+        <a href="https://wa.me/918927840261?text=Hi%20Pixorra!%20I%20want%20a%20free%20growth%20strategy%20call."
           target="_blank" rel="noreferrer"
           className="mt-10 inline-flex items-center gap-3 h-16 px-9 rounded-full bg-pixel-pink text-white font-semibold text-lg border-2 border-ink shadow-pixel hover:-translate-y-0.5 transition-transform group">
           <Rocket className="h-5 w-5"/>
-          Get My Free Demo Website
+          Get My Free Growth Strategy Call
           <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
         </a>
-        <p className="mt-4 text-sm text-ink/50">No card needed · 48-hour turnaround · Zero obligation</p>
+        <p className="mt-4 text-sm text-ink/50">No card needed · Free strategy call · Zero obligation</p>
       </div>
     </section>
   );

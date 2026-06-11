@@ -35,9 +35,9 @@ export function Hero() {
         <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" aria-hidden />
 
         <div className="relative text-center max-w-5xl mx-auto reveal">
-          <div className="inline-flex items-center gap-2 h-9 px-4 rounded-full bg-white border-2 border-ink text-xs font-bold tracking-wider uppercase shadow-pixel">
-            <span className="text-gradient-pixorra">Mumbai's Playful Digital Agency</span>
-          </div>
+            <div className="inline-flex items-center gap-2 h-9 px-4 rounded-full bg-white border-2 border-ink text-xs font-bold tracking-wider uppercase shadow-pixel">
+              <span className="text-gradient-pixorra">India's Business Growth OS</span>
+            </div>
 
           {/* Mascot with orbit */}
           <div className="mt-6 flex justify-center">
@@ -70,14 +70,17 @@ export function Hero() {
           </div>
 
           <h1 className="mt-4 font-display font-bold text-ink text-balance text-[2.4rem] leading-[1.02] sm:text-6xl md:text-7xl lg:text-[5.2rem] tracking-tight">
-            Websites that make<br />
-            your business the{" "}
+            We don't just build websites.<br />
+            We build{" "}
             <span className="relative inline-block">
-              <span className="relative z-10 text-gradient-pixorra">obvious choice</span>
+              <span className="relative z-10 text-gradient-pixorra">systems</span>
               <span className="absolute left-0 right-0 bottom-1 md:bottom-2 h-3 md:h-4 bg-pixel-yellow/60 -z-0 rounded-sm" />
-            </span>
-            .
+            </span>{" "}
+            that bring you clients.
           </h1>
+          <p className="mt-6 text-lg md:text-xl text-ink/65 max-w-3xl mx-auto">
+            AI automation, smart funnels, WhatsApp bots &amp; high-converting websites — all working together to turn strangers into paying customers. 24/7.
+          </p>
 
           {/* Video demo card */}
           <div className="mt-7 max-w-md mx-auto">

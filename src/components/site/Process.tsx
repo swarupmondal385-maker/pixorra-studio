@@ -1,9 +1,9 @@
-import { Phone, Hammer, Rocket } from "lucide-react";
+import { Target, Hammer, Rocket } from "lucide-react";
 
 const STEPS = [
-  { n: "01", icon: Phone, title: "Tell Us About Your Business", desc: "A free 20-minute call. We listen, understand your goals, and map out exactly what will work for you.", time: "Day 1", pop: "card-pop-pink", bg: "bg-pixel-pink", emoji: "👋" },
-  { n: "02", icon: Hammer, title: "We Build Your Dream Website", desc: "Our team designs, writes and develops your complete site while you stay in the loop with daily updates.", time: "Day 2–9", pop: "card-pop-yellow", bg: "bg-pixel-yellow", emoji: "🛠️" },
-  { n: "03", icon: Rocket, title: "Go Live & Start Getting Customers", desc: "We launch, set up Google, and hand you the keys — plus ongoing support whenever you need us.", time: "Day 10", pop: "card-pop-cyan", bg: "bg-pixel-cyan", emoji: "🚀" },
+  { n: "01", icon: Target, title: "We Map Your Growth System", desc: "A free strategy call. We understand your business, your ideal client, and design the full system that will bring them to you.", time: "Day 1", pop: "card-pop-pink", bg: "bg-pixel-pink", emoji: "🎯" },
+  { n: "02", icon: Hammer, title: "We Build Everything", desc: "Website, funnel, chatbot, automation, CRM — your entire client-getting machine, built and tested in 7–10 days.", time: "Day 2–9", pop: "card-pop-yellow", bg: "bg-pixel-yellow", emoji: "🛠️" },
+  { n: "03", icon: Rocket, title: "Your System Runs on Autopilot", desc: "Go live. The AI handles leads, WhatsApp follows up, funnels convert — and you just focus on serving clients.", time: "Day 10", pop: "card-pop-cyan", bg: "bg-pixel-cyan", emoji: "🚀" },
 ];
 
 export function Process() {
@@ -13,7 +13,7 @@ export function Process() {
         <div className="max-w-3xl reveal">
           <p className="text-xs font-bold tracking-[0.2em] text-pixel-pink uppercase">How It Works</p>
           <h2 className="mt-3 font-display text-4xl md:text-6xl font-bold text-ink tracking-tight text-balance">
-            From idea to <span className="text-gradient-pixorra">customers in 10 days.</span>
+            From idea to <span className="text-gradient-pixorra">autopilot in 10 days.</span>
           </h2>
         </div>
 

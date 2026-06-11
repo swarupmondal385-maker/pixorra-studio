@@ -4,82 +4,76 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 
 const WHATSAPP = "https://wa.me/918927840261?text=Hi%20Pixorra%2C%20I%27d%20like%20to%20know%20more%20about%20your%20pricing.";
 
-const TEHELKA_ALL_FEATURES = [
-  "Flagship Conversion Website",
-  "Mobile-First Smart Design",
-  "Custom Business Growth Blueprint",
-  "Google Maps Authority Setup",
-  "One-Tap Client Connect System",
-  "Search Supremacy Engine",
-  "Omni-Channel Social Presence",
-  "5-Star Reputation Engine",
-  "Real-Time Business Intelligence Dashboard",
-  "Google Empire Domination System",
-  "Lightning Lead Capture System",
-  "AI WhatsApp Sales Assistant",
-  "Brand Visibility Report Card",
-  "90-Day White Glove Support",
-  "Local SEO Domination Pack",
-  "Competitor Ranking Takeover Strategy",
-  "Trust & Authority Builder System",
-  "Digital Presence Audit & Scorecard",
-  "Content-Ready Social Media Kit",
-  "High-Speed Performance Optimization",
+const ELITE_ALL_FEATURES = [
+  "Custom website (up to 15 pages)",
+  "Mobile-first smart design",
+  "AI chatbot & WhatsApp automation",
+  "Full funnel setup (landing → close)",
+  "CRM & workflow automation",
+  "Full SEO + Local SEO",
+  "Google Ads setup & management",
+  "Social media management",
+  "Reputation management",
+  "Dedicated account manager",
+  "6 months white glove support",
 ];
 
 const PACKAGES = [
   {
-    name: "Starter",
+    name: "Ignite",
     price: "₹14,999",
-    tagline: "Perfect for new businesses getting online",
+    period: "/month",
+    tagline: "For businesses just starting to grow online",
     features: [
-      "Custom website (up to 5 pages)",
+      "Custom website (up to 3 pages)",
       "Mobile optimized",
-      "Business blueprint strategy",
-      "Google Maps integration",
-      "WhatsApp chat button",
       "Basic SEO setup",
-      "1 month free support",
+      "WhatsApp chatbot",
+      "Lead capture form",
+      "1 month support",
+      "Monthly performance report",
     ],
-    cta: "Start with Starter",
+    cta: "Start with Ignite",
     popular: false,
     flagship: false,
   },
   {
-    name: "Professional",
+    name: "Growth Engine",
     price: "₹24,999",
+    period: "/month",
     tagline: "Our most chosen package for serious growth",
     features: [
-      "Custom website (up to 10 pages)",
-      "Mobile optimized",
-      "Detailed business blueprint",
-      "Google Maps + Reviews integration",
-      "WhatsApp & Call button",
+      "Custom website (up to 8 pages)",
+      "Mobile-first smart design",
+      "AI WhatsApp chatbot & automation",
       "Full SEO setup",
+      "Google Maps optimization",
+      "Lead capture & CRM",
       "Social media integration",
-      "3 months free support",
-      "Google Analytics setup",
+      "3 months priority support",
+      "Monthly strategy review",
     ],
-    cta: "Go Professional",
+    cta: "Go Growth Engine",
     popular: true,
     flagship: false,
   },
   {
-    name: "Tehelka",
-    price: "₹49,999",
-    tagline: "The ultimate growth engine for domination",
+    name: "Elite",
+    price: "₹39,999",
+    period: "/month",
+    tagline: "Complete AI-powered growth partner for market leaders",
     features: [
-      "Flagship Conversion Website",
-      "Custom Business Growth Blueprint",
-      "One-Tap Client Connect System",
-      "5-Star Reputation Engine",
-      "Real-Time Business Intelligence Dashboard",
-      "Google Empire Domination System",
-      "AI WhatsApp Sales Assistant",
-      "Local SEO Domination Pack",
-      "High-Speed Performance Optimization",
+      "Custom website (up to 15 pages)",
+      "Mobile-first smart design",
+      "AI chatbot & WhatsApp automation",
+      "Full funnel setup",
+      "CRM & workflow automation",
+      "Full SEO + Local SEO",
+      "Social media management",
+      "Reputation management",
+      "Dedicated account manager",
     ],
-    cta: "Claim Tehelka",
+    cta: "Go Elite",
     popular: false,
     flagship: true,
   },
@@ -87,7 +81,7 @@ const PACKAGES = [
 
 export function Pricing() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [tehelkaOpen, setTehelkaOpen] = useState(false);
+  const [eliteOpen, setEliteOpen] = useState(false);
   const sliderRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -119,12 +113,12 @@ export function Pricing() {
             Honest pricing. <span className="text-gradient-pixorra">No surprises.</span>
           </h2>
           <p className="mt-5 text-lg text-ink/60">
-            Three all-in-one packages built to get you online and growing. From starter to flagship — there's a plan for every ambition.
+            Three monthly plans built to grow your business. From Ignite to Elite — there's a growth engine for every stage.
           </p>
         </div>
 
         <div ref={sliderRef} className="mt-14 md:grid md:grid-cols-3 md:gap-6 max-w-6xl mx-auto flex overflow-x-auto snap-x snap-mandatory gap-5 pb-4 pt-6 md:pt-10 px-3 md:px-4 scroll-smooth" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
-          {PACKAGES.map(({ name, price, tagline, features, cta, popular, flagship }, i) => (
+          {PACKAGES.map(({ name, price, period, tagline, features, cta, popular, flagship }, i) => (
             <div
               key={name}
               className={`reveal snap-center shrink-0 w-[85vw] md:w-auto md:shrink relative rounded-3xl p-7 md:p-10 transition-all duration-500 flex flex-col border-2 border-ink ${
@@ -152,7 +146,7 @@ export function Pricing() {
               </div>
               <div className="mt-6 flex items-baseline gap-2">
                 <span className={`font-display text-5xl font-bold ${flagship ? "text-white" : "text-ink"}`}>{price}</span>
-                <span className={`text-sm ${flagship ? "text-white/60" : "text-ink/50"}`}>one-time</span>
+                <span className={`text-sm ${flagship ? "text-white/60" : "text-ink/50"}`}>{period}</span>
               </div>
               <ul className="mt-7 space-y-3 flex-1">
                 {features.map((f) => (
@@ -180,7 +174,7 @@ export function Pricing() {
               {flagship && (
                 <button
                   type="button"
-                  onClick={() => setTehelkaOpen(true)}
+                  onClick={() => setEliteOpen(true)}
                   className="mt-3 inline-flex items-center justify-center rounded-full border-2 border-white/20 px-6 py-3 text-sm font-semibold text-white/90 transition-all hover:bg-white/10"
                 >
                   More Features
@@ -190,16 +184,16 @@ export function Pricing() {
           ))}
         </div>
 
-        <Dialog open={tehelkaOpen} onOpenChange={setTehelkaOpen}>
+        <Dialog open={eliteOpen} onOpenChange={setEliteOpen}>
           <DialogContent className="max-w-2xl border-2 border-ink bg-ink p-6 md:p-8 max-h-[85vh] overflow-y-auto text-white" style={{ boxShadow: "10px 10px 0 0 var(--cyan-cta)" }}>
             <DialogHeader>
-              <DialogTitle className="font-display text-3xl text-white">Tehelka Features</DialogTitle>
+              <DialogTitle className="font-display text-3xl text-white">Elite Features</DialogTitle>
               <DialogDescription className="text-white/70">
-                Everything included in the Tehelka flagship plan.
+                Everything included in the Elite flagship plan.
               </DialogDescription>
             </DialogHeader>
             <ul className="mt-6 space-y-3">
-              {TEHELKA_ALL_FEATURES.map((f) => (
+              {ELITE_ALL_FEATURES.map((f) => (
                 <li key={f} className="flex items-start gap-3">
                   <div className="mt-0.5 flex-shrink-0 h-5 w-5 rounded-full border border-ink flex items-center justify-center bg-pixel-yellow">
                     <Check className="h-3 w-3 text-ink" strokeWidth={3} />
