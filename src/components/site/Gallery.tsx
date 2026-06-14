@@ -4,6 +4,7 @@ const ITEMS = [
     tag: "Fitness",
     color: "from-pixel-pink to-pixel-orange",
     pop: "card-pop-pink",
+    url: "https://iron-fitness-launchpad.vercel.app/",
   },
   {
     label: "Clinic",
