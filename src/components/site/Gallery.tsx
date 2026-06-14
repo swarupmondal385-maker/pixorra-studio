@@ -6,7 +6,7 @@ const ITEMS = [
     pop: "card-pop-pink",
   },
   {
-    label: "Dental Clinic",
+    label: "Clinic",
     tag: "Healthcare",
     color: "from-pixel-cyan to-pixel-blue",
     pop: "card-pop-cyan",
