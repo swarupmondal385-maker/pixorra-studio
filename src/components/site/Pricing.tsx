@@ -22,7 +22,7 @@ const PACKAGES = [
   {
     name: "Ignite",
     price: "₹14,999",
-    period: "/month",
+    period: "",
     tagline: "For businesses just starting to grow online",
     features: [
       "Custom website (up to 3 pages)",
@@ -40,7 +40,7 @@ const PACKAGES = [
   {
     name: "Growth Engine",
     price: "₹24,999",
-    period: "/month",
+    period: "",
     tagline: "Our most chosen package for serious growth",
     features: [
       "Custom website (up to 8 pages)",
@@ -59,8 +59,8 @@ const PACKAGES = [
   },
   {
     name: "Elite",
-    price: "₹39,999",
-    period: "/month",
+    price: "₹49,999",
+    period: "",
     tagline: "Complete AI-powered growth partner for market leaders",
     features: [
       "Custom website (up to 15 pages)",
@@ -113,7 +113,7 @@ export function Pricing() {
             Honest pricing. <span className="text-gradient-pixorra">No surprises.</span>
           </h2>
           <p className="mt-5 text-lg text-ink/60">
-            Three monthly plans built to grow your business. From Ignite to Elite — there's a growth engine for every stage.
+            Three one-time plans built to grow your business. From Ignite to Elite — there's a growth engine for every stage.
           </p>
         </div>
 

@@ -4,8 +4,8 @@ import logoMark from "@/assets/pixorra-mark.png";
 
 function getTargetDate() {
   const now = new Date();
-  const target = new Date(now.getFullYear(), 6, 31, 23, 59, 59);
-  if (target.getTime() <= now.getTime()) target.setFullYear(target.getFullYear() + 1);
+  const target = new Date(now.getTime() + 20 * 24 * 60 * 60 * 1000);
+  target.setHours(23, 59, 59, 999);
   return target;
 }
 
@@ -82,9 +82,9 @@ export function SummerSale() {
               </div>
             </div>
             <h2 className="mt-3 text-center font-display text-2xl font-bold text-white tracking-tight">
-              Up to <span className="underline decoration-pixel-yellow decoration-4 underline-offset-4">50% OFF</span>
+              Elite Plan — <span className="underline decoration-pixel-yellow decoration-4 underline-offset-4">30% OFF</span>
             </h2>
-            <p className="mt-2 text-white/85 text-sm text-center">Website packages, Google Ads, SEO & branding. Grab the deal before it melts away!</p>
+            <p className="mt-2 text-white/85 text-sm text-center">Our flagship Elite package at a never-before price. Grab it before it melts away!</p>
           </div>
 
           <div className="px-6 py-5 border-b border-ink/10">
@@ -105,25 +105,21 @@ export function SummerSale() {
           <div className="flex-1 px-6 py-5 space-y-3">
             <div className="flex items-center gap-2 mb-3">
               <Tag className="h-4 w-4 text-pixel-yellow" />
-              <span className="text-xs font-bold text-ink/50 uppercase tracking-wider">Summer deals</span>
+              <span className="text-xs font-bold text-ink/50 uppercase tracking-wider">Summer deal</span>
             </div>
-            {[
-              { name: "Starter Website", old: "₹12,999", now: "₹6,499", c: "bg-pixel-pink" },
-              { name: "Business Website", old: "₹24,999", now: "₹12,499", c: "bg-pixel-yellow" },
-              { name: "E-Commerce Store", old: "₹39,999", now: "₹19,999", c: "bg-pixel-cyan" },
-              { name: "Website + SEO Combo", old: "₹44,999", now: "₹24,999", c: "bg-pixel-purple" },
-            ].map((d) => (
-              <div key={d.name} className="flex items-center justify-between p-3 rounded-xl border-2 border-ink bg-cream hover:-translate-y-0.5 transition-transform">
-                <div className="flex items-center gap-3">
-                  <div className={`h-9 w-9 rounded-lg ${d.c} border-2 border-ink flex items-center justify-center text-sm`}>{d.name[0]}</div>
-                  <span className="text-sm font-semibold text-ink">{d.name}</span>
-                </div>
-                <div className="text-right">
-                  <span className="text-xs text-ink/40 line-through">{d.old}</span>
-                  <div className="text-sm font-bold text-pixel-pink">{d.now}</div>
+            <div className="flex items-center justify-between p-3 rounded-xl border-2 border-ink bg-cream hover:-translate-y-0.5 transition-transform">
+              <div className="flex items-center gap-3">
+                <div className="h-9 w-9 rounded-lg bg-pixel-purple border-2 border-ink flex items-center justify-center text-sm">E</div>
+                <div>
+                  <span className="text-sm font-semibold text-ink">Elite Plan</span>
+                  <span className="block text-[10px] text-ink/50 font-semibold">Complete AI-powered growth</span>
                 </div>
               </div>
-            ))}
+              <div className="text-right">
+                <span className="text-xs text-ink/40 line-through">₹70,000</span>
+                <div className="text-sm font-bold text-pixel-pink">₹49,999</div>
+              </div>
+            </div>
           </div>
 
           <div className="px-6 py-5 border-t border-ink/10 bg-cream">
