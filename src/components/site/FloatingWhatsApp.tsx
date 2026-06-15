@@ -1,4 +1,4 @@
-import { MessageCircle, Phone } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 
 export function FloatingWhatsApp() {
   return (
@@ -18,27 +18,3 @@ export function FloatingWhatsApp() {
   );
 }
 
-export function MobileStickyBar() {
-  return (
-    <div className="md:hidden fixed bottom-0 inset-x-0 z-40 border-t border-black/10 glass-strong">
-      <div className="grid grid-cols-3">
-        <a href="tel:+918927840261" className="flex flex-col items-center justify-center py-3 text-ink border-r border-black/10">
-          <Phone className="h-5 w-5 text-navy"/>
-          <span className="text-[11px] font-semibold mt-1">Call</span>
-        </a>
-        <a
-          href="https://wa.me/918927840261?text=Hi%20Pixorra!%20I%20want%20a%20free%20demo%20website."
-          target="_blank" rel="noreferrer"
-          className="flex flex-col items-center justify-center py-3 text-ink border-r border-black/10"
-        >
-          <MessageCircle className="h-5 w-5 text-pixel-green"/>
-          <span className="text-[11px] font-semibold mt-1">WhatsApp</span>
-        </a>
-        <a href="#demo" className="flex flex-col items-center justify-center py-3 bg-gold text-ink">
-          <span className="text-xs font-bold">Free Demo</span>
-          <span className="text-[10px] opacity-80">Get Yours Today</span>
-        </a>
-      </div>
-    </div>
-  );
-}

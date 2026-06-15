@@ -20,7 +20,7 @@ import { FAQ } from "@/components/site/FAQ";
 import { Location } from "@/components/site/Location";
 import { FinalCTA } from "@/components/site/FinalCTA";
 import { Footer } from "@/components/site/Footer";
-import { FloatingWhatsApp, MobileStickyBar } from "@/components/site/FloatingWhatsApp";
+import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 import { PixelParallax } from "@/components/site/PixelParallax";
 import { SummerSale } from "@/components/site/SummerSale";
 
@@ -86,9 +86,7 @@ function Index() {
       <FinalCTA />
       <Footer />
       <FloatingWhatsApp />
-      <MobileStickyBar />
       <SummerSale />
-      <div className="md:hidden h-16" aria-hidden />
     </main>
   );
 }
