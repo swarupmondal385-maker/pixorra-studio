@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { X, Clock, Tag, ArrowRight, MessageCircle } from "lucide-react";
+import { X, Clock, ArrowRight, MessageCircle } from "lucide-react";
 import logoMark from "@/assets/pixorra-mark.png";
 
 function getTargetDate() {
@@ -62,71 +62,67 @@ export function SummerSale() {
       )}
 
       <div className={`fixed top-0 right-0 z-50 h-full w-full max-w-sm glass-strong border-l-2 border-ink shadow-pixel transition-transform duration-500 ease-out ${sidebarOpen ? "translate-x-0" : "translate-x-full"}`}>
-        <button onClick={() => setSidebarOpen(false)} className="absolute top-4 right-4 h-9 w-9 rounded-full bg-pixel-pink border-2 border-ink flex items-center justify-center hover:scale-110 transition-transform z-10" aria-label="Close sale">
-          <X className="h-4 w-4 text-white" />
-        </button>
-
         <div className="h-full flex flex-col overflow-y-auto">
-          <div className="relative bg-pixel-orange pt-16 pb-10 px-6 border-b-2 border-ink">
-            <div className="absolute top-4 left-4 flex items-center gap-2 h-8 px-3 rounded-full bg-pixel-yellow border-2 border-ink text-ink text-[10px] font-bold uppercase tracking-wider">
+          <div className="relative bg-pixel-orange pt-12 pb-6 px-6">
+            <div className="absolute top-3 left-4 flex items-center gap-2 h-7 px-3 rounded-full bg-pixel-yellow border-2 border-ink text-ink text-[10px] font-bold uppercase tracking-wider">
               <span className="h-1.5 w-1.5 rounded-full bg-pixel-pink animate-pulse" />
               Limited Time
             </div>
-            <div className="flex items-end justify-center gap-2 mt-4">
-              <div className="relative">
-                <img src={logoMark} alt="Pixorra mascot" className="h-20 w-20 object-contain drop-shadow-lg" />
-              </div>
-              <div className="relative -ml-3 mb-2 px-4 py-2 rounded-2xl rounded-bl-sm bg-white border-2 border-ink shadow-pixel wobble">
-                <div className="text-lg md:text-xl font-display font-bold text-gradient-pixorra leading-tight">SUMMER<br />SALE!</div>
-                <div className="absolute -left-2 bottom-3 w-3 h-3 bg-white border-l-2 border-b-2 border-ink rotate-45" />
+            <button onClick={() => setSidebarOpen(false)} className="absolute top-3 right-4 h-8 w-8 rounded-full bg-white border-2 border-ink flex items-center justify-center hover:scale-110 transition-transform z-10" aria-label="Close sale">
+              <X className="h-4 w-4 text-ink" />
+            </button>
+            <div className="flex items-center justify-center gap-3 mt-6">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-2xl bg-white border-2 border-ink shadow-pixel wobble">
+                <img src={logoMark} alt="Pixorra" className="h-8 w-8 object-contain" />
+                <div className="font-display text-lg font-bold text-gradient-pixorra">SUMMER SALE</div>
               </div>
             </div>
-            <h2 className="mt-3 text-center font-display text-2xl font-bold text-white tracking-tight">
-              Elite Plan — <span className="underline decoration-pixel-yellow decoration-4 underline-offset-4">30% OFF</span>
-            </h2>
-            <p className="mt-2 text-white/85 text-sm text-center">Our flagship Elite package at a never-before price. Grab it before it melts away!</p>
           </div>
 
-          <div className="px-6 py-5 border-b border-ink/10">
-            <div className="flex items-center gap-2 mb-4">
-              <Clock className="h-4 w-4 text-pixel-pink" />
-              <span className="text-xs font-bold text-ink/50 uppercase tracking-wider">Offer ends in</span>
+          <div className="px-6 py-4">
+            <div className="-mt-6 relative z-10 rounded-2xl border-2 border-ink bg-white p-5 shadow-pixel">
+              <div className="flex items-start justify-between">
+                <div>
+                  <div className="inline-flex items-center gap-1.5 rounded-full bg-pixel-purple px-3 py-1 text-[10px] font-bold text-white border border-ink">Save 30%</div>
+                  <h3 className="mt-2 font-display text-xl font-bold text-ink">Elite Plan</h3>
+                  <p className="text-xs text-ink/60">Complete AI-powered growth partner</p>
+                </div>
+                <div className="text-right">
+                  <span className="block text-sm text-ink/40 line-through">₹70,000</span>
+                  <span className="font-display text-2xl font-bold text-pixel-pink">₹49,999</span>
+                  <span className="block text-[10px] text-ink/50 font-semibold">one-time</span>
+                </div>
+              </div>
+              <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-1.5">
+                {["Custom website (up to 15 pages)", "AI chatbot & WhatsApp automation", "Full SEO + Local SEO", "Dedicated account manager"].map((f) => (
+                  <div key={f} className="flex items-center gap-1.5 text-[11px] text-ink/70">
+                    <div className="h-1.5 w-1.5 rounded-full bg-pixel-green flex-shrink-0" />
+                    {f}
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="grid grid-cols-4 gap-2">
+          </div>
+
+          <div className="px-6 pb-3">
+            <div className="flex items-center gap-2">
+              <Clock className="h-3.5 w-3.5 text-pixel-pink" />
+              <span className="text-[10px] font-bold text-ink/50 uppercase tracking-wider">Offer ends in</span>
+            </div>
+            <div className="mt-2 grid grid-cols-4 gap-2">
               {[{ val: pads(left.days), label: "Days" }, { val: pads(left.hours), label: "Hrs" }, { val: pads(left.minutes), label: "Mins" }, { val: pads(left.seconds), label: "Secs" }].map((u) => (
                 <div key={u.label} className="text-center">
-                  <div className="h-14 rounded-xl bg-ink text-white font-pixel text-lg flex items-center justify-center border-2 border-ink shadow-pixel">{u.val}</div>
-                  <div className="mt-1 text-[10px] text-ink/50 font-bold uppercase tracking-wider">{u.label}</div>
+                  <div className="h-11 rounded-xl bg-ink text-white font-pixel text-base flex items-center justify-center border-2 border-ink">{u.val}</div>
+                  <div className="mt-0.5 text-[9px] text-ink/50 font-bold uppercase tracking-wider">{u.label}</div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="flex-1 px-6 py-5 space-y-3">
-            <div className="flex items-center gap-2 mb-3">
-              <Tag className="h-4 w-4 text-pixel-yellow" />
-              <span className="text-xs font-bold text-ink/50 uppercase tracking-wider">Summer deal</span>
-            </div>
-            <div className="flex items-center justify-between p-3 rounded-xl border-2 border-ink bg-cream hover:-translate-y-0.5 transition-transform">
-              <div className="flex items-center gap-3">
-                <div className="h-9 w-9 rounded-lg bg-pixel-purple border-2 border-ink flex items-center justify-center text-sm">E</div>
-                <div>
-                  <span className="text-sm font-semibold text-ink">Elite Plan</span>
-                  <span className="block text-[10px] text-ink/50 font-semibold">Complete AI-powered growth</span>
-                </div>
-              </div>
-              <div className="text-right">
-                <span className="text-xs text-ink/40 line-through">₹70,000</span>
-                <div className="text-sm font-bold text-pixel-pink">₹49,999</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="px-6 py-5 border-t border-ink/10 bg-cream">
-            <a href="https://wa.me/918927840261?text=Hi%20Pixorra!%20I%20want%20to%20grab%20the%20Summer%20Sale%20deal!" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 h-14 w-full rounded-full bg-pixel-orange text-white font-bold border-2 border-ink shadow-pixel hover:-translate-y-0.5 transition-transform">
-              <MessageCircle className="h-5 w-5" /> Grab This Deal on WhatsApp <ArrowRight className="h-5 w-5" />
+          <div className="px-6 py-3 border-t border-ink/10 bg-cream mt-auto">
+            <a href="https://wa.me/918927840261?text=Hi%20Pixorra!%20I%20want%20to%20grab%20the%20Summer%20Sale%20deal!" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 h-12 w-full rounded-full bg-pixel-orange text-white font-bold border-2 border-ink shadow-pixel hover:-translate-y-0.5 transition-transform text-sm">
+              <MessageCircle className="h-4 w-4" /> Claim Deal on WhatsApp <ArrowRight className="h-4 w-4" />
             </a>
-            <p className="mt-3 text-center text-[11px] text-ink/40">No card needed. Just send a message and we'll get you started.</p>
           </div>
         </div>
       </div>
