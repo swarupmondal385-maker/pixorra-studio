@@ -70,6 +70,7 @@ function Index() {
       <Marquee />
       <About />
       <Process />
+      <Gallery />
       <Pricing />
 
 
@@ -81,7 +82,6 @@ function Index() {
       <Team />
       <TrustBadges />
       <DemoBanner />
-      <Gallery />
       <FAQ />
       <Location />
       <FinalCTA />
