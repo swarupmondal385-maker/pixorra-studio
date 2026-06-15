@@ -69,11 +69,11 @@ function Index() {
       <Hero />
       <Marquee />
       <About />
-      <Services />
+      <Process />
       <Pricing />
 
 
-      <Process />
+      <Services />
       <Stats />
       <WhyUs />
       <Results />
