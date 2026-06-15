@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { X, Clock, Tag, ArrowRight, MessageCircle, Zap } from "lucide-react";
+import { X, Clock, Tag, ArrowRight, MessageCircle } from "lucide-react";
 import logoMark from "@/assets/pixorra-mark.png";
 
 function getTargetDate() {
@@ -41,16 +41,14 @@ function calcLeft(target: Date) {
 
 export function SummerSale() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [showTab, setShowTab] = useState(false);
   const [mounted, setMounted] = useState(false);
   const target = useRef(getTargetDate());
   const left = useCountdown(target.current);
 
   useEffect(() => {
     setMounted(true);
-    const tabTimer = setTimeout(() => setShowTab(true), 300);
-    const sidebarTimer = setTimeout(() => setSidebarOpen(true), 1200);
-    return () => { clearTimeout(tabTimer); clearTimeout(sidebarTimer); };
+    const sidebarTimer = setTimeout(() => setSidebarOpen(true), 5000);
+    return () => { clearTimeout(sidebarTimer); };
   }, []);
 
   if (!mounted || left.total <= 0) return null;
@@ -137,29 +135,6 @@ export function SummerSale() {
         </div>
       </div>
 
-      <button onClick={() => setSidebarOpen(true)} className={`fixed top-0 inset-x-0 z-[60] h-10 bg-pixel-orange border-b-2 border-ink shadow-pixel overflow-hidden transition-all duration-500 ${showTab ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"}`} aria-label="Open summer sale">
-        <div className="absolute inset-0 bg-gradient-to-r from-pixel-yellow/20 via-transparent to-pixel-pink/20" />
-        <div className="relative h-full flex items-center whitespace-nowrap marquee">
-          <span className="inline-flex items-center gap-4 mx-4">
-            <Zap className="h-3.5 w-3.5 text-white sparkle-pulse shrink-0" />
-            <span className="font-display font-bold text-white text-[11px] tracking-tight">SUMMER SALE — Up to 50% OFF on Websites, SEO & Branding</span>
-            <span className="h-4 w-4 rounded-full bg-pixel-yellow border border-ink flex items-center justify-center shrink-0">
-              <span className="font-display font-bold text-ink text-[7px] leading-none">50%</span>
-            </span>
-            <span className="font-display font-bold text-white text-[11px] tracking-tight">Tap to grab the deal!</span>
-            <Zap className="h-3.5 w-3.5 text-white sparkle-pulse shrink-0" />
-          </span>
-          <span className="inline-flex items-center gap-4 mx-4" aria-hidden="true">
-            <Zap className="h-3.5 w-3.5 text-white sparkle-pulse shrink-0" />
-            <span className="font-display font-bold text-white text-[11px] tracking-tight">SUMMER SALE — Up to 50% OFF on Websites, SEO & Branding</span>
-            <span className="h-4 w-4 rounded-full bg-pixel-yellow border border-ink flex items-center justify-center shrink-0">
-              <span className="font-display font-bold text-ink text-[7px] leading-none">50%</span>
-            </span>
-            <span className="font-display font-bold text-white text-[11px] tracking-tight">Tap to grab the deal!</span>
-            <Zap className="h-3.5 w-3.5 text-white sparkle-pulse shrink-0" />
-          </span>
-        </div>
-      </button>
     </>
   );
 }
