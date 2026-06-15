@@ -137,13 +137,13 @@ export function SummerSale() {
         </div>
       </div>
 
-      <button onClick={() => setSidebarOpen(true)} className={`fixed right-0 top-1/2 -translate-y-1/2 z-40 flex flex-col items-center gap-1.5 py-3 px-2 rounded-l-xl bg-pixel-orange border-2 border-r-0 border-ink shadow-pixel hover:pr-3 transition-all duration-300 group ${showTab ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}`} aria-label="Open summer sale">
-        <Zap className="h-4 w-4 text-white sparkle-pulse" />
-        <span className="font-display font-bold text-white text-xs tracking-tight [writing-mode:vertical-lr] rotate-180 leading-none">SUMMER SALE</span>
-        <span className="h-7 w-7 rounded-full bg-pixel-yellow border-2 border-ink flex items-center justify-center">
-          <span className="font-display font-bold text-ink text-[10px] leading-none">50%</span>
+      <button onClick={() => setSidebarOpen(true)} className={`fixed top-0 left-1/2 -translate-x-1/2 z-[60] flex items-center gap-2 h-9 px-4 rounded-b-xl bg-pixel-orange border-2 border-t-0 border-ink shadow-pixel hover:pt-1 transition-all duration-300 group ${showTab ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"}`} aria-label="Open summer sale">
+        <Zap className="h-3.5 w-3.5 text-white sparkle-pulse" />
+        <span className="font-display font-bold text-white text-[11px] tracking-tight leading-none">SUMMER SALE</span>
+        <span className="h-5 w-5 rounded-full bg-pixel-yellow border-2 border-ink flex items-center justify-center">
+          <span className="font-display font-bold text-ink text-[8px] leading-none">50%</span>
         </span>
-        <span className="h-1 w-1 rounded-full bg-white animate-pulse" />
+        <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
       </button>
     </>
   );
