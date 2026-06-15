@@ -11,10 +11,21 @@ export function About() {
           </div>
           <div className="lg:col-span-7 reveal">
             <p className="text-lg md:text-xl text-ink/75 leading-relaxed">
-              Most agencies sell you a pretty website and disappear. Pixorra builds the entire system — the website, the funnel, the AI chatbot, the WhatsApp follow-up, the CRM, the automation — all wired together with one goal: make your business the obvious choice in your city.
+              You don't need a website. You need clients. Most agencies charge you ₹1,00,000, hand you a pretty page, and vanish.
+            </p>
+            <p className="text-lg md:text-xl text-pixel-pink font-bold leading-relaxed">
+              No leads. No calls. No ROI.
+            </p>
+            <p className="text-lg md:text-xl text-ink/75 leading-relaxed">
+              That's not a service. That's a scam.
             </p>
             <p className="mt-6 text-lg text-ink/65 leading-relaxed">
-              We work with gyms, clinics, restaurants, coaching institutes and local businesses across India who are tired of getting leads that go nowhere. We don't just get you online — we build the machine that converts strangers into clients, <span className="text-ink font-semibold">automatically.</span>
+              Pixorra builds the full machine —<br />
+              Website. Funnel. AI Chatbot. WhatsApp follow-up. CRM. Automation.<br />
+              All wired together. One goal:
+            </p>
+            <p className="mt-4 text-xl md:text-2xl font-display font-bold text-gradient-pixorra">
+              Make your business the only choice in your city.
             </p>
 
             <div className="mt-10 grid grid-cols-3 gap-4 md:gap-6">
