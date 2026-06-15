@@ -137,13 +137,28 @@ export function SummerSale() {
         </div>
       </div>
 
-      <button onClick={() => setSidebarOpen(true)} className={`fixed top-0 left-1/2 -translate-x-1/2 z-[60] flex items-center gap-2 h-9 px-4 rounded-b-xl bg-pixel-orange border-2 border-t-0 border-ink shadow-pixel hover:pt-1 transition-all duration-300 group ${showTab ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"}`} aria-label="Open summer sale">
-        <Zap className="h-3.5 w-3.5 text-white sparkle-pulse" />
-        <span className="font-display font-bold text-white text-[11px] tracking-tight leading-none">SUMMER SALE</span>
-        <span className="h-5 w-5 rounded-full bg-pixel-yellow border-2 border-ink flex items-center justify-center">
-          <span className="font-display font-bold text-ink text-[8px] leading-none">50%</span>
-        </span>
-        <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+      <button onClick={() => setSidebarOpen(true)} className={`fixed top-0 inset-x-0 z-[60] h-10 bg-pixel-orange border-b-2 border-ink shadow-pixel overflow-hidden transition-all duration-500 ${showTab ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"}`} aria-label="Open summer sale">
+        <div className="absolute inset-0 bg-gradient-to-r from-pixel-yellow/20 via-transparent to-pixel-pink/20" />
+        <div className="relative h-full flex items-center whitespace-nowrap marquee">
+          <span className="inline-flex items-center gap-4 mx-4">
+            <Zap className="h-3.5 w-3.5 text-white sparkle-pulse shrink-0" />
+            <span className="font-display font-bold text-white text-[11px] tracking-tight">SUMMER SALE — Up to 50% OFF on Websites, SEO & Branding</span>
+            <span className="h-4 w-4 rounded-full bg-pixel-yellow border border-ink flex items-center justify-center shrink-0">
+              <span className="font-display font-bold text-ink text-[7px] leading-none">50%</span>
+            </span>
+            <span className="font-display font-bold text-white text-[11px] tracking-tight">Tap to grab the deal!</span>
+            <Zap className="h-3.5 w-3.5 text-white sparkle-pulse shrink-0" />
+          </span>
+          <span className="inline-flex items-center gap-4 mx-4" aria-hidden="true">
+            <Zap className="h-3.5 w-3.5 text-white sparkle-pulse shrink-0" />
+            <span className="font-display font-bold text-white text-[11px] tracking-tight">SUMMER SALE — Up to 50% OFF on Websites, SEO & Branding</span>
+            <span className="h-4 w-4 rounded-full bg-pixel-yellow border border-ink flex items-center justify-center shrink-0">
+              <span className="font-display font-bold text-ink text-[7px] leading-none">50%</span>
+            </span>
+            <span className="font-display font-bold text-white text-[11px] tracking-tight">Tap to grab the deal!</span>
+            <Zap className="h-3.5 w-3.5 text-white sparkle-pulse shrink-0" />
+          </span>
+        </div>
       </button>
     </>
   );
