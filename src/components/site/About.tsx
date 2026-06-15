@@ -6,12 +6,12 @@ export function About() {
           <div className="lg:col-span-5 reveal">
             <p className="text-xs font-bold tracking-[0.2em] text-pixel-pink uppercase">About Pixorra</p>
             <h2 className="mt-3 font-display text-4xl md:text-6xl font-bold text-ink tracking-tight text-balance">
-              We're not an agency. We're your <span className="text-gradient-pixorra">business's growth engine.</span>
+              You don't need a website.<br /> You need <span className="text-gradient-pixorra">clients.</span>
             </h2>
           </div>
           <div className="lg:col-span-7 reveal">
             <p className="text-lg md:text-xl text-ink/75 leading-relaxed">
-              You don't need a website. You need clients. Most agencies charge you ₹1,00,000, hand you a pretty page, and vanish.
+              Most agencies charge you ₹1,00,000, hand you a pretty page, and vanish.
             </p>
             <p className="text-lg md:text-xl text-pixel-pink font-bold leading-relaxed">
               No leads. No calls. No ROI.
