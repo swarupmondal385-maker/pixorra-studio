@@ -6,7 +6,7 @@ import { Marquee } from "@/components/site/Marquee";
 import { About } from "@/components/site/About";
 import { Services } from "@/components/site/Services";
 import { Pricing } from "@/components/site/Pricing";
-import { BuiltFor } from "@/components/site/BuiltFor";
+
 import { Process } from "@/components/site/Process";
 import { Stats } from "@/components/site/Stats";
 import { WhyUs } from "@/components/site/WhyUs";
@@ -71,7 +71,8 @@ function Index() {
       <About />
       <Services />
       <Pricing />
-      <BuiltFor />
+
+
       <Process />
       <Stats />
       <WhyUs />
