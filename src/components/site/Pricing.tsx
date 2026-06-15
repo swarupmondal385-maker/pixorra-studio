@@ -22,7 +22,7 @@ const PACKAGES = [
   {
     name: "Ignite",
     price: "₹14,999",
-    period: "",
+    period: "/one-time",
     tagline: "For businesses just starting to grow online",
     features: [
       "Custom website (up to 3 pages)",
@@ -40,7 +40,7 @@ const PACKAGES = [
   {
     name: "Growth Engine",
     price: "₹24,999",
-    period: "",
+    period: "/one-time",
     tagline: "Our most chosen package for serious growth",
     features: [
       "Custom website (up to 8 pages)",
@@ -60,7 +60,7 @@ const PACKAGES = [
   {
     name: "Elite",
     price: "₹49,999",
-    period: "",
+    period: "/one-time",
     tagline: "Complete AI-powered growth partner for market leaders",
     features: [
       "Custom website (up to 15 pages)",
