@@ -93,11 +93,11 @@ export function SummerSale() {
                   <span className="block text-[10px] text-ink/50 font-semibold">one-time</span>
                 </div>
               </div>
-              <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-1.5">
+              <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2">
                 {["Custom website (up to 15 pages)", "AI chatbot & WhatsApp automation", "Full SEO + Local SEO", "Dedicated account manager"].map((f) => (
-                  <div key={f} className="flex items-center gap-1.5 text-[11px] text-ink/70">
-                    <div className="h-1.5 w-1.5 rounded-full bg-pixel-green flex-shrink-0" />
-                    {f}
+                  <div key={f} className="flex items-baseline gap-2 text-[11px] text-ink/70">
+                    <div className="mt-0.5 h-2 w-2 rounded-full bg-pixel-green flex-shrink-0" />
+                    <span>{f}</span>
                   </div>
                 ))}
               </div>
@@ -120,8 +120,8 @@ export function SummerSale() {
           </div>
 
           <div className="px-6 py-3 border-t border-ink/10 bg-cream mt-auto">
-            <a href="https://wa.me/918927840261?text=Hi%20Pixorra!%20I%20want%20to%20grab%20the%20Summer%20Sale%20deal!" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 h-12 w-full rounded-full bg-pixel-orange text-white font-bold border-2 border-ink shadow-pixel hover:-translate-y-0.5 transition-transform text-sm">
-              <MessageCircle className="h-4 w-4" /> Claim Deal on WhatsApp <ArrowRight className="h-4 w-4" />
+            <a href="https://wa.me/918927840261?text=Hi%20Pixorra!%20I%20want%20to%20grab%20the%20Summer%20Sale%20deal!" target="_blank" rel="noreferrer" className="group flex items-center justify-center gap-2 h-12 w-full rounded-full bg-pixel-orange text-white font-bold border-2 border-ink shadow-pixel hover:-translate-y-0.5 transition-transform text-sm animate-pulse-soft hover:animate-none">
+              <MessageCircle className="h-4 w-4 group-hover:scale-110 transition-transform" /> Claim Deal on WhatsApp <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
         </div>
