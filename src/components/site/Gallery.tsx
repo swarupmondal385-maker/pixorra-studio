@@ -93,7 +93,7 @@ export function Gallery() {
               </div>
               <iframe
                 src={it.url}
-                className="flex-1 w-full"
+                className="flex-1 w-full pointer-events-none md:pointer-events-auto"
                 title={it.label}
                 loading="lazy"
               />

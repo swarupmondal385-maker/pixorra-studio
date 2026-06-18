@@ -11,17 +11,17 @@ export function FinalCTA() {
 
       <div className="relative max-w-5xl mx-auto px-5 md:px-8 text-center reveal">
         <p className="text-xs font-bold tracking-[0.2em] text-pixel-pink uppercase">Stop Losing Leads</p>
-        <h2 className="mt-5 font-display text-5xl md:text-7xl lg:text-8xl font-bold text-ink tracking-tight text-balance leading-[1.02]">
+        <h2 className="mt-5 font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-ink tracking-tight text-balance leading-[1.02]">
           Your competitors are already automating.
           <br/>
           <span className="text-gradient-pixorra">Are you still doing it manually?</span>
         </h2>
-        <p className="mt-7 text-lg md:text-xl text-ink/60 max-w-2xl mx-auto">
+        <p className="mt-7 text-base sm:text-lg md:text-xl text-ink/60 max-w-2xl mx-auto">
           Every lead you don't follow up with goes to a competitor who does. Let's build the system that never lets that happen again.
         </p>
         <a href="https://wa.me/918927840261?text=Hi%20Pixorra!%20I%20want%20a%20free%20growth%20strategy%20call."
           target="_blank" rel="noreferrer"
-          className="mt-10 inline-flex items-center gap-3 h-16 px-9 rounded-full bg-pixel-pink text-white font-semibold text-lg border-2 border-ink shadow-pixel hover:-translate-y-0.5 transition-transform group">
+          className="mt-10 inline-flex items-center gap-3 h-16 px-7 sm:px-9 rounded-full bg-pixel-pink text-white font-semibold text-base sm:text-lg border-2 border-ink shadow-pixel hover:-translate-y-0.5 transition-transform group">
           <Rocket className="h-5 w-5"/>
           Get My Free Growth Strategy Call
           <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />

@@ -188,7 +188,7 @@ export function Hero() {
                     <div className="h-2 w-12 rounded bg-ink/10 group-hover:bg-ink/20 transition-colors" />
                   </div>
                 </div>
-                <div className="mt-6 grid grid-cols-5 gap-4">
+                <div className="mt-6 grid grid-cols-1 md:grid-cols-5 gap-4">
                   <div className="col-span-3">
                     <div className="h-3 w-16 rounded bg-pixel-yellow mb-3 group-hover:w-20 transition-all duration-300" />
                     <div className="h-6 w-full rounded bg-ink/90 group-hover:bg-gradient-pixorra transition-colors duration-300" />
@@ -226,7 +226,7 @@ export function Hero() {
               </div>
             </div>
 
-            <div className="absolute -top-5 -left-4 md:-left-10 rounded-2xl glass-card shadow-pixel border-2 border-ink p-4 float-soft wobble group-hover:-translate-y-3 group-hover:-rotate-3 transition-all duration-300">
+            <div className="absolute -top-5 -left-4 md:-left-10 hidden md:block rounded-2xl glass-card shadow-pixel border-2 border-ink p-4 float-soft wobble group-hover:-translate-y-3 group-hover:-rotate-3 transition-all duration-300">
               <div className="flex items-center gap-3">
                 <div className="h-10 w-10 rounded-xl bg-pixel-cyan border-2 border-ink flex items-center justify-center sparkle-pulse group-hover:scale-110 transition-transform">
                   <TrendingUp className="h-5 w-5 text-ink group-hover:-translate-y-0.5 transition-transform" />
@@ -237,7 +237,7 @@ export function Hero() {
                 </div>
               </div>
             </div>
-            <div className="absolute -bottom-5 -right-3 md:-right-10 rounded-2xl glass-card shadow-pixel border-2 border-ink p-4 float-soft wobble group-hover:-translate-y-2 group-hover:rotate-3 transition-all duration-300" style={{ animationDelay: "1.2s" }}>
+            <div className="absolute -bottom-5 -right-3 md:-right-10 hidden md:block rounded-2xl glass-card shadow-pixel border-2 border-ink p-4 float-soft wobble group-hover:-translate-y-2 group-hover:rotate-3 transition-all duration-300" style={{ animationDelay: "1.2s" }}>
               <div className="flex items-center gap-3">
                 <div className="h-10 w-10 rounded-xl bg-pixel-pink border-2 border-ink flex items-center justify-center sparkle-pulse group-hover:scale-110 transition-transform" style={{ animationDelay: "0.6s" }}>
                   <IndianRupee className="h-5 w-5 text-white group-hover:-translate-y-0.5 transition-transform" />
@@ -248,7 +248,7 @@ export function Hero() {
                 </div>
               </div>
             </div>
-            <div className="absolute -top-6 -right-4 h-16 w-16 rounded-full bg-pixel-yellow border-2 border-ink shadow-pixel flex items-center justify-center wobble group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300" style={{ animationDelay: "0.4s" }}>
+            <div className="absolute -top-6 -right-4 hidden md:flex h-16 w-16 rounded-full bg-pixel-yellow border-2 border-ink shadow-pixel items-center justify-center wobble group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300" style={{ animationDelay: "0.4s" }}>
               <span className="font-display font-bold text-ink text-xs leading-tight text-center">FREE<br/>DEMO</span>
             </div>
           </div>

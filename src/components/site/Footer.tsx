@@ -10,8 +10,8 @@ export function Footer() {
         <div className="absolute bottom-0 -right-16 h-80 w-80 bg-pixel-cyan/15 blob" style={{ animationDelay: "3s" }} />
       </div>
       <div className="relative max-w-7xl mx-auto px-5 md:px-8 pt-14">
-        <div className="rounded-3xl border-2 border-ink glass-card shadow-pixel p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-5">
-          <div className="flex items-center gap-4">
+        <div className="rounded-3xl border-2 border-ink glass-card shadow-pixel p-5 sm:p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-5">
+          <div className="flex items-center gap-4 text-center md:text-left flex-col md:flex-row">
             <div className="h-14 w-14 rounded-2xl bg-pixel-yellow border-2 border-ink flex items-center justify-center text-2xl wobble">✨</div>
             <div>
               <div className="font-display text-xl md:text-2xl font-bold text-ink">Ready to grow online?</div>
@@ -32,7 +32,7 @@ export function Footer() {
             <p className="mt-5 text-ink/65 max-w-sm leading-relaxed">
               Premium websites, ads and branding for ambitious Indian businesses. Designed in Mumbai, loved across India.
             </p>
-            <div className="mt-6 flex gap-2">
+            <div className="mt-6 flex flex-wrap gap-2">
               {[
                 { Icon: Instagram, c: "bg-pixel-pink" },
                 { Icon: Linkedin, c: "bg-pixel-blue" },
@@ -79,7 +79,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:pixorrastudio@gmail.com" className="flex items-center gap-3 rounded-2xl bg-white border-2 border-ink shadow-pixel px-4 py-3 hover:-translate-y-0.5 transition">
+                <a href="mailto:pixorrastudio@gmail.com" className="flex items-center gap-3 rounded-2xl bg-white border-2 border-ink shadow-pixel px-4 py-3 hover:-translate-y-0.5 transition break-all">
                   <span className="h-9 w-9 rounded-lg bg-pixel-cyan border-2 border-ink flex items-center justify-center"><Mail className="h-4 w-4 text-ink" /></span>
                   <span className="font-semibold">pixorrastudio@gmail.com</span>
                 </a>

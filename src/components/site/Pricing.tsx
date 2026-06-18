@@ -121,7 +121,7 @@ export function Pricing() {
           {PACKAGES.map(({ name, price, period, tagline, features, cta, popular, flagship }, i) => (
             <div
               key={name}
-              className={`reveal snap-center shrink-0 w-[85vw] md:w-auto md:shrink relative rounded-3xl p-7 md:p-10 transition-all duration-500 flex flex-col border-2 border-ink ${
+              className={`reveal snap-center shrink-0 w-[82vw] md:w-auto md:shrink relative rounded-3xl p-6 md:p-10 transition-all duration-500 flex flex-col border-2 border-ink ${
                 flagship
                   ? "bg-ink text-white"
                   : "glass-card text-ink hover:-translate-y-1"
@@ -145,7 +145,7 @@ export function Pricing() {
                 <p className={`mt-1.5 text-sm ${flagship ? "text-white/70" : "text-ink/60"}`}>{tagline}</p>
               </div>
               <div className="mt-6 flex items-baseline gap-2">
-                <span className={`font-display text-5xl font-bold ${flagship ? "text-white" : "text-ink"}`}>{price}</span>
+                <span className={`font-display text-4xl sm:text-5xl font-bold ${flagship ? "text-white" : "text-ink"}`}>{price}</span>
                 <span className={`text-sm ${flagship ? "text-white/60" : "text-ink/50"}`}>{period}</span>
               </div>
               <ul className="mt-7 space-y-3 flex-1">

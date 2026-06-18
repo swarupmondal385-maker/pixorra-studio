@@ -30,7 +30,7 @@ export function Reviews() {
               Loved by founders <span className="text-gradient-pixorra">across India.</span>
             </h2>
           </div>
-          <div className="rounded-3xl bg-white border-2 border-ink shadow-pixel px-6 py-5 flex items-center gap-5">
+          <div className="rounded-3xl bg-white border-2 border-ink shadow-pixel px-5 py-5 flex flex-col sm:flex-row sm:items-center gap-5">
             <div>
               <div className="font-display text-4xl font-bold text-ink leading-none">4.9</div>
               <div className="flex gap-0.5 mt-1">{Array.from({length:5}).map((_,i)=>(<Star key={i} className="h-3.5 w-3.5 fill-pixel-yellow text-pixel-yellow"/>))}</div>

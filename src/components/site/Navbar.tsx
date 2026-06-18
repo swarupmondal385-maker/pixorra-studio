@@ -60,7 +60,7 @@ export function Navbar() {
 
       {open && (
         <div className="lg:hidden mt-2 mx-4">
-          <div className="rounded-3xl border-2 border-ink glass-strong shadow-pixel p-3">
+          <div className="max-h-[calc(100vh-5.5rem)] overflow-y-auto rounded-3xl border-2 border-ink glass-strong shadow-pixel p-3 pb-4">
             <div className="flex flex-col gap-1">
               {LINKS.map((l) => (
                 <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="flex items-center gap-3 px-3 py-3 rounded-2xl hover:bg-white/50 transition-colors">

@@ -28,13 +28,13 @@ export function About() {
               Make your business the only choice in your city.
             </p>
 
-            <div className="mt-10 grid grid-cols-3 gap-4 md:gap-6">
+            <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
               {[
                 { k: "7–10", v: "Day Delivery", pop: "card-pop-pink" },
                 { k: "4.9★", v: "Google Rated", pop: "card-pop-yellow" },
                 { k: "150+", v: "Businesses Grown", pop: "card-pop-cyan" },
               ].map((x) => (
-                <div key={x.v} className={`rounded-2xl glass-card p-5 md:p-6 ${x.pop}`}>
+                <div key={x.v} className={`rounded-2xl glass-card p-4 sm:p-5 md:p-6 ${x.pop}`}>
                   <div className="font-display text-2xl md:text-4xl font-bold text-ink">{x.k}</div>
                   <div className="mt-1 text-xs md:text-sm text-ink/60">{x.v}</div>
                 </div>
