@@ -81,7 +81,7 @@ export function Gallery() {
   const renderCard = (it: (typeof ITEMS)[number], i: number) => {
     const card = (
       <>
-        <div className={`aspect-[4/3] bg-gradient-to-br ${it.color} relative overflow-hidden`}>
+        <div className={`md:aspect-[4/3] aspect-[4/5] bg-gradient-to-br ${it.color} relative overflow-hidden`}>
           <div className="absolute inset-0 grid-bg opacity-20" />
           {it.url ? (
             <div className="absolute inset-0 flex flex-col">
