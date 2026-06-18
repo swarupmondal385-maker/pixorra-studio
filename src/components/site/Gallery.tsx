@@ -164,14 +164,14 @@ export function Gallery() {
 
         <div
           ref={sliderRef}
-          className="mt-14 md:hidden flex overflow-x-auto snap-x snap-mandatory gap-5 pb-4 pt-6 px-3 scroll-smooth"
+          className="mt-14 md:hidden flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 pt-6 px-2 scroll-smooth"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {MOBILE_COLUMNS.map((column, columnIndex) => (
             <div
               key={columnIndex}
               data-index={columnIndex}
-              className="reveal shrink-0 w-[84vw] max-w-[380px] snap-center flex flex-col gap-5"
+              className="reveal shrink-0 w-[90vw] max-w-[440px] snap-center flex flex-col gap-5"
               style={{ animationDelay: `${columnIndex * 90}ms` }}
             >
               {column.map((it, i) => renderCard(it, columnIndex * 2 + i))}
