@@ -146,12 +146,14 @@ export function Pricing() {
                 <h4 className={`font-display text-2xl font-bold ${flagship ? "text-white" : "text-ink"}`}>{name}</h4>
                 <p className={`mt-1.5 text-sm ${flagship ? "text-white/70" : "text-ink/60"}`}>{tagline}</p>
               </div>
-              <div className="mt-6 flex items-baseline gap-2">
+              <div className="mt-6">
                 {originalPrice && (
-                  <span className={`font-display text-lg sm:text-xl font-bold line-through ${flagship ? "text-white/40" : "text-ink/30"}`}>{originalPrice}</span>
+                  <span className={`font-display text-sm sm:text-base font-bold line-through ${flagship ? "text-white/40" : "text-ink/30"}`}>{originalPrice}</span>
                 )}
-                <span className={`font-display text-4xl sm:text-5xl font-bold ${flagship ? "text-white" : "text-ink"}`}>{price}</span>
-                <span className={`text-sm ${flagship ? "text-white/60" : "text-ink/50"}`}>{period}</span>
+                <div className="flex items-baseline gap-2">
+                  <span className={`font-display text-4xl sm:text-5xl font-bold ${flagship ? "text-white" : "text-ink"}`}>{price}</span>
+                  <span className={`text-sm ${flagship ? "text-white/60" : "text-ink/50"}`}>{period}</span>
+                </div>
               </div>
               <ul className="mt-7 space-y-3 flex-1">
                 {features.map((f) => (
