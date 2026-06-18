@@ -15,7 +15,7 @@ const ELITE_ALL_FEATURES = [
   "Social media management",
   "Reputation management",
   "Dedicated account manager",
-  "6 months white glove support",
+  "5 years white glove support",
 ];
 
 const PACKAGES = [
@@ -52,7 +52,7 @@ const PACKAGES = [
       "Google Maps optimization",
       "Lead capture & CRM",
       "Social media integration",
-      "3 months priority support",
+      "2 years priority support",
       "Monthly strategy review",
     ],
     cta: "Go Growth Engine",
@@ -74,6 +74,7 @@ const PACKAGES = [
       "Social media management",
       "Reputation management",
       "Dedicated account manager",
+      "5 years priority support",
     ],
     cta: "Go Elite",
     popular: false,
