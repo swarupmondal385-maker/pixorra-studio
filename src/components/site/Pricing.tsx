@@ -22,6 +22,7 @@ const PACKAGES = [
   {
     name: "Ignite",
     price: "₹14,999",
+    originalPrice: "₹17,999",
     period: "/one-time",
     tagline: "For businesses just starting to grow online",
     features: [
@@ -40,6 +41,7 @@ const PACKAGES = [
   {
     name: "Growth Engine",
     price: "₹24,999",
+    originalPrice: "₹29,999",
     period: "/one-time",
     tagline: "Our most chosen package for serious growth",
     features: [
@@ -118,7 +120,7 @@ export function Pricing() {
         </div>
 
         <div ref={sliderRef} className="mt-14 md:grid md:grid-cols-3 md:gap-6 max-w-6xl mx-auto flex overflow-x-auto snap-x snap-mandatory gap-5 pb-4 pt-6 md:pt-10 px-3 md:px-4 scroll-smooth" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
-          {PACKAGES.map(({ name, price, period, tagline, features, cta, popular, flagship }, i) => (
+          {PACKAGES.map(({ name, price, originalPrice, period, tagline, features, cta, popular, flagship }, i) => (
             <div
               key={name}
               className={`reveal snap-center shrink-0 w-[82vw] md:w-auto md:shrink relative rounded-3xl p-6 md:p-10 transition-all duration-500 flex flex-col border-2 border-ink ${
@@ -145,6 +147,9 @@ export function Pricing() {
                 <p className={`mt-1.5 text-sm ${flagship ? "text-white/70" : "text-ink/60"}`}>{tagline}</p>
               </div>
               <div className="mt-6 flex items-baseline gap-2">
+                {originalPrice && (
+                  <span className={`font-display text-lg sm:text-xl font-bold line-through ${flagship ? "text-white/40" : "text-ink/30"}`}>{originalPrice}</span>
+                )}
                 <span className={`font-display text-4xl sm:text-5xl font-bold ${flagship ? "text-white" : "text-ink"}`}>{price}</span>
                 <span className={`text-sm ${flagship ? "text-white/60" : "text-ink/50"}`}>{period}</span>
               </div>
