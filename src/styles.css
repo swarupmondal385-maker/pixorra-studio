@@ -157,7 +157,7 @@
   /* Pixel palette — slightly more saturated to pop against dark bg */
   --pixel-pink: oklch(0.72 0.26 5);
   --pixel-orange: oklch(0.82 0.21 55);
-  --pixel-yellow: oklch(0.92 0.18 95);
+  --pixel-yellow: oklch(0.68 0.2 85);
   --pixel-green: oklch(0.82 0.22 145);
   --pixel-cyan: oklch(0.82 0.16 220);
   --pixel-blue: oklch(0.68 0.22 255);
