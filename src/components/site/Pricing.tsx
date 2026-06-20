@@ -90,18 +90,27 @@ const PACKAGES = [
 ];
 
 export function Pricing() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(() => {
+    if (typeof window !== "undefined" && window.innerWidth < 768) return 1;
+    return 0;
+  });
   const [eliteOpen, setEliteOpen] = useState(false);
   const sliderRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = sliderRef.current;
     if (!el) return;
+
     const onScroll = () => {
       const idx = Math.round(el.scrollLeft / el.offsetWidth);
       setActiveIndex(idx);
     };
     el.addEventListener("scroll", onScroll, { passive: true });
+
+    if (window.innerWidth < 768) {
+      el.children[1]?.scrollIntoView({ inline: "center", behavior: "instant" });
+    }
+
     return () => el.removeEventListener("scroll", onScroll);
   }, []);
 

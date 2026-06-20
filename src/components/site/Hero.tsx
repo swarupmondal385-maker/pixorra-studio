@@ -283,7 +283,7 @@ export function Hero() {
                       <span className="truncate">yourclinic.in</span>
                     </div>
                   </div>
-                  <div className="h-2.5 w-14 rounded-full bg-muted" />
+                  <div className="h-3 w-14 rounded-full bg-gradient-pixorra loading-pulse" />
                 </div>
 
                 <div className="p-4">
