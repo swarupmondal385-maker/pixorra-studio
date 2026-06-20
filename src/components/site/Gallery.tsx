@@ -22,10 +22,11 @@ const ITEMS = [
     url: "https://spice-garden-feast.vercel.app/",
   },
   {
-    label: "CA Firm",
-    tag: "Services",
+    label: "E-commerce",
+    tag: "E-Commerce",
     color: "from-pixel-purple to-pixel-blue",
     pop: "card-pop-purple",
+    url: "https://ilens-vision-studio.vercel.app/",
   },
   {
     label: "Jewellery Store",
@@ -85,7 +86,7 @@ export function Gallery() {
           <div className="absolute inset-0 grid-bg opacity-20" />
           {it.url ? (
             <div className="absolute inset-0 flex flex-col">
-              <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white/90 backdrop-blur-sm border-b border-black/5">
+                <div className="flex items-center gap-1.5 px-3 py-1.5 bg-background/90 backdrop-blur-sm border-b border-border/40">
                 <span className="h-2 w-2 rounded-full bg-red-400/60" />
                 <span className="h-2 w-2 rounded-full bg-yellow-400/60" />
                 <span className="h-2 w-2 rounded-full bg-green-400/60" />
@@ -99,14 +100,14 @@ export function Gallery() {
               />
             </div>
           ) : (
-            <div className="absolute inset-4 rounded-2xl bg-white/95 p-4">
+                    <div className="absolute inset-4 rounded-2xl bg-card/95 p-4">
               <div className="flex gap-1">
-                <span className="h-1.5 w-1.5 rounded-full bg-ink/20" />
-                <span className="h-1.5 w-1.5 rounded-full bg-ink/20" />
-                <span className="h-1.5 w-1.5 rounded-full bg-ink/20" />
+                <span className="h-1.5 w-1.5 rounded-full bg-foreground/20" />
+                <span className="h-1.5 w-1.5 rounded-full bg-foreground/20" />
+                <span className="h-1.5 w-1.5 rounded-full bg-foreground/20" />
               </div>
-              <div className="mt-3 h-2 w-20 rounded bg-ink/80" />
-              <div className="mt-2 h-2 w-28 rounded bg-ink/40" />
+              <div className="mt-3 h-2 w-20 rounded bg-foreground/80" />
+              <div className="mt-2 h-2 w-28 rounded bg-foreground/40" />
               <div className="mt-4 grid grid-cols-3 gap-1.5">
                 <div className="h-10 rounded bg-pixel-pink/50" />
                 <div className="h-10 rounded bg-pixel-cyan/40" />
@@ -133,7 +134,7 @@ export function Gallery() {
           href={it.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="group relative rounded-3xl overflow-hidden bg-white border border-black/5 shadow-card hover:shadow-card-lg transition-all hover:-translate-y-1 block"
+                className="group relative rounded-3xl overflow-hidden bg-card border border-border/40 shadow-card hover:shadow-card-lg transition-all hover:-translate-y-1 block"
           style={{ animationDelay: `${i * 70}ms` }}
         >
           {card}
@@ -144,7 +145,7 @@ export function Gallery() {
     return (
       <div
         key={it.label}
-        className="group relative rounded-3xl overflow-hidden bg-white border border-black/5 shadow-card hover:shadow-card-lg transition-all hover:-translate-y-1"
+        className="group relative rounded-3xl overflow-hidden bg-card border border-border/40 shadow-card hover:shadow-card-lg transition-all hover:-translate-y-1"
         style={{ animationDelay: `${i * 70}ms` }}
       >
         {card}
@@ -192,7 +193,7 @@ export function Gallery() {
                 sliderRef.current?.children[i]?.scrollIntoView({ behavior: "smooth", inline: "center" });
               }}
               className={`h-2.5 rounded-full transition-all duration-300 ${
-                activeIndex === i ? "w-7 bg-pixel-purple" : "w-2.5 bg-ink/20"
+                activeIndex === i ? "w-7 bg-pixel-purple" : "w-2.5 bg-foreground/20"
               }`}
               aria-label={`Go to work slide ${i + 1}`}
             />
