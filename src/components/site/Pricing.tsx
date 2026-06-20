@@ -124,7 +124,7 @@ export function Pricing() {
           {PACKAGES.map(({ name, price, originalPrice, period, tagline, features, cta, popular, flagship }, i) => (
             <div
               key={name}
-              className={`reveal snap-center shrink-0 w-[82vw] md:w-auto md:shrink relative rounded-3xl p-6 md:p-10 transition-all duration-500 flex flex-col border-2 border-ink ${
+className={`reveal snap-start shrink-0 w-[82vw] md:w-auto md:shrink relative rounded-3xl p-6 md:p-10 transition-all duration-500 flex flex-col border-2 border-ink ${
                 flagship
                   ? "bg-ink text-white"
                   : "glass-card text-ink hover:-translate-y-1"
