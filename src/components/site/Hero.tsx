@@ -171,69 +171,53 @@ export function Hero() {
 
             <div aria-hidden className="absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-rainbow opacity-20 blur-2xl spin-slower group-hover:opacity-35 group-hover:blur-xl transition-all duration-500" />
 
-            <div className="relative overflow-hidden rounded-[2.25rem] bg-gradient-to-b from-slate-200 via-slate-100 to-slate-300 p-3 shadow-[0_30px_70px_rgba(15,23,42,0.18)] border border-slate-400/70 origin-top scale-[0.92] group-hover:-translate-y-1 group-hover:translate-x-0.5 transition-all duration-300">
-              <div className="rounded-[1.6rem] border border-slate-300 bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] overflow-hidden">
-                <div className="flex h-10 items-center gap-3 border-b border-slate-200 bg-slate-50 px-4">
-                  <div className="flex items-center gap-1.5 shrink-0">
-                    <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57] border border-black/10" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e] border border-black/10" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-[#28c840] border border-black/10" />
+            <div className="relative overflow-hidden rounded-3xl bg-white shadow-card-lg border-2 border-ink group-hover:-translate-y-1 group-hover:translate-x-0.5 transition-all duration-300">
+              <div className="h-1.5 bg-gradient-rainbow animate-shimmer" />
+              <div className="p-4 sm:p-5 md:p-7">
+                <div className="flex items-center justify-between gap-3">
+                  <div className="h-5 w-20 rounded-md bg-gradient-pixorra wiggle group-hover:scale-105 transition-transform" />
+                  <div className="flex gap-2">
+                    <div className="h-2 w-12 rounded bg-ink/10 group-hover:bg-ink/20 transition-colors" />
+                    <div className="h-2 w-12 rounded bg-ink/10 group-hover:bg-ink/20 transition-colors" />
+                    <div className="h-2 w-12 rounded bg-ink/10 group-hover:bg-ink/20 transition-colors" />
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="mx-auto flex max-w-[18rem] items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-[10px] text-slate-500 shadow-sm">
-                      <span className="h-2 w-2 rounded-full bg-pixel-cyan" />
-                      <span className="truncate">yourclinic.in</span>
-                    </div>
-                  </div>
-                  <div className="h-2.5 w-14 rounded-full bg-slate-200" />
                 </div>
 
-                <div className="p-4">
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="h-5 w-20 rounded-md bg-gradient-pixorra wiggle group-hover:scale-105 transition-transform" />
-                    <div className="flex gap-2">
-                      <div className="h-2 w-12 rounded bg-ink/10 group-hover:bg-ink/20 transition-colors" />
-                      <div className="h-2 w-12 rounded bg-ink/10 group-hover:bg-ink/20 transition-colors" />
-                      <div className="h-2 w-12 rounded bg-ink/10 group-hover:bg-ink/20 transition-colors" />
+                <div className="mt-5 grid grid-cols-5 gap-3">
+                  <div className="col-span-3">
+                    <div className="h-2.5 w-16 rounded bg-pixel-yellow mb-2 group-hover:w-20 transition-all duration-300" />
+                    <div className="h-5 w-full rounded bg-ink/90 group-hover:bg-gradient-pixorra transition-colors duration-300" />
+                    <div className="mt-1.5 h-5 w-4/5 rounded bg-ink/90 group-hover:bg-gradient-pixorra transition-colors duration-300" />
+                    <div className="mt-3 space-y-1">
+                      <div className="h-1.5 w-full rounded bg-ink/10 group-hover:bg-pixel-pink/20 transition-colors duration-300" />
+                      <div className="h-1.5 w-11/12 rounded bg-ink/10 group-hover:bg-pixel-cyan/20 transition-colors duration-300" />
+                    </div>
+                    <div className="mt-4 flex gap-2">
+                      <div className="h-8 w-24 rounded-full bg-gradient-pixorra border-2 border-ink float-soft group-hover:scale-105 transition-transform" />
+                      <div className="h-8 w-20 rounded-full border-2 border-ink float-soft group-hover:bg-pixel-yellow group-hover:scale-105 transition-all" style={{ animationDelay: "0.5s" }} />
                     </div>
                   </div>
 
-                  <div className="mt-5 grid grid-cols-5 gap-3">
-                    <div className="col-span-3">
-                      <div className="h-2.5 w-16 rounded bg-pixel-yellow mb-2 group-hover:w-20 transition-all duration-300" />
-                      <div className="h-5 w-full rounded bg-ink/90 group-hover:bg-gradient-pixorra transition-colors duration-300" />
-                      <div className="mt-1.5 h-5 w-4/5 rounded bg-ink/90 group-hover:bg-gradient-pixorra transition-colors duration-300" />
-                      <div className="mt-3 space-y-1">
-                        <div className="h-1.5 w-full rounded bg-ink/10 group-hover:bg-pixel-pink/20 transition-colors duration-300" />
-                        <div className="h-1.5 w-11/12 rounded bg-ink/10 group-hover:bg-pixel-cyan/20 transition-colors duration-300" />
-                      </div>
-                      <div className="mt-4 flex gap-2">
-                        <div className="h-8 w-24 rounded-full bg-gradient-pixorra border-2 border-ink float-soft group-hover:scale-105 transition-transform" />
-                        <div className="h-8 w-20 rounded-full border-2 border-ink float-soft group-hover:bg-pixel-yellow group-hover:scale-105 transition-all" style={{ animationDelay: "0.5s" }} />
-                      </div>
-                    </div>
-
-                    <div className="col-span-2 aspect-square rounded-2xl bg-gradient-pixorra relative overflow-hidden border-2 border-ink group-hover:scale-[1.03] transition-transform duration-300">
-                      <div className="absolute inset-0 grid-bg opacity-30 group-hover:opacity-50 transition-opacity" />
-                      <div className="absolute bottom-3 left-3 right-3 h-14 rounded-xl bg-white/90 backdrop-blur flex items-center px-3 gap-2 border border-ink wiggle group-hover:-translate-y-1 transition-transform" style={{ animationDelay: "0.8s" }}>
-                        <div className="h-8 w-8 rounded-lg bg-pixel-pink sparkle-pulse group-hover:rotate-12 transition-transform" />
-                        <div className="flex-1 space-y-1">
-                          <div className="h-1.5 w-20 rounded bg-ink/70 group-hover:w-24 transition-all duration-300" />
-                          <div className="h-1.5 w-14 rounded bg-ink/30 group-hover:w-18 transition-all duration-300" />
-                        </div>
+                  <div className="col-span-2 aspect-square rounded-2xl bg-gradient-pixorra relative overflow-hidden border-2 border-ink group-hover:scale-[1.03] transition-transform duration-300">
+                    <div className="absolute inset-0 grid-bg opacity-30 group-hover:opacity-50 transition-opacity" />
+                    <div className="absolute bottom-3 left-3 right-3 h-14 rounded-xl bg-white/90 backdrop-blur flex items-center px-3 gap-2 border border-ink wiggle group-hover:-translate-y-1 transition-transform" style={{ animationDelay: "0.8s" }}>
+                      <div className="h-8 w-8 rounded-lg bg-pixel-pink sparkle-pulse group-hover:rotate-12 transition-transform" />
+                      <div className="flex-1 space-y-1">
+                        <div className="h-1.5 w-20 rounded bg-ink/70 group-hover:w-24 transition-all duration-300" />
+                        <div className="h-1.5 w-14 rounded bg-ink/30 group-hover:w-18 transition-all duration-300" />
                       </div>
                     </div>
                   </div>
+                </div>
 
-                  <div className="mt-5 grid grid-cols-3 gap-3">
-                    {["bg-pixel-pink/30","bg-pixel-cyan/30","bg-pixel-yellow/40"].map((c, i) => (
-                      <div key={i} className="rounded-xl border-2 border-ink p-3 float-soft group-hover:-translate-y-1 group-hover:shadow-pixel transition-all duration-300" style={{ animationDelay: `${i * 0.4}s` }}>
-                        <div className={`h-5 w-5 rounded ${c} border border-ink group-hover:scale-110 transition-transform duration-300`} />
-                        <div className="mt-2 h-2 w-full rounded bg-ink/10 group-hover:bg-ink/20 transition-colors duration-300" />
-                        <div className="mt-1 h-1.5 w-3/4 rounded bg-ink/10 group-hover:w-full transition-all duration-300" />
-                      </div>
-                    ))}
-                  </div>
+                <div className="mt-5 grid grid-cols-3 gap-3">
+                  {["bg-pixel-pink/30","bg-pixel-cyan/30","bg-pixel-yellow/40"].map((c, i) => (
+                    <div key={i} className="rounded-xl border-2 border-ink p-3 float-soft group-hover:-translate-y-1 group-hover:shadow-pixel transition-all duration-300" style={{ animationDelay: `${i * 0.4}s` }}>
+                      <div className={`h-5 w-5 rounded ${c} border border-ink group-hover:scale-110 transition-transform duration-300`} />
+                      <div className="mt-2 h-2 w-full rounded bg-ink/10 group-hover:bg-ink/20 transition-colors duration-300" />
+                      <div className="mt-1 h-1.5 w-3/4 rounded bg-ink/10 group-hover:w-full transition-all duration-300" />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
