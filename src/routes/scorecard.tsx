@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import type { CSSProperties } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowRight, Sparkles, Check, Star, Trophy } from "lucide-react";
 import logoMark from "@/assets/pixorra-mark.png";
@@ -31,90 +32,126 @@ type Option = { label: string; value: number };
 type Question = { q: string; emoji: string; options: Option[] };
 
 const QUESTIONS: Question[] = [
-  { q: "How would you describe your current online presence?", emoji: "🌐",
+  {
+    q: "How would you describe your current online presence?",
+    emoji: "🌐",
     options: [
       { label: "No website yet", value: 0 },
       { label: "Basic website / social only", value: 4 },
       { label: "Modern site, decent traffic", value: 7 },
       { label: "Strong site + ranking + ads", value: 10 },
-    ] },
-  { q: "How do most new customers find you today?", emoji: "🔍",
+    ],
+  },
+  {
+    q: "How do most new customers find you today?",
+    emoji: "🔍",
     options: [
       { label: "Word of mouth only", value: 2 },
       { label: "Social media occasionally", value: 5 },
       { label: "Google search & ads", value: 8 },
       { label: "Multi-channel + referrals", value: 10 },
-    ] },
-  { q: "How fast does your website load on mobile?", emoji: "⚡",
+    ],
+  },
+  {
+    q: "How fast does your website load on mobile?",
+    emoji: "⚡",
     options: [
       { label: "Don't have one", value: 0 },
       { label: "Slow (5+ sec)", value: 3 },
       { label: "Decent (2–4 sec)", value: 7 },
       { label: "Lightning fast (<2s)", value: 10 },
-    ] },
-  { q: "Do you rank on Google for your main service?", emoji: "📈",
+    ],
+  },
+  {
+    q: "Do you rank on Google for your main service?",
+    emoji: "📈",
     options: [
       { label: "Not at all", value: 1 },
       { label: "Page 3+", value: 4 },
       { label: "Page 2", value: 7 },
       { label: "Top 3 results", value: 10 },
-    ] },
-  { q: "How consistent is your branding (logo, colors, voice)?", emoji: "🎨",
+    ],
+  },
+  {
+    q: "How consistent is your branding (logo, colors, voice)?",
+    emoji: "🎨",
     options: [
       { label: "Inconsistent / DIY", value: 2 },
       { label: "Mostly consistent", value: 6 },
       { label: "Professionally designed", value: 9 },
       { label: "Premium identity system", value: 10 },
-    ] },
-  { q: "Are you running paid ads (Google / Meta)?", emoji: "🎯",
+    ],
+  },
+  {
+    q: "Are you running paid ads (Google / Meta)?",
+    emoji: "🎯",
     options: [
       { label: "No", value: 2 },
       { label: "Tried, didn't work", value: 4 },
       { label: "Yes, breaking even", value: 7 },
       { label: "Yes, profitable", value: 10 },
-    ] },
-  { q: "How do you collect customer reviews?", emoji: "⭐",
+    ],
+  },
+  {
+    q: "How do you collect customer reviews?",
+    emoji: "⭐",
     options: [
       { label: "We don't", value: 1 },
       { label: "Sometimes manually", value: 5 },
       { label: "Automated requests", value: 8 },
       { label: "100+ Google reviews", value: 10 },
-    ] },
-  { q: "Do you track website analytics & conversions?", emoji: "📊",
+    ],
+  },
+  {
+    q: "Do you track website analytics & conversions?",
+    emoji: "📊",
     options: [
       { label: "No tracking", value: 1 },
       { label: "Basic Google Analytics", value: 5 },
       { label: "Full tracking + pixels", value: 8 },
       { label: "Dashboards + attribution", value: 10 },
-    ] },
-  { q: "How often do you publish new content?", emoji: "✍️",
+    ],
+  },
+  {
+    q: "How often do you publish new content?",
+    emoji: "✍️",
     options: [
       { label: "Never", value: 1 },
       { label: "Once in a while", value: 4 },
       { label: "Weekly", value: 8 },
       { label: "Multi-channel daily", value: 10 },
-    ] },
-  { q: "How automated is your lead capture & follow-up?", emoji: "🤖",
+    ],
+  },
+  {
+    q: "How automated is your lead capture & follow-up?",
+    emoji: "🤖",
     options: [
       { label: "All manual", value: 2 },
       { label: "Email replies only", value: 5 },
       { label: "Forms + WhatsApp auto", value: 8 },
       { label: "Full CRM + AI follow-up", value: 10 },
-    ] },
-  { q: "What's your average monthly marketing spend?", emoji: "💰",
+    ],
+  },
+  {
+    q: "What's your average monthly marketing spend?",
+    emoji: "💰",
     options: [
       { label: "₹0", value: 2 },
       { label: "Under ₹10k", value: 5 },
       { label: "₹10k – ₹50k", value: 8 },
       { label: "₹50k+", value: 10 },
-    ] },
-  { q: "How clear is your unique value proposition?", emoji: "💎",
+    ],
+  },
+  {
+    q: "How clear is your unique value proposition?",
+    emoji: "💎",
     options: [
       { label: "Not really defined", value: 2 },
       { label: "We have one, kinda", value: 5 },
       { label: "Clear & on every page", value: 8 },
       { label: "Iconic positioning", value: 10 },
-    ] },
+    ],
+  },
 ];
 
 type Category = {
@@ -127,10 +164,38 @@ type Category = {
 };
 
 const CATEGORIES: Category[] = [
-  { key: "critical", label: "Critical Gap",   emoji: "🚨", range: [0, 39],   hue: "from-pink-400 to-rose-500",       desc: "Big leaks. Massive upside if fixed." },
-  { key: "plateau",  label: "Growth Plateau", emoji: "📈", range: [40, 64],  hue: "from-fuchsia-400 to-pink-500",    desc: "Stuck. Time to break through." },
-  { key: "scaling",  label: "Scaling Stage",  emoji: "🚀", range: [65, 84],  hue: "from-cyan-300 to-purple-500",     desc: "You're winning. Let's compound it." },
-  { key: "leader",   label: "Market Leader",  emoji: "👑", range: [85, 100], hue: "from-yellow-300 to-fuchsia-400",  desc: "Top tier. Defend & dominate." },
+  {
+    key: "critical",
+    label: "Critical Gap",
+    emoji: "🚨",
+    range: [0, 39],
+    hue: "from-pink-400 to-rose-500",
+    desc: "Big leaks. Massive upside if fixed.",
+  },
+  {
+    key: "plateau",
+    label: "Growth Plateau",
+    emoji: "📈",
+    range: [40, 64],
+    hue: "from-fuchsia-400 to-pink-500",
+    desc: "Stuck. Time to break through.",
+  },
+  {
+    key: "scaling",
+    label: "Scaling Stage",
+    emoji: "🚀",
+    range: [65, 84],
+    hue: "from-cyan-300 to-purple-500",
+    desc: "You're winning. Let's compound it.",
+  },
+  {
+    key: "leader",
+    label: "Market Leader",
+    emoji: "👑",
+    range: [85, 100],
+    hue: "from-yellow-300 to-fuchsia-400",
+    desc: "Top tier. Defend & dominate.",
+  },
 ];
 
 function getCategory(score: number) {
@@ -140,7 +205,9 @@ function getCategory(score: number) {
 /* ---------------- Page ---------------- */
 
 function ScorecardPage() {
-  const [answers, setAnswers] = useState<(number | null)[]>(() => Array(QUESTIONS.length).fill(null));
+  const [answers, setAnswers] = useState<(number | null)[]>(() =>
+    Array(QUESTIONS.length).fill(null),
+  );
   const [current, setCurrent] = useState(0);
   const [warping, setWarping] = useState(false);
   const [entered, setEntered] = useState(false);
@@ -281,8 +348,8 @@ function ScorecardPage() {
           </h1>
 
           <p className="mt-5 max-w-2xl mx-auto text-center text-white/70 text-lg md:text-xl">
-            Step through the portal. 12 questions, 2 minutes — and you'll see exactly
-            where the hidden revenue is hiding. ✨
+            Step through the portal. 12 questions, 2 minutes — and you'll see exactly where the
+            hidden revenue is hiding. ✨
           </p>
 
           {/* Scoreboard PORTAL card */}
@@ -314,19 +381,23 @@ function ScorecardPage() {
 
             {/* Floating stickers */}
             <div aria-hidden className="absolute -top-6 -left-3 md:-top-8 md:-left-8 z-10">
-              <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-yellow-300 to-pink-400 border border-white/20 flex items-center justify-center text-2xl wobble" style={{ boxShadow: "0 10px 30px -5px rgba(255,217,61,0.6)" }}>
+              <div
+                className="h-14 w-14 rounded-2xl bg-gradient-to-br from-yellow-300 to-pink-400 border border-white/20 flex items-center justify-center text-2xl wobble"
+                style={{ boxShadow: "0 10px 30px -5px rgba(255,217,61,0.6)" }}
+              >
                 ⚡
               </div>
             </div>
             <div aria-hidden className="absolute -top-5 -right-3 md:-top-8 md:-right-8 z-10">
-              <div className="h-14 w-14 rounded-full bg-gradient-to-br from-fuchsia-400 to-purple-600 border border-white/20 flex items-center justify-center text-2xl bounce-soft" style={{ boxShadow: "0 10px 30px -5px rgba(168,85,247,0.7)" }}>
+              <div
+                className="h-14 w-14 rounded-full bg-gradient-to-br from-fuchsia-400 to-purple-600 border border-white/20 flex items-center justify-center text-2xl bounce-soft"
+                style={{ boxShadow: "0 10px 30px -5px rgba(168,85,247,0.7)" }}
+              >
                 🚀
               </div>
             </div>
 
-            <div
-              className="relative rounded-[2.5rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] backdrop-blur-xl p-6 md:p-10 shadow-portal transition-transform duration-500 hover:-translate-y-1"
-            >
+            <div className="relative rounded-[2.5rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] backdrop-blur-xl p-6 md:p-10 shadow-portal transition-transform duration-500 hover:-translate-y-1">
               {/* Top rainbow seam */}
               <div className="absolute inset-x-6 -top-px h-px bg-gradient-to-r from-transparent via-fuchsia-300/80 to-transparent" />
 
@@ -335,9 +406,13 @@ function ScorecardPage() {
                 <div className="flex flex-col items-center">
                   <Gauge value={displayScore} />
                   <div className="mt-4 text-center">
-                    <div className="text-xs uppercase tracking-[0.25em] text-white/60 font-bold">Your Score</div>
+                    <div className="text-xs uppercase tracking-[0.25em] text-white/60 font-bold">
+                      Your Score
+                    </div>
                     {done && activeCategory && (
-                      <div className={`mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r ${activeCategory.hue} border border-white/20 text-sm font-bold text-black`}>
+                      <div
+                        className={`mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r ${activeCategory.hue} border border-white/20 text-sm font-bold text-black`}
+                      >
                         <span>{activeCategory.emoji}</span> {activeCategory.label}
                       </div>
                     )}
@@ -356,11 +431,15 @@ function ScorecardPage() {
                             ? "border-white/30 bg-white/10 -translate-y-0.5"
                             : "border-white/10 bg-white/[0.03]"
                         }`}
-                        style={isActive ? { boxShadow: "0 0 40px rgba(255,79,163,0.45)" } : undefined}
+                        style={
+                          isActive ? { boxShadow: "0 0 40px rgba(255,79,163,0.45)" } : undefined
+                        }
                       >
                         <div className="flex items-center justify-between gap-4">
                           <div className="flex items-center gap-3">
-                            <div className={`h-10 w-10 rounded-xl border border-white/15 flex items-center justify-center text-lg bg-gradient-to-br ${c.hue}`}>
+                            <div
+                              className={`h-10 w-10 rounded-xl border border-white/15 flex items-center justify-center text-lg bg-gradient-to-br ${c.hue}`}
+                            >
                               <span className="drop-shadow">{c.emoji}</span>
                             </div>
                             <div>
@@ -373,7 +452,9 @@ function ScorecardPage() {
                           </div>
                         </div>
                         {isActive && (
-                          <div className={`absolute inset-x-4 -bottom-px h-px bg-gradient-to-r ${c.hue}`} />
+                          <div
+                            className={`absolute inset-x-4 -bottom-px h-px bg-gradient-to-r ${c.hue}`}
+                          />
                         )}
                       </div>
                     );
@@ -384,9 +465,18 @@ function ScorecardPage() {
               {/* Progress preview */}
               <div className="mt-10 pt-8 border-t border-white/10">
                 <div className="flex items-center justify-between text-xs md:text-sm text-white/70 font-bold">
-                  <span className="inline-flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-pink-400 shadow-[0_0_8px_rgba(255,79,163,0.9)]" />12 Questions</span>
-                  <span className="inline-flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-yellow-300 shadow-[0_0_8px_rgba(255,217,61,0.9)]" />2 Minutes</span>
-                  <span className="inline-flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-cyan-300 shadow-[0_0_8px_rgba(34,211,238,0.9)]" />Instant Results</span>
+                  <span className="inline-flex items-center gap-1.5">
+                    <span className="h-2 w-2 rounded-full bg-pink-400 shadow-[0_0_8px_rgba(255,79,163,0.9)]" />
+                    12 Questions
+                  </span>
+                  <span className="inline-flex items-center gap-1.5">
+                    <span className="h-2 w-2 rounded-full bg-yellow-300 shadow-[0_0_8px_rgba(255,217,61,0.9)]" />
+                    2 Minutes
+                  </span>
+                  <span className="inline-flex items-center gap-1.5">
+                    <span className="h-2 w-2 rounded-full bg-cyan-300 shadow-[0_0_8px_rgba(34,211,238,0.9)]" />
+                    Instant Results
+                  </span>
                 </div>
                 <div className="mt-3 h-3 rounded-full bg-white/10 border border-white/10 overflow-hidden relative">
                   <div
@@ -412,7 +502,10 @@ function ScorecardPage() {
             <button
               onClick={handleEnterPortal}
               className="group relative inline-flex items-center gap-3 h-16 px-10 rounded-full bg-gradient-to-r from-pink-500 via-fuchsia-500 to-purple-600 text-white font-bold text-lg border border-white/20 transition-transform duration-300 hover:scale-[1.04] active:scale-95 animate-pulse-soft"
-              style={{ boxShadow: "0 20px 50px -10px rgba(255,79,163,0.7), inset 0 1px 0 rgba(255,255,255,0.4)" }}
+              style={{
+                boxShadow:
+                  "0 20px 50px -10px rgba(255,79,163,0.7), inset 0 1px 0 rgba(255,255,255,0.4)",
+              }}
             >
               <span className="absolute inset-0 rounded-full bg-gradient-to-r from-pink-400 to-cyan-400 opacity-0 blur-xl group-hover:opacity-80 transition-opacity" />
               <span className="relative">{entered ? "Continue Audit" : "Enter the Portal"}</span>
@@ -448,7 +541,8 @@ function ScorecardPage() {
 
               <div className="flex items-center justify-between text-xs text-white/70 font-bold">
                 <span>
-                  Question <span className="text-pink-300">{current + 1}</span> of {QUESTIONS.length}
+                  Question <span className="text-pink-300">{current + 1}</span> of{" "}
+                  {QUESTIONS.length}
                 </span>
                 <span className="text-cyan-300">{Math.round(progressPct)}% complete</span>
               </div>
@@ -460,7 +554,10 @@ function ScorecardPage() {
               </div>
 
               <div className="mt-8">
-                <div className="inline-flex items-center justify-center h-14 w-14 rounded-2xl bg-gradient-to-br from-pink-500 to-purple-600 border border-white/20 text-3xl wobble" style={{ boxShadow: "0 10px 30px -5px rgba(168,85,247,0.7)" }}>
+                <div
+                  className="inline-flex items-center justify-center h-14 w-14 rounded-2xl bg-gradient-to-br from-pink-500 to-purple-600 border border-white/20 text-3xl wobble"
+                  style={{ boxShadow: "0 10px 30px -5px rgba(168,85,247,0.7)" }}
+                >
                   {QUESTIONS[current].emoji}
                 </div>
                 <h2 className="mt-4 font-display text-2xl md:text-3xl font-bold text-balance text-white">
@@ -491,7 +588,9 @@ function ScorecardPage() {
                     >
                       <div className="flex items-center justify-between gap-3">
                         <span className="font-bold text-white/90">{opt.label}</span>
-                        <span className={`h-7 w-7 rounded-full border border-white/30 flex items-center justify-center transition-all ${selected ? "bg-white" : dot[idx % 4] + "/30"}`}>
+                        <span
+                          className={`h-7 w-7 rounded-full border border-white/30 flex items-center justify-center transition-all ${selected ? "bg-white" : dot[idx % 4] + "/30"}`}
+                        >
                           {selected && <Check className="h-4 w-4 text-black" strokeWidth={3} />}
                         </span>
                       </div>
@@ -510,7 +609,10 @@ function ScorecardPage() {
                 </button>
                 <div className="text-xs font-bold text-white/60">
                   Live score:{" "}
-                  <span className="inline-flex items-center justify-center min-w-[2.5rem] px-2 py-0.5 rounded-md bg-gradient-to-r from-pink-500 to-fuchsia-500 text-white" style={{ boxShadow: "0 0 12px rgba(255,79,163,0.6)" }}>
+                  <span
+                    className="inline-flex items-center justify-center min-w-[2.5rem] px-2 py-0.5 rounded-md bg-gradient-to-r from-pink-500 to-fuchsia-500 text-white"
+                    style={{ boxShadow: "0 0 12px rgba(255,79,163,0.6)" }}
+                  >
                     {displayScore}
                   </span>
                 </div>
@@ -525,9 +627,18 @@ function ScorecardPage() {
               {/* Confetti dots */}
               <div aria-hidden className="pointer-events-none absolute inset-0">
                 <span className="absolute top-6 left-6 h-3 w-3 rounded-full bg-pink-400 star-twinkle" />
-                <span className="absolute top-10 right-10 h-2 w-2 rounded-full bg-yellow-300 star-twinkle" style={{ animationDelay: "0.4s" }} />
-                <span className="absolute bottom-12 left-12 h-2.5 w-2.5 rounded-full bg-cyan-300 star-twinkle" style={{ animationDelay: "0.8s" }} />
-                <span className="absolute bottom-8 right-8 h-2 w-2 rounded-full bg-fuchsia-400 star-twinkle" style={{ animationDelay: "1.1s" }} />
+                <span
+                  className="absolute top-10 right-10 h-2 w-2 rounded-full bg-yellow-300 star-twinkle"
+                  style={{ animationDelay: "0.4s" }}
+                />
+                <span
+                  className="absolute bottom-12 left-12 h-2.5 w-2.5 rounded-full bg-cyan-300 star-twinkle"
+                  style={{ animationDelay: "0.8s" }}
+                />
+                <span
+                  className="absolute bottom-8 right-8 h-2 w-2 rounded-full bg-fuchsia-400 star-twinkle"
+                  style={{ animationDelay: "1.1s" }}
+                />
               </div>
 
               <div className="relative">
@@ -542,10 +653,14 @@ function ScorecardPage() {
                 </h2>
                 {activeCategory && (
                   <>
-                    <div className={`mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r ${activeCategory.hue} border border-white/20 text-base md:text-lg font-bold text-black`}>
+                    <div
+                      className={`mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r ${activeCategory.hue} border border-white/20 text-base md:text-lg font-bold text-black`}
+                    >
                       <span className="text-xl">{activeCategory.emoji}</span> {activeCategory.label}
                     </div>
-                    <p className="mt-4 text-white/70 max-w-xl mx-auto text-base md:text-lg">{activeCategory.desc}</p>
+                    <p className="mt-4 text-white/70 max-w-xl mx-auto text-base md:text-lg">
+                      {activeCategory.desc}
+                    </p>
                   </>
                 )}
 
@@ -568,7 +683,9 @@ function ScorecardPage() {
                 </div>
 
                 <div className="mt-6 text-xs text-white/60 font-semibold inline-flex items-center gap-2">
-                  <span className="inline-flex items-center gap-1"><Star className="h-3.5 w-3.5 text-yellow-300" fill="currentColor" /> Free</span>
+                  <span className="inline-flex items-center gap-1">
+                    <Star className="h-3.5 w-3.5 text-yellow-300" fill="currentColor" /> Free
+                  </span>
                   <span>•</span>
                   <span>Personalised in WhatsApp</span>
                   <span>•</span>
@@ -606,10 +723,12 @@ function Gauge({ value }: { value: number }) {
       {/* glow halo */}
       <div className="absolute inset-0 rounded-full bg-gradient-to-br from-pink-500/40 via-fuchsia-500/30 to-cyan-400/40 blur-2xl portal-pulse" />
       {/* slow rotating outer ring */}
-      <div aria-hidden
+      <div
+        aria-hidden
         className="absolute inset-0 rounded-full portal-spin"
         style={{
-          background: "conic-gradient(from 0deg, rgba(255,79,163,0.0), rgba(255,79,163,0.7), rgba(168,85,247,0.7), rgba(34,211,238,0.7), rgba(255,217,61,0.7), rgba(255,79,163,0.0))",
+          background:
+            "conic-gradient(from 0deg, rgba(255,79,163,0.0), rgba(255,79,163,0.7), rgba(168,85,247,0.7), rgba(34,211,238,0.7), rgba(255,217,61,0.7), rgba(255,79,163,0.0))",
           WebkitMask: "radial-gradient(circle, transparent 70%, black 72%)",
           mask: "radial-gradient(circle, transparent 70%, black 72%)",
         }}
@@ -623,7 +742,14 @@ function Gauge({ value }: { value: number }) {
             <stop offset="100%" stopColor="#ffd93d" />
           </linearGradient>
         </defs>
-        <circle cx={size / 2} cy={size / 2} r={r} stroke="rgba(255,255,255,0.08)" strokeWidth={stroke} fill="none" />
+        <circle
+          cx={size / 2}
+          cy={size / 2}
+          r={r}
+          stroke="rgba(255,255,255,0.08)"
+          strokeWidth={stroke}
+          fill="none"
+        />
         <circle
           cx={size / 2}
           cy={size / 2}
@@ -634,7 +760,10 @@ function Gauge({ value }: { value: number }) {
           strokeLinecap="round"
           strokeDasharray={c}
           strokeDashoffset={offset}
-          style={{ transition: "stroke-dashoffset 0.6s cubic-bezier(0.16,1,0.3,1)", filter: "drop-shadow(0 0 14px rgba(255,79,163,0.85))" }}
+          style={{
+            transition: "stroke-dashoffset 0.6s cubic-bezier(0.16,1,0.3,1)",
+            filter: "drop-shadow(0 0 14px rgba(255,79,163,0.85))",
+          }}
         />
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
@@ -660,7 +789,7 @@ function UniverseBackdrop() {
         delay: Math.random() * 4,
         opacity: 0.3 + Math.random() * 0.7,
       })),
-    []
+    [],
   );
 
   const planets = useMemo(
@@ -673,7 +802,7 @@ function UniverseBackdrop() {
         delay: Math.random() * 6,
         hue: ["bg-pink-400", "bg-cyan-300", "bg-yellow-300", "bg-fuchsia-400"][i % 4],
       })),
-    []
+    [],
   );
 
   return (
@@ -683,8 +812,14 @@ function UniverseBackdrop() {
 
       {/* Big nebula blobs */}
       <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-pink-500/20 blur-3xl portal-pulse" />
-      <div className="absolute top-1/3 -right-40 w-[500px] h-[500px] rounded-full bg-purple-500/20 blur-3xl portal-pulse" style={{ animationDelay: "2s" }} />
-      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] rounded-full bg-cyan-500/15 blur-3xl portal-pulse" style={{ animationDelay: "1s" }} />
+      <div
+        className="absolute top-1/3 -right-40 w-[500px] h-[500px] rounded-full bg-purple-500/20 blur-3xl portal-pulse"
+        style={{ animationDelay: "2s" }}
+      />
+      <div
+        className="absolute bottom-0 left-1/4 w-[500px] h-[500px] rounded-full bg-cyan-500/15 blur-3xl portal-pulse"
+        style={{ animationDelay: "1s" }}
+      />
 
       {/* Stars */}
       {stars.map((s) => (
@@ -743,7 +878,7 @@ function WarpOverlay() {
           len: 60 + Math.random() * 120,
         };
       }),
-    []
+    [],
   );
   return (
     <div className="fixed inset-0 z-50 pointer-events-none bg-black/80 backdrop-blur-sm">
@@ -752,20 +887,22 @@ function WarpOverlay() {
           <span
             key={l.id}
             className="absolute hyperdash"
-            style={{
-              left: `${l.left}%`,
-              top: `${l.top}%`,
-              width: l.len,
-              height: 2,
-              background: `linear-gradient(90deg, transparent, ${l.color}, transparent)`,
-              boxShadow: `0 0 8px ${l.color}`,
-              transform: `rotate(${(Math.atan2(parseFloat(l.hy), parseFloat(l.hx)) * 180) / Math.PI}deg)`,
-              transformOrigin: "left center",
-              ["--hx" as any]: l.hx,
-              ["--hy" as any]: l.hy,
-              animationDelay: `${l.delay}s`,
-              animationIterationCount: 1,
-            }}
+            style={
+              {
+                left: `${l.left}%`,
+                top: `${l.top}%`,
+                width: l.len,
+                height: 2,
+                background: `linear-gradient(90deg, transparent, ${l.color}, transparent)`,
+                boxShadow: `0 0 8px ${l.color}`,
+                transform: `rotate(${(Math.atan2(parseFloat(l.hy), parseFloat(l.hx)) * 180) / Math.PI}deg)`,
+                transformOrigin: "left center",
+                "--hx": l.hx,
+                "--hy": l.hy,
+                animationDelay: `${l.delay}s`,
+                animationIterationCount: 1,
+              } as CSSProperties
+            }
           />
         ))}
         <div className="absolute inset-0 flex items-center justify-center">
@@ -778,7 +915,9 @@ function WarpOverlay() {
             <div className="mt-4 font-display font-bold text-4xl md:text-6xl bg-gradient-to-r from-pink-400 via-fuchsia-400 to-cyan-300 bg-clip-text text-transparent text-glow-pink">
               Entering the Universe…
             </div>
-            <div className="mt-3 text-white/60 text-sm font-bold tracking-widest uppercase">Warp speed</div>
+            <div className="mt-3 text-white/60 text-sm font-bold tracking-widest uppercase">
+              Warp speed
+            </div>
           </div>
         </div>
       </div>

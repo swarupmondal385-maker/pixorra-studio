@@ -35,7 +35,10 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://pixorrastudio.com" },
-      { property: "og:title", content: "Pixorra — The Complete Growth System for Indian Businesses" },
+      {
+        property: "og:title",
+        content: "Pixorra — The Complete Growth System for Indian Businesses",
+      },
       {
         property: "og:description",
         content:
@@ -44,7 +47,10 @@ export const Route = createFileRoute("/")({
       { property: "og:image", content: "https://pixorrastudio.com/pixorra-mark.png" },
       { property: "og:image:alt", content: "Pixorra Studio logo mark" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Pixorra — The Complete Growth System for Indian Businesses" },
+      {
+        name: "twitter:title",
+        content: "Pixorra — The Complete Growth System for Indian Businesses",
+      },
       {
         name: "twitter:description",
         content:
@@ -53,9 +59,7 @@ export const Route = createFileRoute("/")({
       { name: "twitter:image", content: "https://pixorrastudio.com/pixorra-mark.png" },
       { name: "twitter:image:alt", content: "Pixorra Studio logo mark" },
     ],
-    links: [
-      { rel: "canonical", href: "https://pixorrastudio.com" },
-    ],
+    links: [{ rel: "canonical", href: "https://pixorrastudio.com" }],
   }),
 });
 
@@ -71,7 +75,6 @@ function Index() {
       <Process />
       <Gallery />
       <Pricing />
-
 
       <Services />
       <Stats />

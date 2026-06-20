@@ -35,16 +35,31 @@ export function Navbar() {
           }`}
         >
           <a href="#top" className="flex items-center gap-2 group pl-1">
-            <img src={logoMark} alt="Pixorra" className="h-9 w-9 md:h-10 md:w-10 object-contain group-hover:rotate-12 transition-transform duration-300" />
-            <span className="font-display text-lg md:text-xl font-bold tracking-tight text-ink">Pixorra</span>
+            <img
+              src={logoMark}
+              alt="Pixorra"
+              className="h-9 w-9 md:h-10 md:w-10 object-contain group-hover:rotate-12 transition-transform duration-300"
+            />
+            <span className="font-display text-lg md:text-xl font-bold tracking-tight text-ink">
+              Pixorra
+            </span>
           </a>
 
           <nav className="hidden lg:flex items-center gap-1">
             {LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="group relative px-3.5 py-2 text-sm font-semibold text-ink/75 hover:text-ink transition-colors rounded-full">
+              <a
+                key={l.href}
+                href={l.href}
+                className="group relative px-3.5 py-2 text-sm font-semibold text-ink/75 hover:text-ink transition-colors rounded-full"
+              >
                 <span className="relative z-10">{l.label}</span>
-                <span className={`absolute inset-0 rounded-full ${l.c} opacity-0 group-hover:opacity-100 transition-opacity -z-0`} style={{ opacity: 0 }} />
-                <span className={`absolute left-3.5 right-3.5 -bottom-0.5 h-1 rounded-full ${l.c} scale-x-0 group-hover:scale-x-100 origin-left transition-transform`} />
+                <span
+                  className={`absolute inset-0 rounded-full ${l.c} opacity-0 group-hover:opacity-100 transition-opacity -z-0`}
+                  style={{ opacity: 0 }}
+                />
+                <span
+                  className={`absolute left-3.5 right-3.5 -bottom-0.5 h-1 rounded-full ${l.c} scale-x-0 group-hover:scale-x-100 origin-left transition-transform`}
+                />
               </a>
             ))}
           </nav>
@@ -58,10 +73,17 @@ export function Navbar() {
             >
               {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </button>
-            <a href="#demo" className="hidden sm:inline-flex items-center gap-2 h-11 px-5 rounded-full bg-cyan-cta text-ink font-bold text-sm border-2 border-ink shadow-pixel hover:-translate-y-0.5 hover:translate-x-0.5 transition-transform">
+            <a
+              href="#demo"
+              className="hidden sm:inline-flex items-center gap-2 h-11 px-5 rounded-full bg-cyan-cta text-ink font-bold text-sm border-2 border-ink shadow-pixel hover:-translate-y-0.5 hover:translate-x-0.5 transition-transform"
+            >
               Get Free Demo <ArrowRight className="h-4 w-4" />
             </a>
-            <button onClick={() => setOpen((o) => !o)} className="lg:hidden inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-ink bg-pixel-yellow shadow-pixel" aria-label="Menu">
+            <button
+              onClick={() => setOpen((o) => !o)}
+              className="lg:hidden inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-ink bg-pixel-yellow shadow-pixel"
+              aria-label="Menu"
+            >
               {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
@@ -73,12 +95,21 @@ export function Navbar() {
           <div className="max-h-[calc(100vh-5.5rem)] overflow-y-auto rounded-3xl border-2 border-ink glass-strong shadow-pixel p-3 pb-4">
             <div className="flex flex-col gap-1">
               {LINKS.map((l) => (
-                <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="flex items-center gap-3 px-3 py-3 rounded-2xl hover:bg-background/60 transition-colors">
+                <a
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="flex items-center gap-3 px-3 py-3 rounded-2xl hover:bg-background/60 transition-colors"
+                >
                   <span className={`h-3 w-3 rounded-full ${l.c} border border-ink`} />
                   <span className="text-base font-bold text-ink">{l.label}</span>
                 </a>
               ))}
-              <a href="#demo" onClick={() => setOpen(false)} className="mt-2 inline-flex items-center justify-center gap-2 h-12 rounded-full bg-cyan-cta text-ink font-bold border-2 border-ink shadow-pixel">
+              <a
+                href="#demo"
+                onClick={() => setOpen(false)}
+                className="mt-2 inline-flex items-center justify-center gap-2 h-12 rounded-full bg-cyan-cta text-ink font-bold border-2 border-ink shadow-pixel"
+              >
                 Get Free Demo <ArrowRight className="h-4 w-4" />
               </a>
             </div>

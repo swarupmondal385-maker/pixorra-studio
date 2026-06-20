@@ -1,5 +1,15 @@
 import { useState } from "react";
-import { Globe, MessageCircle, TrendingUp, Palette, Zap, ArrowUpRight, Check, X, ArrowRight } from "lucide-react";
+import {
+  Globe,
+  MessageCircle,
+  TrendingUp,
+  Palette,
+  Zap,
+  ArrowUpRight,
+  Check,
+  X,
+  ArrowRight,
+} from "lucide-react";
 
 type Service = {
   icon: typeof Globe;
@@ -150,10 +160,12 @@ export function Services() {
         <div className="max-w-3xl reveal">
           <p className="text-xs font-bold tracking-[0.2em] text-pixel-pink uppercase">What We Do</p>
           <h2 className="mt-3 font-display text-4xl md:text-6xl font-bold text-ink tracking-tight text-balance">
-            Every system you need to <span className="text-gradient-pixorra">grow on autopilot</span> — under one roof.
+            Every system you need to{" "}
+            <span className="text-gradient-pixorra">grow on autopilot</span> — under one roof.
           </h2>
           <p className="mt-5 text-lg text-ink/60">
-            AI chatbots, automation, funnels, CRM, websites and SEO — all wired together to turn strangers into paying clients. No juggling vendors.
+            AI chatbots, automation, funnels, CRM, websites and SEO — all wired together to turn
+            strangers into paying clients. No juggling vendors.
           </p>
         </div>
 
@@ -171,7 +183,9 @@ export function Services() {
                 <div className="absolute top-5 right-6 font-pixel text-[10px] text-ink/40 tracking-widest">
                   {s.tag}
                 </div>
-                <div className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl border-2 border-ink ${s.bg}`}>
+                <div
+                  className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl border-2 border-ink ${s.bg}`}
+                >
                   <Icon className={`h-6 w-6 ${s.ic}`} strokeWidth={2.2} />
                 </div>
                 <h3 className="mt-6 font-display text-xl font-bold text-ink">{s.title}</h3>
@@ -194,7 +208,7 @@ export function Services() {
 function ServiceModal({ service, onClose }: { service: Service; onClose: () => void }) {
   const Icon = service.icon;
   return (
-      <div
+    <div
       className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6 bg-background/60 backdrop-blur-sm animate-in fade-in duration-200"
       onClick={onClose}
     >
@@ -211,14 +225,20 @@ function ServiceModal({ service, onClose }: { service: Service; onClose: () => v
         </button>
 
         <div className="p-7 md:p-9">
-          <div className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl border-2 border-ink ${service.bg}`}>
+          <div
+            className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl border-2 border-ink ${service.bg}`}
+          >
             <Icon className={`h-6 w-6 ${service.ic}`} strokeWidth={2.2} />
           </div>
-          <h3 className="mt-5 font-display text-2xl md:text-3xl font-bold text-ink">{service.title}</h3>
+          <h3 className="mt-5 font-display text-2xl md:text-3xl font-bold text-ink">
+            {service.title}
+          </h3>
           <p className="mt-3 text-ink/70 leading-relaxed">{service.long}</p>
 
           <div className="mt-6">
-            <div className="text-xs font-bold tracking-[0.18em] uppercase text-pixel-pink">What's included</div>
+            <div className="text-xs font-bold tracking-[0.18em] uppercase text-pixel-pink">
+              What's included
+            </div>
             <ul className="mt-3 space-y-2">
               {service.features.map((f) => (
                 <li key={f} className="flex items-start gap-3 text-ink/80">
@@ -232,25 +252,36 @@ function ServiceModal({ service, onClose }: { service: Service; onClose: () => v
           </div>
 
           <div className="mt-6 grid sm:grid-cols-3 gap-3">
-              <div className="rounded-2xl border-2 border-ink bg-cream p-4">
-              <div className="text-[10px] font-bold tracking-widest uppercase text-ink/50">Timeline</div>
+            <div className="rounded-2xl border-2 border-ink bg-cream p-4">
+              <div className="text-[10px] font-bold tracking-widest uppercase text-ink/50">
+                Timeline
+              </div>
               <div className="mt-1 font-bold text-ink">{service.timeline}</div>
             </div>
-              <div className="rounded-2xl border-2 border-ink bg-pixel-yellow/40 p-4">
-              <div className="text-[10px] font-bold tracking-widest uppercase text-ink/50">Starting at</div>
+            <div className="rounded-2xl border-2 border-ink bg-pixel-yellow/40 p-4">
+              <div className="text-[10px] font-bold tracking-widest uppercase text-ink/50">
+                Starting at
+              </div>
               <div className="mt-1 font-bold text-ink">{service.startingAt}</div>
             </div>
-              <div className="rounded-2xl border-2 border-ink bg-pixel-cyan/30 p-4">
-              <div className="text-[10px] font-bold tracking-widest uppercase text-ink/50">You get</div>
+            <div className="rounded-2xl border-2 border-ink bg-pixel-cyan/30 p-4">
+              <div className="text-[10px] font-bold tracking-widest uppercase text-ink/50">
+                You get
+              </div>
               <div className="mt-1 font-bold text-ink text-sm">{service.deliverables[0]}</div>
             </div>
           </div>
 
           <div className="mt-6">
-            <div className="text-xs font-bold tracking-[0.18em] uppercase text-pixel-purple">Deliverables</div>
+            <div className="text-xs font-bold tracking-[0.18em] uppercase text-pixel-purple">
+              Deliverables
+            </div>
             <div className="mt-3 flex flex-wrap gap-2">
               {service.deliverables.map((d) => (
-                  <span key={d} className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-background px-3 py-1.5 text-sm font-semibold text-ink">
+                <span
+                  key={d}
+                  className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-background px-3 py-1.5 text-sm font-semibold text-ink"
+                >
                   <span className="h-1.5 w-1.5 rounded-full bg-pixel-pink" /> {d}
                 </span>
               ))}
@@ -278,4 +309,3 @@ function ServiceModal({ service, onClose }: { service: Service; onClose: () => v
     </div>
   );
 }
-

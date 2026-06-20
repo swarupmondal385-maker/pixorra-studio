@@ -4,9 +4,12 @@ export function About() {
       <div className="max-w-7xl mx-auto px-5 md:px-8">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
           <div className="lg:col-span-5 reveal">
-            <p className="text-xs font-bold tracking-[0.2em] text-pixel-pink uppercase">About Pixorra</p>
+            <p className="text-xs font-bold tracking-[0.2em] text-pixel-pink uppercase">
+              About Pixorra
+            </p>
             <h2 className="mt-3 font-display text-4xl md:text-6xl font-bold text-ink tracking-tight text-balance">
-              You don't need a website.<br /> You need <span className="text-gradient-pixorra">clients.</span>
+              You don't need a website.
+              <br /> You need <span className="text-gradient-pixorra">clients.</span>
             </h2>
           </div>
           <div className="lg:col-span-7 reveal">
@@ -21,7 +24,8 @@ export function About() {
             </p>
             <p className="mt-6 text-lg text-ink/65 leading-relaxed">
               Pixorra builds the full machine —<br />
-              Website. Funnel. AI Chatbot. WhatsApp follow-up. CRM. Automation.<br />
+              Website. Funnel. AI Chatbot. WhatsApp follow-up. CRM. Automation.
+              <br />
               All wired together. One goal:
             </p>
             <p className="mt-4 text-xl md:text-2xl font-display font-bold text-gradient-pixorra">

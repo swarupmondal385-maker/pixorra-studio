@@ -1,8 +1,10 @@
+/* eslint-disable react-refresh/only-export-components */
 import { useEffect } from "react";
 import { createRouter, useRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
 
-const CHUNK_ERROR_RE = /Failed to fetch dynamically imported module|Importing a module script failed|Loading chunk/i;
+const CHUNK_ERROR_RE =
+  /Failed to fetch dynamically imported module|Importing a module script failed|Loading chunk/i;
 
 function isChunkLoadError(error: Error) {
   return CHUNK_ERROR_RE.test(error.message);

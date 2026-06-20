@@ -2,17 +2,50 @@ import { useState } from "react";
 import { Plus, MessageCircle } from "lucide-react";
 
 const FAQS = [
-  { q: "How long does it take to build my website?", a: "Most projects go live in 7–10 working days once we have your content and brand inputs. Complex e-commerce or custom builds may take 2–3 weeks." },
-  { q: "What does it cost?", a: "Our monthly plans start at ₹14,999/month for the Ignite tier. The full Growth Engine is ₹24,999/month, and our complete Elite system is ₹39,999/month. Every quote is fixed upfront — no surprises later." },
-  { q: "What is an AI chatbot and do I need one?", a: "Your AI chatbot talks to every website visitor, qualifies them, and books appointments — even at midnight. Most of our clients see 2–3x more leads from the same traffic." },
-  { q: "What is a business funnel?", a: "A funnel is the automated path from stranger → interested → paying customer. We build this entire journey for you — landing page, WhatsApp follow-up, offer, and close." },
-  { q: "Can you automate my WhatsApp and CRM?", a: "Yes. We build full WhatsApp automation sequences that follow up on every lead, send reminders, and nurture clients — without you lifting a finger." },
-  { q: "Do I need to provide all the content and images?", a: "No. We write your copy, source visuals and structure your pages. Just share your business details on the intro call — we take care of the rest." },
-  { q: "Will my website actually rank on Google?", a: "Every site we build is SEO-ready from day one — clean code, fast loading, structured data and proper keyword targeting. Many of our clients rank in the top 3 locally within 60–90 days." },
-  { q: "Can I update the website myself later?", a: "Yes. We hand over a simple dashboard so you can edit text, swap images, add offers, and post blogs without touching code." },
-  { q: "What if I don't like the design?", a: "You see a free demo before paying. We also include two rounds of revisions on every package — your complete satisfaction is the deal." },
-  { q: "Do you offer ongoing support?", a: "Yes. Every project includes 30 days of post-launch support, and we offer affordable monthly maintenance plans from ₹1,999/month." },
-  { q: "Do you work with clients outside Mumbai?", a: "Absolutely. We serve clients across India — Pune, Delhi, Bangalore, Kolkata, Chennai, Hyderabad, Surat and beyond. Everything runs smoothly over WhatsApp and Google Meet." },
+  {
+    q: "How long does it take to build my website?",
+    a: "Most projects go live in 7–10 working days once we have your content and brand inputs. Complex e-commerce or custom builds may take 2–3 weeks.",
+  },
+  {
+    q: "What does it cost?",
+    a: "Our monthly plans start at ₹14,999/month for the Ignite tier. The full Growth Engine is ₹24,999/month, and our complete Elite system is ₹39,999/month. Every quote is fixed upfront — no surprises later.",
+  },
+  {
+    q: "What is an AI chatbot and do I need one?",
+    a: "Your AI chatbot talks to every website visitor, qualifies them, and books appointments — even at midnight. Most of our clients see 2–3x more leads from the same traffic.",
+  },
+  {
+    q: "What is a business funnel?",
+    a: "A funnel is the automated path from stranger → interested → paying customer. We build this entire journey for you — landing page, WhatsApp follow-up, offer, and close.",
+  },
+  {
+    q: "Can you automate my WhatsApp and CRM?",
+    a: "Yes. We build full WhatsApp automation sequences that follow up on every lead, send reminders, and nurture clients — without you lifting a finger.",
+  },
+  {
+    q: "Do I need to provide all the content and images?",
+    a: "No. We write your copy, source visuals and structure your pages. Just share your business details on the intro call — we take care of the rest.",
+  },
+  {
+    q: "Will my website actually rank on Google?",
+    a: "Every site we build is SEO-ready from day one — clean code, fast loading, structured data and proper keyword targeting. Many of our clients rank in the top 3 locally within 60–90 days.",
+  },
+  {
+    q: "Can I update the website myself later?",
+    a: "Yes. We hand over a simple dashboard so you can edit text, swap images, add offers, and post blogs without touching code.",
+  },
+  {
+    q: "What if I don't like the design?",
+    a: "You see a free demo before paying. We also include two rounds of revisions on every package — your complete satisfaction is the deal.",
+  },
+  {
+    q: "Do you offer ongoing support?",
+    a: "Yes. Every project includes 30 days of post-launch support, and we offer affordable monthly maintenance plans from ₹1,999/month.",
+  },
+  {
+    q: "Do you work with clients outside Mumbai?",
+    a: "Absolutely. We serve clients across India — Pune, Delhi, Bangalore, Kolkata, Chennai, Hyderabad, Surat and beyond. Everything runs smoothly over WhatsApp and Google Meet.",
+  },
 ];
 
 export function FAQ() {
@@ -21,25 +54,41 @@ export function FAQ() {
     <section id="faq" className="py-20 md:py-32 bg-background">
       <div className="max-w-4xl mx-auto px-5 md:px-8">
         <div className="text-center reveal">
-          <p className="text-xs font-bold tracking-[0.2em] text-gold uppercase">Questions? Answered.</p>
+          <p className="text-xs font-bold tracking-[0.2em] text-gold uppercase">
+            Questions? Answered.
+          </p>
           <h2 className="mt-3 font-display text-4xl md:text-6xl font-bold text-ink tracking-tight text-balance">
-            Everything you want to know<br className="hidden md:block"/> before you say yes.
+            Everything you want to know
+            <br className="hidden md:block" /> before you say yes.
           </h2>
         </div>
 
         <div className="mt-12 space-y-4">
           {FAQS.map((f, i) => (
-            <div key={f.q} className="reveal rounded-2xl border-2 border-ink bg-card overflow-hidden" style={{animationDelay:`${i*40}ms`, boxShadow: open===i ? "6px 6px 0 0 var(--pixel-pink)" : "4px 4px 0 0 var(--ink)"}}>
+            <div
+              key={f.q}
+              className="reveal rounded-2xl border-2 border-ink bg-card overflow-hidden"
+              style={{
+                animationDelay: `${i * 40}ms`,
+                boxShadow: open === i ? "6px 6px 0 0 var(--pixel-pink)" : "4px 4px 0 0 var(--ink)",
+              }}
+            >
               <button
                 onClick={() => setOpen(open === i ? null : i)}
                 className="w-full flex items-center justify-between gap-6 text-left p-5 md:p-6 hover:bg-pixel-yellow/30 transition-colors"
               >
-                <span className="font-display text-lg md:text-xl font-semibold text-ink">{f.q}</span>
-                <span className={`h-8 w-8 rounded-full bg-pixel-pink border-2 border-ink flex items-center justify-center shrink-0 transition-transform ${open===i?"rotate-45":""}`}>
+                <span className="font-display text-lg md:text-xl font-semibold text-ink">
+                  {f.q}
+                </span>
+                <span
+                  className={`h-8 w-8 rounded-full bg-pixel-pink border-2 border-ink flex items-center justify-center shrink-0 transition-transform ${open === i ? "rotate-45" : ""}`}
+                >
                   <Plus className="h-4 w-4 text-white" strokeWidth={3} />
                 </span>
               </button>
-              <div className={`grid transition-all duration-500 ease-out ${open===i?"grid-rows-[1fr] opacity-100":"grid-rows-[0fr] opacity-0"}`}>
+              <div
+                className={`grid transition-all duration-500 ease-out ${open === i ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
+              >
                 <div className="overflow-hidden">
                   <p className="px-5 md:px-6 pb-6 text-ink/70 leading-relaxed">{f.a}</p>
                 </div>

@@ -15,31 +15,39 @@ function Counter({ to, suffix }: { to: number; suffix: string }) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting && !started.current) {
-          started.current = true;
-          const duration = 1600;
-          const start = performance.now();
-          const tick = (t: number) => {
-            const p = Math.min((t - start) / duration, 1);
-            const eased = 1 - Math.pow(1 - p, 3);
-            setV(Math.round(to * eased));
-            if (p < 1) requestAnimationFrame(tick);
-          };
-          requestAnimationFrame(tick);
-        }
-      });
-    }, { threshold: 0.4 });
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting && !started.current) {
+            started.current = true;
+            const duration = 1600;
+            const start = performance.now();
+            const tick = (t: number) => {
+              const p = Math.min((t - start) / duration, 1);
+              const eased = 1 - Math.pow(1 - p, 3);
+              setV(Math.round(to * eased));
+              if (p < 1) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+          }
+        });
+      },
+      { threshold: 0.4 },
+    );
     io.observe(el);
     return () => io.disconnect();
   }, [to]);
 
-  return <span ref={ref}>{v}{suffix}</span>;
+  return (
+    <span ref={ref}>
+      {v}
+      {suffix}
+    </span>
+  );
 }
 
 export function Stats() {
-  const colors = ["text-pixel-pink","text-pixel-orange","text-pixel-blue","text-pixel-purple"];
+  const colors = ["text-pixel-pink", "text-pixel-orange", "text-pixel-blue", "text-pixel-purple"];
   return (
     <section className="py-16 md:py-24 bg-pixel-yellow border-y-2 border-ink relative overflow-hidden">
       <div className="absolute inset-0 dot-bg opacity-30 pointer-events-none" aria-hidden />
@@ -47,7 +55,9 @@ export function Stats() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
           {STATS.map((s, i) => (
             <div key={s.label} className="reveal text-center md:text-left">
-              <div className={`font-display font-bold text-4xl sm:text-5xl md:text-7xl tracking-tight ${colors[i]}`}>
+              <div
+                className={`font-display font-bold text-4xl sm:text-5xl md:text-7xl tracking-tight ${colors[i]}`}
+              >
                 <Counter to={s.n} suffix={s.suffix} />
               </div>
               <div className="mt-2 text-sm md:text-base text-ink/70 font-bold">{s.label}</div>

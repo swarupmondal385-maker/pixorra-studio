@@ -4,9 +4,16 @@ export function DemoBanner() {
   return (
     <section id="demo" className="py-16 md:py-24 bg-background">
       <div className="max-w-7xl mx-auto px-5 md:px-8">
-        <div className="relative overflow-hidden rounded-[2rem] md:rounded-[2.5rem] bg-gradient-pixorra border-2 border-ink p-6 sm:p-8 md:p-16 reveal" style={{boxShadow:"10px 10px 0 0 var(--ink)"}}>
+        <div
+          className="relative overflow-hidden rounded-[2rem] md:rounded-[2.5rem] bg-gradient-pixorra border-2 border-ink p-6 sm:p-8 md:p-16 reveal"
+          style={{ boxShadow: "10px 10px 0 0 var(--ink)" }}
+        >
           <div className="absolute top-4 right-4 sm:top-6 sm:right-6 hidden sm:flex h-20 w-20 rounded-full bg-pixel-yellow border-2 border-ink items-center justify-center spin-slow z-10">
-            <div className="font-pixel text-[7px] text-ink text-center leading-tight">FREE<br/>DEMO</div>
+            <div className="font-pixel text-[7px] text-ink text-center leading-tight">
+              FREE
+              <br />
+              DEMO
+            </div>
           </div>
           <div className="absolute -top-20 -right-20 h-72 w-72 rounded-full bg-background/20 blur-3xl" />
           <div className="absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-navy/20 blur-3xl" />
@@ -14,13 +21,18 @@ export function DemoBanner() {
           <div className="relative grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8">
               <div className="inline-flex items-center gap-2 h-8 px-3 rounded-full bg-pixel-yellow border-2 border-ink text-ink text-xs font-bold uppercase tracking-wider">
-                <span className="h-1.5 w-1.5 rounded-full bg-ink animate-pulse" /> Limited Slots This Month
+                <span className="h-1.5 w-1.5 rounded-full bg-ink animate-pulse" /> Limited Slots
+                This Month
               </div>
               <h2 className="mt-5 font-display text-3xl sm:text-4xl md:text-6xl font-bold text-white tracking-tight text-balance">
-                Get a free demo website<br/>built for <u className="decoration-pixel-yellow underline-offset-4">your</u> business.
+                Get a free demo website
+                <br />
+                built for <u className="decoration-pixel-yellow underline-offset-4">your</u>{" "}
+                business.
               </h2>
               <p className="mt-5 text-white/90 text-base sm:text-lg max-w-2xl">
-                Tell us your business name and industry. Within 48 hours we'll send you a real, working homepage preview — no commitment, no card details, zero risk.
+                Tell us your business name and industry. Within 48 hours we'll send you a real,
+                working homepage preview — no commitment, no card details, zero risk.
               </p>
             </div>
             <div className="lg:col-span-4 flex flex-col gap-3">
@@ -30,7 +42,9 @@ export function DemoBanner() {
                 rel="noreferrer"
                 className="group inline-flex items-center justify-between h-16 px-7 rounded-2xl bg-pixel-green text-white font-semibold text-base sm:text-lg border-2 border-ink shadow-pixel hover:-translate-y-0.5 transition-transform w-full"
               >
-                <span className="flex items-center gap-3"><MessageCircle className="h-5 w-5"/> WhatsApp Now</span>
+                <span className="flex items-center gap-3">
+                  <MessageCircle className="h-5 w-5" /> WhatsApp Now
+                </span>
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </a>
               <a

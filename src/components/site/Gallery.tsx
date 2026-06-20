@@ -83,11 +83,13 @@ export function Gallery() {
   const renderCard = (it: (typeof ITEMS)[number], i: number) => {
     const card = (
       <>
-        <div className={`md:aspect-[4/3] aspect-[4/5] bg-gradient-to-br ${it.color} relative overflow-hidden`}>
+        <div
+          className={`md:aspect-[4/3] aspect-[4/5] bg-gradient-to-br ${it.color} relative overflow-hidden`}
+        >
           <div className="absolute inset-0 grid-bg opacity-20" />
           {it.url ? (
             <div className="absolute inset-0 flex flex-col">
-                <div className="flex items-center gap-1.5 px-3 py-1.5 bg-background/90 backdrop-blur-sm border-b border-border/40">
+              <div className="flex items-center gap-1.5 px-3 py-1.5 bg-background/90 backdrop-blur-sm border-b border-border/40">
                 <span className="h-2 w-2 rounded-full bg-red-400/60" />
                 <span className="h-2 w-2 rounded-full bg-yellow-400/60" />
                 <span className="h-2 w-2 rounded-full bg-green-400/60" />
@@ -101,7 +103,7 @@ export function Gallery() {
               />
             </div>
           ) : (
-                    <div className="absolute inset-4 rounded-2xl bg-card/95 p-4">
+            <div className="absolute inset-4 rounded-2xl bg-card/95 p-4">
               <div className="flex gap-1">
                 <span className="h-1.5 w-1.5 rounded-full bg-foreground/20" />
                 <span className="h-1.5 w-1.5 rounded-full bg-foreground/20" />
@@ -135,7 +137,7 @@ export function Gallery() {
           href={it.url}
           target="_blank"
           rel="noopener noreferrer"
-                className="group relative rounded-3xl overflow-hidden bg-card border border-border/40 shadow-card hover:shadow-card-lg transition-all hover:-translate-y-1 block"
+          className="group relative rounded-3xl overflow-hidden bg-card border border-border/40 shadow-card hover:shadow-card-lg transition-all hover:-translate-y-1 block"
           style={{ animationDelay: `${i * 70}ms` }}
         >
           {card}
@@ -191,7 +193,10 @@ export function Gallery() {
               key={i}
               type="button"
               onClick={() => {
-                sliderRef.current?.children[i]?.scrollIntoView({ behavior: "smooth", inline: "center" });
+                sliderRef.current?.children[i]?.scrollIntoView({
+                  behavior: "smooth",
+                  inline: "center",
+                });
               }}
               className={`h-2.5 rounded-full transition-all duration-300 ${
                 activeIndex === i ? "w-7 bg-pixel-purple" : "w-2.5 bg-foreground/20"

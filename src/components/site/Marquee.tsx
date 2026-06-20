@@ -11,7 +11,15 @@ const ITEMS = [
   "AI Autonomous Systems",
 ];
 
-const DOT_COLORS = ["bg-pixel-pink","bg-pixel-yellow","bg-pixel-cyan","bg-pixel-purple","bg-pixel-green","bg-pixel-orange","bg-pixel-blue"];
+const DOT_COLORS = [
+  "bg-pixel-pink",
+  "bg-pixel-yellow",
+  "bg-pixel-cyan",
+  "bg-pixel-purple",
+  "bg-pixel-green",
+  "bg-pixel-orange",
+  "bg-pixel-blue",
+];
 
 export function Marquee() {
   return (
@@ -22,7 +30,9 @@ export function Marquee() {
             <span className="font-display text-2xl md:text-4xl font-bold uppercase tracking-tight text-ink">
               {t}
             </span>
-            <span className={`h-3 w-3 rounded-full border-2 border-ink ${DOT_COLORS[i % DOT_COLORS.length]}`} />
+            <span
+              className={`h-3 w-3 rounded-full border-2 border-ink ${DOT_COLORS[i % DOT_COLORS.length]}`}
+            />
           </div>
         ))}
       </div>
