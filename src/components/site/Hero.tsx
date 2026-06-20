@@ -167,28 +167,37 @@ export function Hero() {
           </div>
 
           {/* Right: mockup — hover motion sensor */}
-          <div className="relative reveal group perspective-1200 mx-auto max-w-[24rem] sm:max-w-[28rem] lg:max-w-none">
+          <div className="relative reveal group perspective-1200 mx-auto max-w-[26rem] sm:max-w-[34rem] lg:max-w-none">
 
             <div aria-hidden className="absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-rainbow opacity-20 blur-2xl spin-slower group-hover:opacity-35 group-hover:blur-xl transition-all duration-500" />
 
-            <div className="relative rounded-3xl bg-white shadow-card-lg border-2 border-ink overflow-hidden origin-top scale-[0.88] sm:scale-100 group-hover:-translate-y-1 group-hover:translate-x-0.5 group-hover:shadow-pixel transition-all duration-300">
-              <div className="h-1.5 bg-gradient-rainbow animate-shimmer" />
-              <div className="h-8 sm:h-9 flex items-center gap-1.5 px-3 sm:px-4 border-b border-black/5 bg-cream">
-                <span className="h-2.5 w-2.5 rounded-full bg-pixel-pink animate-pulse group-hover:scale-125 transition-transform" />
-                <span className="h-2.5 w-2.5 rounded-full bg-pixel-yellow animate-pulse group-hover:scale-125 transition-transform" style={{ animationDelay: "0.3s" }} />
-                <span className="h-2.5 w-2.5 rounded-full bg-pixel-green animate-pulse group-hover:scale-125 transition-transform" style={{ animationDelay: "0.6s" }} />
-                <div className="mx-auto text-[10px] text-ink/50 font-mono group-hover:text-ink/70 transition-colors">yourclinic.in</div>
-              </div>
-              <div className="p-3 sm:p-4 md:p-8">
-                <div className="flex items-center justify-between">
-                  <div className="h-5 w-20 rounded-md bg-gradient-pixorra wiggle group-hover:scale-105 transition-transform" />
-                  <div className="hidden sm:flex gap-1.5 md:gap-2">
-                    <div className="h-2 w-10 md:w-12 rounded bg-ink/10 group-hover:bg-ink/20 transition-colors" />
-                    <div className="h-2 w-10 md:w-12 rounded bg-ink/10 group-hover:bg-ink/20 transition-colors" />
-                    <div className="h-2 w-10 md:w-12 rounded bg-ink/10 group-hover:bg-ink/20 transition-colors" />
+            <div className="relative overflow-hidden rounded-[2.25rem] bg-gradient-to-b from-slate-200 via-slate-100 to-slate-300 p-3 shadow-[0_30px_70px_rgba(15,23,42,0.18)] border border-slate-400/70 origin-top scale-[0.88] sm:scale-100 group-hover:-translate-y-1 group-hover:translate-x-0.5 transition-all duration-300">
+              <div className="rounded-[1.6rem] border border-slate-300 bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] overflow-hidden">
+                <div className="flex h-10 items-center gap-3 border-b border-slate-200 bg-slate-50 px-4">
+                  <div className="flex items-center gap-1.5 shrink-0">
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57] border border-black/10" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e] border border-black/10" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#28c840] border border-black/10" />
                   </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="mx-auto flex max-w-[18rem] items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-[10px] text-slate-500 shadow-sm">
+                      <span className="h-2 w-2 rounded-full bg-pixel-cyan" />
+                      <span className="truncate">yourclinic.in</span>
+                    </div>
+                  </div>
+                  <div className="hidden sm:block h-2.5 w-14 rounded-full bg-slate-200" />
                 </div>
-                <div className="mt-4 md:mt-6 grid grid-cols-2 md:grid-cols-5 gap-2 sm:gap-3 md:gap-4">
+
+                <div className="p-3 sm:p-4 md:p-7">
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="h-5 w-20 rounded-md bg-gradient-pixorra wiggle group-hover:scale-105 transition-transform" />
+                    <div className="hidden sm:flex gap-1.5 md:gap-2">
+                      <div className="h-2 w-10 md:w-12 rounded bg-ink/10 group-hover:bg-ink/20 transition-colors" />
+                      <div className="h-2 w-10 md:w-12 rounded bg-ink/10 group-hover:bg-ink/20 transition-colors" />
+                      <div className="h-2 w-10 md:w-12 rounded bg-ink/10 group-hover:bg-ink/20 transition-colors" />
+                    </div>
+                  </div>
+                  <div className="mt-4 md:mt-6 grid grid-cols-2 md:grid-cols-5 gap-2 sm:gap-3 md:gap-4">
                   <div className="col-span-2 md:col-span-3">
                     <div className="h-2.5 w-12 md:w-16 rounded bg-pixel-yellow mb-2 group-hover:w-20 transition-all duration-300" />
                     <div className="h-3.5 sm:h-4 md:h-6 w-full rounded bg-ink/90 group-hover:bg-gradient-pixorra transition-colors duration-300" />
@@ -221,6 +230,7 @@ export function Hero() {
                       <div className="mt-1 h-1.5 md:h-2 w-3/4 rounded bg-ink/10 group-hover:w-full transition-all duration-300" />
                     </div>
                   ))}
+                  </div>
                 </div>
               </div>
             </div>
