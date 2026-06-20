@@ -149,7 +149,7 @@ export function Pricing() {
 
         <div
           ref={sliderRef}
-          className="mt-14 md:grid md:grid-cols-3 md:gap-6 max-w-6xl mx-auto flex overflow-x-auto snap-x snap-mandatory gap-5 pb-4 pt-6 md:pt-10 px-3 md:px-4 scroll-smooth"
+          className="mt-10 md:mt-14 md:grid md:grid-cols-3 md:gap-6 max-w-6xl mx-auto flex overflow-x-auto snap-x snap-mandatory gap-4 md:gap-5 pb-4 pt-4 md:pt-10 px-3 md:px-4 scroll-smooth"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {PACKAGES.map(
@@ -159,7 +159,7 @@ export function Pricing() {
             ) => (
               <div
                 key={name}
-                className={`reveal snap-start shrink-0 w-[82vw] md:w-auto md:shrink relative rounded-3xl p-6 md:p-10 transition-all duration-500 flex flex-col border-2 border-ink ${
+                className={`reveal snap-start shrink-0 w-[82vw] md:w-auto md:shrink relative rounded-3xl p-5 md:p-10 transition-all duration-500 flex flex-col border-2 border-ink ${
                   flagship
                     ? "bg-pixel-purple/10 text-ink hover:-translate-y-1"
                     : "glass-card text-ink hover:-translate-y-1"
@@ -189,11 +189,11 @@ export function Pricing() {
                   >
                     {name}
                   </h4>
-                  <p className={`mt-1.5 text-sm ${flagship ? "text-ink/70" : "text-ink/60"}`}>
+                  <p className={`mt-1 text-sm ${flagship ? "text-ink/70" : "text-ink/60"}`}>
                     {tagline}
                   </p>
                 </div>
-                <div className="mt-6">
+                <div className="mt-4 md:mt-6">
                   {originalPrice && (
                     <span
                       className={`font-display text-sm sm:text-base font-bold line-through ${flagship ? "text-ink/40" : "text-ink/30"}`}
@@ -201,9 +201,9 @@ export function Pricing() {
                       {originalPrice}
                     </span>
                   )}
-                  <div className="flex items-baseline gap-2">
+                    <div className="flex items-baseline gap-2">
                     <span
-                      className={`font-display text-4xl sm:text-5xl font-bold ${flagship ? "text-ink" : "text-ink"}`}
+                      className={`font-display text-3xl sm:text-5xl font-bold ${flagship ? "text-ink" : "text-ink"}`}
                     >
                       {price}
                     </span>
@@ -212,16 +212,16 @@ export function Pricing() {
                     </span>
                   </div>
                 </div>
-                <ul className="mt-7 space-y-3 flex-1">
+                <ul className="mt-5 md:mt-7 space-y-2 md:space-y-3 flex-1">
                   {features.map((f) => (
-                    <li key={f} className="flex items-start gap-3">
+                    <li key={f} className="flex items-start gap-2 md:gap-3">
                       <div
-                        className={`mt-0.5 flex-shrink-0 h-5 w-5 rounded-full border border-ink flex items-center justify-center ${flagship ? "bg-pixel-yellow" : "bg-pixel-green"}`}
+                        className={`mt-0.5 flex-shrink-0 h-4 w-4 md:h-5 md:w-5 rounded-full border border-ink flex items-center justify-center ${flagship ? "bg-pixel-yellow" : "bg-pixel-green"}`}
                       >
-                        <Check className="h-3 w-3 text-ink" strokeWidth={3} />
+                        <Check className="h-2.5 w-2.5 md:h-3 md:w-3 text-ink" strokeWidth={3} />
                       </div>
                       <span
-                        className={`text-sm leading-relaxed ${flagship ? "text-ink/90" : "text-ink/80"}`}
+                        className={`text-xs md:text-sm leading-relaxed ${flagship ? "text-ink/90" : "text-ink/80"}`}
                       >
                         {f}
                       </span>
@@ -232,7 +232,7 @@ export function Pricing() {
                   href={WHATSAPP}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`mt-8 inline-flex items-center justify-center gap-2 rounded-full px-6 py-4 font-semibold transition-all min-h-12 border-2 border-ink ${
+                  className={`mt-6 md:mt-8 inline-flex items-center justify-center gap-2 rounded-full px-5 md:px-6 py-3 md:py-4 font-semibold transition-all min-h-11 md:min-h-12 border-2 border-ink ${
                     flagship
                       ? "bg-pixel-purple text-white hover:-translate-y-0.5"
                       : "bg-gold text-ink hover:bg-gold-soft"
@@ -245,7 +245,7 @@ export function Pricing() {
                   <button
                     type="button"
                     onClick={() => setEliteOpen(true)}
-                    className="mt-3 inline-flex items-center justify-center rounded-full border-2 border-ink/20 px-6 py-3 text-sm font-semibold text-ink/90 transition-all hover:bg-ink/5"
+                    className="mt-3 inline-flex items-center justify-center rounded-full border-2 border-ink/20 px-5 md:px-6 py-2.5 md:py-3 text-xs md:text-sm font-semibold text-ink/90 transition-all hover:bg-ink/5"
                   >
                     More Features
                   </button>
