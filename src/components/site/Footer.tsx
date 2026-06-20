@@ -2,6 +2,8 @@ import { Instagram, Linkedin, Facebook, Twitter, Mail, Phone, MapPin, Clock, Arr
 import logoFull from "@/assets/pixorra-logo.png";
 
 export function Footer() {
+  const year = new Date().getFullYear();
+
   return (
     <footer className="relative bg-cream border-t-2 border-ink overflow-hidden">
       <div className="h-2 bg-gradient-rainbow" />
@@ -90,7 +92,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-12 pt-6 border-t-2 border-dashed border-ink/20 flex flex-col md:flex-row gap-3 md:items-center md:justify-between text-sm text-ink/60">
-          <div>© {new Date().getFullYear()} Pixorra. All rights reserved.</div>
+          <div suppressHydrationWarning>© {year} Pixorra. All rights reserved.</div>
           <div className="inline-flex items-center gap-1.5 font-semibold text-ink/80">
             Made with <Heart className="h-3.5 w-3.5 fill-pixel-pink text-pixel-pink" /> in Mumbai
           </div>

@@ -167,35 +167,35 @@ export function Hero() {
           </div>
 
           {/* Right: mockup — hover motion sensor */}
-          <div className="relative reveal group perspective-1200">
+          <div className="relative reveal group perspective-1200 mx-auto max-w-[24rem] sm:max-w-[28rem] lg:max-w-none">
 
             <div aria-hidden className="absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-rainbow opacity-20 blur-2xl spin-slower group-hover:opacity-35 group-hover:blur-xl transition-all duration-500" />
 
-            <div className="relative rounded-3xl bg-white shadow-card-lg border-2 border-ink overflow-hidden group-hover:-translate-y-1 group-hover:translate-x-0.5 group-hover:shadow-pixel transition-all duration-300">
+            <div className="relative rounded-3xl bg-white shadow-card-lg border-2 border-ink overflow-hidden origin-top scale-[0.88] sm:scale-100 group-hover:-translate-y-1 group-hover:translate-x-0.5 group-hover:shadow-pixel transition-all duration-300">
               <div className="h-1.5 bg-gradient-rainbow animate-shimmer" />
-              <div className="h-9 flex items-center gap-1.5 px-4 border-b border-black/5 bg-cream">
+              <div className="h-8 sm:h-9 flex items-center gap-1.5 px-3 sm:px-4 border-b border-black/5 bg-cream">
                 <span className="h-2.5 w-2.5 rounded-full bg-pixel-pink animate-pulse group-hover:scale-125 transition-transform" />
                 <span className="h-2.5 w-2.5 rounded-full bg-pixel-yellow animate-pulse group-hover:scale-125 transition-transform" style={{ animationDelay: "0.3s" }} />
                 <span className="h-2.5 w-2.5 rounded-full bg-pixel-green animate-pulse group-hover:scale-125 transition-transform" style={{ animationDelay: "0.6s" }} />
                 <div className="mx-auto text-[10px] text-ink/50 font-mono group-hover:text-ink/70 transition-colors">yourclinic.in</div>
               </div>
-              <div className="p-4 md:p-8">
+              <div className="p-3 sm:p-4 md:p-8">
                 <div className="flex items-center justify-between">
                   <div className="h-5 w-20 rounded-md bg-gradient-pixorra wiggle group-hover:scale-105 transition-transform" />
-                  <div className="flex gap-1.5 md:gap-2">
+                  <div className="hidden sm:flex gap-1.5 md:gap-2">
                     <div className="h-2 w-10 md:w-12 rounded bg-ink/10 group-hover:bg-ink/20 transition-colors" />
                     <div className="h-2 w-10 md:w-12 rounded bg-ink/10 group-hover:bg-ink/20 transition-colors" />
                     <div className="h-2 w-10 md:w-12 rounded bg-ink/10 group-hover:bg-ink/20 transition-colors" />
                   </div>
                 </div>
-                <div className="mt-4 md:mt-6 grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
+                <div className="mt-4 md:mt-6 grid grid-cols-2 md:grid-cols-5 gap-2 sm:gap-3 md:gap-4">
                   <div className="col-span-2 md:col-span-3">
                     <div className="h-2.5 w-12 md:w-16 rounded bg-pixel-yellow mb-2 group-hover:w-20 transition-all duration-300" />
-                    <div className="h-4 md:h-6 w-full rounded bg-ink/90 group-hover:bg-gradient-pixorra transition-colors duration-300" />
-                    <div className="mt-1.5 h-4 md:h-6 w-4/5 rounded bg-ink/90 group-hover:bg-gradient-pixorra transition-colors duration-300" />
-                    <div className="mt-3 space-y-1">
+                    <div className="h-3.5 sm:h-4 md:h-6 w-full rounded bg-ink/90 group-hover:bg-gradient-pixorra transition-colors duration-300" />
+                    <div className="mt-1.5 h-3.5 sm:h-4 md:h-6 w-4/5 rounded bg-ink/90 group-hover:bg-gradient-pixorra transition-colors duration-300" />
+                    <div className="mt-2 sm:mt-3 space-y-1">
                       <div className="h-1.5 w-full rounded bg-ink/10 group-hover:bg-pixel-pink/20 transition-colors duration-300" />
-                      <div className="h-1.5 w-11/12 rounded bg-ink/10 group-hover:bg-pixel-cyan/20 transition-colors duration-300" />
+                      <div className="hidden sm:block h-1.5 w-11/12 rounded bg-ink/10 group-hover:bg-pixel-cyan/20 transition-colors duration-300" />
                     </div>
                     <div className="mt-3 md:mt-5 flex gap-2">
                       <div className="h-7 md:h-9 w-20 md:w-28 rounded-full bg-gradient-pixorra border-2 border-ink float-soft group-hover:scale-105 transition-transform" />
