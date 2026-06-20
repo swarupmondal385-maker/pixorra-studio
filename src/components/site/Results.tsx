@@ -18,7 +18,7 @@ export function Results() {
 
       <div className="relative max-w-7xl mx-auto px-5 md:px-8">
         <div className="max-w-3xl reveal">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pixel-pink text-white text-xs font-bold border-2 border-ink shadow-pixel uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pixel-pink text-white text-xs font-bold border-2 border-ink shadow-pixel uppercase tracking-wider">
             <Sparkles className="h-3.5 w-3.5" fill="currentColor" /> Client Results
           </div>
           <h2 className="mt-4 font-display text-4xl md:text-6xl font-bold text-ink tracking-tight text-balance">

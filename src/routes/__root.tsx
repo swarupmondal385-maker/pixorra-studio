@@ -34,7 +34,8 @@ export const Route = createRootRoute({
       // intentionally absent here — they are owned exclusively by each route.
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "theme-color", content: "#0a0a0a" },
+      { name: "theme-color", content: "#fafaf7", media: "(prefers-color-scheme: light)" },
+      { name: "theme-color", content: "#0b1020", media: "(prefers-color-scheme: dark)" },
       { name: "author", content: "Pixorra Studio" },
       // og:site_name is safe here — it never appears in page routes
       { property: "og:site_name", content: "Pixorra Studio" },
@@ -66,11 +67,17 @@ export const Route = createRootRoute({
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{var t=localStorage.getItem('pixorra-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.classList.toggle('dark',t==='dark');document.documentElement.style.colorScheme=t}catch(e){}",
+          }}
+        />
         <HeadContent />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         {children}
         <Scripts />
       </body>

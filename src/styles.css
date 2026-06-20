@@ -110,8 +110,27 @@
 }
 
 .dark {
-  --background: oklch(0.14 0.01 270);
+  --background: oklch(0.11 0.01 270);
   --foreground: oklch(0.98 0 0);
+  --card: oklch(0.15 0.01 270);
+  --card-foreground: oklch(0.98 0 0);
+  --popover: oklch(0.15 0.01 270);
+  --popover-foreground: oklch(0.98 0 0);
+  --primary: oklch(0.98 0 0);
+  --primary-foreground: oklch(0.11 0.01 270);
+  --secondary: oklch(0.18 0.012 270);
+  --secondary-foreground: oklch(0.98 0 0);
+  --muted: oklch(0.18 0.012 270);
+  --muted-foreground: oklch(0.72 0.01 270);
+  --accent: oklch(0.78 0.115 85);
+  --accent-foreground: oklch(0.11 0.01 270);
+  --border: oklch(0.28 0.01 270);
+  --input: oklch(0.28 0.01 270);
+  --cream: oklch(0.16 0.012 270);
+  --gold-soft: oklch(0.28 0.04 90);
+  --gradient-hero: radial-gradient(1200px 600px at 70% -10%, color-mix(in oklab, var(--gold) 14%, transparent), transparent 60%), linear-gradient(180deg, #111827 0%, #0b1020 100%);
+  --shadow-card: 0 1px 2px rgba(0,0,0,0.24), 0 18px 36px -16px rgba(0,0,0,0.5);
+  --shadow-card-lg: 0 2px 6px rgba(0,0,0,0.26), 0 24px 60px -20px rgba(0,0,0,0.55);
 }
 
 @layer base {
@@ -265,6 +284,11 @@
     background-size: 48px 48px;
   }
 
+  .dot-bg {
+    background-image: radial-gradient(circle at 1px 1px, rgba(27,58,140,0.12) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+
   .gold-underline {
     background: linear-gradient(90deg, var(--gold), var(--gold)) no-repeat left 92% / 100% 0.22em;
   }
@@ -387,5 +411,29 @@
     background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.05) 40%, transparent 60%);
     pointer-events: none;
     z-index: 1;
+  }
+
+  .dark .glass {
+    background: rgba(17, 24, 39, 0.5);
+  }
+  .dark .glass-strong {
+    background: rgba(17, 24, 39, 0.78);
+  }
+  .dark .glass-frost {
+    background: rgba(17, 24, 39, 0.3);
+  }
+  .dark .glass-card {
+    background: rgba(17, 24, 39, 0.62);
+  }
+  .dark .glass-shine::after {
+    background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 40%, transparent 60%);
+  }
+  .dark .grid-bg {
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+  }
+  .dark .dot-bg {
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.08) 1px, transparent 0);
   }
 }

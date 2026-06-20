@@ -35,7 +35,7 @@ export function Hero() {
         <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" aria-hidden />
 
         <div className="relative text-center max-w-5xl mx-auto reveal">
-            <div className="inline-flex items-center gap-2 h-9 px-4 rounded-full bg-white border-2 border-ink text-xs font-bold tracking-wider uppercase shadow-pixel">
+            <div className="inline-flex items-center gap-2 h-9 px-4 rounded-full bg-card border-2 border-ink text-xs font-bold tracking-wider uppercase shadow-pixel">
               <span className="text-gradient-pixorra">India's Business Growth OS</span>
             </div>
 
@@ -85,11 +85,11 @@ export function Hero() {
               <div className="aspect-video bg-pixel-purple relative flex items-center justify-center">
                 <div className="absolute inset-0 grid-bg opacity-20" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="h-16 w-16 rounded-full bg-white border-2 border-ink shadow-pixel flex items-center justify-center group-hover:scale-110 transition-transform">
+                <div className="h-16 w-16 rounded-full bg-background border-2 border-ink shadow-pixel flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Play className="h-6 w-6 text-pixel-pink ml-1" fill="currentColor" />
                   </div>
                 </div>
-                <div className="absolute top-3 right-3 h-7 px-3 rounded-full bg-ink text-white text-[10px] font-bold flex items-center gap-1.5 border border-white/20">
+                <div className="absolute top-3 right-3 h-7 px-3 rounded-full bg-foreground text-background text-[10px] font-bold flex items-center gap-1.5 border border-background/20">
                   <span className="h-1.5 w-1.5 rounded-full bg-pixel-pink animate-pulse" />2 min watch
                 </div>
               </div>
@@ -110,7 +110,7 @@ export function Hero() {
             <a href="#demo" className="group inline-flex items-center gap-2 h-14 px-7 rounded-full bg-yellow-cta text-ink font-bold border-2 border-ink shadow-pixel hover:-translate-y-0.5 hover:translate-x-0.5 transition-transform">
               Book My Free Demo <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </a>
-            <a href="#work" className="inline-flex items-center gap-2 h-14 px-7 rounded-full bg-white border-2 border-ink text-ink font-bold hover:bg-pixel-yellow transition-colors shadow-pixel">
+            <a href="#work" className="inline-flex items-center gap-2 h-14 px-7 rounded-full bg-card border-2 border-ink text-ink font-bold hover:bg-pixel-yellow transition-colors shadow-pixel">
               <Play className="h-4 w-4 text-pixel-pink" fill="currentColor" /> See Our Work
             </a>
           </div>
@@ -155,7 +155,7 @@ export function Hero() {
                 { t: "Transparent pricing — no hidden fees, ever", c: "bg-pixel-yellow", e: "💎" },
                 { t: "Free demo website before you pay a rupee", c: "bg-pixel-purple", e: "🎁" },
               ].map((b) => (
-                <li key={b.t} className="flex items-center gap-3 bg-white border-2 border-ink rounded-2xl px-4 py-3 shadow-pixel">
+                <li key={b.t} className="flex items-center gap-3 bg-card border-2 border-ink rounded-2xl px-4 py-3 shadow-pixel">
                   <span className={`h-9 w-9 rounded-xl ${b.c} border-2 border-ink flex items-center justify-center text-lg`}>{b.e}</span>
                   <span className="text-ink font-medium">{b.t}</span>
                 </li>
@@ -171,41 +171,41 @@ export function Hero() {
 
             <div aria-hidden className="absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-rainbow opacity-20 blur-2xl spin-slower group-hover:opacity-35 group-hover:blur-xl transition-all duration-500" />
 
-            <div className="relative overflow-hidden rounded-[2.25rem] bg-gradient-to-b from-slate-200 via-slate-100 to-slate-300 p-3 shadow-[0_30px_70px_rgba(15,23,42,0.18)] border border-slate-400/70 origin-top scale-[0.92] group-hover:-translate-y-1 group-hover:translate-x-0.5 transition-all duration-300">
-              <div className="rounded-[1.6rem] border border-slate-300 bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] overflow-hidden">
-                <div className="flex h-10 items-center gap-3 border-b border-slate-200 bg-slate-50 px-4">
+              <div className="relative overflow-hidden rounded-[2.25rem] bg-gradient-to-b from-foreground/10 via-background to-foreground/15 p-3 shadow-[0_30px_70px_rgba(15,23,42,0.18)] border border-border/70 origin-top scale-[0.92] group-hover:-translate-y-1 group-hover:translate-x-0.5 transition-all duration-300">
+                <div className="rounded-[1.6rem] border border-border bg-card shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] overflow-hidden">
+                  <div className="flex h-10 items-center gap-3 border-b border-border bg-background px-4">
                   <div className="flex items-center gap-1.5 shrink-0">
-                    <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57] border border-black/10" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e] border border-black/10" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-[#28c840] border border-black/10" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57] border border-foreground/10" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e] border border-foreground/10" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#28c840] border border-foreground/10" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="mx-auto flex max-w-[18rem] items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-[10px] text-slate-500 shadow-sm">
+                    <div className="mx-auto flex max-w-[18rem] items-center gap-2 rounded-full border border-border bg-background px-3 py-1 text-[10px] text-muted-foreground shadow-sm">
                       <span className="h-2 w-2 rounded-full bg-pixel-cyan" />
                       <span className="truncate">yourclinic.in</span>
                     </div>
                   </div>
-                  <div className="h-2.5 w-14 rounded-full bg-slate-200" />
+                  <div className="h-2.5 w-14 rounded-full bg-muted" />
                 </div>
 
                 <div className="p-4">
                   <div className="flex items-center justify-between gap-3">
                     <div className="h-5 w-20 rounded-md bg-gradient-pixorra wiggle group-hover:scale-105 transition-transform" />
                     <div className="flex gap-2">
-                      <div className="h-2 w-12 rounded bg-ink/10 group-hover:bg-ink/20 transition-colors" />
-                      <div className="h-2 w-12 rounded bg-ink/10 group-hover:bg-ink/20 transition-colors" />
-                      <div className="h-2 w-12 rounded bg-ink/10 group-hover:bg-ink/20 transition-colors" />
+                        <div className="h-2 w-12 rounded bg-foreground/10 group-hover:bg-foreground/20 transition-colors" />
+                        <div className="h-2 w-12 rounded bg-foreground/10 group-hover:bg-foreground/20 transition-colors" />
+                        <div className="h-2 w-12 rounded bg-foreground/10 group-hover:bg-foreground/20 transition-colors" />
                     </div>
                   </div>
 
                   <div className="mt-5 grid grid-cols-5 gap-3">
                     <div className="col-span-3">
                       <div className="h-2.5 w-16 rounded bg-pixel-yellow mb-2 group-hover:w-20 transition-all duration-300" />
-                      <div className="h-5 w-full rounded bg-ink/90 group-hover:bg-gradient-pixorra transition-colors duration-300" />
-                      <div className="mt-1.5 h-5 w-4/5 rounded bg-ink/90 group-hover:bg-gradient-pixorra transition-colors duration-300" />
-                      <div className="mt-3 space-y-1">
-                        <div className="h-1.5 w-full rounded bg-ink/10 group-hover:bg-pixel-pink/20 transition-colors duration-300" />
-                        <div className="h-1.5 w-11/12 rounded bg-ink/10 group-hover:bg-pixel-cyan/20 transition-colors duration-300" />
+                        <div className="h-5 w-full rounded bg-foreground/90 group-hover:bg-gradient-pixorra transition-colors duration-300" />
+                        <div className="mt-1.5 h-5 w-4/5 rounded bg-foreground/90 group-hover:bg-gradient-pixorra transition-colors duration-300" />
+                        <div className="mt-3 space-y-1">
+                          <div className="h-1.5 w-full rounded bg-foreground/10 group-hover:bg-pixel-pink/20 transition-colors duration-300" />
+                          <div className="h-1.5 w-11/12 rounded bg-foreground/10 group-hover:bg-pixel-cyan/20 transition-colors duration-300" />
                       </div>
                       <div className="mt-4 flex gap-2">
                         <div className="h-8 w-24 rounded-full bg-gradient-pixorra border-2 border-ink float-soft group-hover:scale-105 transition-transform" />
@@ -215,11 +215,11 @@ export function Hero() {
 
                     <div className="col-span-2 aspect-square rounded-2xl bg-gradient-pixorra relative overflow-hidden border-2 border-ink group-hover:scale-[1.03] transition-transform duration-300">
                       <div className="absolute inset-0 grid-bg opacity-30 group-hover:opacity-50 transition-opacity" />
-                      <div className="absolute bottom-3 left-3 right-3 h-14 rounded-xl bg-white/90 backdrop-blur flex items-center px-3 gap-2 border border-ink wiggle group-hover:-translate-y-1 transition-transform" style={{ animationDelay: "0.8s" }}>
+                      <div className="absolute bottom-3 left-3 right-3 h-14 rounded-xl bg-background/90 backdrop-blur flex items-center px-3 gap-2 border border-ink wiggle group-hover:-translate-y-1 transition-transform" style={{ animationDelay: "0.8s" }}>
                         <div className="h-8 w-8 rounded-lg bg-pixel-pink sparkle-pulse group-hover:rotate-12 transition-transform" />
                         <div className="flex-1 space-y-1">
-                          <div className="h-1.5 w-20 rounded bg-ink/70 group-hover:w-24 transition-all duration-300" />
-                          <div className="h-1.5 w-14 rounded bg-ink/30 group-hover:w-18 transition-all duration-300" />
+                          <div className="h-1.5 w-20 rounded bg-foreground/70 group-hover:w-24 transition-all duration-300" />
+                          <div className="h-1.5 w-14 rounded bg-foreground/30 group-hover:w-18 transition-all duration-300" />
                         </div>
                       </div>
                     </div>
@@ -229,8 +229,8 @@ export function Hero() {
                     {["bg-pixel-pink/30","bg-pixel-cyan/30","bg-pixel-yellow/40"].map((c, i) => (
                       <div key={i} className="rounded-xl border-2 border-ink p-3 float-soft group-hover:-translate-y-1 group-hover:shadow-pixel transition-all duration-300" style={{ animationDelay: `${i * 0.4}s` }}>
                         <div className={`h-5 w-5 rounded ${c} border border-ink group-hover:scale-110 transition-transform duration-300`} />
-                        <div className="mt-2 h-2 w-full rounded bg-ink/10 group-hover:bg-ink/20 transition-colors duration-300" />
-                        <div className="mt-1 h-1.5 w-3/4 rounded bg-ink/10 group-hover:w-full transition-all duration-300" />
+                        <div className="mt-2 h-2 w-full rounded bg-foreground/10 group-hover:bg-foreground/20 transition-colors duration-300" />
+                        <div className="mt-1 h-1.5 w-3/4 rounded bg-foreground/10 group-hover:w-full transition-all duration-300" />
                       </div>
                     ))}
                   </div>

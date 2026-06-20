@@ -144,7 +144,7 @@ export function Services() {
   const [active, setActive] = useState<Service | null>(null);
 
   return (
-    <section id="services" className="relative py-20 md:py-32 bg-white overflow-hidden">
+    <section id="services" className="relative py-20 md:py-32 bg-background overflow-hidden">
       <div className="absolute inset-0 dot-bg opacity-30 pointer-events-none" aria-hidden />
       <div className="relative max-w-7xl mx-auto px-5 md:px-8">
         <div className="max-w-3xl reveal">
@@ -194,12 +194,12 @@ export function Services() {
 function ServiceModal({ service, onClose }: { service: Service; onClose: () => void }) {
   const Icon = service.icon;
   return (
-    <div
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6 bg-ink/60 backdrop-blur-sm animate-in fade-in duration-200"
+      <div
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6 bg-background/60 backdrop-blur-sm animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl bg-white border-2 border-ink shadow-pixel"
+        className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl bg-card border-2 border-ink shadow-pixel"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -232,15 +232,15 @@ function ServiceModal({ service, onClose }: { service: Service; onClose: () => v
           </div>
 
           <div className="mt-6 grid sm:grid-cols-3 gap-3">
-            <div className="rounded-2xl border-2 border-ink bg-cream p-4">
+              <div className="rounded-2xl border-2 border-ink bg-cream p-4">
               <div className="text-[10px] font-bold tracking-widest uppercase text-ink/50">Timeline</div>
               <div className="mt-1 font-bold text-ink">{service.timeline}</div>
             </div>
-            <div className="rounded-2xl border-2 border-ink bg-pixel-yellow/40 p-4">
+              <div className="rounded-2xl border-2 border-ink bg-pixel-yellow/40 p-4">
               <div className="text-[10px] font-bold tracking-widest uppercase text-ink/50">Starting at</div>
               <div className="mt-1 font-bold text-ink">{service.startingAt}</div>
             </div>
-            <div className="rounded-2xl border-2 border-ink bg-pixel-cyan/30 p-4">
+              <div className="rounded-2xl border-2 border-ink bg-pixel-cyan/30 p-4">
               <div className="text-[10px] font-bold tracking-widest uppercase text-ink/50">You get</div>
               <div className="mt-1 font-bold text-ink text-sm">{service.deliverables[0]}</div>
             </div>
@@ -250,7 +250,7 @@ function ServiceModal({ service, onClose }: { service: Service; onClose: () => v
             <div className="text-xs font-bold tracking-[0.18em] uppercase text-pixel-purple">Deliverables</div>
             <div className="mt-3 flex flex-wrap gap-2">
               {service.deliverables.map((d) => (
-                <span key={d} className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-white px-3 py-1.5 text-sm font-semibold text-ink">
+                  <span key={d} className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-background px-3 py-1.5 text-sm font-semibold text-ink">
                   <span className="h-1.5 w-1.5 rounded-full bg-pixel-pink" /> {d}
                 </span>
               ))}
@@ -268,7 +268,7 @@ function ServiceModal({ service, onClose }: { service: Service; onClose: () => v
             </a>
             <button
               onClick={onClose}
-              className="inline-flex items-center justify-center h-12 px-6 rounded-full bg-white text-ink font-bold border-2 border-ink hover:bg-cream transition"
+              className="inline-flex items-center justify-center h-12 px-6 rounded-full bg-background text-ink font-bold border-2 border-ink hover:bg-cream transition"
             >
               Close
             </button>

@@ -2,7 +2,7 @@ import { ArrowRight, Rocket } from "lucide-react";
 
 export function FinalCTA() {
   return (
-    <section className="py-24 md:py-36 bg-white relative overflow-hidden">
+    <section className="py-24 md:py-36 bg-background relative overflow-hidden">
       <div className="absolute -top-20 left-1/4 h-72 w-72 rounded-full bg-pixel-pink/15 blur-3xl blob" />
       <div className="absolute -bottom-24 right-1/4 h-72 w-72 rounded-full bg-pixel-cyan/15 blur-3xl blob" style={{animationDelay:"3s"}} />
       <div className="absolute top-20 left-10 h-3 w-3 bg-pixel-yellow sparkle-pulse" />

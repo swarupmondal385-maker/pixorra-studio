@@ -41,14 +41,14 @@ export function Footer() {
                 { Icon: Facebook, c: "bg-pixel-cyan" },
                 { Icon: Twitter, c: "bg-pixel-purple" },
               ].map(({ Icon, c }, i) => (
-                <a key={i} href="#" className={`h-11 w-11 rounded-xl bg-white border-2 border-ink flex items-center justify-center hover:${c} hover:text-white shadow-pixel hover:-translate-y-0.5 transition-all`}>
+                <a key={i} href="#" className={`h-11 w-11 rounded-xl bg-card border-2 border-ink flex items-center justify-center hover:${c} hover:text-white shadow-pixel hover:-translate-y-0.5 transition-all`}>
                   <Icon className="h-4 w-4" />
                 </a>
               ))}
             </div>
           </div>
           <div className="lg:col-span-3">
-            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.18em] uppercase text-white bg-ink px-3 py-1 rounded-full">Services</div>
+            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.18em] uppercase text-background bg-foreground px-3 py-1 rounded-full">Services</div>
             <ul className="mt-5 space-y-3 text-ink/75">
               {[
                 { t: "Websites", e: "💻" },
@@ -75,13 +75,13 @@ export function Footer() {
             <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.18em] uppercase text-white bg-pixel-pink px-3 py-1 rounded-full border-2 border-ink">Contact</div>
             <ul className="mt-5 space-y-3 text-ink/85">
               <li>
-                <a href="tel:+918927840261" className="flex items-center gap-3 rounded-2xl bg-white border-2 border-ink shadow-pixel px-4 py-3 hover:-translate-y-0.5 transition">
+                <a href="tel:+918927840261" className="flex items-center gap-3 rounded-2xl bg-card border-2 border-ink shadow-pixel px-4 py-3 hover:-translate-y-0.5 transition">
                   <span className="h-9 w-9 rounded-lg bg-pixel-yellow border-2 border-ink flex items-center justify-center"><Phone className="h-4 w-4 text-ink" /></span>
                   <span className="font-semibold">+91 89278 40261</span>
                 </a>
               </li>
               <li>
-                <a href="mailto:pixorrastudio@gmail.com" className="flex items-center gap-3 rounded-2xl bg-white border-2 border-ink shadow-pixel px-4 py-3 hover:-translate-y-0.5 transition break-all">
+                <a href="mailto:pixorrastudio@gmail.com" className="flex items-center gap-3 rounded-2xl bg-card border-2 border-ink shadow-pixel px-4 py-3 hover:-translate-y-0.5 transition break-all">
                   <span className="h-9 w-9 rounded-lg bg-pixel-cyan border-2 border-ink flex items-center justify-center"><Mail className="h-4 w-4 text-ink" /></span>
                   <span className="font-semibold">pixorrastudio@gmail.com</span>
                 </a>

@@ -18,7 +18,7 @@ const FAQS = [
 export function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section id="faq" className="py-20 md:py-32 bg-white">
+    <section id="faq" className="py-20 md:py-32 bg-background">
       <div className="max-w-4xl mx-auto px-5 md:px-8">
         <div className="text-center reveal">
           <p className="text-xs font-bold tracking-[0.2em] text-gold uppercase">Questions? Answered.</p>
@@ -29,7 +29,7 @@ export function FAQ() {
 
         <div className="mt-12 space-y-4">
           {FAQS.map((f, i) => (
-            <div key={f.q} className="reveal rounded-2xl border-2 border-ink bg-white overflow-hidden" style={{animationDelay:`${i*40}ms`, boxShadow: open===i ? "6px 6px 0 0 var(--pixel-pink)" : "4px 4px 0 0 var(--ink)"}}>
+            <div key={f.q} className="reveal rounded-2xl border-2 border-ink bg-card overflow-hidden" style={{animationDelay:`${i*40}ms`, boxShadow: open===i ? "6px 6px 0 0 var(--pixel-pink)" : "4px 4px 0 0 var(--ink)"}}>
               <button
                 onClick={() => setOpen(open === i ? null : i)}
                 className="w-full flex items-center justify-between gap-6 text-left p-5 md:p-6 hover:bg-pixel-yellow/30 transition-colors"

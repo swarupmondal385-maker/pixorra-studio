@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, Moon, Sun } from "lucide-react";
 import logoMark from "@/assets/pixorra-mark.png";
+import { useTheme } from "@/hooks/use-theme";
 
 const LINKS = [
   { href: "#services", label: "Services", c: "bg-pixel-pink" },
@@ -14,6 +15,7 @@ const LINKS = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -29,7 +31,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div
           className={`flex items-center justify-between rounded-full border-2 border-ink px-3 md:px-4 h-14 md:h-16 transition-all ${
-            scrolled ? "glass-strong shadow-pixel" : "bg-white shadow-card"
+            scrolled ? "glass-strong shadow-pixel" : "bg-card shadow-card"
           }`}
         >
           <a href="#top" className="flex items-center gap-2 group pl-1">
@@ -48,6 +50,14 @@ export function Navbar() {
           </nav>
 
           <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-ink bg-background shadow-pixel transition-transform hover:-translate-y-0.5"
+              aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            >
+              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </button>
             <a href="#demo" className="hidden sm:inline-flex items-center gap-2 h-11 px-5 rounded-full bg-cyan-cta text-ink font-bold text-sm border-2 border-ink shadow-pixel hover:-translate-y-0.5 hover:translate-x-0.5 transition-transform">
               Get Free Demo <ArrowRight className="h-4 w-4" />
             </a>
@@ -63,7 +73,7 @@ export function Navbar() {
           <div className="max-h-[calc(100vh-5.5rem)] overflow-y-auto rounded-3xl border-2 border-ink glass-strong shadow-pixel p-3 pb-4">
             <div className="flex flex-col gap-1">
               {LINKS.map((l) => (
-                <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="flex items-center gap-3 px-3 py-3 rounded-2xl hover:bg-white/50 transition-colors">
+                <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="flex items-center gap-3 px-3 py-3 rounded-2xl hover:bg-background/60 transition-colors">
                   <span className={`h-3 w-3 rounded-full ${l.c} border border-ink`} />
                   <span className="text-base font-bold text-ink">{l.label}</span>
                 </a>

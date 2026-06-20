@@ -13,7 +13,7 @@ export function Location() {
           </h2>
           <div className="mt-8 space-y-5">
             <div className="flex items-start gap-4">
-              <div className="h-11 w-11 rounded-xl bg-pixel-pink border-2 border-ink flex items-center justify-center shrink-0">
+            <div className="h-11 w-11 rounded-xl bg-pixel-pink border-2 border-ink flex items-center justify-center shrink-0">
                 <MapPin className="h-5 w-5 text-white"/>
               </div>
               <div>
@@ -43,7 +43,7 @@ export function Location() {
             {AREAS.map((a, i) => {
               const colors = ["hover:bg-pixel-pink","hover:bg-pixel-yellow","hover:bg-pixel-cyan","hover:bg-pixel-purple","hover:bg-pixel-green","hover:bg-pixel-orange"];
               return (
-              <span key={a} className={`inline-flex items-center h-10 px-4 rounded-full bg-white border-2 border-ink text-sm font-semibold text-ink hover:text-ink hover:-translate-y-0.5 transition-all ${colors[i % colors.length]}`}>
+                <span key={a} className={`inline-flex items-center h-10 px-4 rounded-full bg-card border-2 border-ink text-sm font-semibold text-ink hover:text-ink hover:-translate-y-0.5 transition-all ${colors[i % colors.length]}`}>
                 {a}
               </span>
             );})}

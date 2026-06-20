@@ -9,7 +9,7 @@ const REASONS = [
 
 export function WhyUs() {
   return (
-    <section className="py-20 md:py-32 bg-white relative overflow-hidden">
+    <section className="py-20 md:py-32 bg-background relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-5 md:px-8">
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-5 reveal">

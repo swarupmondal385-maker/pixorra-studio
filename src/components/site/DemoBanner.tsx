@@ -2,13 +2,13 @@ import { MessageCircle, ArrowRight } from "lucide-react";
 
 export function DemoBanner() {
   return (
-    <section id="demo" className="py-16 md:py-24 bg-white">
+    <section id="demo" className="py-16 md:py-24 bg-background">
       <div className="max-w-7xl mx-auto px-5 md:px-8">
         <div className="relative overflow-hidden rounded-[2rem] md:rounded-[2.5rem] bg-gradient-pixorra border-2 border-ink p-6 sm:p-8 md:p-16 reveal" style={{boxShadow:"10px 10px 0 0 var(--ink)"}}>
           <div className="absolute top-4 right-4 sm:top-6 sm:right-6 hidden sm:flex h-20 w-20 rounded-full bg-pixel-yellow border-2 border-ink items-center justify-center spin-slow z-10">
             <div className="font-pixel text-[7px] text-ink text-center leading-tight">FREE<br/>DEMO</div>
           </div>
-          <div className="absolute -top-20 -right-20 h-72 w-72 rounded-full bg-white/20 blur-3xl" />
+          <div className="absolute -top-20 -right-20 h-72 w-72 rounded-full bg-background/20 blur-3xl" />
           <div className="absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-navy/20 blur-3xl" />
 
           <div className="relative grid lg:grid-cols-12 gap-8 items-center">
@@ -35,7 +35,7 @@ export function DemoBanner() {
               </a>
               <a
                 href="tel:+918927840261"
-                className="inline-flex items-center justify-center h-14 px-6 rounded-2xl bg-white border-2 border-ink text-ink font-semibold shadow-pixel hover:-translate-y-0.5 transition-transform w-full"
+                className="inline-flex items-center justify-center h-14 px-6 rounded-2xl bg-background border-2 border-ink text-ink font-semibold shadow-pixel hover:-translate-y-0.5 transition-transform w-full"
               >
                 Call +91 89278 40261
               </a>

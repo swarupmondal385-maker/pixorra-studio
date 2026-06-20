@@ -99,7 +99,7 @@ export function Pricing() {
   }, []);
 
   return (
-    <section id="pricing" className="relative py-20 md:py-32 bg-white overflow-hidden">
+    <section id="pricing" className="relative py-20 md:py-32 bg-background overflow-hidden">
       <div className="absolute -top-24 -left-20 h-80 w-80 rounded-full bg-pixel-pink/20 blur-3xl blob" aria-hidden />
       <div className="absolute top-40 -right-24 h-96 w-96 rounded-full bg-pixel-cyan/20 blur-3xl blob" style={{animationDelay:"3s"}} aria-hidden />
       <div className="absolute bottom-10 left-1/3 h-72 w-72 rounded-full bg-pixel-yellow/25 blur-3xl blob" style={{animationDelay:"5s"}} aria-hidden />
@@ -109,7 +109,7 @@ export function Pricing() {
 
       <div className="relative max-w-7xl mx-auto px-5 md:px-8">
         <div className="max-w-3xl mx-auto text-center reveal">
-          <span className="inline-flex items-center gap-2 rounded-full bg-white border-2 border-ink px-4 py-1.5 text-[11px] font-bold tracking-[0.2em] text-ink uppercase shadow-pixel">
+          <span className="inline-flex items-center gap-2 rounded-full bg-card border-2 border-ink px-4 py-1.5 text-[11px] font-bold tracking-[0.2em] text-ink uppercase shadow-pixel">
             <span className="h-2 w-2 rounded-full bg-pixel-pink" /> Pricing
           </span>
           <h2 className="mt-5 font-display text-4xl md:text-6xl font-bold text-ink tracking-tight text-balance leading-[1.05]">
@@ -124,9 +124,9 @@ export function Pricing() {
           {PACKAGES.map(({ name, price, originalPrice, period, tagline, features, cta, popular, flagship }, i) => (
             <div
               key={name}
-className={`reveal snap-start shrink-0 w-[82vw] md:w-auto md:shrink relative rounded-3xl p-6 md:p-10 transition-all duration-500 flex flex-col border-2 border-ink ${
+              className={`reveal snap-start shrink-0 w-[82vw] md:w-auto md:shrink relative rounded-3xl p-6 md:p-10 transition-all duration-500 flex flex-col border-2 border-ink ${
                 flagship
-                  ? "bg-ink text-white"
+                  ? "bg-pixel-purple/10 text-ink hover:-translate-y-1"
                   : "glass-card text-ink hover:-translate-y-1"
               }`}
               style={{ animationDelay: `${i * 120}ms`, boxShadow: flagship ? "10px 10px 0 0 var(--cyan-cta)" : "8px 8px 0 0 var(--pixel-yellow)" }}
@@ -144,16 +144,16 @@ className={`reveal snap-start shrink-0 w-[82vw] md:w-auto md:shrink relative rou
                 </div>
               )}
               <div>
-                <h4 className={`font-display text-2xl font-bold ${flagship ? "text-white" : "text-ink"}`}>{name}</h4>
-                <p className={`mt-1.5 text-sm ${flagship ? "text-white/70" : "text-ink/60"}`}>{tagline}</p>
+                <h4 className={`font-display text-2xl font-bold ${flagship ? "text-ink" : "text-ink"}`}>{name}</h4>
+                <p className={`mt-1.5 text-sm ${flagship ? "text-ink/70" : "text-ink/60"}`}>{tagline}</p>
               </div>
               <div className="mt-6">
                 {originalPrice && (
-                  <span className={`font-display text-sm sm:text-base font-bold line-through ${flagship ? "text-white/40" : "text-ink/30"}`}>{originalPrice}</span>
+                  <span className={`font-display text-sm sm:text-base font-bold line-through ${flagship ? "text-ink/40" : "text-ink/30"}`}>{originalPrice}</span>
                 )}
                 <div className="flex items-baseline gap-2">
-                  <span className={`font-display text-4xl sm:text-5xl font-bold ${flagship ? "text-white" : "text-ink"}`}>{price}</span>
-                  <span className={`text-sm ${flagship ? "text-white/60" : "text-ink/50"}`}>{period}</span>
+                  <span className={`font-display text-4xl sm:text-5xl font-bold ${flagship ? "text-ink" : "text-ink"}`}>{price}</span>
+                  <span className={`text-sm ${flagship ? "text-ink/60" : "text-ink/50"}`}>{period}</span>
                 </div>
               </div>
               <ul className="mt-7 space-y-3 flex-1">
@@ -162,7 +162,7 @@ className={`reveal snap-start shrink-0 w-[82vw] md:w-auto md:shrink relative rou
                     <div className={`mt-0.5 flex-shrink-0 h-5 w-5 rounded-full border border-ink flex items-center justify-center ${flagship ? "bg-pixel-yellow" : "bg-pixel-green"}`}>
                       <Check className="h-3 w-3 text-ink" strokeWidth={3} />
                     </div>
-                    <span className={`text-sm leading-relaxed ${flagship ? "text-white/90" : "text-ink/80"}`}>{f}</span>
+                    <span className={`text-sm leading-relaxed ${flagship ? "text-ink/90" : "text-ink/80"}`}>{f}</span>
                   </li>
                 ))}
               </ul>
@@ -183,7 +183,7 @@ className={`reveal snap-start shrink-0 w-[82vw] md:w-auto md:shrink relative rou
                 <button
                   type="button"
                   onClick={() => setEliteOpen(true)}
-                  className="mt-3 inline-flex items-center justify-center rounded-full border-2 border-white/20 px-6 py-3 text-sm font-semibold text-white/90 transition-all hover:bg-white/10"
+                  className="mt-3 inline-flex items-center justify-center rounded-full border-2 border-ink/20 px-6 py-3 text-sm font-semibold text-ink/90 transition-all hover:bg-ink/5"
                 >
                   More Features
                 </button>
@@ -193,10 +193,10 @@ className={`reveal snap-start shrink-0 w-[82vw] md:w-auto md:shrink relative rou
         </div>
 
         <Dialog open={eliteOpen} onOpenChange={setEliteOpen}>
-          <DialogContent className="max-w-2xl border-2 border-ink bg-ink p-6 md:p-8 max-h-[85vh] overflow-y-auto text-white" style={{ boxShadow: "10px 10px 0 0 var(--cyan-cta)" }}>
+          <DialogContent className="max-w-2xl border-2 border-ink bg-card p-6 md:p-8 max-h-[85vh] overflow-y-auto text-ink" style={{ boxShadow: "10px 10px 0 0 var(--cyan-cta)" }}>
             <DialogHeader>
-              <DialogTitle className="font-display text-3xl text-white">Elite Features</DialogTitle>
-              <DialogDescription className="text-white/70">
+              <DialogTitle className="font-display text-3xl text-ink">Elite Features</DialogTitle>
+              <DialogDescription className="text-ink/70">
                 Everything included in the Elite flagship plan.
               </DialogDescription>
             </DialogHeader>
@@ -206,7 +206,7 @@ className={`reveal snap-start shrink-0 w-[82vw] md:w-auto md:shrink relative rou
                   <div className="mt-0.5 flex-shrink-0 h-5 w-5 rounded-full border border-ink flex items-center justify-center bg-pixel-yellow">
                     <Check className="h-3 w-3 text-ink" strokeWidth={3} />
                   </div>
-                  <span className="text-sm leading-relaxed text-white/90">{f}</span>
+                  <span className="text-sm leading-relaxed text-ink/90">{f}</span>
                 </li>
               ))}
             </ul>
@@ -224,7 +224,7 @@ className={`reveal snap-start shrink-0 w-[82vw] md:w-auto md:shrink relative rou
               className={`h-2.5 rounded-full transition-all duration-300 ${
                 activeIndex === i
                   ? "w-7 bg-pixel-purple"
-                  : "w-2.5 bg-ink/20"
+                  : "w-2.5 bg-foreground/20"
               }`}
             />
           ))}
