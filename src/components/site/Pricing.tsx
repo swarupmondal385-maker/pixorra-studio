@@ -27,25 +27,6 @@ const ELITE_ALL_FEATURES = [
 
 const PACKAGES = [
   {
-    name: "Ignite",
-    price: "₹14,999",
-    originalPrice: "₹17,999",
-    period: "/one-time",
-    tagline: "For businesses just starting to grow online",
-    features: [
-      "Custom website (up to 3 pages)",
-      "Mobile optimized",
-      "Basic SEO setup",
-      "WhatsApp chatbot",
-      "Lead capture form",
-      "1 month support",
-      "Monthly performance report",
-    ],
-    cta: "Start with Ignite",
-    popular: false,
-    flagship: false,
-  },
-  {
     name: "Growth Engine",
     price: "₹24,999",
     originalPrice: "₹29,999",
@@ -64,6 +45,25 @@ const PACKAGES = [
     ],
     cta: "Go Growth Engine",
     popular: true,
+    flagship: false,
+  },
+  {
+    name: "Ignite",
+    price: "₹14,999",
+    originalPrice: "₹17,999",
+    period: "/one-time",
+    tagline: "For businesses just starting to grow online",
+    features: [
+      "Custom website (up to 3 pages)",
+      "Mobile optimized",
+      "Basic SEO setup",
+      "WhatsApp chatbot",
+      "Lead capture form",
+      "1 month support",
+      "Monthly performance report",
+    ],
+    cta: "Start with Ignite",
+    popular: false,
     flagship: false,
   },
   {
@@ -159,7 +159,7 @@ export function Pricing() {
             ) => (
               <div
                 key={name}
-                className={`reveal snap-start shrink-0 w-[82vw] md:w-auto md:shrink relative rounded-3xl p-5 md:p-10 transition-all duration-500 flex flex-col border-2 border-ink ${
+                className={`reveal snap-start shrink-0 w-[82vw] md:w-auto md:shrink relative rounded-3xl p-5 md:p-10 transition-all duration-500 flex flex-col border-2 border-ink ${i === 0 ? "md:order-2" : i === 1 ? "md:order-1" : "md:order-3"} ${
                   flagship
                     ? "bg-pixel-purple/10 text-ink hover:-translate-y-1"
                     : "glass-card text-ink hover:-translate-y-1"
