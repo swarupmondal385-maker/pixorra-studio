@@ -11,7 +11,7 @@ const REVIEWS = [
 
 export function Reviews() {
   return (
-    <section id="reviews" className="relative py-20 md:py-32 bg-white overflow-hidden">
+    <section id="reviews" className="relative py-20 md:py-32 bg-background overflow-hidden">
       {/* Bubble gum background blobs */}
       <div className="absolute -top-20 right-0 h-80 w-80 rounded-full bg-pixel-yellow/25 blur-3xl blob" aria-hidden />
       <div className="absolute top-1/3 -left-24 h-96 w-96 rounded-full bg-pixel-pink/20 blur-3xl blob" style={{animationDelay:"3s"}} aria-hidden />
@@ -23,18 +23,18 @@ export function Reviews() {
       <div className="relative max-w-7xl mx-auto px-5 md:px-8">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 reveal">
           <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-2 rounded-full bg-white border-2 border-ink px-4 py-1.5 text-[11px] font-bold tracking-[0.2em] text-ink uppercase shadow-pixel">
-              <span className="h-2 w-2 rounded-full bg-pixel-pink" /> Google Reviews
+            <span className="inline-flex items-center gap-2 rounded-full bg-card border-2 border-ink px-4 py-1.5 text-[11px] font-bold tracking-[0.2em] text-ink uppercase shadow-pixel">
+              <span className="h-2 w-2 rounded-full bg-pixel-pink" /> Customer Reviews
             </span>
             <h2 className="mt-5 font-display text-4xl md:text-6xl font-bold text-ink tracking-tight text-balance leading-[1.05]">
               Loved by founders <span className="text-gradient-pixorra">across India.</span>
             </h2>
           </div>
-          <div className="rounded-3xl bg-white border-2 border-ink shadow-pixel px-5 py-5 flex flex-col sm:flex-row sm:items-center gap-5">
+          <div className="rounded-3xl bg-card border-2 border-ink shadow-pixel px-5 py-5 flex flex-col sm:flex-row sm:items-center gap-5">
             <div>
               <div className="font-display text-4xl font-bold text-ink leading-none">4.9</div>
               <div className="flex gap-0.5 mt-1">{Array.from({length:5}).map((_,i)=>(<Star key={i} className="h-3.5 w-3.5 fill-pixel-yellow text-pixel-yellow"/>))}</div>
-              <div className="text-[11px] text-ink/50 mt-1">120+ Google reviews</div>
+              <div className="text-[11px] text-ink/50 mt-1">120+ Customer reviews</div>
             </div>
 
           </div>
