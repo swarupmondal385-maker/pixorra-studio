@@ -541,22 +541,6 @@
     animation: shimmer 2.4s linear infinite;
   }
 
-  @keyframes loading-pulse {
-    0%,
-    100% {
-      opacity: 0.5;
-      transform: scaleX(0.7);
-    }
-    50% {
-      opacity: 1;
-      transform: scaleX(1);
-    }
-  }
-  .loading-pulse {
-    animation: loading-pulse 1.6s ease-in-out infinite;
-    transform-origin: right;
-  }
-
   @keyframes float-soft-kf {
     0%,
     100% {

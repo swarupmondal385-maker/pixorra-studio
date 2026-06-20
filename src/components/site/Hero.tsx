@@ -278,12 +278,13 @@ export function Hero() {
                     <span className="h-2.5 w-2.5 rounded-full bg-[#28c840] border border-foreground/10" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="mx-auto flex max-w-[18rem] items-center gap-2 rounded-full border border-border bg-background px-3 py-1 text-[10px] text-muted-foreground shadow-sm">
+                    <div className="mx-auto flex max-w-[18rem] items-center gap-2 rounded-full border border-border bg-background px-3 py-1 text-[10px] text-muted-foreground shadow-sm relative overflow-hidden">
                       <span className="h-2 w-2 rounded-full bg-pixel-cyan" />
                       <span className="truncate">yourclinic.in</span>
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" />
                     </div>
                   </div>
-                  <div className="h-3 w-14 rounded-full bg-gradient-pixorra loading-pulse" />
+                  <div className="h-2.5 w-14 rounded-full bg-muted" />
                 </div>
 
                 <div className="p-4">
