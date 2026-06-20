@@ -179,47 +179,46 @@ export function Hero() {
                 <span className="h-2.5 w-2.5 rounded-full bg-pixel-green animate-pulse group-hover:scale-125 transition-transform" style={{ animationDelay: "0.6s" }} />
                 <div className="mx-auto text-[10px] text-ink/50 font-mono group-hover:text-ink/70 transition-colors">yourclinic.in</div>
               </div>
-              <div className="p-6 md:p-8">
+              <div className="p-4 md:p-8">
                 <div className="flex items-center justify-between">
-                  <div className="h-6 w-24 rounded-md bg-gradient-pixorra wiggle group-hover:scale-105 transition-transform" />
-                  <div className="flex gap-2">
-                    <div className="h-2 w-12 rounded bg-ink/10 group-hover:bg-ink/20 transition-colors" />
-                    <div className="h-2 w-12 rounded bg-ink/10 group-hover:bg-ink/20 transition-colors" />
-                    <div className="h-2 w-12 rounded bg-ink/10 group-hover:bg-ink/20 transition-colors" />
+                  <div className="h-5 w-20 rounded-md bg-gradient-pixorra wiggle group-hover:scale-105 transition-transform" />
+                  <div className="flex gap-1.5 md:gap-2">
+                    <div className="h-2 w-10 md:w-12 rounded bg-ink/10 group-hover:bg-ink/20 transition-colors" />
+                    <div className="h-2 w-10 md:w-12 rounded bg-ink/10 group-hover:bg-ink/20 transition-colors" />
+                    <div className="h-2 w-10 md:w-12 rounded bg-ink/10 group-hover:bg-ink/20 transition-colors" />
                   </div>
                 </div>
-                <div className="mt-6 grid grid-cols-1 md:grid-cols-5 gap-4">
-                  <div className="col-span-3">
-                    <div className="h-3 w-16 rounded bg-pixel-yellow mb-3 group-hover:w-20 transition-all duration-300" />
-                    <div className="h-6 w-full rounded bg-ink/90 group-hover:bg-gradient-pixorra transition-colors duration-300" />
-                    <div className="mt-2 h-6 w-4/5 rounded bg-ink/90 group-hover:bg-gradient-pixorra transition-colors duration-300" />
-                    <div className="mt-4 space-y-1.5">
-                      <div className="h-2 w-full rounded bg-ink/10 group-hover:bg-pixel-pink/20 transition-colors duration-300" />
-                      <div className="h-2 w-11/12 rounded bg-ink/10 group-hover:bg-pixel-cyan/20 transition-colors duration-300" />
-                      <div className="h-2 w-3/4 rounded bg-ink/10 group-hover:bg-pixel-yellow/20 transition-colors duration-300" />
+                <div className="mt-4 md:mt-6 grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
+                  <div className="col-span-2 md:col-span-3">
+                    <div className="h-2.5 w-12 md:w-16 rounded bg-pixel-yellow mb-2 group-hover:w-20 transition-all duration-300" />
+                    <div className="h-4 md:h-6 w-full rounded bg-ink/90 group-hover:bg-gradient-pixorra transition-colors duration-300" />
+                    <div className="mt-1.5 h-4 md:h-6 w-4/5 rounded bg-ink/90 group-hover:bg-gradient-pixorra transition-colors duration-300" />
+                    <div className="mt-3 space-y-1">
+                      <div className="h-1.5 w-full rounded bg-ink/10 group-hover:bg-pixel-pink/20 transition-colors duration-300" />
+                      <div className="h-1.5 w-11/12 rounded bg-ink/10 group-hover:bg-pixel-cyan/20 transition-colors duration-300" />
                     </div>
-                    <div className="mt-5 flex gap-2">
-                      <div className="h-9 w-28 rounded-full bg-gradient-pixorra border-2 border-ink float-soft group-hover:scale-105 transition-transform" />
-                      <div className="h-9 w-24 rounded-full border-2 border-ink float-soft group-hover:bg-pixel-yellow group-hover:scale-105 transition-all" style={{ animationDelay: "0.5s" }} />
+                    <div className="mt-3 md:mt-5 flex gap-2">
+                      <div className="h-7 md:h-9 w-20 md:w-28 rounded-full bg-gradient-pixorra border-2 border-ink float-soft group-hover:scale-105 transition-transform" />
+                      <div className="h-7 md:h-9 w-16 md:w-24 rounded-full border-2 border-ink float-soft group-hover:bg-pixel-yellow group-hover:scale-105 transition-all" style={{ animationDelay: "0.5s" }} />
                     </div>
                   </div>
-                  <div className="col-span-2 aspect-square rounded-2xl bg-gradient-pixorra relative overflow-hidden border-2 border-ink group-hover:scale-[1.03] transition-transform duration-300">
+                  <div className="col-span-2 aspect-[4/3] md:aspect-square rounded-xl md:rounded-2xl bg-gradient-pixorra relative overflow-hidden border-2 border-ink group-hover:scale-[1.03] transition-transform duration-300">
                     <div className="absolute inset-0 grid-bg opacity-30 group-hover:opacity-50 transition-opacity" />
-                    <div className="absolute bottom-3 left-3 right-3 h-14 rounded-xl bg-white/90 backdrop-blur flex items-center px-3 gap-2 border border-ink wiggle group-hover:-translate-y-1 transition-transform" style={{ animationDelay: "0.8s" }}>
-                      <div className="h-8 w-8 rounded-lg bg-pixel-pink sparkle-pulse group-hover:rotate-12 transition-transform" />
-                      <div className="flex-1 space-y-1">
-                        <div className="h-1.5 w-20 rounded bg-ink/70 group-hover:w-24 transition-all duration-300" />
-                        <div className="h-1.5 w-14 rounded bg-ink/30 group-hover:w-18 transition-all duration-300" />
+                    <div className="absolute bottom-2 left-2 right-2 md:bottom-3 md:left-3 md:right-3 h-10 md:h-14 rounded-lg md:rounded-xl bg-white/90 backdrop-blur flex items-center px-2.5 md:px-3 gap-2 border border-ink wiggle group-hover:-translate-y-1 transition-transform" style={{ animationDelay: "0.8s" }}>
+                      <div className="h-6 w-6 md:h-8 md:w-8 rounded-lg bg-pixel-pink sparkle-pulse group-hover:rotate-12 transition-transform" />
+                      <div className="flex-1 space-y-0.5 md:space-y-1">
+                        <div className="h-1.5 w-14 md:w-20 rounded bg-ink/70 group-hover:w-24 transition-all duration-300" />
+                        <div className="h-1.5 w-10 md:w-14 rounded bg-ink/30 group-hover:w-18 transition-all duration-300" />
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className="mt-6 grid grid-cols-3 gap-3">
+                <div className="mt-4 md:mt-6 grid grid-cols-3 gap-2 md:gap-3">
                   {["bg-pixel-pink/30","bg-pixel-cyan/30","bg-pixel-yellow/40"].map((c, i) => (
-                    <div key={i} className="rounded-xl border-2 border-ink p-3 float-soft group-hover:-translate-y-1 group-hover:shadow-pixel transition-all duration-300" style={{ animationDelay: `${i * 0.4}s` }}>
-                      <div className={`h-5 w-5 rounded ${c} border border-ink group-hover:scale-110 transition-transform duration-300`} />
-                      <div className="mt-2 h-2 w-full rounded bg-ink/10 group-hover:bg-ink/20 transition-colors duration-300" />
-                      <div className="mt-1 h-2 w-3/4 rounded bg-ink/10 group-hover:w-full transition-all duration-300" />
+                    <div key={i} className="rounded-lg md:rounded-xl border-2 border-ink p-2 md:p-3 float-soft group-hover:-translate-y-1 group-hover:shadow-pixel transition-all duration-300" style={{ animationDelay: `${i * 0.4}s` }}>
+                      <div className={`h-4 w-4 md:h-5 md:w-5 rounded ${c} border border-ink group-hover:scale-110 transition-transform duration-300`} />
+                      <div className="mt-1.5 md:mt-2 h-1.5 md:h-2 w-full rounded bg-ink/10 group-hover:bg-ink/20 transition-colors duration-300" />
+                      <div className="mt-1 h-1.5 md:h-2 w-3/4 rounded bg-ink/10 group-hover:w-full transition-all duration-300" />
                     </div>
                   ))}
                 </div>
