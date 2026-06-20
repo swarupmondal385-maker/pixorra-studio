@@ -288,59 +288,111 @@ export function Hero() {
 
                 <div className="p-4">
                   <div className="flex items-center justify-between gap-3">
-                    <div className="h-5 w-20 rounded-md bg-gradient-pixorra wiggle group-hover:scale-105 transition-transform" />
+                    <div className="h-5 w-20 rounded-md bg-gradient-pixorra wiggle" />
                     <div className="flex gap-2">
-                      <div className="h-2 w-12 rounded bg-foreground/10 group-hover:bg-foreground/20 transition-colors" />
-                      <div className="h-2 w-12 rounded bg-foreground/10 group-hover:bg-foreground/20 transition-colors" />
-                      <div className="h-2 w-12 rounded bg-foreground/10 group-hover:bg-foreground/20 transition-colors" />
+                      <div className="h-2 w-12 rounded skeleton-pulse bg-muted" />
+                      <div
+                        className="h-2 w-12 rounded skeleton-pulse bg-muted"
+                        style={{ animationDelay: "0.15s" }}
+                      />
+                      <div
+                        className="h-2 w-12 rounded skeleton-pulse bg-muted"
+                        style={{ animationDelay: "0.3s" }}
+                      />
                     </div>
                   </div>
 
                   <div className="mt-5 grid grid-cols-5 gap-3">
                     <div className="col-span-3">
-                      <div className="h-2.5 w-16 rounded bg-pixel-yellow mb-2 group-hover:w-20 transition-all duration-300" />
-                      <div className="h-5 w-full rounded bg-foreground/90 group-hover:bg-gradient-pixorra transition-colors duration-300" />
-                      <div className="mt-1.5 h-5 w-4/5 rounded bg-foreground/90 group-hover:bg-gradient-pixorra transition-colors duration-300" />
+                      <div
+                        className="h-2.5 w-16 rounded skeleton-pulse bg-muted mb-2"
+                        style={{ animationDelay: "0.1s" }}
+                      />
+                      <div
+                        className="h-5 w-full rounded skeleton-pulse bg-muted"
+                        style={{ animationDelay: "0.2s" }}
+                      />
+                      <div
+                        className="mt-1.5 h-5 w-4/5 rounded skeleton-pulse bg-muted"
+                        style={{ animationDelay: "0.3s" }}
+                      />
                       <div className="mt-3 space-y-1">
-                        <div className="h-1.5 w-full rounded bg-foreground/10 group-hover:bg-pixel-pink/20 transition-colors duration-300" />
-                        <div className="h-1.5 w-11/12 rounded bg-foreground/10 group-hover:bg-pixel-cyan/20 transition-colors duration-300" />
-                      </div>
-                      <div className="mt-4 flex gap-2">
-                        <div className="h-8 w-24 rounded-full bg-gradient-pixorra border-2 border-ink float-soft group-hover:scale-105 transition-transform" />
                         <div
-                          className="h-8 w-20 rounded-full border-2 border-ink float-soft group-hover:bg-pixel-yellow group-hover:scale-105 transition-all"
+                          className="h-1.5 w-full rounded skeleton-pulse bg-muted"
+                          style={{ animationDelay: "0.4s" }}
+                        />
+                        <div
+                          className="h-1.5 w-11/12 rounded skeleton-pulse bg-muted"
                           style={{ animationDelay: "0.5s" }}
                         />
                       </div>
+                      <div className="mt-4 flex gap-2">
+                        <div className="h-8 w-24 rounded-full bg-gradient-pixorra border-2 border-ink" />
+                        <div className="h-8 w-20 rounded-full border-2 border-ink" />
+                      </div>
                     </div>
 
-                    <div className="col-span-2 aspect-square rounded-2xl bg-gradient-pixorra relative overflow-hidden border-2 border-ink group-hover:scale-[1.03] transition-transform duration-300">
-                      <div className="absolute inset-0 grid-bg opacity-30 group-hover:opacity-50 transition-opacity" />
-                      <div
-                        className="absolute bottom-3 left-3 right-3 h-14 rounded-xl bg-background/90 backdrop-blur flex items-center px-3 gap-2 border border-ink wiggle group-hover:-translate-y-1 transition-transform"
-                        style={{ animationDelay: "0.8s" }}
+                    <div className="col-span-2 aspect-square rounded-2xl bg-gradient-pixorra relative overflow-hidden border-2 border-ink flex items-center justify-center">
+                      <svg
+                        className="h-8 w-8 text-white/80 loading-spin"
+                        viewBox="0 0 24 24"
+                        fill="none"
                       >
-                        <div className="h-8 w-8 rounded-lg bg-pixel-pink sparkle-pulse group-hover:rotate-12 transition-transform" />
+                        <circle
+                          cx="12"
+                          cy="12"
+                          r="9"
+                          stroke="currentColor"
+                          strokeWidth="3"
+                          strokeLinecap="round"
+                          className="opacity-25"
+                        />
+                        <circle
+                          cx="12"
+                          cy="12"
+                          r="9"
+                          stroke="currentColor"
+                          strokeWidth="3"
+                          strokeLinecap="round"
+                          strokeDasharray="50 14"
+                          className="opacity-90"
+                        />
+                      </svg>
+                      <div className="absolute bottom-3 left-3 right-3 h-14 rounded-xl bg-background/90 backdrop-blur flex items-center px-3 gap-2 border border-ink">
+                        <div className="h-8 w-8 rounded-lg bg-pixel-pink" />
                         <div className="flex-1 space-y-1">
-                          <div className="h-1.5 w-20 rounded bg-foreground/70 group-hover:w-24 transition-all duration-300" />
-                          <div className="h-1.5 w-14 rounded bg-foreground/30 group-hover:w-18 transition-all duration-300" />
+                          <div
+                            className="h-1.5 w-20 rounded skeleton-pulse bg-muted"
+                            style={{ animationDelay: "0.6s" }}
+                          />
+                          <div
+                            className="h-1.5 w-14 rounded skeleton-pulse bg-muted"
+                            style={{ animationDelay: "0.7s" }}
+                          />
                         </div>
                       </div>
                     </div>
                   </div>
 
                   <div className="mt-5 grid grid-cols-3 gap-3">
-                    {["bg-pixel-pink/30", "bg-pixel-cyan/30", "bg-pixel-yellow/40"].map((c, i) => (
+                    {[...Array(3)].map((_, i) => (
                       <div
                         key={i}
-                        className="rounded-xl border-2 border-ink p-3 float-soft group-hover:-translate-y-1 group-hover:shadow-pixel transition-all duration-300"
-                        style={{ animationDelay: `${i * 0.4}s` }}
+                        className="rounded-xl border-2 border-ink p-3"
+                        style={{ animationDelay: `${0.8 + i * 0.2}s` }}
                       >
                         <div
-                          className={`h-5 w-5 rounded ${c} border border-ink group-hover:scale-110 transition-transform duration-300`}
+                          className="h-5 w-5 rounded skeleton-pulse bg-muted"
+                          style={{ animationDelay: `${0.9 + i * 0.2}s` }}
                         />
-                        <div className="mt-2 h-2 w-full rounded bg-foreground/10 group-hover:bg-foreground/20 transition-colors duration-300" />
-                        <div className="mt-1 h-1.5 w-3/4 rounded bg-foreground/10 group-hover:w-full transition-all duration-300" />
+                        <div
+                          className="mt-2 h-2 w-full rounded skeleton-pulse bg-muted"
+                          style={{ animationDelay: `${1.0 + i * 0.2}s` }}
+                        />
+                        <div
+                          className="mt-1 h-1.5 w-3/4 rounded skeleton-pulse bg-muted"
+                          style={{ animationDelay: `${1.1 + i * 0.2}s` }}
+                        />
                       </div>
                     ))}
                   </div>
