@@ -12,7 +12,6 @@ import { Stats } from "@/components/site/Stats";
 import { WhyUs } from "@/components/site/WhyUs";
 import { Results } from "@/components/site/Results";
 import { Reviews } from "@/components/site/Reviews";
-import { Team } from "@/components/site/Team";
 import { TrustBadges } from "@/components/site/TrustBadges";
 import { DemoBanner } from "@/components/site/DemoBanner";
 import { Gallery } from "@/components/site/Gallery";
@@ -79,7 +78,6 @@ function Index() {
       <WhyUs />
       <Results />
       <Reviews />
-      <Team />
       <TrustBadges />
       <DemoBanner />
       <FAQ />
