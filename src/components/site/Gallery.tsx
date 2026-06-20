@@ -41,6 +41,7 @@ const ITEMS = [
     tag: "Education",
     color: "from-pixel-green to-pixel-cyan",
     pop: "card-pop-green",
+    url: "https://shelar-academy-brilliance.vercel.app/",
   },
 ];
 
