@@ -201,7 +201,7 @@ export function Pricing() {
                       {originalPrice}
                     </span>
                   )}
-                    <div className="flex items-baseline gap-2">
+                  <div className="flex items-baseline gap-2">
                     <span
                       className={`font-display text-3xl sm:text-5xl font-bold ${flagship ? "text-ink" : "text-ink"}`}
                     >

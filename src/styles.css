@@ -75,7 +75,8 @@
     #a855f7 100%
   );
   --gradient-pixorra: linear-gradient(135deg, #ff4fa3 0%, #ffd93d 35%, #22d3ee 70%, #a855f7 100%);
-  --shadow-pixel: 4px 4px 0 0 #111111;
+  --shadow-pixel: 4px 4px 0 0 var(--shadow-pixel-color);
+  --shadow-pixel-color: #111111;
 }
 
 :root {
@@ -125,33 +126,56 @@
 }
 
 .dark {
-  --background: oklch(0.11 0.01 270);
-  --foreground: oklch(0.98 0 0);
-  --card: oklch(0.15 0.01 270);
-  --card-foreground: oklch(0.98 0 0);
-  --popover: oklch(0.15 0.01 270);
-  --popover-foreground: oklch(0.98 0 0);
-  --primary: oklch(0.98 0 0);
-  --primary-foreground: oklch(0.11 0.01 270);
-  --secondary: oklch(0.18 0.012 270);
-  --secondary-foreground: oklch(0.98 0 0);
-  --muted: oklch(0.18 0.012 270);
-  --muted-foreground: oklch(0.72 0.01 270);
-  --accent: oklch(0.78 0.115 85);
-  --accent-foreground: oklch(0.11 0.01 270);
-  --border: oklch(0.28 0.01 270);
-  --input: oklch(0.28 0.01 270);
-  --cream: oklch(0.16 0.012 270);
+  /* Main surfaces — deep dark with subtle cool undertone, clearly layered */
+  --background: oklch(0.098 0.004 270);
+  --foreground: oklch(0.95 0.004 80);
+  --card: oklch(0.138 0.006 270);
+  --card-foreground: oklch(0.95 0.004 80);
+  --popover: oklch(0.18 0.008 270);
+  --popover-foreground: oklch(0.95 0.004 80);
+  --primary: oklch(0.95 0.004 80);
+  --primary-foreground: oklch(0.098 0.004 270);
+  --secondary: oklch(0.175 0.006 270);
+  --secondary-foreground: oklch(0.95 0.004 80);
+  --muted: oklch(0.165 0.005 270);
+  --muted-foreground: oklch(0.55 0.01 270);
+  --accent: oklch(0.8 0.12 85);
+  --accent-foreground: oklch(0.098 0.004 270);
+  --destructive: oklch(0.58 0.22 27);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.215 0.006 270);
+  --input: oklch(0.215 0.006 270);
+  --ring: oklch(0.8 0.12 85);
+
+  /* Brand colors — dark-mode optimised */
+  --cream: oklch(0.12 0.012 55);
+  --ink: oklch(0.95 0.004 80);
+  --gold: oklch(0.78 0.115 85);
   --gold-soft: oklch(0.28 0.04 90);
+  --shadow-pixel-color: oklch(0.95 0.004 80 / 0.12);
+
+  /* Pixel palette — slightly more saturated to pop against dark bg */
+  --pixel-pink: oklch(0.72 0.26 5);
+  --pixel-orange: oklch(0.82 0.21 55);
+  --pixel-yellow: oklch(0.92 0.18 95);
+  --pixel-green: oklch(0.82 0.22 145);
+  --pixel-cyan: oklch(0.82 0.16 220);
+  --pixel-blue: oklch(0.68 0.22 255);
+  --pixel-purple: oklch(0.62 0.26 300);
+
+  /* Gradients adapted for dark background */
   --gradient-hero:
     radial-gradient(
       1200px 600px at 70% -10%,
-      color-mix(in oklab, var(--gold) 14%, transparent),
+      color-mix(in oklab, var(--gold) 18%, transparent),
       transparent 60%
     ),
-    linear-gradient(180deg, #111827 0%, #0b1020 100%);
-  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.24), 0 18px 36px -16px rgba(0, 0, 0, 0.5);
-  --shadow-card-lg: 0 2px 6px rgba(0, 0, 0, 0.26), 0 24px 60px -20px rgba(0, 0, 0, 0.55);
+    linear-gradient(180deg, #1a1a24 0%, #0d0d14 100%);
+  --gradient-gold: linear-gradient(135deg, #c9a84c 0%, #b8983e 50%, #a8872e 100%);
+
+  /* Shadows — lighter source on dark background */
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 18px 36px -16px rgba(0, 0, 0, 0.55);
+  --shadow-card-lg: 0 2px 6px rgba(0, 0, 0, 0.35), 0 24px 60px -20px rgba(0, 0, 0, 0.6);
 }
 
 @layer base {
