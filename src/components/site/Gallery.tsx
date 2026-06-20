@@ -13,6 +13,7 @@ const ITEMS = [
     tag: "Healthcare",
     color: "from-pixel-cyan to-pixel-blue",
     pop: "card-pop-cyan",
+    url: "https://trusted-roots-web.vercel.app/",
   },
   {
     label: "Restaurant",
