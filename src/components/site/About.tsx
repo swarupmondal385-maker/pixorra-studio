@@ -28,7 +28,7 @@ export function About() {
               Make your business the only choice in your city.
             </p>
 
-            <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
+            <div className="mt-10 grid grid-cols-3 gap-4 md:gap-6">
               {[
                 { k: "7–10", v: "Day Delivery", pop: "card-pop-pink" },
                 { k: "4.9★", v: "Google Rated", pop: "card-pop-yellow" },
