@@ -154,10 +154,6 @@
   --gold-soft: oklch(0.28 0.04 90);
   --shadow-pixel-color: oklch(0.95 0.004 80 / 0.12);
 
-  /* CTA colors — dimmed for dark bg so text-ink remains readable */
-  --yellow-cta: oklch(0.7 0.18 90);
-  --cyan-cta: oklch(0.65 0.16 210);
-
   /* Pixel palette — slightly more saturated to pop against dark bg */
   --pixel-pink: oklch(0.72 0.26 5);
   --pixel-orange: oklch(0.82 0.21 55);
@@ -543,43 +539,6 @@
   }
   .animate-shimmer {
     animation: shimmer 2.4s linear infinite;
-  }
-
-  @keyframes skeleton-pulse {
-    0%,
-    100% {
-      opacity: 0.3;
-      transform: scaleY(0.95);
-    }
-    50% {
-      opacity: 0.7;
-      transform: scaleY(1);
-    }
-  }
-  .skeleton-pulse {
-    animation: skeleton-pulse 1.8s ease-in-out infinite;
-    will-change: opacity, transform;
-  }
-
-  @keyframes loading-spin {
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  .loading-spin {
-    animation: loading-spin 1s linear infinite;
-  }
-
-  @keyframes loading-dash {
-    0% {
-      stroke-dashoffset: 120;
-    }
-    50% {
-      stroke-dashoffset: 30;
-    }
-    100% {
-      stroke-dashoffset: 120;
-    }
   }
 
   @keyframes float-soft-kf {
