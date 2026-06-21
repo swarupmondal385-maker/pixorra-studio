@@ -154,6 +154,10 @@
   --gold-soft: oklch(0.28 0.04 90);
   --shadow-pixel-color: oklch(0.95 0.004 80 / 0.12);
 
+  /* CTA colors — deep variant for dark bg so text-ink is readable */
+  --yellow-cta: oklch(0.42 0.16 80);
+  --cyan-cta: oklch(0.4 0.14 210);
+
   /* Pixel palette — slightly more saturated to pop against dark bg */
   --pixel-pink: oklch(0.72 0.26 5);
   --pixel-orange: oklch(0.82 0.21 55);
