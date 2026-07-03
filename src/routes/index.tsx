@@ -74,7 +74,7 @@ function Index() {
       <About />
       <Process />
       <Gallery />
-      <Pricing />
+      {/* <Pricing /> */}
 
       <Services />
       <Stats />
@@ -88,7 +88,7 @@ function Index() {
       <FinalCTA />
       <Footer />
       <FloatingWhatsApp />
-      <SummerSale />
+      {/* <SummerSale /> */}
     </main>
   );
 }
