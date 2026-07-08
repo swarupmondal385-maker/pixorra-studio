@@ -199,17 +199,17 @@ export function Pricing() {
                     {tagline}
                   </p>
                 </div>
-                <div className="mt-4 md:mt-6 hidden">
+                <div className="mt-4 md:mt-6">
                   {originalPrice && (
                     <span
-                      className={`font-display text-sm sm:text-base font-bold line-through ${flagship ? "text-ink/40" : "text-ink/30"}`}
+                      className={`font-display text-sm sm:text-base font-bold line-through blur-sm ${flagship ? "text-ink/40" : "text-ink/30"}`}
                     >
                       {originalPrice}
                     </span>
                   )}
                   <div className="flex items-baseline gap-2">
                     <span
-                      className={`font-display text-3xl sm:text-5xl font-bold ${flagship ? "text-ink" : "text-ink"}`}
+                      className={`font-display text-3xl sm:text-5xl font-bold blur-sm ${flagship ? "text-ink" : "text-ink"}`}
                     >
                       {price}
                     </span>

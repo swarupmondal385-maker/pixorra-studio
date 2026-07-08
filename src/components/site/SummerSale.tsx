@@ -53,12 +53,12 @@ export function SummerSale() {
     };
   }, []);
 
-  if (!mounted || left.total <= 0) return null;
+  return null; // hidden for now
 
   const pads = (n: number) => String(n).padStart(2, "0");
 
   return (
-    <div className="hidden">
+    <>
       {sidebarOpen && (
         <div
           className="fixed inset-0 z-50 bg-background/60 backdrop-blur-sm transition-opacity duration-300"
@@ -164,6 +164,6 @@ export function SummerSale() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
