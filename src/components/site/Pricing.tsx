@@ -199,7 +199,7 @@ export function Pricing() {
                     {tagline}
                   </p>
                 </div>
-                <div className="mt-4 md:mt-6">
+                <div className="mt-4 md:mt-6 hidden">
                   {originalPrice && (
                     <span
                       className={`font-display text-sm sm:text-base font-bold line-through ${flagship ? "text-ink/40" : "text-ink/30"}`}
