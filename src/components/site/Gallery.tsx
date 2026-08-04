@@ -158,7 +158,7 @@ export function Gallery() {
   };
 
   return (
-    <section className="py-20 md:py-32 bg-cream">
+    <section id="work" className="py-20 md:py-32 bg-cream">
       <div className="max-w-7xl mx-auto px-5 md:px-8">
         <div className="max-w-3xl reveal">
           <p className="text-xs font-bold tracking-[0.2em] text-gold uppercase">Our Work</p>

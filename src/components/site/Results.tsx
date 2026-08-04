@@ -49,7 +49,7 @@ const RESULTS = [
 
 export function Results() {
   return (
-    <section id="work" className="py-20 md:py-32 bg-cream relative overflow-hidden">
+    <section className="py-20 md:py-32 bg-cream relative overflow-hidden">
       {/* background blobs */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute top-10 -left-16 h-72 w-72 bg-pixel-yellow/30 blob" />
