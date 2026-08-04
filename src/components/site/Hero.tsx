@@ -131,8 +131,8 @@ export function Hero() {
             </div>
           </div>
 
-          <h1 className="mt-4 font-display font-extrabold text-ink text-balance text-[2.4rem] leading-[1.08] sm:text-6xl md:text-7xl lg:text-[5.2rem] tracking-tight">
-            Do You Want to <span className="text-gradient-highlight">Scale Your Business?</span>
+          <h1 className="mt-4 font-display font-bold text-ink text-balance text-[2.4rem] leading-[1.08] sm:text-6xl md:text-7xl lg:text-[5.2rem] tracking-tight">
+            Do You Want to <span className="text-gradient-pixorra">Scale Your Business?</span>
           </h1>
           <p className="mt-6 text-lg md:text-xl text-ink/65 max-w-3xl mx-auto">
             Growth isn't luck. It's a system. We design the digital infrastructure that helps

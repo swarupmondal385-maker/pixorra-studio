@@ -273,26 +273,6 @@
     background-clip: text;
     color: transparent;
   }
-  .text-gradient-highlight {
-    background-image:
-      linear-gradient(
-        to top,
-        color-mix(in oklab, var(--pixel-yellow) 85%, transparent) 0,
-        color-mix(in oklab, var(--pixel-yellow) 85%, transparent) 0.42em,
-        transparent 0.42em
-      ),
-      var(--gradient-pixorra);
-    background-clip: border-box, text;
-    -webkit-background-clip: border-box, text;
-    background-position: 0 100%, 0 0;
-    background-size: 100% 0.55em, auto;
-    background-repeat: no-repeat;
-    color: transparent;
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
-    border-radius: 0.3em;
-    padding-bottom: 0.08em;
-  }
   .bg-pixel-pink {
     background-color: var(--pixel-pink);
   }
