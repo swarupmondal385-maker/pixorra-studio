@@ -225,13 +225,13 @@ export function Hero() {
               <Smile className="h-3.5 w-3.5" /> WHY PIXORRA
             </div>
             <h2 className="mt-4 font-display text-3xl md:text-5xl font-bold text-ink tracking-tight text-balance">
-              Not just pretty design.
+              You're not losing to better businesses.
               <br />
-              <span className="text-gradient-pixorra">Design that pays for itself.</span>
+              <span className="text-gradient-pixorra">You're losing to better systems.</span>
             </h2>
             <p className="mt-5 text-ink/65 text-lg">
-              Your website should be your hardest-working salesperson — open 24/7, closing leads
-              while you sleep.
+              We help ambitious businesses eliminate growth bottlenecks, attract more customers, and
+              build systems that increase revenue — without adding unnecessary complexity.
             </p>
             <ul className="mt-7 space-y-3">
               {[
