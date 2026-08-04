@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Plus, MessageCircle } from "lucide-react";
+import { calBookingUrl, calDataAttributes } from "@/lib/cal";
 
 const FAQS = [
   {
@@ -8,7 +9,23 @@ const FAQS = [
   },
   {
     q: "What does it cost?",
-    a: "Our monthly plans start at ₹14,999/month for the Ignite tier. The full Growth Engine is ₹24,999/month, and our complete Elite system is ₹39,999/month. Every quote is fixed upfront — no surprises later.",
+    a: (
+      <>
+        Every business is different, so we don&apos;t quote one-size-fits-all prices. We build custom
+        systems around your goals and budget. Talk to us on a free 15-minute strategy meeting —
+        we&apos;ll give you a clear, fixed price, no surprises.{" "}
+        <a
+          href={calBookingUrl}
+          {...calDataAttributes}
+          target="_blank"
+          rel="noreferrer"
+          className="font-semibold text-pixel-green underline underline-offset-2 hover:text-gold"
+        >
+          Book your free call here
+        </a>
+        .
+      </>
+    ),
   },
   {
     q: "What is an AI chatbot and do I need one?",
