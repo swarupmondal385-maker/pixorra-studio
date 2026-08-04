@@ -60,7 +60,7 @@ export function DemoBanner() {
                 className="inline-flex items-center justify-center h-14 px-6 rounded-2xl bg-whatsapp border-2 border-ink text-ink font-semibold shadow-pixel hover:-translate-y-0.5 transition-transform w-full"
               >
                 <span className="flex items-center gap-3">
-                  <WhatsAppIcon className="h-5 w-5" /> Call +91 89278 40261
+                  <WhatsAppIcon className="h-5 w-5" /> +91 89278 40261
                 </span>
               </a>
             </div>
