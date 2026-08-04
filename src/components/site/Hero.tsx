@@ -4,7 +4,7 @@ import {
   Play,
   TrendingUp,
   IndianRupee,
-  MessageCircle,
+  CalendarClock,
   Zap,
   Heart,
   Rocket,
@@ -12,6 +12,7 @@ import {
   Video,
 } from "lucide-react";
 import logoMark from "@/assets/pixorra-mark.png";
+import { calBookingUrl, calDataAttributes } from "@/lib/cal";
 
 export function Hero() {
   return (
@@ -253,12 +254,11 @@ export function Hero() {
               ))}
             </ul>
             <a
-              href="https://wa.me/918927840261?text=Hi%20Pixorra!%20I%20want%20a%20free%20demo%20website."
-              target="_blank"
-              rel="noreferrer"
+              href={calBookingUrl}
+              {...calDataAttributes}
               className="mt-8 inline-flex items-center gap-2 h-12 px-6 rounded-full bg-pixel-green text-white font-bold border-2 border-ink shadow-pixel hover:-translate-y-0.5 transition"
             >
-              <MessageCircle className="h-4 w-4" /> Chat on WhatsApp
+              <CalendarClock className="h-4 w-4" /> Book My Free Demo
             </a>
           </div>
 

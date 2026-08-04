@@ -1,4 +1,5 @@
-import { MessageCircle, ArrowRight } from "lucide-react";
+import { CalendarClock, ArrowRight } from "lucide-react";
+import { calBookingUrl, calDataAttributes } from "@/lib/cal";
 
 export function DemoBanner() {
   return (
@@ -37,13 +38,12 @@ export function DemoBanner() {
             </div>
             <div className="lg:col-span-4 flex flex-col gap-3">
               <a
-                href="https://wa.me/918927840261?text=Hi%20Pixorra!%20I%20want%20a%20free%20demo%20website."
-                target="_blank"
-                rel="noreferrer"
+                href={calBookingUrl}
+                {...calDataAttributes}
                 className="group inline-flex items-center justify-between h-16 px-7 rounded-2xl bg-pixel-green text-white font-semibold text-base sm:text-lg border-2 border-ink shadow-pixel hover:-translate-y-0.5 transition-transform w-full"
               >
                 <span className="flex items-center gap-3">
-                  <MessageCircle className="h-5 w-5" /> WhatsApp Now
+                  <CalendarClock className="h-5 w-5" /> Book Free Demo Meeting
                 </span>
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </a>
