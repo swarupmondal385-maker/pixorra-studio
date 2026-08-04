@@ -48,10 +48,10 @@ export function DemoBanner() {
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </a>
               <a
-                href="tel:+918927840261"
-                className="inline-flex items-center justify-center h-14 px-6 rounded-2xl bg-background border-2 border-ink text-ink font-semibold shadow-pixel hover:-translate-y-0.5 transition-transform w-full"
+                href="https://wa.me/918927840261?text=Hi%20Pixorra!%20I%20want%20a%20free%20demo%20website%20for%20my%20business."
+                className="inline-flex items-center justify-center h-14 px-6 rounded-2xl bg-whatsapp border-2 border-ink text-ink font-semibold shadow-pixel hover:-translate-y-0.5 transition-transform w-full"
               >
-                Call +91 89278 40261
+                Whatsapp Us
               </a>
             </div>
           </div>
