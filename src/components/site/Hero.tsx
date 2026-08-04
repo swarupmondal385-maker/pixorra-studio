@@ -132,15 +132,15 @@ export function Hero() {
           </div>
 
           <h1 className="mt-4 font-display font-bold text-ink text-balance text-[2.4rem] leading-[1.02] sm:text-6xl md:text-7xl lg:text-[5.2rem] tracking-tight">
-            Built to be{" "}
+            Do You Want to{" "}
             <span className="relative inline-block">
-              <span className="relative z-10 text-gradient-pixorra">found.</span>
+              <span className="relative z-10 text-gradient-pixorra">Scale Your Business?</span>
               <span className="absolute left-0 right-0 bottom-1 md:bottom-2 h-3 md:h-4 bg-pixel-yellow/60 -z-0 rounded-sm" />
             </span>
           </h1>
           <p className="mt-6 text-lg md:text-xl text-ink/65 max-w-3xl mx-auto">
-            We build premium websites &amp; automated systems that turn strangers into customers —
-            while you sleep.
+            Growth isn't luck. It's a system. We design the digital infrastructure that helps
+            businesses get found, earn trust, and scale faster.
           </p>
 
           {/* Video demo card */}
@@ -180,7 +180,7 @@ export function Hero() {
               href="#demo"
               className="group inline-flex items-center gap-2 h-14 px-7 rounded-full bg-yellow-cta text-ink font-bold border-2 border-ink shadow-pixel hover:-translate-y-0.5 hover:translate-x-0.5 transition-transform"
             >
-              Book My Free Demo{" "}
+              I'm Ready to Scale{" "}
               <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
@@ -258,7 +258,7 @@ export function Hero() {
               {...calDataAttributes}
               className="mt-8 inline-flex items-center gap-2 h-12 px-6 rounded-full bg-pixel-green text-white font-bold border-2 border-ink shadow-pixel hover:-translate-y-0.5 transition"
             >
-              <CalendarClock className="h-4 w-4" /> Book My Free Demo
+              <CalendarClock className="h-4 w-4" /> I'm Ready to Scale
             </a>
           </div>
 
