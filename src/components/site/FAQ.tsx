@@ -11,9 +11,9 @@ const FAQS = [
     q: "What does it cost?",
     a: (
       <>
-        Every business is different, so we don&apos;t quote one-size-fits-all prices. We build custom
-        systems around your goals and budget. Talk to us on a free 15-minute strategy meeting —
-        we&apos;ll give you a clear, fixed price, no surprises.{" "}
+        Every business is different, so we don&apos;t quote one-size-fits-all prices. We build
+        custom systems around your goals and budget. Talk to us on a free 15-minute strategy meeting
+        — we&apos;ll give you a clear, fixed price, no surprises.{" "}
         <a
           href={calBookingUrl}
           {...calDataAttributes}
