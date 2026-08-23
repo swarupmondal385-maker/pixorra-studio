@@ -113,7 +113,6 @@ export function SummerSale() {
                   "Custom website (up to 15 pages)",
                   "AI chatbot & WhatsApp automation",
                   "Full SEO + Local SEO",
-                  "Dedicated account manager",
                 ].map((f) => (
                   <div key={f} className="flex items-baseline gap-2 text-[11px] text-ink/70">
                     <div className="mt-0.5 h-2 w-2 rounded-full bg-pixel-green flex-shrink-0" />

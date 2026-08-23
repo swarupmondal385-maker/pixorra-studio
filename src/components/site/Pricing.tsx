@@ -19,9 +19,6 @@ const ELITE_ALL_FEATURES = [
   "CRM & workflow automation",
   "Full SEO + Local SEO",
   "Google Ads setup & management",
-  "Social media management",
-  "Reputation management",
-  "Dedicated account manager",
   "5 years white glove support",
 ];
 
@@ -78,9 +75,6 @@ const PACKAGES = [
       "Full funnel setup",
       "CRM & workflow automation",
       "Full SEO + Local SEO",
-      "Social media management",
-      "Reputation management",
-      "Dedicated account manager",
       "5 years priority support",
     ],
     cta: "Go Elite",
