@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react";
+import { useRef, useState, type CSSProperties } from "react";
 import {
   ArrowRight,
   Play,
@@ -15,6 +15,8 @@ import logoMark from "@/assets/pixorra-mark.png";
 import { calBookingUrl, calDataAttributes } from "@/lib/cal";
 
 export function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(false);
   return (
     <section id="top" className="relative pt-28 md:pt-36 bg-gradient-hero overflow-hidden">
       {/* Big soft blobs */}
@@ -143,16 +145,35 @@ export function Hero() {
           <div className="mt-7 max-w-md mx-auto">
             <div className="relative rounded-2xl border-2 border-ink shadow-pixel overflow-hidden group cursor-pointer hover:-translate-y-1 hover:translate-x-0.5 transition-transform glass-card glass-shine">
               <div className="aspect-video bg-pixel-purple relative flex items-center justify-center">
-                <div className="absolute inset-0 grid-bg opacity-20" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="h-16 w-16 rounded-full bg-background border-2 border-ink shadow-pixel flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Play className="h-6 w-6 text-pixel-pink ml-1" fill="currentColor" />
-                  </div>
-                </div>
-                <div className="absolute top-3 right-3 h-7 px-3 rounded-full bg-foreground text-background text-[10px] font-bold flex items-center gap-1.5 border border-background/20">
-                  <span className="h-1.5 w-1.5 rounded-full bg-pixel-pink animate-pulse" />2 min
-                  watch
-                </div>
+                <video
+                  ref={videoRef}
+                  className="absolute inset-0 h-full w-full object-cover"
+                  src="/videos/pixorra-promo.mp4"
+                  poster="/videos/pixorra-promo-poster.jpg"
+                  preload="metadata"
+                  playsInline
+                  controls={playing}
+                  onEnded={() => setPlaying(false)}
+                />
+                {!playing && (
+                  <button
+                    type="button"
+                    aria-label="Play Pixorra promo video"
+                    onClick={() => {
+                      setPlaying(true);
+                      videoRef.current?.play();
+                    }}
+                    className="absolute inset-0 flex items-center justify-center bg-ink/10"
+                  >
+                    <div className="h-16 w-16 rounded-full bg-background border-2 border-ink shadow-pixel flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Play className="h-6 w-6 text-pixel-pink ml-1" fill="currentColor" />
+                    </div>
+                    <div className="absolute top-3 right-3 h-7 px-3 rounded-full bg-foreground text-background text-[10px] font-bold flex items-center gap-1.5 border border-background/20">
+                      <span className="h-1.5 w-1.5 rounded-full bg-pixel-pink animate-pulse" />
+                      1:45 watch
+                    </div>
+                  </button>
+                )}
               </div>
               <div className="p-4 flex items-center gap-3">
                 <div className="h-10 w-10 rounded-xl bg-pixel-yellow border-2 border-ink flex items-center justify-center shrink-0">
