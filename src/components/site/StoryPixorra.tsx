@@ -1,5 +1,6 @@
 import logoMark from "@/assets/pixorra-mark.png";
 import { MarkerHighlight } from "./MarkerHighlight";
+import { StoryCollage } from "./StoryCollage";
 
 const Label = ({ children }: { children: string }) => (
   <div className="reveal mx-auto mt-20 flex max-w-4xl items-center gap-3 px-5 md:mt-28 md:px-8">
@@ -11,47 +12,6 @@ const Label = ({ children }: { children: string }) => (
 );
 
 const LETTERS = "SCATTERED".split("");
-const BUBBLES = [
-  "bg-pixel-pink/30",
-  "bg-pixel-orange/30",
-  "bg-pixel-yellow/50",
-  "bg-pixel-green/30",
-  "bg-pixel-cyan/30",
-  "bg-pixel-blue/25",
-  "bg-pixel-purple/25",
-];
-
-const PINS = [
-  {
-    img: "/mascot/pixor-wave-white.webp",
-    cap: "Website that sells",
-    rot: "-rotate-6",
-    tint: "bg-[#fff1f7]",
-    pin: "bg-pixel-pink",
-  },
-  {
-    img: "/mascot/pixor-lilac.webp",
-    cap: "WhatsApp AI, 24/7",
-    rot: "rotate-3",
-    tint: "bg-[#f3ecff]",
-    pin: "bg-pixel-purple",
-  },
-  {
-    img: "/mascot/pixor-peace-grey-hoodie.webp",
-    cap: "Top of Google Maps",
-    rot: "-rotate-2",
-    tint: "bg-[#e6faff]",
-    pin: "bg-pixel-cyan",
-  },
-  {
-    img: "/mascot/pixor-sitting-cream.webp",
-    cap: "Reels that get calls",
-    rot: "rotate-6",
-    tint: "bg-[#fffbe0]",
-    pin: "bg-pixel-yellow",
-  },
-];
-
 /** kree8-style storytelling block, told in Pixorra's voice. */
 export function StoryPixorra() {
   return (
@@ -86,7 +46,7 @@ export function StoryPixorra() {
             {LETTERS.map((l, i) => (
               <span
                 key={i}
-                className={`letter-bob grid h-9 w-9 place-items-center rounded-full border-2 border-ink font-pixel text-[10px] text-ink md:h-10 md:w-10 ${BUBBLES[i % BUBBLES.length]}`}
+                className={`letter-bob grid h-9 w-9 place-items-center rounded-full border-2 border-ink font-pixel text-[10px] text-ink md:h-10 md:w-10 bg-white`}
                 style={{ animationDelay: `${i * 0.12}s` }}
               >
                 {l}
@@ -115,34 +75,7 @@ export function StoryPixorra() {
         </p>
       </div>
 
-      {/* Pinned collage */}
-      <div className="reveal mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-5 px-5 sm:gap-8 md:grid-cols-4 md:px-8">
-        {PINS.map((p, i) => (
-          <figure
-            key={p.cap}
-            className={`card-wiggle relative rounded-2xl border-2 border-ink bg-white p-3 pb-4 shadow-pixel ${p.rot}`}
-            style={{ animationDelay: `${i * 0.4}s` }}
-          >
-            <span
-              aria-hidden
-              className={`absolute -top-2.5 left-1/2 h-5 w-5 -translate-x-1/2 rounded-full border-2 border-ink ${p.pin}`}
-            />
-            <div className={`grid aspect-square place-items-center rounded-xl ${p.tint}`}>
-              <img
-                src={p.img}
-                alt=""
-                loading="lazy"
-                width={200}
-                height={200}
-                className="h-4/5 w-4/5 object-contain"
-              />
-            </div>
-            <figcaption className="mt-3 text-center font-display text-sm font-bold text-ink md:text-base">
-              {p.cap}
-            </figcaption>
-          </figure>
-        ))}
-      </div>
+      <StoryCollage />
 
       <div className="reveal mx-auto mt-14 max-w-2xl px-5 text-xl leading-relaxed md:text-2xl">
         <p className="text-ink/35">Not as another agency.</p>

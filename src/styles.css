@@ -49,6 +49,7 @@
 
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-pixel: "Press Start 2P", ui-monospace, monospace;
+  --font-hand: "Caveat", "Comic Sans MS", cursive;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 
   --shadow-glow-gold: 0 20px 60px -20px color-mix(in oklab, var(--gold) 55%, transparent);
@@ -828,5 +829,85 @@ html.lenis body {
   }
   .btn-lift:hover {
     transform: none;
+  }
+}
+
+/* Card fan carousel (reviews) */
+.fan-layout {
+  height: 25rem;
+}
+.fan-card {
+  position: absolute;
+  width: 15rem;
+  height: 19rem;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  will-change: transform;
+  opacity: 0;
+}
+@media (min-width: 480px) {
+  .fan-layout {
+    height: 26rem;
+  }
+  .fan-card {
+    width: 16rem;
+    height: 20rem;
+  }
+}
+@media (min-width: 640px) {
+  .fan-layout {
+    height: 28rem;
+  }
+}
+@media (min-width: 768px) {
+  .fan-layout {
+    height: 34rem;
+  }
+  .fan-card {
+    width: 18rem;
+    height: 23rem;
+  }
+}
+@media (min-width: 1024px) {
+  .fan-layout {
+    height: 38rem;
+  }
+  .fan-card {
+    width: 20rem;
+    height: 26rem;
+  }
+}
+
+/* Collage + hero glow */
+@keyframes collage-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -5px;
+  }
+}
+.collage-card {
+  animation: collage-float 6s ease-in-out infinite;
+}
+@keyframes glow-breathe {
+  0%,
+  100% {
+    opacity: 0.75;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+.glow-breathe {
+  animation: glow-breathe 6s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .collage-card,
+  .glow-breathe {
+    animation: none;
   }
 }

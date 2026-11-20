@@ -5,12 +5,12 @@ import { StoryPixorra } from "@/components/site/StoryPixorra";
 import { WorkShowcase } from "@/components/site/WorkShowcase";
 import { PricingKree8 } from "@/components/site/PricingKree8";
 import { FinalNote } from "@/components/site/FinalNote";
-import { Hero } from "@/components/site/Hero";
+import { HeroKree8 } from "@/components/site/HeroKree8";
+import { ServicesScroll } from "@/components/site/ServicesScroll";
+import { ProcessFlow } from "@/components/site/ProcessFlow";
+import { ReviewsFan } from "@/components/site/ReviewsFan";
 import { Marquee } from "@/components/site/Marquee";
-import { Services } from "@/components/site/Services";
 
-import { Process } from "@/components/site/Process";
-import { Reviews } from "@/components/site/Reviews";
 import { FAQ } from "@/components/site/FAQ";
 import { Footer } from "@/components/site/Footer";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
@@ -61,14 +61,14 @@ function Index() {
   return (
     <SiteShell>
       <main className="relative text-ink">
-        <Hero />
+        <HeroKree8 />
         <Marquee />
         <StoryPixorra />
         <WorkShowcase />
-        <Services />
-        <Process />
+        <ServicesScroll />
+        <ProcessFlow />
         <PricingKree8 />
-        <Reviews />
+        <ReviewsFan />
         <FAQ />
         <FinalNote />
         <Footer />

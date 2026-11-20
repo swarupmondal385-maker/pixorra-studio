@@ -224,7 +224,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
       {/* Content panel */}
       <div className="lg:pl-[248px]">
         <div className="px-2 pb-2 pt-[76px] sm:px-3 lg:py-3 lg:pr-3 lg:pl-0">
-          <div className="relative overflow-hidden rounded-[1.75rem] border-2 border-ink bg-background shadow-[0_20px_60px_-25px_rgba(17,17,17,0.35)] lg:rounded-[2rem]">
+          <div className="relative overflow-clip rounded-[1.75rem] border-2 border-ink bg-background shadow-[0_20px_60px_-25px_rgba(17,17,17,0.35)] lg:rounded-[2rem]">
             {children}
           </div>
         </div>
