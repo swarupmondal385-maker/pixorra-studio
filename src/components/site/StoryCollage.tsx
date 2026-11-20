@@ -1,4 +1,72 @@
-import { Check, MapPin, Play, Star } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, Check, MapPin, Play, Plus, Star } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { calBookingUrl, calDataAttributes } from "@/lib/cal";
+
+type K = "website" | "whatsapp" | "maps" | "reel";
+const DETAILS: Record<K, { title: string; hook: string; get: string[]; tint: string }> = {
+  website: {
+    title: "A website that sells",
+    hook: "Not a pretty brochure. A website built to make people call, WhatsApp or book.",
+    get: [
+      "Custom design for your brand, no templates",
+      "Loads fast on every phone",
+      "Click-to-call, WhatsApp and booking buttons",
+      "Enquiry forms that land in your CRM",
+      "Ready for Google from day one",
+      "Simple dashboard to edit text and photos",
+    ],
+    tint: "bg-[#fff1f7]",
+  },
+  whatsapp: {
+    title: "WhatsApp AI, 24/7",
+    hook: "Your business replies in seconds, even at 2 AM, and books the customer for you.",
+    get: [
+      "AI bot trained on your prices, timings and services",
+      "Instant replies, day and night",
+      "Books appointments and sends reminders",
+      "Follows up with leads who went quiet",
+      "Hands the chat to you when a human is needed",
+    ],
+    tint: "bg-[#e9fbe9]",
+  },
+  maps: {
+    title: "Found on Google Maps",
+    hook: "When someone nearby searches for what you sell, they should find you first.",
+    get: [
+      "Google Business Profile set up and optimised",
+      "Photos, services and timings done right",
+      "Review collection system for happy customers",
+      "Search-friendly website structure",
+      "Local keywords for your area",
+    ],
+    tint: "bg-[#eaf6ff]",
+  },
+  reel: {
+    title: "Reels that get calls",
+    hook: "Content that makes your business look big, so people trust you before they call.",
+    get: [
+      "UGC-style videos made for your niche",
+      "Shot and edited in 4K at 60 fps",
+      "Custom ads and reels",
+      "Designed posts every month",
+      "Posting schedule handled for you",
+    ],
+    tint: "bg-[#fffbe0]",
+  },
+};
+
+const Hint = () => (
+  <span className="pointer-events-none absolute -bottom-3 left-1/2 z-10 inline-flex -translate-x-1/2 items-center gap-1 whitespace-nowrap rounded-full border-2 border-ink bg-white px-2.5 py-0.5 text-[10px] font-bold text-ink opacity-90 shadow-[2px_2px_0_0_#111] transition-transform group-hover:-translate-y-0.5 md:text-[11px]">
+    <Plus className="h-3 w-3" /> What you get
+  </span>
+);
 
 const Tape = ({ className = "" }: { className?: string }) => (
   <span
@@ -30,11 +98,19 @@ const Clip = ({ className = "" }: { className?: string }) => (
 
 /** "Solution" collage: four different deliverables as pinned frames, plus Pixor peeking in. */
 export function StoryCollage() {
+  const [open, setOpen] = useState<K | null>(null);
+  const d = open ? DETAILS[open] : null;
   return (
     <div className="reveal relative mx-auto mt-12 max-w-4xl px-5 md:px-8">
       <div className="grid grid-flow-row-dense grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-12 md:gap-6">
         {/* Website */}
-        <figure className="collage-card relative -rotate-3 md:col-span-5">
+        <button
+          type="button"
+          onClick={() => setOpen("website")}
+          aria-label="See what you get: website"
+          data-k="website"
+          className="collage-card group text-left relative -rotate-3 md:col-span-5"
+        >
           <Pin className="-top-3 right-6" />
           <div className="rounded-2xl border-2 border-ink bg-white p-2.5 shadow-pixel">
             <div className="overflow-hidden rounded-xl border-2 border-ink/80">
@@ -60,15 +136,20 @@ export function StoryCollage() {
                 </div>
               </div>
             </div>
-            <figcaption className="mt-2.5 text-center font-hand text-lg text-ink">
+            <span className="mt-2.5 block text-center font-hand text-lg text-ink">
               A website that sells
-            </figcaption>
+            </span>
           </div>
-        </figure>
+          <Hint />
+        </button>
 
         {/* WhatsApp */}
-        <figure
-          className="collage-card relative rotate-2 md:col-span-4 md:mt-6"
+        <button
+          type="button"
+          onClick={() => setOpen("whatsapp")}
+          aria-label="See what you get: whatsapp"
+          data-k="whatsapp"
+          className="collage-card group text-left relative rotate-2 md:col-span-4 md:mt-6"
           style={{ animationDelay: "0.6s" }}
         >
           <Clip className="-top-6 left-5 rotate-[-12deg]" />
@@ -88,11 +169,12 @@ export function StoryCollage() {
                 5pm please 🙏
               </div>
             </div>
-            <figcaption className="mt-2.5 text-center font-hand text-lg text-ink">
+            <span className="mt-2.5 block text-center font-hand text-lg text-ink">
               WhatsApp AI, 24/7
-            </figcaption>
+            </span>
           </div>
-        </figure>
+          <Hint />
+        </button>
 
         {/* Pixor sticker */}
         <div className="relative order-last grid place-items-center md:order-none md:col-span-3 md:block">
@@ -107,8 +189,12 @@ export function StoryCollage() {
         </div>
 
         {/* Google Maps */}
-        <figure
-          className="collage-card relative -rotate-2 md:col-span-4 md:col-start-2"
+        <button
+          type="button"
+          onClick={() => setOpen("maps")}
+          aria-label="See what you get: maps"
+          data-k="maps"
+          className="collage-card group text-left relative -rotate-2 md:col-span-4 md:col-start-2"
           style={{ animationDelay: "1.1s" }}
         >
           <Tape className="-top-3 left-1/2 -translate-x-1/2 rotate-[-4deg]" />
@@ -125,11 +211,12 @@ export function StoryCollage() {
                 ))}
               </span>
             </div>
-            <figcaption className="mt-1.5 text-center font-hand text-lg text-ink">
+            <span className="mt-1.5 block text-center font-hand text-lg text-ink">
               Found on Google Maps
-            </figcaption>
+            </span>
           </div>
-        </figure>
+          <Hint />
+        </button>
 
         {/* Sticky note */}
         <div
@@ -146,8 +233,12 @@ export function StoryCollage() {
         </div>
 
         {/* Reel */}
-        <figure
-          className="collage-card relative col-span-1 rotate-3 md:col-span-3 md:col-start-6 md:-mt-6"
+        <button
+          type="button"
+          onClick={() => setOpen("reel")}
+          aria-label="See what you get: reel"
+          data-k="reel"
+          className="collage-card group text-left relative col-span-1 rotate-3 md:col-span-3 md:col-start-6 md:-mt-6"
           style={{ animationDelay: "1.6s" }}
         >
           <Pin className="-top-3 left-1/2 -translate-x-1/2 bg-pixel-cyan" />
@@ -167,11 +258,53 @@ export function StoryCollage() {
               </span>
             </div>
           </div>
-          <figcaption className="mt-2.5 text-center font-hand text-lg text-ink">
+          <span className="mt-2.5 block text-center font-hand text-lg text-ink">
             Reels that get calls
-          </figcaption>
-        </figure>
+          </span>
+          <Hint />
+        </button>
       </div>
+      <Dialog open={!!open} onOpenChange={(o) => !o && setOpen(null)}>
+        <DialogContent className="max-w-md rounded-[1.75rem] border-2 border-ink p-0 shadow-[8px_8px_0_0_#111]">
+          {d && (
+            <div>
+              <div className={`rounded-t-[1.6rem] border-b-2 border-ink p-6 ${d.tint}`}>
+                <DialogHeader>
+                  <DialogTitle className="font-display text-2xl font-bold text-ink">
+                    {d.title}
+                  </DialogTitle>
+                  <DialogDescription className="text-base text-ink/70">{d.hook}</DialogDescription>
+                </DialogHeader>
+              </div>
+              <div className="p-6">
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-ink/45">
+                  What you get
+                </p>
+                <ul className="mt-3 space-y-2.5">
+                  {d.get.map((g) => (
+                    <li key={g} className="flex items-start gap-2.5 text-[15px] text-ink/85">
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-pixel-green" strokeWidth={3} />
+                      {g}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-5 rounded-xl bg-cream px-3 py-2 text-sm font-semibold text-ink/70">
+                  {open === "reel"
+                    ? "Part of the monthly Social Media Content plan."
+                    : "Included in the ₹14,999 Growth Package."}
+                </p>
+                <a
+                  href={calBookingUrl}
+                  {...calDataAttributes}
+                  className="btn-lift mt-5 flex h-12 items-center justify-center gap-2 rounded-full border-2 border-ink bg-yellow-cta font-bold shadow-pixel"
+                >
+                  Book free demo <ArrowRight className="h-4 w-4" />
+                </a>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

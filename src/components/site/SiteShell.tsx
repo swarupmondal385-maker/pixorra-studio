@@ -6,7 +6,7 @@ import {
   IndianRupee,
   Star,
   HelpCircle,
-  Gauge,
+  Gamepad2,
   Heart,
   Rocket,
   MessageCircle,
@@ -17,16 +17,16 @@ import logoMark from "@/assets/pixorra-mark.png";
 import { calBookingUrl, calDataAttributes } from "@/lib/cal";
 
 const NAV = [
-  { id: "top", label: "Home", icon: Home, dot: "bg-pixel-pink" },
-  { id: "work", label: "Our Work", icon: LayoutGrid, dot: "bg-pixel-yellow" },
-  { id: "services", label: "Services", icon: Sparkles, dot: "bg-pixel-cyan" },
-  { id: "pricing", label: "Pricing", icon: IndianRupee, dot: "bg-pixel-green" },
-  { id: "reviews", label: "Reviews", icon: Star, dot: "bg-pixel-orange" },
-  { id: "faq", label: "FAQ", icon: HelpCircle, dot: "bg-pixel-purple" },
+  { id: "top", label: "Home", icon: Home, tile: "bg-[#ff4fa3]" },
+  { id: "work", label: "Our Work", icon: LayoutGrid, tile: "bg-[#ff9500]" },
+  { id: "services", label: "Services", icon: Sparkles, tile: "bg-[#34c759]" },
+  { id: "pricing", label: "Pricing", icon: IndianRupee, tile: "bg-[#007aff]" },
+  { id: "reviews", label: "Reviews", icon: Star, tile: "bg-[#ffcc00]" },
+  { id: "faq", label: "FAQ", icon: HelpCircle, tile: "bg-[#af52de]" },
 ];
 const PAGES = [
-  { href: "/scorecard", label: "Free Scorecard", icon: Gauge, badge: "2 min" },
-  { href: "/donate", label: "Pixorra Cares", icon: Heart },
+  { href: "/scorecard", label: "Playground", icon: Gamepad2, badge: "Play", tile: "bg-[#ff2d55]" },
+  { href: "/donate", label: "Pixorra Cares", icon: Heart, tile: "bg-[#30b0c7]" },
 ];
 const WA = "https://wa.me/918927840261?text=Hi%20Pixorra!%20I%20want%20to%20grow%20my%20business.";
 
@@ -96,43 +96,54 @@ export function SiteShell({ children }: { children: ReactNode }) {
     history.replaceState(null, "", `#${id}`);
   };
 
+  const Tile = ({ icon: Icon, tile }: { icon: typeof Home; tile: string }) => (
+    <span
+      className={`grid h-7 w-7 shrink-0 place-items-center rounded-[9px] text-white shadow-[inset_0_-1px_0_rgba(0,0,0,0.15),0_1px_2px_rgba(0,0,0,0.12)] ${tile}`}
+    >
+      <Icon className="h-[15px] w-[15px]" strokeWidth={2.4} />
+    </span>
+  );
+
+  const item =
+    "group flex h-11 items-center gap-3 rounded-2xl px-2.5 text-[15px] font-semibold tracking-[-0.01em] transition-all duration-200";
+
   const menu = (
     <>
-      <nav className="flex flex-col gap-1">
-        {NAV.map(({ id, label, icon: Icon, dot }) => {
+      <nav className="flex flex-col gap-0.5">
+        {NAV.map(({ id, label, icon, tile }) => {
           const on = active === id;
           return (
             <a
               key={id}
-              href={`#${id}`}
+              href={`/#${id}`}
               onClick={go(id)}
-              className={`group flex h-11 items-center gap-3 rounded-2xl px-3.5 text-sm font-semibold transition-all ${
+              aria-current={on ? "true" : undefined}
+              className={`${item} ${
                 on
-                  ? "border-2 border-ink bg-card text-ink shadow-pixel"
-                  : "border-2 border-transparent text-ink/60 hover:bg-card/70 hover:text-ink"
+                  ? "bg-white text-ink shadow-[0_1px_2px_rgba(0,0,0,0.06),0_6px_16px_-6px_rgba(0,0,0,0.18)]"
+                  : "text-ink/65 hover:bg-white/60 hover:text-ink"
               }`}
             >
-              <Icon className="h-4 w-4" />
+              <Tile icon={icon} tile={tile} />
               {label}
-              <span
-                className={`ml-auto h-2.5 w-2.5 rounded-full border border-ink ${dot} transition-transform ${
-                  on ? "scale-100" : "scale-0 group-hover:scale-100"
-                }`}
-              />
+              {on && <span className="ml-auto h-1.5 w-1.5 rounded-full bg-ink" />}
             </a>
           );
         })}
-        <div className="my-2 h-px bg-ink/10" />
-        {PAGES.map(({ href, label, icon: Icon, badge }) => (
+      </nav>
+
+      <div className="mx-2.5 my-3 h-px bg-ink/10" />
+      <nav className="flex flex-col gap-0.5">
+        {PAGES.map(({ href, label, icon, badge, tile }) => (
           <a
             key={href}
             href={href}
-            className="flex h-11 items-center gap-3 rounded-2xl border-2 border-transparent px-3.5 text-sm font-semibold text-ink/60 hover:bg-card/70 hover:text-ink"
+            className={`${item} text-ink/65 hover:bg-white/60 hover:text-ink`}
           >
-            <Icon className="h-4 w-4" />
+            <Tile icon={icon} tile={tile} />
             {label}
             {badge && (
-              <span className="ml-auto rounded-full bg-pixel-yellow/60 px-2 py-0.5 text-[10px] font-bold text-ink">
+              <span className="ml-auto rounded-full bg-[#ff2d55] px-2 py-0.5 text-[10px] font-bold text-white">
                 {badge}
               </span>
             )}
@@ -140,24 +151,24 @@ export function SiteShell({ children }: { children: ReactNode }) {
         ))}
       </nav>
 
-      <p className="mt-7 px-3.5 text-[11px] font-bold uppercase tracking-[0.18em] text-ink/40">
-        Start project
+      <p className="mt-6 px-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-ink/40">
+        Start a project
       </p>
-      <div className="mt-2 flex flex-col gap-1">
+      <div className="mt-2 flex flex-col gap-2 px-1">
         <a
           href={calBookingUrl}
           {...calDataAttributes}
-          className="flex h-11 items-center gap-3 rounded-2xl px-3.5 text-sm font-semibold text-ink hover:bg-card/70"
+          className="btn-lift flex h-11 items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-yellow-cta text-sm font-bold text-ink shadow-pixel"
         >
-          <Rocket className="h-4 w-4 text-pixel-pink" /> Book free demo
+          <Rocket className="h-4 w-4" /> Book free demo
         </a>
         <a
           href={WA}
           target="_blank"
           rel="noreferrer"
-          className="flex h-11 items-center gap-3 rounded-2xl px-3.5 text-sm font-semibold text-ink hover:bg-card/70"
+          className="flex h-11 items-center justify-center gap-2 rounded-2xl bg-white/70 text-sm font-semibold text-ink ring-1 ring-ink/10 hover:bg-white"
         >
-          <MessageCircle className="h-4 w-4 text-pixel-green" /> WhatsApp us
+          <MessageCircle className="h-4 w-4 text-[#34c759]" /> WhatsApp us
         </a>
       </div>
     </>
@@ -166,29 +177,28 @@ export function SiteShell({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen bg-[linear-gradient(135deg,#ffe4f1_0%,#fff7d6_35%,#dff9ff_70%,#efe4ff_100%)]">
       {/* Desktop sidebar */}
-      <aside className="fixed inset-y-0 left-0 z-40 hidden w-[248px] flex-col px-4 py-5 lg:flex">
-        <a href="#top" onClick={go("top")} className="flex items-center gap-2.5 px-2">
-          <img src={logoMark} alt="Pixorra" className="h-10 w-10 object-contain" />
-          <span className="font-display text-xl font-bold tracking-tight text-ink">Pixorra</span>
-          <span className="ml-auto rounded-full border border-ink/15 bg-card/70 px-2 py-0.5 text-[10px] font-bold text-ink/60">
-            Studio
-          </span>
-        </a>
-        <div className="mt-6 flex-1 overflow-y-auto">{menu}</div>
-        <div className="rounded-2xl border-2 border-ink bg-card p-3.5 shadow-pixel">
-          <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-ink/45">
-            Made in Kolkata
-          </p>
-          <p className="mt-1 text-sm font-semibold leading-snug text-ink">
-            Free demo in 48 hours. Live in 7–10 days.
-          </p>
+      <aside className="fixed inset-y-0 left-0 z-40 hidden w-[248px] p-3 lg:flex">
+        <div className="flex w-full flex-col rounded-[1.75rem] border border-white/70 bg-white/45 p-3 shadow-[0_10px_40px_-18px_rgba(17,17,17,0.35)] backdrop-blur-xl">
+          <div className="flex-1 overflow-y-auto pt-1">{menu}</div>
+          <div className="mt-3 flex items-center gap-3 rounded-2xl bg-white/70 p-3 ring-1 ring-ink/5">
+            <img
+              src="/mascot/pixor-wave-white.webp"
+              alt=""
+              className="pixor-float h-10 w-10 shrink-0 object-contain"
+            />
+            <p className="text-[12px] font-semibold leading-snug text-ink/70">
+              Free demo in 48 hours.
+              <br />
+              <span className="text-ink/45">Made in Kolkata.</span>
+            </p>
+          </div>
         </div>
       </aside>
 
       {/* Mobile top bar */}
       <header className="fixed inset-x-0 top-0 z-[90] px-3 pt-3 lg:hidden">
         <div className="flex h-14 items-center justify-between rounded-full border-2 border-ink bg-card/90 px-3 shadow-pixel backdrop-blur-md">
-          <a href="#top" onClick={go("top")} className="flex items-center gap-2">
+          <a href="/#top" onClick={go("top")} className="flex items-center gap-2">
             <img src={logoMark} alt="Pixorra" className="h-9 w-9 object-contain" />
             <span className="font-display text-lg font-bold text-ink">Pixorra</span>
           </a>
@@ -213,7 +223,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
           className={`absolute inset-0 bg-ink/20 backdrop-blur-sm transition-opacity duration-300 ${open ? "opacity-100" : "opacity-0"}`}
         />
         <div
-          className={`absolute bottom-3 left-3 top-20 w-[min(300px,85vw)] overflow-y-auto rounded-3xl border-2 border-ink bg-cream p-4 shadow-pixel transition-transform duration-300 ${
+          className={`absolute bottom-3 left-3 top-20 w-[min(300px,85vw)] overflow-y-auto rounded-[1.75rem] border border-white/70 bg-white/80 p-3 shadow-[0_20px_50px_-20px_rgba(17,17,17,0.45)] backdrop-blur-xl transition-transform duration-300 ${
             open ? "translate-x-0" : "-translate-x-[110%]"
           }`}
         >

@@ -11,8 +11,8 @@ import { ProcessFlow } from "@/components/site/ProcessFlow";
 import { ReviewsFan } from "@/components/site/ReviewsFan";
 import { Marquee } from "@/components/site/Marquee";
 
-import { FAQ } from "@/components/site/FAQ";
-import { Footer } from "@/components/site/Footer";
+import { FAQCompact } from "@/components/site/FAQCompact";
+import { FooterKree8 } from "@/components/site/FooterKree8";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 import { SummerSale } from "@/components/site/SummerSale";
 
@@ -69,9 +69,9 @@ function Index() {
         <ProcessFlow />
         <PricingKree8 />
         <ReviewsFan />
-        <FAQ />
+        <FAQCompact />
         <FinalNote />
-        <Footer />
+        <FooterKree8 />
         <FloatingWhatsApp />
         <SummerSale />
       </main>

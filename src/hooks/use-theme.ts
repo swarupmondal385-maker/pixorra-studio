@@ -5,7 +5,7 @@ export type Theme = "light" | "dark";
 const STORAGE_KEY = "pixorra-theme";
 
 function getSystemTheme(): Theme {
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  return "light";
 }
 
 function applyTheme(theme: Theme) {

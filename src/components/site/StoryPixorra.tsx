@@ -1,4 +1,3 @@
-import logoMark from "@/assets/pixorra-mark.png";
 import { MarkerHighlight } from "./MarkerHighlight";
 import { StoryCollage } from "./StoryCollage";
 
@@ -70,7 +69,7 @@ export function StoryPixorra() {
         <p className="flex flex-wrap items-center gap-2">
           That’s why we built
           <span className="inline-flex items-center gap-1.5 font-display font-bold text-ink">
-            <img src={logoMark} alt="" className="h-8 w-8 object-contain" /> Pixorra
+            Pixorra
           </span>
         </p>
       </div>

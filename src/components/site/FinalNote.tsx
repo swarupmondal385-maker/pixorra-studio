@@ -1,5 +1,4 @@
 import { ArrowRight, Play } from "lucide-react";
-import logoMark from "@/assets/pixorra-mark.png";
 import { calBookingUrl, calDataAttributes } from "@/lib/cal";
 import { MarkerHighlight } from "./MarkerHighlight";
 
@@ -40,10 +39,7 @@ export function FinalNote() {
         <p className="mt-8 flex flex-wrap items-center gap-2 font-display text-3xl font-bold text-ink md:text-5xl">
           You just need
           <MarkerHighlight color="var(--pixel-yellow)">
-            <span className="inline-flex items-center gap-2">
-              <img src={logoMark} alt="" className="h-10 w-10 object-contain md:h-14 md:w-14" />
-              Pixorra
-            </span>
+            <span className="inline-flex items-center gap-2">Pixorra</span>
           </MarkerHighlight>
         </p>
 

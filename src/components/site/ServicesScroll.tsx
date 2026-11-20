@@ -158,7 +158,7 @@ export function ServicesScroll() {
   );
 
   return (
-    <section id="services" ref={section} className="relative bg-background lg:h-[260vh]">
+    <section id="services" ref={section} className="relative bg-background lg:h-[210vh]">
       {/* Desktop pinned stage */}
       <div className="hidden lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col lg:justify-center lg:overflow-hidden">
         {header}

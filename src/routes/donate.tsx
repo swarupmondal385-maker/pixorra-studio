@@ -1,452 +1,229 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import {
-  Heart,
-  IndianRupee,
-  Sparkles,
-  CheckCircle2,
-  ArrowRight,
-  Copy,
-  Star,
-  Play,
-  Stethoscope,
-  Users,
-  HandHeart,
-  ShieldCheck,
-} from "lucide-react";
-import logoMark from "@/assets/pixorra-mark.png";
-
-const UPI_ID = "pixorrastudio@upi";
-const UPI_NAME = "Pixorra Studio";
-
-const DONATION_TIERS = [
-  {
-    amount: "₹101",
-    label: "Meal Sponsor",
-    desc: "Feeds a family for a day",
-    emoji: "🍲",
-    c: "bg-pixel-pink",
-  },
-  {
-    amount: "₹251",
-    label: "Medicine Angel",
-    desc: "Covers basic medicines",
-    emoji: "💊",
-    c: "bg-pixel-yellow",
-    badge: "Popular",
-  },
-  {
-    amount: "₹501",
-    label: "Healing Hand",
-    desc: "Supports a doctor visit",
-    emoji: "🩺",
-    c: "bg-pixel-cyan",
-  },
-  {
-    amount: "₹1,001",
-    label: "Life Guardian",
-    desc: "Helps fund a surgery",
-    emoji: "🏥",
-    c: "bg-pixel-purple",
-  },
-];
-
-const IMPACT_CARDS = [
-  {
-    img: "🍲",
-    title: "Feed The Hungry",
-    desc: "Every ₹101 provides a day's meal for a family struggling to afford food.",
-    c: "bg-pixel-pink",
-  },
-  {
-    img: "💊",
-    title: "Medicine For All",
-    desc: "Your donations help buy essential medicines for those who can't afford them.",
-    c: "bg-pixel-yellow",
-  },
-  {
-    img: "🏥",
-    title: "Hospital Support",
-    desc: "We donate a portion of every project sale to local hospitals treating underprivileged patients.",
-    c: "bg-pixel-cyan",
-  },
-  {
-    img: "👶",
-    title: "Child Healthcare",
-    desc: "Supporting vaccinations and checkups for children in low-income communities.",
-    c: "bg-pixel-purple",
-  },
-];
-
-const HOSPITAL_SECTION = [
-  {
-    icon: Stethoscope,
-    title: "Every Sale Helps",
-    desc: "10% of every website & branding project revenue goes directly to partner hospitals.",
-    c: "bg-pixel-pink",
-    stat: "10%",
-  },
-  {
-    icon: Users,
-    title: "Community First",
-    desc: "We work with local Kolkata hospitals to identify families most in need of financial aid.",
-    c: "bg-pixel-yellow",
-    stat: "5+",
-  },
-  {
-    icon: HandHeart,
-    title: "Direct Impact",
-    desc: "Your donation goes 100% to patient care — we cover all operational costs ourselves.",
-    c: "bg-pixel-cyan",
-    stat: "100%",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Transparent",
-    desc: "Monthly reports published on how every rupee was spent. No hidden cuts.",
-    c: "bg-pixel-purple",
-    stat: "✓",
-  },
-];
+import { ArrowRight, MessageCircle, Sprout, Soup, Camera } from "lucide-react";
+import { useReveal } from "@/hooks/use-reveal";
+import { SiteShell } from "@/components/site/SiteShell";
+import { FooterKree8 } from "@/components/site/FooterKree8";
+import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
+import { MarkerHighlight } from "@/components/site/MarkerHighlight";
+import { calBookingUrl, calDataAttributes } from "@/lib/cal";
 
 export const Route = createFileRoute("/donate")({
-  component: DonatePage,
+  component: CaresPage,
   head: () => ({
     meta: [
-      { title: "Donate — Pixorra Cares" },
+      { title: "Pixorra Cares | Trees and meals from our work" },
       {
         name: "description",
         content:
-          "Help us feed families, provide medicines, and support hospital care for those in need. Every project we deliver donates a portion to healthcare.",
+          "Part of what Pixorra Studio earns goes to planting trees and feeding children. Small things, done every month.",
       },
+      { property: "og:title", content: "Pixorra Cares" },
+      { property: "og:image", content: "https://pixorrastudio.com/donate/sapling.jpg" },
     ],
   }),
 });
 
-function DonatePage() {
-  const [selected, setSelected] = useState(1);
-  const [copied, setCopied] = useState(false);
-  const tier = DONATION_TIERS[selected];
+const Photo = ({
+  src,
+  alt,
+  cap,
+  className = "",
+}: {
+  src: string;
+  alt: string;
+  cap?: string;
+  className?: string;
+}) => (
+  <figure
+    className={`reveal group relative overflow-hidden rounded-[1.5rem] border-2 border-ink bg-white shadow-pixel ${className}`}
+  >
+    <img
+      src={src}
+      alt={alt}
+      loading="lazy"
+      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+    />
+    {cap && (
+      <figcaption className="absolute bottom-3 left-3 rounded-full border-2 border-ink bg-white/95 px-3 py-0.5 font-hand text-lg text-ink">
+        {cap}
+      </figcaption>
+    )}
+  </figure>
+);
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(UPI_ID);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
+const Label = ({ children }: { children: string }) => (
+  <div className="reveal mx-auto flex max-w-4xl items-center gap-3 px-5 md:px-8">
+    <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-ink/40">
+      {children}
+    </span>
+    <span className="h-px flex-1 bg-ink/10" />
+  </div>
+);
 
+const PILLARS = [
+  {
+    icon: Sprout,
+    title: "We plant trees",
+    text: "Saplings planted and cared for, so the city gets a little greener every month.",
+    img: "/donate/canopy.jpg",
+    alt: "Tall green trees seen from below",
+    tint: "bg-[#effbe9]",
+  },
+  {
+    icon: Soup,
+    title: "We feed children",
+    text: "Warm, simple meals for children who need them most.",
+    img: "/donate/girl-meal.jpg",
+    alt: "A little girl sitting on the ground eating food",
+    tint: "bg-[#fffbe0]",
+  },
+];
+
+const STEPS = [
+  ["01", "You grow with Pixorra", "You get a website, WhatsApp AI and Google visibility."],
+  ["02", "A part goes to good", "Some of what we earn funds trees and meals."],
+  ["03", "We show you", "Photos and updates from the drives, shared with our clients."],
+];
+
+function CaresPage() {
+  useReveal();
   return (
-    <main className="relative min-h-screen bg-cream text-ink">
-      {/* Video Hero */}
-      <section className="relative h-screen min-h-[600px] max-h-[850px] flex items-center justify-center overflow-hidden bg-black">
-        <div className="absolute inset-0 bg-gradient-to-br from-pink-600/80 via-fuchsia-700/70 to-purple-900/80 z-10" />
-        <div
-          className="absolute inset-0 bg-gradient-to-r from-pink-600 via-fuchsia-500 to-purple-600 animate-pulse z-0"
-          style={{ animationDuration: "4s" }}
-        >
-          <div
-            className="absolute inset-0 opacity-30"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle at 30% 40%, rgba(255,255,255,0.4) 0%, transparent 50%), radial-gradient(circle at 70% 60%, rgba(255,217,61,0.3) 0%, transparent 50%)",
-            }}
-          />
-        </div>
-        <div className="absolute inset-0 z-0 pointer-events-none">
-          {Array.from({ length: 12 }).map((_, i) => (
-            <div
-              key={i}
-              className="absolute rounded-full bg-white/30 sparkle-pulse"
-              style={{
-                left: `${10 + Math.random() * 80}%`,
-                top: `${10 + Math.random() * 80}%`,
-                width: `${2 + Math.random() * 6}px`,
-                height: `${2 + Math.random() * 6}px`,
-                animationDelay: `${Math.random() * 3}s`,
-              }}
+    <SiteShell>
+      <main className="relative text-ink">
+        <section className="bg-background">
+          <div className="mx-auto max-w-5xl px-5 pt-10 sm:pt-14 md:px-10 md:pt-20">
+            <p className="reveal text-[11px] font-bold uppercase tracking-[0.2em] text-ink/45">
+              Pixorra Cares
+            </p>
+            <h1 className="reveal mt-5 font-display text-[2.35rem] font-bold leading-[1.06] tracking-[-0.03em] text-ink sm:text-6xl md:text-[4.2rem]">
+              Every website we build <span className="text-ink/35">leaves a little</span> good
+              behind.
+            </h1>
+            <p className="reveal mt-6 max-w-xl text-lg leading-relaxed text-ink/65 md:text-xl">
+              A part of what we earn goes to planting trees and feeding children. No big speeches.
+              Just small things, done every month.
+            </p>
+          </div>
+
+          <div className="mx-auto mt-12 grid max-w-6xl grid-cols-2 gap-3 px-3 pb-20 sm:gap-4 md:h-[620px] md:grid-cols-4 md:grid-rows-2 md:px-10 md:pb-0">
+            <Photo
+              src="/donate/sapling.jpg"
+              alt="Hands holding a small seedling in soil"
+              cap="it starts small"
+              className="col-span-2 aspect-square md:row-span-2 md:aspect-auto"
             />
-          ))}
-        </div>
-        <div className="relative z-20 text-center px-5 max-w-4xl mx-auto">
-          <div className="flex justify-center mb-6">
-            <div className="relative">
-              <div className="absolute inset-0 rounded-full bg-white/20 blur-2xl animate-pulse" />
-              <img
-                src={logoMark}
-                alt="Pixorra"
-                className="relative h-28 w-28 md:h-36 md:w-36 object-contain bounce-soft drop-shadow-[0_0_40px_rgba(255,255,255,0.5)]"
-              />
-            </div>
+            <Photo
+              src="/donate/kids-smiling.jpg"
+              alt="Five children smiling and making peace signs"
+              className="aspect-[4/5] md:aspect-auto"
+            />
+            <Photo
+              src="/donate/planting.jpg"
+              alt="A woman and a child planting a young tree"
+              className="aspect-[4/5] md:aspect-auto"
+            />
+            <Photo
+              src="/donate/bowl.jpg"
+              alt="A child eating from a bowl"
+              cap="a warm meal"
+              className="col-span-2 aspect-[16/9] md:aspect-auto"
+            />
           </div>
-          <div className="inline-flex items-center gap-2 h-9 px-4 rounded-full bg-white/10 backdrop-blur-md border border-white/30 text-xs font-bold tracking-wider uppercase mb-6">
-            <Heart className="h-3 w-3 text-pink-300" fill="currentColor" />
-            <span className="text-white/90">Pixorra Cares Initiative</span>
-          </div>
-          <h1 className="font-display font-bold text-white text-balance text-4xl sm:text-5xl md:text-7xl tracking-tight leading-[1.05]">
-            Every project we build
-            <br />
-            <span className="bg-gradient-to-r from-yellow-300 via-pink-300 to-cyan-300 bg-clip-text text-transparent">
-              helps someone heal.
-            </span>
-          </h1>
-          <p className="mt-6 text-white/80 text-lg md:text-xl max-w-2xl mx-auto">
-            10% of every website, branding, and marketing project goes to hospitals treating those
-            who can't afford care. Your donation multiplies the impact.
-          </p>
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="#donate-now"
-              className="group inline-flex items-center gap-2 h-14 px-8 rounded-full bg-gradient-to-r from-pink-500 via-fuchsia-500 to-purple-600 text-white font-bold border-2 border-white/30 shadow-lg hover:-translate-y-0.5 transition-transform"
-            >
-              Donate Now{" "}
-              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href="#our-mission"
-              className="inline-flex items-center gap-2 h-14 px-8 rounded-full bg-white/10 backdrop-blur-md border border-white/30 text-white font-bold hover:bg-white/20 transition-colors"
-            >
-              <Play className="h-4 w-4" /> Learn More
-            </a>
-          </div>
-        </div>
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2">
-          <span className="text-white/60 text-xs font-bold tracking-widest uppercase">Scroll</span>
-          <div className="h-8 w-5 rounded-full border-2 border-white/40 flex justify-center pt-1">
-            <div className="h-1.5 w-1.5 rounded-full bg-white/70 animate-bounce" />
-          </div>
-        </div>
-      </section>
+          <div className="hidden h-28 md:block" />
+        </section>
 
-      {/* Our Mission */}
-      <section id="our-mission" className="relative py-20 md:py-32 bg-background overflow-hidden">
-        <div
-          className="absolute -top-20 -right-20 h-96 w-96 rounded-full bg-pixel-pink/15 blob"
-          aria-hidden
-        />
-        <div
-          className="absolute bottom-10 -left-20 h-80 w-80 rounded-full bg-pixel-cyan/15 blob"
-          style={{ animationDelay: "2s" }}
-          aria-hidden
-        />
-        <div className="relative max-w-6xl mx-auto px-5 md:px-8">
-          <div className="text-center reveal max-w-3xl mx-auto">
-            <span className="inline-flex items-center gap-2 rounded-full bg-card border-2 border-ink px-4 py-1.5 text-[11px] font-bold tracking-[0.2em] text-ink uppercase shadow-pixel">
-              <Heart className="h-3 w-3 text-pixel-pink" fill="currentColor" /> Our Mission
-            </span>
-            <h2 className="mt-5 font-display text-4xl md:text-6xl font-bold text-ink tracking-tight text-balance leading-[1.05]">
-              Design that <span className="text-gradient-pixorra">heals.</span>
-            </h2>
-            <p className="mt-5 text-lg text-ink/65">
-              We believe great design should serve more than just business goals. That's why every
-              project we deliver gives back to the communities that need it most — starting with
-              healthcare.
+        <section className="bg-cream py-24 md:py-32">
+          <div className="reveal mx-auto max-w-2xl px-5 text-xl leading-relaxed text-ink/80 md:text-2xl md:leading-relaxed">
+            <p>We build websites for local businesses. That’s the job.</p>
+            <p className="mt-6">
+              But every time a new business goes live, we think about the people and the city around
+              it....
+            </p>
+            <p className="mt-6">
+              So we made a simple promise:{" "}
+              <MarkerHighlight color="var(--pixel-green)">a tree lives</MarkerHighlight>, and{" "}
+              <MarkerHighlight color="var(--pixel-yellow)">a child eats.</MarkerHighlight>
             </p>
           </div>
-          <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {IMPACT_CARDS.map((card, i) => (
-              <div
-                key={card.title}
-                className="reveal relative rounded-3xl bg-cream border-2 border-ink shadow-pixel p-6 flex flex-col items-center text-center hover:-translate-y-1 transition-transform"
-                style={{ animationDelay: `${i * 100}ms` }}
-              >
-                <div
-                  className={`h-16 w-16 rounded-2xl ${card.c} border-2 border-ink flex items-center justify-center text-3xl shadow-pixel`}
-                >
-                  {card.img}
-                </div>
-                <h3 className="mt-4 font-display text-lg font-bold text-ink">{card.title}</h3>
-                <p className="mt-2 text-sm text-ink/60 leading-relaxed">{card.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Hospital Partnership */}
-      <section className="relative py-20 md:py-32 bg-cream overflow-hidden">
-        <div
-          className="absolute top-40 -right-24 h-96 w-96 rounded-full bg-pixel-yellow/20 blob"
-          style={{ animationDelay: "3s" }}
-          aria-hidden
-        />
-        <div className="relative max-w-6xl mx-auto px-5 md:px-8">
-          <div className="text-center reveal max-w-3xl mx-auto">
-            <span className="inline-flex items-center gap-2 rounded-full bg-gradient-pixorra text-white px-4 py-1.5 text-[11px] font-bold tracking-[0.2em] uppercase shadow-pixel border-2 border-ink">
-              <Stethoscope className="h-3 w-3" /> Hospital Partnership
-            </span>
-            <h2 className="mt-5 font-display text-4xl md:text-6xl font-bold text-ink tracking-tight text-balance leading-[1.05]">
-              From every sale, <span className="text-gradient-pixorra">a life touched.</span>
-            </h2>
-            <p className="mt-5 text-lg text-ink/65">
-              Here's how we turn design projects into real healthcare support for families in need.
-            </p>
+          <div className="mt-20">
+            <Label>What we do</Label>
           </div>
-          <div className="mt-14 grid md:grid-cols-2 gap-6">
-            {HOSPITAL_SECTION.map(({ icon: Icon, title, desc, c, stat }, i) => (
-              <div
+          <div className="mx-auto mt-10 grid max-w-5xl gap-6 px-5 md:grid-cols-2 md:px-10">
+            {PILLARS.map(({ icon: Icon, title, text, img, alt, tint }) => (
+              <article
                 key={title}
-                className="reveal relative rounded-3xl bg-card border-2 border-ink shadow-pixel p-7 md:p-9 flex gap-5 hover:-translate-y-1 transition-transform"
-                style={{ animationDelay: `${i * 80}ms` }}
+                className={`reveal overflow-hidden rounded-[1.75rem] border-2 border-ink shadow-pixel ${tint}`}
               >
-                <div
-                  className={`h-14 w-14 rounded-2xl ${c} border-2 border-ink flex items-center justify-center shrink-0`}
-                >
-                  <Icon className="h-6 w-6 text-ink" />
+                <div className="aspect-[16/10] overflow-hidden border-b-2 border-ink">
+                  <img src={img} alt={alt} loading="lazy" className="h-full w-full object-cover" />
                 </div>
-                <div className="flex-1">
-                  <div className="flex items-start justify-between gap-4">
-                    <h3 className="font-display text-xl font-bold text-ink">{title}</h3>
-                    <span className="font-display text-2xl font-bold text-gradient-pixorra shrink-0">
-                      {stat}
-                    </span>
-                  </div>
-                  <p className="mt-2 text-sm text-ink/60 leading-relaxed">{desc}</p>
+                <div className="p-6">
+                  <span className="grid h-11 w-11 place-items-center rounded-xl border-2 border-ink bg-white">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <h2 className="mt-4 font-display text-2xl font-bold">{title}</h2>
+                  <p className="mt-2 leading-relaxed text-ink/70">{text}</p>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Donate Now */}
-      <section id="donate-now" className="relative py-20 md:py-32 bg-background overflow-hidden">
-        <div
-          className="absolute -top-24 left-1/4 h-80 w-80 rounded-full bg-pixel-pink/15 blob"
-          aria-hidden
-        />
-        <div
-          className="absolute bottom-20 right-10 h-72 w-72 rounded-full bg-pixel-purple/15 blob"
-          style={{ animationDelay: "3s" }}
-          aria-hidden
-        />
-        <div className="relative max-w-4xl mx-auto px-5 md:px-8">
-          <div className="text-center reveal">
-            <span className="inline-flex items-center gap-2 rounded-full bg-card border-2 border-ink px-4 py-1.5 text-[11px] font-bold tracking-[0.2em] text-ink uppercase shadow-pixel">
-              <IndianRupee className="h-3 w-3 text-pixel-green" /> Choose Your Impact
+          <div className="mt-20">
+            <Label>How it works</Label>
+          </div>
+          <ol className="mx-auto mt-10 grid max-w-5xl gap-4 px-5 md:grid-cols-3 md:px-10">
+            {STEPS.map(([n, t, d]) => (
+              <li
+                key={n}
+                className="reveal rounded-2xl border-2 border-ink bg-white p-5 shadow-pixel"
+              >
+                <span className="font-pixel text-[10px] text-pixel-pink">{n}</span>
+                <h3 className="mt-2 font-display text-xl font-bold">{t}</h3>
+                <p className="mt-1.5 text-ink/65">{d}</p>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <section className="bg-background py-24 md:py-28">
+          <div className="reveal mx-auto max-w-3xl px-5 text-center md:px-10">
+            <span className="mx-auto grid h-12 w-12 place-items-center rounded-2xl border-2 border-ink bg-[#fff1f7]">
+              <Camera className="h-5 w-5" />
             </span>
-            <h2 className="mt-5 font-display text-4xl md:text-6xl font-bold text-ink tracking-tight text-balance leading-[1.05]">
-              Every rupee <span className="text-gradient-pixorra">changes a life.</span>
+            <h2 className="mt-5 font-display text-4xl font-bold tracking-tight md:text-5xl">
+              Grow your business. <span className="text-ink/35">Do some good on the way.</span>
             </h2>
-            <p className="mt-5 text-lg text-ink/65 max-w-xl mx-auto">
-              Select an amount below and send via any UPI app. 100% goes to patient care.
+            <p className="mx-auto mt-4 max-w-xl text-lg text-ink/65">
+              Want to join a tree drive or help on a meal day? Message us. We’d love the company.
+            </p>
+            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+              <a
+                href={calBookingUrl}
+                {...calDataAttributes}
+                className="btn-lift inline-flex h-14 items-center justify-center gap-2 rounded-full border-2 border-ink bg-yellow-cta px-7 font-bold shadow-pixel"
+              >
+                Book free demo <ArrowRight className="h-4 w-4" />
+              </a>
+              <a
+                href="https://wa.me/918927840261?text=Hi%20Pixorra!%20I%20would%20like%20to%20join%20a%20tree%20or%20meal%20drive."
+                target="_blank"
+                rel="noreferrer"
+                className="btn-lift inline-flex h-14 items-center justify-center gap-2 rounded-full border-2 border-ink bg-white px-7 font-bold shadow-pixel"
+              >
+                <MessageCircle className="h-4 w-4 text-pixel-green" /> Join a drive
+              </a>
+            </div>
+            <p className="mt-10 text-xs text-ink/40">
+              Photos: Noah Buscher, Larm Rmah, Eyoel Kahssay, Wietse Jongsma, Casey Horner and
+              Gayatri Malhotra on Unsplash.
             </p>
           </div>
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-3 reveal">
-            {DONATION_TIERS.map((t, i) => (
-              <button
-                key={t.amount}
-                onClick={() => setSelected(i)}
-                className={`relative rounded-2xl border-2 border-ink p-5 text-center transition-all duration-200 hover:-translate-y-1 ${selected === i ? "bg-card shadow-pixel scale-105" : "bg-card/70 hover:bg-card hover:shadow-pixel"}`}
-              >
-                {t.badge && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full bg-gradient-pixorra px-2.5 py-0.5 text-[10px] font-bold text-white border border-ink whitespace-nowrap">
-                    <Star className="h-2.5 w-2.5 fill-white" strokeWidth={0} />
-                    {t.badge}
-                  </div>
-                )}
-                <span className="text-3xl md:text-4xl">{t.emoji}</span>
-                <div className="mt-2 font-display text-xl md:text-2xl font-bold text-ink">
-                  {t.amount}
-                </div>
-                <div className="text-xs font-bold text-ink/70 mt-0.5">{t.label}</div>
-                <div className="text-[11px] text-ink/40 mt-1 leading-tight">{t.desc}</div>
-              </button>
-            ))}
-          </div>
-          <div className="mt-8 reveal">
-            <div className="rounded-3xl bg-cream border-2 border-ink shadow-pixel p-6 md:p-8">
-              <div className="flex items-center gap-3 mb-5">
-                <div
-                  className={`h-12 w-12 rounded-xl ${tier.c} border-2 border-ink flex items-center justify-center text-2xl`}
-                >
-                  {tier.emoji}
-                </div>
-                <div>
-                  <div className="font-display text-xl font-bold text-ink">
-                    {tier.label} — {tier.amount}
-                  </div>
-                  <div className="text-xs text-ink/50 font-semibold">
-                    {tier.desc} • Send via any UPI app
-                  </div>
-                </div>
-              </div>
-              <div className="rounded-2xl bg-card border-2 border-dashed border-ink/20 p-5">
-                <div className="text-xs text-ink/50 font-bold uppercase tracking-wider mb-3">
-                  UPI ID
-                </div>
-                <div className="flex items-center justify-between gap-3 bg-cream rounded-xl border-2 border-ink p-4">
-                  <span className="font-mono font-bold text-ink text-base md:text-lg">
-                    {UPI_ID}
-                  </span>
-                  <button
-                    onClick={handleCopy}
-                    className={`inline-flex items-center gap-1.5 h-10 px-4 rounded-full border-2 border-ink text-sm font-bold transition-all ${copied ? "bg-pixel-green text-ink" : "bg-foreground text-background hover:-translate-y-0.5"}`}
-                  >
-                    {copied ? (
-                      <>
-                        <CheckCircle2 className="h-4 w-4" /> Copied
-                      </>
-                    ) : (
-                      <>
-                        <Copy className="h-4 w-4" /> Copy UPI
-                      </>
-                    )}
-                  </button>
-                </div>
-              </div>
-              <div className="mt-5 text-center">
-                <p className="text-sm text-ink/50">
-                  Works with Google Pay, PhonePe, Paytm, BHIM & all UPI apps
-                </p>
-                <div className="mt-3 inline-flex items-center gap-2 text-xs text-ink/40 font-bold">
-                  <CheckCircle2 className="h-3 w-3 text-pixel-green" /> Account: {UPI_NAME}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Mascot CTA */}
-      <section className="relative py-20 md:py-28 bg-gradient-pixorra overflow-hidden">
-        <div className="absolute inset-0 grid-bg opacity-15" />
-        <div className="absolute -top-10 -left-10 h-40 w-40 rounded-full bg-pixel-yellow/30 blur-2xl" />
-        <div className="absolute bottom-0 right-0 h-60 w-60 rounded-full bg-pixel-pink/25 blur-2xl" />
-        <div className="relative max-w-4xl mx-auto px-5 md:px-8 text-center">
-          <div className="flex justify-center mb-6">
-            <div className="relative">
-              <img
-                src={logoMark}
-                alt="Pixorra"
-                className="h-24 w-24 md:h-32 md:w-32 object-contain bounce-soft"
-              />
-            </div>
-          </div>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-white tracking-tight text-balance">
-            Together, we can{" "}
-            <span className="underline decoration-pixel-yellow decoration-4 underline-offset-4">
-              build and heal.
-            </span>
-          </h2>
-          <p className="mt-4 text-white/80 text-lg max-w-2xl mx-auto">
-            Whether you hire us for a project or donate directly — every contribution reaches
-            someone who needs it.
-          </p>
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="#donate-now"
-              className="inline-flex items-center gap-2 h-14 px-8 rounded-full bg-card text-ink font-bold border-2 border-ink shadow-pixel hover:-translate-y-0.5 transition-transform"
-            >
-              <Heart className="h-5 w-5 text-pixel-pink" fill="currentColor" /> Donate Now
-            </a>
-            <a
-              href="/"
-              className="inline-flex items-center gap-2 h-14 px-8 rounded-full bg-foreground text-background font-bold border-2 border-ink shadow-pixel hover:-translate-y-0.5 transition-transform"
-            >
-              Back to Home <ArrowRight className="h-5 w-5" />
-            </a>
-          </div>
-        </div>
-      </section>
-    </main>
+        <FooterKree8 />
+        <FloatingWhatsApp />
+      </main>
+    </SiteShell>
   );
 }
