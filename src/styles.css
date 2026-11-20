@@ -762,3 +762,12 @@
     );
   }
 }
+
+/* v2: kree8-style motion */
+@keyframes letter-bob { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-4px) } }
+.letter-bob { animation: letter-bob 2.4s ease-in-out infinite; }
+@keyframes card-wiggle { 0%,100% { translate: 0 0 } 50% { translate: 0 -6px } }
+.card-wiggle { animation: card-wiggle 5s ease-in-out infinite; }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+@media (prefers-reduced-motion: reduce) { .letter-bob, .card-wiggle { animation: none; } }

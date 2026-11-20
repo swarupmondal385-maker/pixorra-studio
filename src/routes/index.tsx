@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useReveal } from "@/hooks/use-reveal";
-import { Navbar } from "@/components/site/Navbar";
+import { SiteShell } from "@/components/site/SiteShell";
+import { StoryPixorra } from "@/components/site/StoryPixorra";
+import { WorkShowcase } from "@/components/site/WorkShowcase";
 import { Hero } from "@/components/site/Hero";
 import { Marquee } from "@/components/site/Marquee";
 import { About } from "@/components/site/About";
@@ -66,29 +68,22 @@ export const Route = createFileRoute("/")({
 function Index() {
   useReveal();
   return (
-    <main className="text-ink min-h-screen relative">
-      <PixelParallax />
-      <Navbar />
-      <Hero />
-      <Marquee />
-      <About />
-      <Process />
-      <Gallery />
-      <Pricing />
-
-      <Services />
-      <Stats />
-      <WhyUs />
-      <Results />
-      <Reviews />
-      <TrustBadges />
-      <DemoBanner />
-      <FAQ />
-      <Location />
-      <FinalCTA />
-      <Footer />
-      <FloatingWhatsApp />
-      <SummerSale />
-    </main>
+    <SiteShell>
+      <main className="relative text-ink">
+        <Hero />
+        <Marquee />
+        <StoryPixorra />
+        <WorkShowcase />
+        <Services />
+        <Process />
+        <Pricing />
+        <Reviews />
+        <FAQ />
+        <FinalCTA />
+        <Footer />
+        <FloatingWhatsApp />
+        <SummerSale />
+      </main>
+    </SiteShell>
   );
 }
