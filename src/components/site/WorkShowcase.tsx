@@ -92,6 +92,7 @@ const DEMOS: Record<string, Demo[]> = {
 export function WorkShowcase() {
   const [cat, setCat] = useState(CATS[0].id);
   const [idx, setIdx] = useState(0);
+  const [live, setLive] = useState(false);
   const list = DEMOS[cat];
   const demo = list[idx % list.length];
   const host = demo.url.replace(/^https?:\/\//, "").replace(/\/$/, "");
@@ -137,13 +138,28 @@ export function WorkShowcase() {
                 loading="lazy"
                 className="absolute inset-0 h-full w-full"
               />
+              {!live && (
+                <button
+                  type="button"
+                  onClick={() => setLive(true)}
+                  aria-label={`Explore the ${demo.name} website`}
+                  className="group absolute inset-0 flex items-end justify-center bg-gradient-to-t from-ink/25 via-transparent to-transparent pb-5"
+                >
+                  <span className="rounded-full border-2 border-ink bg-white px-4 py-2 text-sm font-bold text-ink shadow-pixel transition-transform group-hover:-translate-y-1">
+                    Click to explore the live site
+                  </span>
+                </button>
+              )}
             </div>
             {list.length > 1 && (
               <>
                 <button
                   type="button"
                   aria-label="Previous project"
-                  onClick={() => setIdx((i) => (i - 1 + list.length) % list.length)}
+                  onClick={() => {
+                    setIdx((i) => (i - 1 + list.length) % list.length);
+                    setLive(false);
+                  }}
                   className="absolute left-3 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full border-2 border-ink bg-white/90 shadow-pixel"
                 >
                   <ChevronLeft className="h-5 w-5" />
@@ -151,7 +167,10 @@ export function WorkShowcase() {
                 <button
                   type="button"
                   aria-label="Next project"
-                  onClick={() => setIdx((i) => (i + 1) % list.length)}
+                  onClick={() => {
+                    setIdx((i) => (i + 1) % list.length);
+                    setLive(false);
+                  }}
                   className="absolute right-3 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full border-2 border-ink bg-white/90 shadow-pixel"
                 >
                   <ChevronRight className="h-5 w-5" />
@@ -173,7 +192,10 @@ export function WorkShowcase() {
                     key={d.url}
                     type="button"
                     aria-label={`Show ${d.name}`}
-                    onClick={() => setIdx(i)}
+                    onClick={() => {
+                      setIdx(i);
+                      setLive(false);
+                    }}
                     className={`h-2.5 rounded-full border border-ink transition-all ${
                       i === idx % list.length ? "w-7 bg-ink" : "w-2.5 bg-white"
                     }`}
@@ -196,6 +218,7 @@ export function WorkShowcase() {
                 onClick={() => {
                   setCat(id);
                   setIdx(0);
+                  setLive(false);
                 }}
                 className="group flex w-20 flex-col items-center gap-2 md:w-24"
               >

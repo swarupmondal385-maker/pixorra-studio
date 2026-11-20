@@ -67,7 +67,7 @@ export function Footer() {
             </a>
             <p className="mt-5 text-ink/65 max-w-sm leading-relaxed">
               Premium websites, ads and branding for ambitious Indian businesses. Designed in
-              Mumbai, loved across India.
+              Kolkata, loved across India.
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
               {[
@@ -146,7 +146,7 @@ export function Footer() {
                 </a>
               </li>
               <li className="flex items-center gap-3 text-sm text-ink/70 px-1">
-                <MapPin className="h-4 w-4 text-pixel-pink" /> Mumbai, Maharashtra, India
+                <MapPin className="h-4 w-4 text-pixel-pink" /> Kolkata, West Bengal, India
               </li>
               <li className="flex items-center gap-3 text-sm text-ink/70 px-1">
                 <Clock className="h-4 w-4 text-pixel-purple" /> Mon–Sat · 10 AM – 8 PM IST
@@ -157,7 +157,7 @@ export function Footer() {
         <div className="mt-12 pt-6 border-t-2 border-dashed border-ink/20 flex flex-col md:flex-row gap-3 md:items-center md:justify-between text-sm text-ink/60">
           <div suppressHydrationWarning>© {year} Pixorra. All rights reserved.</div>
           <div className="inline-flex items-center gap-1.5 font-semibold text-ink/80">
-            Made with <Heart className="h-3.5 w-3.5 fill-pixel-pink text-pixel-pink" /> in Mumbai
+            Made with <Heart className="h-3.5 w-3.5 fill-pixel-pink text-pixel-pink" /> in Kolkata
           </div>
         </div>
       </div>

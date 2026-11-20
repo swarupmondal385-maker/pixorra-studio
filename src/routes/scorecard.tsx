@@ -519,7 +519,7 @@ function ScorecardPage() {
           {/* Trust row */}
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             <TrustChip emoji="⭐" text="Trusted by 10,000+ businesses" />
-            <TrustChip emoji="🇮🇳" text="Made in Mumbai" />
+            <TrustChip emoji="🇮🇳" text="Made in Kolkata" />
             <TrustChip emoji="⚡" text="Results in 2 mins" />
           </div>
         </div>

@@ -60,8 +60,8 @@ const FAQS = [
     a: "Yes. Every project includes 30 days of post-launch support, and we offer affordable monthly maintenance plans from ₹1,999/month.",
   },
   {
-    q: "Do you work with clients outside Mumbai?",
-    a: "Absolutely. We serve clients across India — Pune, Delhi, Bangalore, Kolkata, Chennai, Hyderabad, Surat and beyond. Everything runs smoothly over WhatsApp and Google Meet.",
+    q: "Do you work with clients outside Kolkata?",
+    a: "Absolutely. We serve clients across India — Mumbai, Pune, Delhi, Bangalore, Chennai, Hyderabad, Surat and beyond. Everything runs smoothly over WhatsApp and Google Meet.",
   },
 ];
 

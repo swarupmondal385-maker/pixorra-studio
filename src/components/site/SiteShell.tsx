@@ -62,17 +62,28 @@ export function SiteShell({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  // Scroll-spy: highlight the section in view
+  // Scroll-spy: the last nav section whose top has passed 40% of the screen
   useEffect(() => {
-    const els = NAV.map((n) => document.getElementById(n.id)).filter(Boolean) as HTMLElement[];
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => e.isIntersecting && setActive(e.target.id));
-      },
-      { rootMargin: "-45% 0px -50% 0px" },
-    );
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const line = window.innerHeight * 0.4;
+      let current = NAV[0].id;
+      for (const n of NAV) {
+        const el = document.getElementById(n.id);
+        if (el && el.getBoundingClientRect().top <= line) current = n.id;
+      }
+      setActive(current);
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const go = (id: string) => (e: React.MouseEvent) => {
@@ -175,7 +186,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
       </aside>
 
       {/* Mobile top bar */}
-      <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 lg:hidden">
+      <header className="fixed inset-x-0 top-0 z-[90] px-3 pt-3 lg:hidden">
         <div className="flex h-14 items-center justify-between rounded-full border-2 border-ink bg-card/90 px-3 shadow-pixel backdrop-blur-md">
           <a href="#top" onClick={go("top")} className="flex items-center gap-2">
             <img src={logoMark} alt="Pixorra" className="h-9 w-9 object-contain" />
@@ -194,7 +205,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
       </header>
       {/* Mobile drawer */}
       <div
-        className={`fixed inset-0 z-40 lg:hidden ${open ? "pointer-events-auto" : "pointer-events-none"}`}
+        className={`fixed inset-0 z-[85] lg:hidden ${open ? "pointer-events-auto" : "pointer-events-none"}`}
         aria-hidden={!open}
       >
         <div

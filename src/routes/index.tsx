@@ -3,26 +3,17 @@ import { useReveal } from "@/hooks/use-reveal";
 import { SiteShell } from "@/components/site/SiteShell";
 import { StoryPixorra } from "@/components/site/StoryPixorra";
 import { WorkShowcase } from "@/components/site/WorkShowcase";
+import { PricingKree8 } from "@/components/site/PricingKree8";
+import { FinalNote } from "@/components/site/FinalNote";
 import { Hero } from "@/components/site/Hero";
 import { Marquee } from "@/components/site/Marquee";
-import { About } from "@/components/site/About";
 import { Services } from "@/components/site/Services";
-import { Pricing } from "@/components/site/Pricing";
 
 import { Process } from "@/components/site/Process";
-import { Stats } from "@/components/site/Stats";
-import { WhyUs } from "@/components/site/WhyUs";
-import { Results } from "@/components/site/Results";
 import { Reviews } from "@/components/site/Reviews";
-import { TrustBadges } from "@/components/site/TrustBadges";
-import { DemoBanner } from "@/components/site/DemoBanner";
-import { Gallery } from "@/components/site/Gallery";
 import { FAQ } from "@/components/site/FAQ";
-import { Location } from "@/components/site/Location";
-import { FinalCTA } from "@/components/site/FinalCTA";
 import { Footer } from "@/components/site/Footer";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
-import { PixelParallax } from "@/components/site/PixelParallax";
 import { SummerSale } from "@/components/site/SummerSale";
 
 export const Route = createFileRoute("/")({
@@ -76,10 +67,10 @@ function Index() {
         <WorkShowcase />
         <Services />
         <Process />
-        <Pricing />
+        <PricingKree8 />
         <Reviews />
         <FAQ />
-        <FinalCTA />
+        <FinalNote />
         <Footer />
         <FloatingWhatsApp />
         <SummerSale />

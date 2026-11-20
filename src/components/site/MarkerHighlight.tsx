@@ -14,7 +14,7 @@ export function MarkerHighlight({
         aria-hidden
         viewBox="0 0 200 40"
         preserveAspectRatio="none"
-        className="absolute -inset-x-[6%] bottom-[0.06em] -z-0 h-[0.55em] w-[112%]"
+        className="absolute -inset-x-[6%] bottom-[0.02em] -z-0 h-[0.62em] w-[112%]"
       >
         <path
           d="M4 26 C 40 14, 90 30, 130 18 S 190 22, 196 14 L 194 34 C 150 40, 90 30, 50 38 S 8 36, 4 34 Z"

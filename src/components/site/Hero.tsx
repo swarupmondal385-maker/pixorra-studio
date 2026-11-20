@@ -18,7 +18,7 @@ export function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
   return (
-    <section id="top" className="relative pt-28 md:pt-36 bg-gradient-hero overflow-hidden">
+    <section id="top" className="relative pt-12 md:pt-16 bg-gradient-hero overflow-hidden">
       {/* Big soft blobs */}
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute -top-24 -left-24 h-80 w-80 bg-pixel-pink/25 blob" />

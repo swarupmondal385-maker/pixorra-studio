@@ -764,10 +764,69 @@
 }
 
 /* v2: kree8-style motion */
-@keyframes letter-bob { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-4px) } }
-.letter-bob { animation: letter-bob 2.4s ease-in-out infinite; }
-@keyframes card-wiggle { 0%,100% { translate: 0 0 } 50% { translate: 0 -6px } }
-.card-wiggle { animation: card-wiggle 5s ease-in-out infinite; }
-html.lenis, html.lenis body { height: auto; }
-.lenis.lenis-smooth { scroll-behavior: auto !important; }
-@media (prefers-reduced-motion: reduce) { .letter-bob, .card-wiggle { animation: none; } }
+@keyframes letter-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+.letter-bob {
+  animation: letter-bob 2.4s ease-in-out infinite;
+}
+@keyframes card-wiggle {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -6px;
+  }
+}
+.card-wiggle {
+  animation: card-wiggle 5s ease-in-out infinite;
+}
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .letter-bob,
+  .card-wiggle {
+    animation: none;
+  }
+}
+
+@keyframes pixor-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.pixor-float {
+  animation: pixor-float 4s ease-in-out infinite;
+}
+.btn-lift {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.btn-lift:hover {
+  transform: translate(2px, -3px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .pixor-float {
+    animation: none;
+  }
+  .btn-lift:hover {
+    transform: none;
+  }
+}

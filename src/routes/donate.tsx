@@ -89,7 +89,7 @@ const HOSPITAL_SECTION = [
   {
     icon: Users,
     title: "Community First",
-    desc: "We work with local Mumbai hospitals to identify families most in need of financial aid.",
+    desc: "We work with local Kolkata hospitals to identify families most in need of financial aid.",
     c: "bg-pixel-yellow",
     stat: "5+",
   },
