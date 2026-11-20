@@ -1083,3 +1083,54 @@ html.lenis body {
     animation: none;
   }
 }
+
+/* Playground */
+@keyframes confetti-fall {
+  0% {
+    translate: 0 -20px;
+    opacity: 1;
+  }
+  100% {
+    translate: 0 520px;
+    opacity: 0;
+    rotate: 540deg;
+  }
+}
+.confetti-bit {
+  animation: confetti-fall linear forwards;
+}
+.pg-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(17, 17, 17, 0.1);
+  outline: none;
+}
+.pg-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 26px;
+  width: 26px;
+  border-radius: 999px;
+  background: #fff;
+  border: 2px solid #111;
+  box-shadow: 2px 2px 0 #111;
+  cursor: pointer;
+}
+.pg-range::-moz-range-thumb {
+  height: 24px;
+  width: 24px;
+  border-radius: 999px;
+  background: #fff;
+  border: 2px solid #111;
+  box-shadow: 2px 2px 0 #111;
+  cursor: pointer;
+}
+.pg-range:focus-visible::-webkit-slider-thumb {
+  outline: 3px solid #ff4fa3;
+}
+@media (prefers-reduced-motion: reduce) {
+  .confetti-bit {
+    display: none;
+  }
+}

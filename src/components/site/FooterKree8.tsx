@@ -98,14 +98,14 @@ export function FooterKree8() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative overflow-hidden border-t-2 border-ink bg-[#4fb8f0]">
+    <footer className="relative overflow-hidden border-t-2 border-ink bg-[linear-gradient(180deg,#1ea7ef_0%,#45b9f3_45%,#8ad3f7_80%,#b7e3f8_100%)] md:bg-[#4fb8f0]">
       {/* Sky + grass hill */}
       <img
         src="/footer/hill.webp"
         alt=""
         aria-hidden
         loading="lazy"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover object-bottom"
+        className="pointer-events-none absolute bottom-0 left-1/2 w-[240%] max-w-none -translate-x-1/2 [mask-image:linear-gradient(to_bottom,transparent,black_30%)] sm:w-[140%] md:[mask-image:none] md:inset-0 md:left-0 md:h-full md:w-full md:translate-x-0 md:object-cover md:object-bottom"
       />
       <div
         aria-hidden
@@ -152,12 +152,12 @@ export function FooterKree8() {
           </div>
 
           {/* Cards */}
-          <div className="mt-14 grid gap-5 md:grid-cols-3">
+          <div className="-mx-5 mt-12 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-3 [scrollbar-width:none] md:mx-0 md:mt-14 md:grid md:grid-cols-3 md:gap-5 md:overflow-visible md:px-0 md:pb-0 [&::-webkit-scrollbar]:hidden">
             <a
               href="https://tms-studio-sage.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="reveal group flex flex-col rounded-[1.75rem] border border-white/70 bg-white/45 backdrop-blur-xl shadow-[0_10px_40px_-15px_rgba(17,17,17,0.35)] p-5 transition-transform hover:-translate-y-1"
+              className="reveal group flex w-[82%] shrink-0 snap-center flex-col rounded-[1.75rem] md:w-auto border border-white/70 bg-white/45 backdrop-blur-xl shadow-[0_10px_40px_-15px_rgba(17,17,17,0.35)] p-5 transition-transform hover:-translate-y-1"
             >
               <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-ink/45">
                 Latest work
@@ -186,8 +186,8 @@ export function FooterKree8() {
             </a>
 
             <a
-              href="/scorecard"
-              className="reveal group flex flex-col rounded-[1.75rem] border border-white/70 bg-white/45 backdrop-blur-xl shadow-[0_10px_40px_-15px_rgba(17,17,17,0.35)] p-5 transition-transform hover:-translate-y-1"
+              href="/playground"
+              className="reveal group flex w-[82%] shrink-0 snap-center flex-col rounded-[1.75rem] md:w-auto border border-white/70 bg-white/45 backdrop-blur-xl shadow-[0_10px_40px_-15px_rgba(17,17,17,0.35)] p-5 transition-transform hover:-translate-y-1"
             >
               <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-ink/45">
                 Free tool
@@ -196,18 +196,18 @@ export function FooterKree8() {
                 <Gauge className="h-6 w-6 text-pixel-pink" />
               </div>
               <p className="mt-4 font-display text-2xl font-bold leading-tight text-ink">
-                Is your business easy to find online?
+                Play 3 games. Get your growth score.
               </p>
               <p className="mt-2 flex-1 text-sm text-ink/65">
-                Answer a few questions and get your free growth score in 2 minutes.
+                How easy are you to find? How fast do you reply? Find out in 2 minutes.
               </p>
               <span className="mt-5 inline-flex w-fit items-center gap-2 rounded-full border-2 border-ink bg-white px-4 py-2 text-sm font-bold">
-                Get my score{" "}
+                Open Playground{" "}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </span>
             </a>
 
-            <div className="reveal relative flex min-h-[300px] flex-col overflow-hidden rounded-[1.75rem] border border-white/70 bg-white/45 backdrop-blur-xl shadow-[0_10px_40px_-15px_rgba(17,17,17,0.35)] p-5">
+            <div className="reveal relative flex min-h-[300px] w-[82%] shrink-0 snap-center flex-col md:w-auto overflow-hidden rounded-[1.75rem] border border-white/70 bg-white/45 backdrop-blur-xl shadow-[0_10px_40px_-15px_rgba(17,17,17,0.35)] p-5">
               <div className="flex items-start justify-between">
                 <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-ink/45">
                   Studio time
@@ -245,6 +245,7 @@ export function FooterKree8() {
               {
                 h: "Free",
                 l: [
+                  ["Playground", "/playground"],
                   ["Growth scorecard", "/scorecard"],
                   ["Free demo website", calBookingUrl],
                   ["FAQ", "/#faq"],
@@ -269,7 +270,10 @@ export function FooterKree8() {
                 ],
               },
             ].map((col) => (
-              <div key={col.h}>
+              <div
+                key={col.h}
+                className={col.h === "Contact" ? "col-span-2 md:col-span-1" : undefined}
+              >
                 <div className="text-[11px] font-bold uppercase tracking-[0.18em] text-ink/40">
                   {col.h}
                 </div>
@@ -291,13 +295,13 @@ export function FooterKree8() {
         </div>
 
         {/* Interactive wordmark */}
-        <div className="mt-16 md:mt-20">
+        <div className="mt-28 md:mt-20">
           <Wordmark />
         </div>
 
-        <div className="mx-auto mb-5 flex max-w-6xl flex-col items-center justify-between gap-3 rounded-full border border-white/70 bg-white/55 px-5 py-3 text-sm text-ink/70 backdrop-blur-xl sm:flex-row md:mx-10 lg:mx-auto">
+        <div className="mx-3 mb-4 flex max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-2 rounded-[1.5rem] sm:mx-auto sm:rounded-full border border-white/70 bg-white/55 px-5 py-3 text-sm text-ink/70 backdrop-blur-xl sm:flex-row md:mx-10 lg:mx-auto">
           <span suppressHydrationWarning>© {year} Pixorra Studio</span>
-          <span>Made with ♥ in Kolkata</span>
+          <span className="hidden sm:inline">Made with ♥ in Kolkata</span>
           <a
             href="#top"
             className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-white px-4 py-1.5 font-bold text-ink shadow-[2px_2px_0_0_#111]"

@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ScorecardRouteImport } from './routes/scorecard'
+import { Route as PlaygroundRouteImport } from './routes/playground'
 import { Route as DonateRouteImport } from './routes/donate'
 import { Route as IndexRouteImport } from './routes/index'
 
 const ScorecardRoute = ScorecardRouteImport.update({
   id: '/scorecard',
   path: '/scorecard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlaygroundRoute = PlaygroundRouteImport.update({
+  id: '/playground',
+  path: '/playground',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DonateRoute = DonateRouteImport.update({
@@ -32,30 +38,34 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/donate': typeof DonateRoute
+  '/playground': typeof PlaygroundRoute
   '/scorecard': typeof ScorecardRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/donate': typeof DonateRoute
+  '/playground': typeof PlaygroundRoute
   '/scorecard': typeof ScorecardRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/donate': typeof DonateRoute
+  '/playground': typeof PlaygroundRoute
   '/scorecard': typeof ScorecardRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/donate' | '/scorecard'
+  fullPaths: '/' | '/donate' | '/playground' | '/scorecard'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/donate' | '/scorecard'
-  id: '__root__' | '/' | '/donate' | '/scorecard'
+  to: '/' | '/donate' | '/playground' | '/scorecard'
+  id: '__root__' | '/' | '/donate' | '/playground' | '/scorecard'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DonateRoute: typeof DonateRoute
+  PlaygroundRoute: typeof PlaygroundRoute
   ScorecardRoute: typeof ScorecardRoute
 }
 
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/scorecard'
       fullPath: '/scorecard'
       preLoaderRoute: typeof ScorecardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/playground': {
+      id: '/playground'
+      path: '/playground'
+      fullPath: '/playground'
+      preLoaderRoute: typeof PlaygroundRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/donate': {
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DonateRoute: DonateRoute,
+  PlaygroundRoute: PlaygroundRoute,
   ScorecardRoute: ScorecardRoute,
 }
 export const routeTree = rootRouteImport

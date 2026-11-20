@@ -25,7 +25,7 @@ const NAV = [
   { id: "faq", label: "FAQ", icon: HelpCircle, tile: "bg-[#af52de]" },
 ];
 const PAGES = [
-  { href: "/scorecard", label: "Playground", icon: Gamepad2, badge: "Play", tile: "bg-[#ff2d55]" },
+  { href: "/playground", label: "Playground", icon: Gamepad2, badge: "Play", tile: "bg-[#ff2d55]" },
   { href: "/donate", label: "Pixorra Cares", icon: Heart, tile: "bg-[#30b0c7]" },
 ];
 const WA = "https://wa.me/918927840261?text=Hi%20Pixorra!%20I%20want%20to%20grow%20my%20business.";
@@ -36,6 +36,8 @@ type LenisLike = { scrollTo: (t: HTMLElement | number, o?: { offset?: number }) 
  *  content inside a big rounded bubblegum panel. Also adds buttery smooth scrolling. */
 export function SiteShell({ children }: { children: ReactNode }) {
   const [active, setActive] = useState("top");
+  const [path, setPath] = useState("/");
+  useEffect(() => setPath(window.location.pathname), []);
   const [open, setOpen] = useState(false);
   const [lenis, setLenis] = useState<LenisLike | null>(null);
 
@@ -68,6 +70,10 @@ export function SiteShell({ children }: { children: ReactNode }) {
     const update = () => {
       ticking = false;
       const line = window.innerHeight * 0.4;
+      if (!document.getElementById(NAV[1].id)) {
+        setActive("");
+        return;
+      }
       let current = NAV[0].id;
       for (const n of NAV) {
         const el = document.getElementById(n.id);
@@ -138,7 +144,12 @@ export function SiteShell({ children }: { children: ReactNode }) {
           <a
             key={href}
             href={href}
-            className={`${item} text-ink/65 hover:bg-white/60 hover:text-ink`}
+            aria-current={path === href ? "page" : undefined}
+            className={`${item} ${
+              path === href
+                ? "bg-white text-ink shadow-[0_1px_2px_rgba(0,0,0,0.06),0_6px_16px_-6px_rgba(0,0,0,0.18)]"
+                : "text-ink/65 hover:bg-white/60 hover:text-ink"
+            }`}
           >
             <Tile icon={icon} tile={tile} />
             {label}
