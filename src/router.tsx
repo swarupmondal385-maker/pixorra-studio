@@ -1,3 +1,4 @@
+import type { ErrorComponentProps } from "@tanstack/react-router";
 /* eslint-disable react-refresh/only-export-components */
 import { useEffect } from "react";
 import { createRouter, useRouter } from "@tanstack/react-router";
@@ -10,7 +11,8 @@ function isChunkLoadError(error: Error) {
   return CHUNK_ERROR_RE.test(error.message);
 }
 
-function DefaultErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function DefaultErrorComponent({ error: rawError, reset }: ErrorComponentProps) {
+  const error = rawError instanceof Error ? rawError : new Error(String(rawError));
   const router = useRouter();
   const chunkLoadFailure = isChunkLoadError(error);
 
