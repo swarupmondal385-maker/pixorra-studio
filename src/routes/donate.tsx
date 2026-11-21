@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, MessageCircle, Sprout, Soup, Camera } from "lucide-react";
+import { ArrowRight, BadgeCheck, Camera, Leaf, MessageCircle, Soup, Sprout } from "lucide-react";
 import { useReveal } from "@/hooks/use-reveal";
 import { SiteShell } from "@/components/site/SiteShell";
 import { FooterKree8 } from "@/components/site/FooterKree8";
@@ -184,6 +184,67 @@ function CaresPage() {
               </li>
             ))}
           </ol>
+        </section>
+
+        {/* For businesses: SDG green certificate in every package */}
+        <section className="bg-background pt-24 md:pt-32">
+          <div className="mx-auto grid max-w-5xl items-center gap-10 px-5 md:grid-cols-2 md:px-10">
+            <div className="reveal">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#dcfce7] px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[#15803d] ring-1 ring-[#15803d]/20">
+                <Leaf className="h-3.5 w-3.5" /> For businesses
+              </span>
+              <h2 className="mt-5 font-display text-4xl font-bold tracking-tight md:text-5xl">
+                Every package comes with an{" "}
+                <MarkerHighlight color="var(--pixel-green)">SDG certificate.</MarkerHighlight>
+              </h2>
+              <p className="mt-5 text-lg leading-relaxed text-ink/65">
+                When you build with Pixorra, your business gets an SDG green certificate showing you
+                stand for cleaner air and less pollution. Put it on your website, your shop counter
+                and your socials. Customers notice the businesses that care.
+              </p>
+              <ul className="mt-6 space-y-2.5 text-[15px] font-semibold text-ink/80">
+                {[
+                  "Included free in every package",
+                  "Aligned with the UN Sustainable Development Goals",
+                  "A trust badge you can show on your site",
+                ].map((t) => (
+                  <li key={t} className="flex items-center gap-2.5">
+                    <BadgeCheck className="h-5 w-5 shrink-0 text-[#15803d]" /> {t}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Certificate preview */}
+            <div className="reveal">
+              <div className="relative mx-auto max-w-md rotate-[-2deg] rounded-[1.5rem] border-2 border-ink bg-[#fffdf6] p-2 shadow-[8px_8px_0_0_#111] transition-transform duration-500 hover:rotate-0">
+                <div className="rounded-[1.1rem] border-2 border-dashed border-[#15803d]/40 px-6 py-8 text-center">
+                  <span className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-[#15803d] text-white shadow-[0_8px_20px_-8px_#15803d]">
+                    <Leaf className="h-7 w-7" />
+                  </span>
+                  <div className="mt-4 text-[10px] font-bold uppercase tracking-[0.25em] text-[#15803d]">
+                    Certificate of commitment
+                  </div>
+                  <div className="mt-2 font-display text-2xl font-bold text-ink">
+                    SDG Green Business
+                  </div>
+                  <div className="mx-auto mt-4 h-px w-24 bg-ink/15" />
+                  <p className="mt-4 text-sm text-ink/55">Proudly presented to</p>
+                  <p className="font-sign text-4xl leading-tight text-ink">Your Business</p>
+                  <p className="mt-2 text-xs text-ink/50">
+                    for supporting cleaner air and a pollution-free future
+                  </p>
+                  <div className="mt-6 flex items-center justify-between text-left text-[10px] font-semibold uppercase tracking-wider text-ink/40">
+                    <span>Pixorra Cares</span>
+                    <span className="grid h-10 w-10 place-items-center rounded-full border-2 border-[#15803d]/50 text-[#15803d]">
+                      <BadgeCheck className="h-5 w-5" />
+                    </span>
+                    <span>Kolkata, India</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section className="bg-background py-24 md:py-28">

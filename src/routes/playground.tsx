@@ -10,6 +10,8 @@ import {
   Zap,
   IndianRupee,
   Sparkles,
+  Hand,
+  Drama,
   type LucideIcon,
 } from "lucide-react";
 import { useReveal } from "@/hooks/use-reveal";
@@ -26,14 +28,14 @@ export const Route = createFileRoute("/playground")({
       {
         name: "description",
         content:
-          "Play 3 quick games and find out how easy your business is to find, how fast you reply, and how many customers you might be missing.",
+          "Play 5 quick games: your growth score, a reply race, missed money, a customer-catching arcade and a silly business personality quiz.",
       },
       { property: "og:title", content: "Pixorra Playground" },
     ],
   }),
 });
 
-type GameId = "score" | "race" | "missed";
+type GameId = "score" | "race" | "missed" | "catch" | "persona";
 const GAMES: { id: GameId; title: string; sub: string; icon: LucideIcon; tile: string }[] = [
   { id: "score", title: "Growth Score", sub: "6 quick taps", icon: Gauge, tile: "bg-[#ff4fa3]" },
   { id: "race", title: "Reply Race", sub: "Test your reflex", icon: Zap, tile: "bg-[#34c759]" },
@@ -43,6 +45,20 @@ const GAMES: { id: GameId; title: string; sub: string; icon: LucideIcon; tile: s
     sub: "Do the maths",
     icon: IndianRupee,
     tile: "bg-[#007aff]",
+  },
+  {
+    id: "catch",
+    title: "Customer Catch",
+    sub: "20-second arcade",
+    icon: Hand,
+    tile: "bg-[#ff9500]",
+  },
+  {
+    id: "persona",
+    title: "Biz Personality",
+    sub: "Silly but true",
+    icon: Drama,
+    tile: "bg-[#af52de]",
   },
 ];
 const XP_PER_GAME = 100;
@@ -449,6 +465,360 @@ function MissedGame({ onDone }: { onDone: (v: number) => void }) {
   );
 }
 
+/* ---------------- Game 4: Customer Catch (arcade) ---------------- */
+const CUSTOMERS = ["🧑‍🍳", "👩‍💼", "🧔", "👵", "🧑‍🎓", "👨‍👩‍👧", "💃", "🧑‍🔧"];
+const TROLLS = ["🤖", "😈"];
+const ROUND = 20;
+type Hole = { id: number; emoji: string; troll: boolean } | null;
+
+function CatchGame({ onDone }: { onDone: (caught: number) => void }) {
+  const [state, setState] = useState<"idle" | "play" | "done">("idle");
+  const [holes, setHoles] = useState<Hole[]>(Array(9).fill(null));
+  const [left, setLeft] = useState(ROUND);
+  const [caught, setCaught] = useState(0);
+  const [missed, setMissed] = useState(0);
+  const [pop, setPop] = useState<{ i: number; t: string } | null>(null);
+  const timers = useRef<number[]>([]);
+  const uid = useRef(0);
+  const holesRef = useRef<Hole[]>(holes);
+  holesRef.current = holes;
+
+  const clearAll = () => {
+    timers.current.forEach((t) => clearTimeout(t));
+    timers.current = [];
+  };
+  useEffect(() => clearAll, []);
+
+  const start = () => {
+    clearAll();
+    setHoles(Array(9).fill(null));
+    setCaught(0);
+    setMissed(0);
+    setLeft(ROUND);
+    setState("play");
+  };
+
+  // Countdown
+  useEffect(() => {
+    if (state !== "play") return;
+    if (left <= 0) {
+      clearAll();
+      setHoles(Array(9).fill(null));
+      setState("done");
+      return;
+    }
+    const t = window.setTimeout(() => setLeft((l) => l - 1), 1000);
+    return () => clearTimeout(t);
+  }, [state, left]);
+
+  // Spawner: gets faster as time runs out
+  useEffect(() => {
+    if (state !== "play") return;
+    const speed = 380 + (left / ROUND) * 420;
+    const t = window.setTimeout(() => {
+      const free = holesRef.current.map((h, i) => (h ? -1 : i)).filter((i) => i >= 0);
+      if (!free.length) return;
+      const i = free[Math.floor(Math.random() * free.length)];
+      const troll = Math.random() < 0.22;
+      const id = ++uid.current;
+      const emoji = troll
+        ? TROLLS[id % TROLLS.length]
+        : CUSTOMERS[Math.floor(Math.random() * CUSTOMERS.length)];
+      setHoles((hs) => hs.map((h, k) => (k === i ? { id, emoji, troll } : h)));
+      const life = window.setTimeout(
+        () => {
+          const h = holesRef.current[i];
+          if (h?.id !== id) return;
+          if (!h.troll) setMissed((m) => m + 1);
+          setHoles((hs) => hs.map((x, k) => (k === i && x?.id === id ? null : x)));
+        },
+        700 + (left / ROUND) * 600,
+      );
+      timers.current.push(life);
+    }, speed);
+    return () => clearTimeout(t);
+  }, [state, left, holes]);
+
+  useEffect(() => {
+    if (state === "done") onDone(caught);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state]);
+
+  const tap = (i: number) => {
+    const h = holes[i];
+    if (!h || state !== "play") return;
+    if (h.troll) {
+      setCaught((c) => Math.max(0, c - 2));
+      setPop({ i, t: "-2" });
+    } else {
+      setCaught((c) => c + 1);
+      setPop({ i, t: "+1" });
+    }
+    setHoles((hs) => hs.map((x, k) => (k === i ? null : x)));
+    window.setTimeout(() => setPop(null), 450);
+  };
+
+  if (state === "idle")
+    return (
+      <div className="text-center">
+        <div className="text-5xl">🧺</div>
+        <p className="mt-4 font-display text-2xl font-bold leading-tight md:text-3xl">
+          Customers are popping up. Catch them before they walk away!
+        </p>
+        <p className="mx-auto mt-2 max-w-md text-ink/60">
+          Tap every customer. Don’t tap the spam bots 🤖 or rivals 😈, they cost you 2 points. You
+          have {ROUND} seconds.
+        </p>
+        <button
+          type="button"
+          onClick={start}
+          className="btn-lift mt-6 inline-flex h-14 items-center gap-2 rounded-full border-2 border-ink bg-[#ff9500] px-8 text-lg font-bold text-white shadow-pixel"
+        >
+          Start catching <ArrowRight className="h-5 w-5" />
+        </button>
+      </div>
+    );
+
+  if (state === "done") {
+    const total = caught + missed;
+    const rate = total ? Math.round((caught / total) * 100) : 0;
+    return (
+      <div className="text-center">
+        <div className="persona-bounce text-5xl">
+          {rate >= 70 ? "🏆" : rate >= 40 ? "😅" : "🫠"}
+        </div>
+        <p className="mt-3 font-display text-3xl font-bold tabular-nums md:text-4xl">
+          {caught} caught <span className="text-ink/30">·</span>{" "}
+          <span className="text-[#ff3b30]">{missed} missed</span>
+        </p>
+        <p className="mx-auto mt-3 max-w-md text-[15px] text-ink/70">
+          Your thumbs caught {rate}% of customers. In real life they message at midnight, during
+          lunch and while you sleep. A website + WhatsApp bot catches{" "}
+          <span className="font-bold text-ink">100% of them, 24/7.</span>
+        </p>
+        <button
+          type="button"
+          onClick={start}
+          className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-ink/60 hover:text-ink"
+        >
+          <RotateCcw className="h-4 w-4" /> Play again
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <div className="flex items-center justify-between text-sm font-bold">
+        <span className="rounded-full bg-[#34c759]/15 px-3 py-1 text-[#1f7a35]">
+          Caught {caught}
+        </span>
+        <span className="rounded-full bg-ink px-3 py-1 tabular-nums text-white">⏱ {left}s</span>
+        <span className="rounded-full bg-[#ff3b30]/10 px-3 py-1 text-[#c2261c]">
+          Missed {missed}
+        </span>
+      </div>
+      <div className="mx-auto mt-5 grid max-w-sm select-none grid-cols-3 gap-3">
+        {holes.map((h, i) => (
+          <button
+            key={i}
+            type="button"
+            onPointerDown={() => tap(i)}
+            aria-label={h ? (h.troll ? "Spam, do not tap" : "Customer, tap!") : "Empty spot"}
+            className="relative aspect-square overflow-hidden rounded-[1.4rem] border-2 border-ink bg-[radial-gradient(ellipse_at_50%_85%,#3a2a1e_0_34%,#fdf3e1_35%)] [touch-action:manipulation]"
+          >
+            {h && (
+              <span
+                key={h.id}
+                className="catch-pop absolute inset-0 grid place-items-center text-[2.6rem] md:text-5xl"
+              >
+                {h.emoji}
+              </span>
+            )}
+            {pop?.i === i && (
+              <span
+                className={`catch-score absolute inset-x-0 top-1 text-center font-display text-lg font-bold ${
+                  pop.t === "+1" ? "text-[#1f7a35]" : "text-[#c2261c]"
+                }`}
+              >
+                {pop.t}
+              </span>
+            )}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ---------------- Game 5: Business Personality (silly quiz) ---------------- */
+type Persona = "legend" | "hype" | "king" | "rocket";
+const PERSONA_Q: { q: string; a: [string, string, Persona][] }[] = [
+  {
+    q: "It’s 11 PM. A customer texts “price?” You…",
+    a: [
+      ["😴", "Reply tomorrow. I’m human.", "legend"],
+      ["🎤", "Send a voice note. With a song.", "hype"],
+      ["📞", "Call them. Old school.", "king"],
+      ["🤖", "My bot already replied.", "rocket"],
+    ],
+  },
+  {
+    q: "If your business were a movie, it would be…",
+    a: [
+      ["🕵️", "A hidden gem nobody has watched", "legend"],
+      ["💥", "A blockbuster with a viral trailer", "hype"],
+      ["🏡", "A family drama. Everyone knows everyone.", "king"],
+      ["🚀", "A sci-fi saga. Part 2 is coming.", "rocket"],
+    ],
+  },
+  {
+    q: "Your Instagram right now is…",
+    a: [
+      ["👻", "What Instagram?", "legend"],
+      ["🔥", "Reels every day, baby", "hype"],
+      ["🧓", "My nephew handles it", "king"],
+      ["📅", "Scheduled for the next 30 days", "rocket"],
+    ],
+  },
+  {
+    q: "A rival opens right next door. You…",
+    a: [
+      ["🙏", "Pray my customers stay loyal", "legend"],
+      ["📸", "Post a classy-but-savage reel", "hype"],
+      ["☕", "Give every regular a free chai", "king"],
+      ["⚡", "Launch an offer before they open", "rocket"],
+    ],
+  },
+  {
+    q: "Pick a superpower for your business.",
+    a: [
+      ["🫥", "Invisibility (already have it 😅)", "legend"],
+      ["📣", "Mind control, aka going viral", "hype"],
+      ["🧲", "A magnet for regulars", "king"],
+      ["🌀", "Being in 10 places at once", "rocket"],
+    ],
+  },
+  {
+    q: "Your dream Google review says…",
+    a: [
+      ["💎", "“How did I not know this place existed?!”", "legend"],
+      ["🤩", "“Saw the reel, had to come!”", "hype"],
+      ["❤️", "“Been coming here for 10 years.”", "king"],
+      ["⏱️", "“Booked in 30 seconds. Wow.”", "rocket"],
+    ],
+  },
+];
+const PERSONAS: Record<
+  Persona,
+  { emoji: string; name: string; line: string; fix: string; bg: string }
+> = {
+  legend: {
+    emoji: "🕵️",
+    name: "The Hidden Legend",
+    line: "Amazing business. Best-kept secret in town. People would love you, if only they could find you.",
+    fix: "Your fix: a website + Google Maps that put you on the map. (Growth package)",
+    bg: "bg-[#efe4ff]",
+  },
+  hype: {
+    emoji: "🔥",
+    name: "The Hype Machine",
+    line: "You’ve got the energy and the views. Now let’s turn those views into bookings.",
+    fix: "Your fix: a funnel + WhatsApp bot that catches every lead. (Growth + Content)",
+    bg: "bg-[#ffe9f4]",
+  },
+  king: {
+    emoji: "👑",
+    name: "The Neighbourhood King",
+    line: "Everyone nearby knows your name. Time to own the whole city, not just the street.",
+    fix: "Your fix: local SEO + Google reviews on autopilot. (Growth package)",
+    bg: "bg-[#fff7d6]",
+  },
+  rocket: {
+    emoji: "🚀",
+    name: "The Rocket",
+    line: "Built for scale. You don’t need more hustle, you need systems that never sleep.",
+    fix: "Your fix: automations, booking and a 24/7 AI assistant. (Growth Max)",
+    bg: "bg-[#dff9ff]",
+  },
+};
+const PERSONA_KEYS: Persona[] = ["legend", "hype", "king", "rocket"];
+
+function PersonaGame({ onDone }: { onDone: (persona: number) => void }) {
+  const [picks, setPicks] = useState<Persona[]>([]);
+  const done = picks.length === PERSONA_Q.length;
+  const winner = useMemo(() => {
+    const c: Record<Persona, number> = { legend: 0, hype: 0, king: 0, rocket: 0 };
+    picks.forEach((p) => c[p]++);
+    return PERSONA_KEYS.reduce<Persona>((a, b) => (c[b] > c[a] ? b : a), "legend");
+  }, [picks]);
+
+  useEffect(() => {
+    if (done) onDone(PERSONA_KEYS.indexOf(winner));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [done]);
+
+  if (done) {
+    const p = PERSONAS[winner];
+    return (
+      <div className={`rounded-[1.5rem] border-2 border-ink p-6 text-center ${p.bg}`}>
+        <div className="persona-bounce text-6xl">{p.emoji}</div>
+        <div className="mt-3 text-[11px] font-bold uppercase tracking-[0.2em] text-ink/50">
+          Your business is
+        </div>
+        <p className="font-display text-3xl font-bold leading-tight md:text-4xl">{p.name}</p>
+        <p className="mx-auto mt-3 max-w-md text-[15px] text-ink/75">{p.line}</p>
+        <p className="mx-auto mt-3 max-w-md text-[15px] font-bold text-ink">{p.fix}</p>
+        <button
+          type="button"
+          onClick={() => setPicks([])}
+          className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-ink/60 hover:text-ink"
+        >
+          <RotateCcw className="h-4 w-4" /> Take it again
+        </button>
+      </div>
+    );
+  }
+
+  const i = picks.length;
+  const q = PERSONA_Q[i];
+  return (
+    <div>
+      <div className="flex gap-1.5">
+        {PERSONA_Q.map((_, k) => (
+          <span
+            key={k}
+            className={`h-1.5 flex-1 rounded-full transition-colors duration-300 ${
+              k < i ? "bg-[#af52de]" : k === i ? "bg-[#af52de]/40" : "bg-ink/10"
+            }`}
+          />
+        ))}
+      </div>
+      <p
+        key={i}
+        className="step-swap mt-6 font-display text-2xl font-bold leading-tight md:text-3xl"
+      >
+        {q.q}
+      </p>
+      <div key={`a${i}`} className="step-swap mt-6 grid gap-2.5 sm:grid-cols-2">
+        {q.a.map(([emoji, text, persona]) => (
+          <button
+            key={text}
+            type="button"
+            onClick={() => setPicks((p) => [...p, persona])}
+            className="btn-lift flex items-center gap-3 rounded-2xl border-2 border-ink bg-white p-3 text-left text-[15px] font-semibold shadow-pixel hover:bg-[#f6efff]"
+          >
+            <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-[#f3eee4] text-2xl">
+              {emoji}
+            </span>
+            {text}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 /* ---------------- Page ---------------- */
 function Confetti() {
   const bits = useMemo(
@@ -494,11 +864,17 @@ function PlaygroundPage() {
   const onScore = useMemo(() => finish("score"), []);
   const onRace = useMemo(() => finish("race"), []);
   const onMissed = useMemo(() => finish("missed"), []);
+  const onCatch = useMemo(() => finish("catch"), []);
+  const onPersona = useMemo(() => finish("persona"), []);
 
   const summary = [
     results.score !== undefined ? `Growth score ${results.score}/100` : null,
     results.race !== undefined ? `reply time ${(results.race / 1000).toFixed(2)}s` : null,
     results.missed !== undefined ? `possibly missing ${inr(results.missed)}/month` : null,
+    results.catch !== undefined ? `caught ${results.catch} customers` : null,
+    results.persona !== undefined
+      ? `my business is ${PERSONAS[PERSONA_KEYS[results.persona]].name}`
+      : null,
   ]
     .filter(Boolean)
     .join(", ");
@@ -512,7 +888,7 @@ function PlaygroundPage() {
               Playground
             </p>
             <h1 className="reveal mt-5 font-display text-[2.35rem] font-bold leading-[1.06] tracking-[-0.03em] sm:text-6xl md:text-[4.2rem]">
-              Play 3 quick games.{" "}
+              Play 5 quick games.{" "}
               <span className="text-ink/35">See how much your business can grow.</span>
             </h1>
 
@@ -538,7 +914,7 @@ function PlaygroundPage() {
             </div>
 
             {/* Game tiles */}
-            <div role="tablist" className="reveal mt-6 grid grid-cols-3 gap-3">
+            <div role="tablist" className="reveal mt-6 grid grid-cols-5 gap-2 md:gap-3">
               {GAMES.map(({ id, title, sub, icon: Icon, tile }) => {
                 const on = game === id;
                 const won = results[id] !== undefined;
@@ -548,21 +924,23 @@ function PlaygroundPage() {
                     role="tab"
                     aria-selected={on}
                     onClick={() => setGame(id)}
-                    className={`relative rounded-[1.5rem] border-2 p-3 text-left transition-all md:p-4 ${
+                    className={`relative flex flex-col items-center rounded-[1.2rem] border-2 p-2 text-center transition-all md:items-start md:rounded-[1.5rem] md:p-4 md:text-left ${
                       on
                         ? "border-ink bg-white shadow-pixel"
                         : "border-ink/10 bg-white/60 hover:border-ink/30"
                     }`}
                   >
                     <span
-                      className={`grid h-10 w-10 place-items-center rounded-xl text-white ${tile}`}
+                      className={`grid h-9 w-9 place-items-center rounded-xl text-white md:h-10 md:w-10 ${tile}`}
                     >
                       <Icon className="h-5 w-5" />
                     </span>
-                    <div className="mt-3 font-display text-sm font-bold md:text-lg">{title}</div>
-                    <div className="hidden text-xs text-ink/50 sm:block">{sub}</div>
+                    <div className="mt-1.5 font-display text-[10.5px] font-bold leading-tight md:mt-3 md:text-lg">
+                      {title}
+                    </div>
+                    <div className="hidden text-xs text-ink/50 md:block">{sub}</div>
                     {won && (
-                      <span className="absolute right-2.5 top-2.5 grid h-6 w-6 place-items-center rounded-full bg-[#34c759] text-white">
+                      <span className="absolute -right-1 -top-1 grid h-5 w-5 place-items-center rounded-full border-2 border-white bg-[#34c759] text-white md:right-2.5 md:top-2.5 md:h-6 md:w-6">
                         <Check className="h-3.5 w-3.5" strokeWidth={3} />
                       </span>
                     )}
@@ -578,6 +956,8 @@ function PlaygroundPage() {
                 {game === "score" && <ScoreGame onDone={onScore} />}
                 {game === "race" && <RaceGame onDone={onRace} />}
                 {game === "missed" && <MissedGame onDone={onMissed} />}
+                {game === "catch" && <CatchGame onDone={onCatch} />}
+                {game === "persona" && <PersonaGame onDone={onPersona} />}
               </div>
               {results[game] !== undefined && !allDone && (
                 <div className="relative mt-6 flex flex-wrap items-center justify-between gap-3 border-t-2 border-dashed border-ink/10 pt-5">
@@ -610,7 +990,7 @@ function PlaygroundPage() {
                   <p className="font-display text-2xl font-bold leading-tight">
                     {allDone
                       ? "You finished the Playground!"
-                      : "Finish all 3 to unlock your growth plan."}
+                      : "Finish all 5 to unlock your growth plan."}
                   </p>
                   <p className="mt-1 text-ink/65">
                     {allDone

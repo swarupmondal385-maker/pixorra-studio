@@ -291,7 +291,7 @@ export function StoryCollage() {
                 <p className="mt-5 rounded-xl bg-cream px-3 py-2 text-sm font-semibold text-ink/70">
                   {open === "reel"
                     ? "Part of the monthly Social Media Content plan."
-                    : "Included in the ₹14,999 Growth Package."}
+                    : "Included in the Growth Package, from ₹19,999."}
                 </p>
                 <a
                   href={calBookingUrl}

@@ -54,11 +54,11 @@ export function HeroKree8() {
 
         <h1 className="reveal mt-5 font-display text-[2.35rem] font-bold leading-[1.06] tracking-[-0.03em] text-ink sm:text-6xl md:text-[4.4rem]">
           The{" "}
-          <span className="relative mx-0.5 inline-grid h-[0.95em] w-[0.95em] translate-y-[0.1em] place-items-center overflow-hidden rounded-[0.25em] border-2 border-ink bg-pixel-yellow align-baseline shadow-[3px_3px_0_0_#111]">
+          <span className="relative mx-[0.06em] inline-block h-[0.92em] w-[0.92em] overflow-hidden rounded-[0.24em] border-2 border-ink bg-pixel-yellow align-[-0.1em] shadow-[3px_3px_0_0_#111]">
             <img
               src="/mascot/pixor-wave-white.webp"
               alt=""
-              className="h-[115%] w-[115%] translate-y-[8%] object-contain"
+              className="absolute inset-0 m-auto h-[86%] w-[86%] object-contain"
             />
           </span>{" "}
           studio <span className="text-ink/35">for local businesses who simply</span> can’t afford

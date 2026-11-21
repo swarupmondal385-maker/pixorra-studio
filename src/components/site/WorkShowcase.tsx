@@ -6,7 +6,6 @@ import {
   Stethoscope,
   Dumbbell,
   ShoppingBag,
-  LayoutDashboard,
   ChevronLeft,
   ChevronRight,
   ExternalLink,
@@ -23,7 +22,6 @@ const CATS: Cat[] = [
   { id: "health", label: "Clinic", icon: Stethoscope, tint: "bg-pixel-cyan/30" },
   { id: "fitness", label: "Gym", icon: Dumbbell, tint: "bg-pixel-pink/30" },
   { id: "shop", label: "E-commerce", icon: ShoppingBag, tint: "bg-pixel-green/30" },
-  { id: "app", label: "Web App / CRM", icon: LayoutDashboard, tint: "bg-pixel-blue/25" },
 ];
 
 // Live sites from Pixorra's GitHub (deployed on Vercel)
@@ -33,11 +31,6 @@ const DEMOS: Record<string, Demo[]> = {
       name: "TMS – The Management Studio",
       niche: "BBA / MBA coaching, Kolkata",
       url: "https://tms-studio-sage.vercel.app/",
-    },
-    {
-      name: "Shelar Academy",
-      niche: "Coaching classes",
-      url: "https://shelar-academy-brilliance.vercel.app/",
     },
   ],
   cafe: [
@@ -61,29 +54,30 @@ const DEMOS: Record<string, Demo[]> = {
     },
   ],
   health: [
-    { name: "Trusted Roots", niche: "Clinic", url: "https://trusted-roots-web.vercel.app/" },
+    {
+      name: "Dr. N.B. Auti Clinic",
+      niche: "General physician, Navi Mumbai",
+      url: "https://trusted-roots-web.vercel.app/",
+    },
   ],
   fitness: [
-    { name: "Iron Fitness", niche: "Gym", url: "https://iron-fitness-launchpad.vercel.app/" },
+    {
+      name: "Iron Fitness",
+      niche: "Gym, Kanchrapara",
+      url: "https://iron-fitness-launchpad.vercel.app/",
+    },
   ],
   shop: [
+    { name: "iLens", niche: "Optical e-commerce", url: "https://ilens-vision-studio.vercel.app/" },
     {
       name: "Nectrine",
-      niche: "D2C food brand store",
-      url: "https://nectrine-e-store-build.vercel.app/",
+      niche: "Real-fruit drinks & pickles store",
+      url: "https://nectrine-delight-50.vercel.app/",
     },
-    { name: "iLens", niche: "Optical e-commerce", url: "https://ilens-vision-studio.vercel.app/" },
     {
       name: "Bluestone",
       niche: "Jewellery store",
       url: "https://bluestone-brilliance-project.vercel.app/",
-    },
-  ],
-  app: [
-    {
-      name: "Pixorra OS",
-      niche: "Sales CRM web app",
-      url: "https://bubblegum-dash-love.vercel.app/",
     },
   ],
 };

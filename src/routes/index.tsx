@@ -12,6 +12,7 @@ import { ReviewsFan } from "@/components/site/ReviewsFan";
 import { Marquee } from "@/components/site/Marquee";
 
 import { FAQCompact } from "@/components/site/FAQCompact";
+import { TrustedBy } from "@/components/site/TrustedBy";
 import { FooterKree8 } from "@/components/site/FooterKree8";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 import { SummerSale } from "@/components/site/SummerSale";
@@ -70,6 +71,7 @@ function Index() {
         <PricingKree8 />
         <ReviewsFan />
         <FAQCompact />
+        <TrustedBy />
         <FinalNote />
         <FooterKree8 />
         <FloatingWhatsApp />
